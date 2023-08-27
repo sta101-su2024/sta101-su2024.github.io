@@ -1,7 +1,69 @@
 ---
-title: "."
+title: "STA 101: Data Analysis and Statistical Inference"
 ---
 
-This is a Quarto website.
+This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1VvyWuppOFLLJHHhoA1vTf7kuehWZ0nTaXI10fPsrzSk/edit?usp=sharing")
+```
+
+```{r}
+#| echo: false
+
+d |>
+  select(-dow) |>
+  mutate(
+    date = as.Date(date)
+  ) |>
+  gt() |>
+  fmt_date(date, date_style = 31) |>
+  sub_missing(columns = c(week, topic, prepare, materials, notes), missing_text = "") |>
+  cols_align(
+    align = "center", 
+    columns = c(week)
+    ) |>
+  cols_align(
+    align = "right", 
+    columns = c(date)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(topic, prepare, materials, notes)
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "right",
+      color = "#D3D3D3",
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = c(date, topic, prepare, materials)
+    )
+  ) |>
+  fmt_markdown(
+    columns = c(topic, prepare, notes)
+  ) |>
+  cols_width(
+    week ~ px(50),
+    date ~ px(120), 
+    topic ~ px(380),
+    prepare ~ px(100),
+    materials ~ px(100),
+    notes ~ px(300)
+  ) |>
+  cols_label_with(fn = function(x) {
+      janitor::make_clean_names(x, case = "title") |>
+        toupper() |>
+        stringr::str_replace_all("^|$", "**") |>
+        md()
+    })
+```

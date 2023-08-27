@@ -1,0 +1,7 @@
+---
+title: "Computing access"
+---
+
+To access RStudio in the browser, go to the [Posit Cloud](https://google.com) space for this course.
+
+**TO DO: Update link.**

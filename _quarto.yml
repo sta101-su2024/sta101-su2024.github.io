@@ -1,19 +1,113 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "."
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  page-navigation: true
+  title: "STA 101 - F23"
+  description: "Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Fall 2023."
+  site-url: "https://sta101-f23.github.io"
+
+  repo-url: https://github.com/sta101-f23/sta101-f23.github.io
+  repo-actions: [edit, issue]
+
+  open-graph: true
+
+  sidebar:
+    background: "#798b93"
+    logo: "images/logo.png"
+    pinned: true
+    align: center
+
+    tools:
+      - icon: cloud
+        href: https://cmgr.oit.duke.edu/containers
+        text: "Posit Cloud"
+      - icon: slack
+        href: https://google.com
+        text: "Slack"
+      - icon: person-fill
+        text: "Canvas"
+        menu:
+          - text: Announcements
+            url: https://sakai.duke.edu/portal/directtool/e0d406f3-bd6a-41fe-a2e9-18bfecebeed0/
+          - text: Zoom meetings
+            url: https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/
+          - text: Gradebook
+            url: https://sakai.duke.edu/portal/directtool/3ec6ed6c-6bc7-4758-917b-431e0b5b39c7/
+
+    style: docked
+    search: true
+    collapse-level: 1
+
+    contents:
+      - section: "Course information"
+        contents:
+          - href: course-overview.qmd
+            text: Overview
+          - href: course-syllabus.qmd
+            text: Syllabus
+          - href: course-support.qmd
+            text: Support
+          - href: course-team.qmd
+            text: Teaching team
+          - href: index.qmd
+            text: Schedule
+          - href: course-links.qmd
+            text: Useful links
+          - href: course-faq.qmd
+            text: FAQ
+      - section: "Computing"
+        contents:
+          - href: computing/computing-access.qmd
+            text: Access
+          - href: computing/computing-troubleshooting.qmd
+            text: Troubleshooting
+          - href: computing/computing-cheatsheets.qmd
+            text: Cheatsheets
+      - section: "Projects"
+        contents:
+          - href: project/project-1.qmd
+          - href: project/project-2.qmd
+          - href: project/project-tips-resources.qmd
+            text: Tips + resources
+      - section: "Lab"
+        contents:
+          - href: https://google1.com
+            text: Lab 1
+          - href: https://google2.com
+            text: Lab 2
+          - href: https://google3.com
+            text: Lab 3  
+          - href: https://google4.com
+            text: Lab 4
+          - href: https://google5.com
+            text: Lab 5
+          - href: https://google6.com
+            text: Lab 6
+          - href: https://google7.com
+            text: Lab 7
+          - href: https://google8.com
+            text: Lab 8  
+
+  page-footer:
+    right: "This page is built with 🤍 and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2023, Mine Çetinkaya-Rundel"
+    background: "#5d6d74"
+
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      light: [cosmo, style/sta101.scss]
+      dark: [cosmo, style/sta101.scss, style/dark.scss]
+    linkcolor: "#798b93"
     toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Atkinson Hyperlegible"
 
+execute:
+  freeze: auto
 
-
+editor: visual
