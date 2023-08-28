@@ -52,7 +52,7 @@ d |>
     )
   ) |>
   fmt_markdown(
-    columns = c(topic, prepare, notes)
+    columns = c(topic, prepare, materials, notes)
   ) |>
   cols_width(
     week ~ px(50),
