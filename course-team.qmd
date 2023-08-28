@@ -39,7 +39,6 @@ title: "Teaching team"
 | ![](images/team/noah.png){width="100"}     | [Noah Obuya](https://www.linkedin.com/in/noah-obuya-5795b7228)         | TA            |                        | Wed 12 - 1 pm\                              |
 |                                            |                                                                        |               |                        | Sun 12 - 1 pm\                              |
 |                                            |                                                                        |               |                        | *Location TBA*                              |
-|                                            |                                                                        |               |                        | Sun 12 - 1 pm                               |
 +--------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
 | ![](images/team/meghna.png){width="100"}   | [Meghna Katyal](https://www.linkedin.com/in/meghna-katyal-90bb13202)   | TA            |                        | Mon 7:30 - 8:30 pm\                         |
 |                                            |                                                                        |               |                        | Zoom                                        |
