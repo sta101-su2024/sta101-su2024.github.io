@@ -17,7 +17,7 @@ For the lab component of this course students prepare weekly lab reports present
 
 ## Learning objectives
 
-The course goals are as follows:
+The course learning objectives are as follows:
 
 1.  Recognize the importance of data collection, identify limitations in data collection methods, and determine how they affect the scope of inference.
 
@@ -33,7 +33,7 @@ The course goals are as follows:
 
 7.  Critique data-based claims and evaluate data-based decisions.
 
-8.  Complete a research project demonstrating mastery of statistical data analysis from exploratory analysis to inference to modeling.
+8.  Complete research projects demonstrating mastery of statistical data analysis from exploratory analysis to inference to modeling.
 
 ## Prerequisites
 
@@ -189,9 +189,9 @@ Lowest lab score will be dropped.
 
 There will be two exams. Each exam will be comprised of two components:
 
--   In class: 75 minute in-class exam. This exam is closed book, however you are allowed to use one sheet of notes ("cheat sheet") to the midterm and the final. This sheet must be no larger than 8 1/2 x 11, and **must be prepared by you**. You may use both sides of the sheet.
+-   In class: 75 minute in-class exam. This exam is closed book, however you are allowed to use one sheet of notes ("cheat sheet") to the midterm and the final. This sheet must be no larger than 8 1/2 x 11, and **must be prepared by you**. You may use both sides of the sheet. (70% of the grade)
 
--   Take home: Following the in class exam, you'll have 48 hours to complete the take home portion of your exam. The take home portion will follow from the in class exam and focus on the analysis of a dataset introduced in the take home exam.
+-   Take home: Following the in class exam, you'll have 48 hours to complete the take home portion of your exam. The take home portion will follow from the in class exam and focus on the analysis of a dataset introduced in the take home exam. (30% of the grade)
 
 Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. Each exam will include small analyses and computational tasks related to the content in application exercises and labs. More details about the content and structure of the exams will be discussed during the semester.
 

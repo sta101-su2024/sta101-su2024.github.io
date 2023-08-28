@@ -25,10 +25,12 @@ title: "Teaching team"
 | ![](images/team/john.png){width="100"}   | [John Gillen](https://www.linkedin.com/in/john-gillen-611471229/)      | Lab TA        | Fri 11:45 am - 1:00 pm | Wed 10:30 - 11:30 am\                       |
 |                                          |                                                                        |               |                        | Zoom                                        |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
-|                                          | [Chris Oswald](https://scholars.duke.edu/person/chris.oswald)          | Lab TA        | Fri 1:25 - 2:40 pm     | Mon 9:30 - 11:30 am\                        |
+| ![](images/team/chris.png){width="100"}  | [Chris Oswald](https://scholars.duke.edu/person/chris.oswald)          | Lab TA        | Fri 1:25 - 2:40 pm     | Mon 9 - 10 am\                              |
+|                                          |                                                                        |               |                        | Tue 9 - 10 am\                              |
 |                                          |                                                                        |               |                        | Jones Open Lab (Bostock Library, 1st Floor) |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
-|                                          | [Minh Anh To](https://scholars.duke.edu/person/minhanh.to)             | TA            |                        | TBA                                         |
+|                                          | [Minh Anh To](https://scholars.duke.edu/person/minhanh.to)             | TA            |                        | Mon 10 am - 12 pm\                          |
+|                                          |                                                                        |               |                        | Old Chemistry 203B                          |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
 | ![](images/team/hao.png){width="100"}    | [Hao Wang](https://scholars.duke.edu/person/hao.wang)                  | TA            |                        | Tue 10 am - 12 pm\                          |
 |                                          |                                                                        |               |                        | Old Chemistry 203B                          |
