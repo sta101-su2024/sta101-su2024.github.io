@@ -177,6 +177,8 @@ If you attend at least 80% of the classes, you'll get all available points for t
 
 You will be assigned a number of interactive tutorials each week from the textbook. You will be asked to submit these on a weekly basis and graded on a check/no check basis.
 
+Make sure to add your name and your [**Net ID**]{.underline} before generating the hash. Submit these in Canvas.
+
 If you've completed at least 80% of the tutorials, you'll get all available points for this component.
 
 ### Labs

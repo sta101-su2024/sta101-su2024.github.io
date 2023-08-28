@@ -160,6 +160,7 @@ If you attend at least 80% of the classes, you'll get all available points for t
 
 -   Online, individual, can discuss with classmates
 -   Cover reading that is due since the previous quiz and up to and including the deadline for the given quiz
+-   Make sure to fill out your name and [**Net ID**]{.underline} prior to generating the hash to submit (more info on this coming soon)
 -   Due by 5 pm ET (on the indicated day on the course schedule
 
 ::: callout-tip
