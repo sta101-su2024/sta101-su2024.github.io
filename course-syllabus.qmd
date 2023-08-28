@@ -55,9 +55,9 @@ You are expected to put in \~6 hours of work / week outside of class. Some of yo
 
 -   Start your project early and and allow adequate time to complete it.
 
--   Give yourself plenty of time time to prepare a good cheat sheet for exams. This requires going through the material and taking the time to review the concepts that you\'re not comfortable with.
+-   Give yourself plenty of time time to prepare a good cheat sheet for exams. This requires going through the material and taking the time to review the concepts that you're not comfortable with.
 
--   Do not procrastinate - don\'t let a unit go by with unanswered questions as it will just make the following unit\'s material even more difficult to follow.
+-   Do not procrastinate - don't let a unit go by with unanswered questions as it will just make the following unit's material even more difficult to follow.
 
 ## Textbooks
 
@@ -132,45 +132,19 @@ The goal of both the lectures and the labs is for them to be as interactive as p
 
 You are expected to bring a laptop to each class so that you can take part in the in-class exercises. Please make sure your laptop is fully charged before you come to class as the number of outlets in the classroom will not be sufficient to accommodate everyone. See [Duke LIFE loaner laptop program](https://dukelife.duke.edu/technology-assistance-program/) if you need a loaner laptop.
 
-## Assessment
-
-Assessment for the course is comprised of four components: attendance and participation, reading quizzes, homework assignments, and projects.
-
--   **Attendance and participation** is required throughout the semester. Students who attend at least 80% of the lectures and participate regularly during lecture will receive full credit for this portion of their grade. Participation in labs as well as on Slack will also count towards this component.
-
--   **Reading quizzes** (6), due every other week (roughly), completed individually. Each quiz is worth 2% of the grade. Lowest quiz score is dropped.
-
-    Reading quizzes will be linked from the [course schedule](https://www.vizdata.org/schedule.html). They always cover reading that is due since the previous quiz and up to and including the deadline for the given quiz. They're due by 12pm ET (beginning of class) on the indicated day on the [course schedule](https://www.vizdata.org/schedule.html).
-
--   **Homework assignments** (6), due every other week (roughly), completed individually. Each homework assignment is worth 8% of the course grade. Lowest homework assignment score is dropped.
-
-    Homework assignments are due by 12pm ET (beginning of class) on the indicated day on the [course schedule](https://www.vizdata.org/schedule.html).
-
--   **Projects** (2), mid-semester and end of semester, completed in teams.
-
-    -   Project 1: Teams will be given a dataset to visualize. Project 1 is worth 15% of the course grade.
-    -   Project 2: Teams will pick a dataset of interest to them and/or build an R package that implements a new type of data visualization in R. Project 2 is worth 25% of the course grade.
-
-    The deliverables for each project will include a data visualization, a write up of the process and findings, and a presentation. For the second project, you will be encouraged to think beyond a traditional two-dimensional data visualization (e.g. interactive web apps/dashboards, data art, generative art, physical/tangible visualizations, **ggplot2** extensions, etc.).
-
-    Each project will have a peer review component to provide at least one round of feedback during the process of development. Teams will provide periodic peer feedback to their teammates while working on the projects as well as upon completion. The scores from the peer evaluations, along with individual contributions tracked by commits on GitHub, will be used to ensure that each student has contributed to the teamwork.
-
-    All team members must take part in the presentation. Presentations can be given in person in class, or via Zoom if the team prefers. My preference is that the team stick to one method of delivery (all presenters in person or all presenters on Zoom), but I realize a lot can change throughout this semester, and we'll adjust accordingly.
-
-All work is expected to be submitted by the deadline and there are no make ups for any missed assessments. See \[Late work policy\] for policies on late work.
-
-## Grading
+## Assessments and grading
 
 The final course grade will be calculated as follows:
 
 | Category                     | Percentage |
 |------------------------------|------------|
 | Attendance and participation | 5%         |
+| Interactive tutorials        | 5%         |
 | Labs                         | 25%        |
 | Exam 1                       | 20%        |
 | Exam 2                       | 20%        |
 | Project 1                    | 10%        |
-| Project 2                    | 20%        |
+| Project 2                    | 15%        |
 
 The final letter grade will be determined based on the following thresholds:
 
@@ -191,9 +165,19 @@ The final letter grade will be determined based on the following thresholds:
 
 These are upper bounds for grade cutoffs, depending on the class performance the cutoffs may be lowered but they won't be increased.
 
+All work is expected to be submitted by the deadline and there are no make ups for any missed assessments. See @sec-late-work-extensions for policies on late work.
+
 ### Attendance and participation
 
 You are expected to be present at class meeting and actively participate in the discussion. Your attendance and participation during class, as well as your activity on the course Slack will make up a non-insignificant portion of your grade in this class. While I might sometimes call on you during the class discussion, it is your responsibility to be an active participant without being called on.
+
+If you attend at least 80% of the classes, you'll get all available points for this component.
+
+### Interactive tutorials
+
+You will be assigned a number of interactive tutorials each week from the textbook. You will be asked to submit these on a weekly basis and graded on a check/no check basis.
+
+If you've completed at least 80% of the tutorials, you'll get all available points for this component.
 
 ### Labs
 
@@ -205,19 +189,21 @@ Lowest lab score will be dropped.
 
 There will be two exams. Each exam will be comprised of two components:
 
--   In class: 75 minute in-class exam. This exam is closed book, however you are allowed to use one sheet of notes ("cheat sheet\") to the midterm and the final. This sheet must be no larger than 8 1/2 x 11, and **must be prepared by you**. You may use both sides of the sheet.
+-   In class: 75 minute in-class exam. This exam is closed book, however you are allowed to use one sheet of notes ("cheat sheet") to the midterm and the final. This sheet must be no larger than 8 1/2 x 11, and **must be prepared by you**. You may use both sides of the sheet.
 
 -   Take home: Following the in class exam, you'll have 48 hours to complete the take home portion of your exam. The take home portion will follow from the in class exam and focus on the analysis of a dataset introduced in the take home exam.
 
-Through these exams you have the opportunity to demonstrate what you\'ve learned in the course thus far. Each exam will include small analyses and computational tasks related to the content in application exercises and labs. More details about the content and structure of the exams will be discussed during the semester.
+Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. Each exam will include small analyses and computational tasks related to the content in application exercises and labs. More details about the content and structure of the exams will be discussed during the semester.
 
-See @sec-important-dates for dates and times of the exams. Exam dates cannot be changed and no make-up exams will be given. If you can\'t take the exams on these dates you should drop this class.
+See @sec-important-dates for dates and times of the exams. Exam dates cannot be changed and no make-up exams will be given. If you can't take the exams on these dates, you should drop this class.
 
 ### Projects
 
 There will be a mid-semester prediction project and a final project. The prediction project will introduce you to conducting independent analyses and writing a formal report using a pre-specified data set. The final project allows you to explore a question and data set of your own. More details about the projects will be provided during the semester. Projects will be completed in teams.
 
 You will be assigned to a different team for each of your two projects. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the completion of each project and you will be asked to evaluate your team members after each assignment is due. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
+
+See @sec-important-dates for dates and times of project deadlines. Project deadlines cannot be changed. If you can't be in class for the final project presentation, you should drop this class.
 
 ## Course policies
 
@@ -255,7 +241,7 @@ Any violations in academic honesty standards as outlined in the [Duke Community 
 
 -   will be reported to the [Office of Student Conduct](https://studentaffairs.duke.edu/conduct) for further action.
 
-### Late work & extensions
+### Late work & extensions {#sec-late-work-extensions}
 
 The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline.
 
@@ -302,7 +288,7 @@ The following claims will be considered for re-grading:
 1.  points are not totaled correctly;
 2.  the grader did not see a correct answer that is on your paper;
 3.  your answer is the same as the correct answer, but in a different form (e.g., you wrote a correct answer as 1/3 and the grader was looking for 0.333);
-4.  your answer to a free response question is essentially correct but stated slightly differently than the grader\'s expectation.
+4.  your answer to a free response question is essentially correct but stated slightly differently than the grader's expectation.
 
 The following claims will **not** be considered for re-grading:
 
@@ -353,7 +339,7 @@ Students are permitted by university policy to be absent from class to observe a
 
 -   **Monday, August 28:** Classes begin
 -   **Friday, September 8:** Drop/add ends
--   **Friday, October 13:** Mid-semester grades reported
+-   **Friday, October 13:** Project 1 due + Mid-semester grades reported
 -   **Saturday, October 20 - Tuesday, October 18**: Spring Break (continuing, but limited course support available)
 -   **Friday, November 10:** Last day to withdraw with W
 -   **Friday, December 8**: Classes end
