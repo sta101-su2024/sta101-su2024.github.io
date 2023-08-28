@@ -18,6 +18,7 @@ gs4_deauth()
 d <- read_sheet("https://docs.google.com/spreadsheets/d/1VvyWuppOFLLJHHhoA1vTf7kuehWZ0nTaXI10fPsrzSk/edit?usp=sharing")
 ```
 
+::: {style="font-size: 10px;"}
 ```{r}
 #| echo: false
 
@@ -58,7 +59,7 @@ d |>
     week ~ px(50),
     date ~ px(120), 
     topic ~ px(380),
-    prepare ~ px(100),
+    prepare ~ px(180),
     materials ~ px(100),
     notes ~ px(300)
   ) |>
@@ -69,3 +70,4 @@ d |>
         md()
     })
 ```
+:::
