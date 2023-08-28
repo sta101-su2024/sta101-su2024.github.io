@@ -72,21 +72,21 @@ website:
             text: Tips + resources
       - section: "Lab"
         contents:
-          - href: https://google1.com
+          - href: labs/lab-1.qmd
             text: Lab 1
-          - href: https://google2.com
+          - href: labs/lab-2.qmd
             text: Lab 2
-          - href: https://google3.com
+          - href: labs/lab-3.qmd
             text: Lab 3  
-          - href: https://google4.com
+          - href: labs/lab-4.qmd
             text: Lab 4
-          - href: https://google5.com
+          - href: labs/lab-5.qmd
             text: Lab 5
-          - href: https://google6.com
+          - href: labs/lab-6.qmd
             text: Lab 6
-          - href: https://google7.com
+          - href: labs/lab-7.qmd
             text: Lab 7
-          - href: https://google8.com
+          - href: labs/lab-8.qmd
             text: Lab 8  
 
   page-footer:
