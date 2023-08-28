@@ -8,18 +8,36 @@ title: "Teaching team"
 
 [**Dr. Mine Çetinkaya-Rundel**](http://mine-cr.com/) (she/her) is Professor of the Practice and Director of Undergraduate Studies at the [Department of Statistical Science](https://stat.duke.edu/) at Duke University and an affiliated faculty in the [Computational Media, Arts, and Cultures](https://cmac.duke.edu/). Mine's work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education as well as pedagogical approaches for enhancing retention of women and under-represented minorities in STEM.
 
-| Office hours | Location |
-|--------------|----------|
-| TBA          | TBA      |
+| Office hours       | Location     |
+|--------------------|--------------|
+| Tue 3:30 - 5:30 pm | Old Chem 213 |
 
 ## Teaching assistants
 
-**TO DO: Update TAs.**
-
-|                                           | Name                                                            | Role       | Lab section       | Office hours                                                                                                 |
-|--------------|----------------|--------------|--------------|--------------|
-| ![](images/team/jackie.png){width="100"}  | [Jackie Du](https://www.linkedin.com/in/jacquelyn-du)           | Head TA    |                   | Tuesday 4-6pm - Edge Project Room 7                                                                          |
-| ![](images/team/lorenzo.png){width="100"} | [Lorenzo Mauri](https://scholars.duke.edu/person/lorenzo.mauri) | Lab TA     | W 1:45PM - 3:00PM | Monday 5-7pm - Old Chemistry 203b                                                                            |
-| ![](images/team/sam.png){width="100"}     | [Sam Rosen](https://samgrosen.github.io/)                       | Lab TA     | W 3:30PM - 4:45PM | Tuesday 1:30-3:30pm - [Zoom](https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/) |
-| ![](images/team/evan.png){width="100"}    | [Evan Dragich](https://www.linkedin.com/in/evandragich/)        | Lecture TA |                   | Monday 10am-12pm - [Zoom](https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/)    |
-| ![](images/team/holly.png){width="100"}   | [Holly Cui](https://www.linkedin.com/in/holly-cui-4b4520236/)   | TA         |                   | Monday 1-3pm - [Zoom](https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/)        |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+|                                          | Name                                                                   | Role          | Lab section            | Office hours                                |
++==========================================+========================================================================+===============+========================+=============================================+
+| ![](images/team/shuo.png){width="100"}   | [Shuo Wang](https://scholars.duke.edu/person/shuo.wang717)             | Head + Lab TA | Fri 8:30 - 9:45 am     | Mon 3 - 5 pm\                               |
+|                                          |                                                                        |               |                        | Old Chemistry 203B                          |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/sylvia.png)              | [Sylvia Vincent](https://www.linkedin.com/in/sylvia-vincent-57b71917a) | Lab TA        | Fri 10:05 - 11:20 am   | TBA                                         |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/john.png){width="100"}   | [John Gillen](https://www.linkedin.com/in/john-gillen-611471229/)      | Lab TA        | Fri 11:45 am - 1:00 pm | Wed 10:30 - 11:30 am\                       |
+|                                          |                                                                        |               |                        | Zoom                                        |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+|                                          | [Chris Oswald](https://scholars.duke.edu/person/chris.oswald)          | Lab TA        | Fri 1:25 - 2:40 pm     | Mon 9:30 - 11:30 am\                        |
+|                                          |                                                                        |               |                        | Jones Open Lab (Bostock Library, 1st Floor) |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+|                                          | [Minh Anh To](https://scholars.duke.edu/person/minhanh.to)             | TA            |                        | TBA                                         |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/hao.png){width="100"}    | [Hao Wang](https://scholars.duke.edu/person/hao.wang)                  | TA            |                        | Tue 10 am - 12 pm\                          |
+|                                          |                                                                        |               |                        | Old Chemistry 203B                          |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/noah.png){width="100"}   | [Noah Obuya](https://www.linkedin.com/in/noah-obuya-5795b7228)         | TA            |                        | TBA                                         |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/meghna.png){width="100"} | [Meghna Katyal](https://www.linkedin.com/in/meghna-katyal-90bb13202)   | TA            |                        | Mon 7:30 - 8:30 pm\                         |
+|                                          |                                                                        |               |                        | Zoom                                        |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
+| ![](images/team/avery.png)               | [Avery Hodges](https://www.linkedin.com/in/avery-hodges-26824318a)     | TA            |                        | Mon 5 - 7 pm\                               |
+|                                          |                                                                        |               |                        | Zoom                                        |
++------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
