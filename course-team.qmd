@@ -20,7 +20,7 @@ title: "Teaching team"
 | ![](images/team/shuo.png){width="100"}   | [Shuo Wang](https://scholars.duke.edu/person/shuo.wang717)             | Head + Lab TA | Fri 8:30 - 9:45 am     | Mon 3 - 5 pm\                               |
 |                                          |                                                                        |               |                        | Old Chemistry 203B                          |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
-| ![](images/team/sylvia.png)              | [Sylvia Vincent](https://www.linkedin.com/in/sylvia-vincent-57b71917a) | Lab TA        | Fri 10:05 - 11:20 am   | TBA                                         |
+| ![](images/team/sylvia.png){width="100"} | [Sylvia Vincent](https://www.linkedin.com/in/sylvia-vincent-57b71917a) | Lab TA        | Fri 10:05 - 11:20 am   | TBA                                         |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
 | ![](images/team/john.png){width="100"}   | [John Gillen](https://www.linkedin.com/in/john-gillen-611471229/)      | Lab TA        | Fri 11:45 am - 1:00 pm | Wed 10:30 - 11:30 am\                       |
 |                                          |                                                                        |               |                        | Zoom                                        |
@@ -38,6 +38,6 @@ title: "Teaching team"
 | ![](images/team/meghna.png){width="100"} | [Meghna Katyal](https://www.linkedin.com/in/meghna-katyal-90bb13202)   | TA            |                        | Mon 7:30 - 8:30 pm\                         |
 |                                          |                                                                        |               |                        | Zoom                                        |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
-| ![](images/team/avery.png)               | [Avery Hodges](https://www.linkedin.com/in/avery-hodges-26824318a)     | TA            |                        | Mon 5 - 7 pm\                               |
+| ![](images/team/avery.png){width="100"}  | [Avery Hodges](https://www.linkedin.com/in/avery-hodges-26824318a)     | TA            |                        | Mon 5 - 7 pm\                               |
 |                                          |                                                                        |               |                        | Zoom                                        |
 +------------------------------------------+------------------------------------------------------------------------+---------------+------------------------+---------------------------------------------+
