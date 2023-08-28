@@ -8,13 +8,13 @@ You can find the course syllabus [here](/syllabus) and the course schedule [here
 
 ## Class meetings
 
-| Meeting | Location                       | Time                     |
-|---------|--------------------------------|--------------------------|
-| Lecture | Gross Hall 103                 | Mon & Wed 1:25 - 2:40 pm |
-| Lab 1   | Perkins LINK 087 (Classroom 3) | Fri 8:30 - 9:45 am       |
-| Lab 2   | Perkins LINK 087 (Classroom 3) | Fri 10:05 - 11:20 am     |
-| Lab 3   | Perkins LINK 087 (Classroom 3) | Fri 11:45 am - 1:00 pm   |
-| Lab 4   | Perkins LINK 087 (Classroom 3) | Fri 1:25 - 2:40 pm       |
+| Meeting  | Location                       | Time                     |
+|----------|--------------------------------|--------------------------|
+| Lectures | Gross Hall 103                 | Mon & Wed 1:25 - 2:40 pm |
+| Lab 1    | Perkins LINK 087 (Classroom 3) | Fri 8:30 - 9:45 am       |
+| Lab 2    | Perkins LINK 087 (Classroom 3) | Fri 10:05 - 11:20 am     |
+| Lab 3    | Perkins LINK 087 (Classroom 3) | Fri 11:45 am - 1:00 pm   |
+| Lab 4    | Perkins LINK 087 (Classroom 3) | Fri 1:25 - 2:40 pm       |
 
 <br>
 
