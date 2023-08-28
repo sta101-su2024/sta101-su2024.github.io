@@ -56,21 +56,7 @@ website:
             text: Useful links
           - href: course-faq.qmd
             text: FAQ
-      - section: "Computing"
-        contents:
-          - href: computing/computing-access.qmd
-            text: Access
-          - href: computing/computing-troubleshooting.qmd
-            text: Troubleshooting
-          - href: computing/computing-cheatsheets.qmd
-            text: Cheatsheets
-      - section: "Projects"
-        contents:
-          - href: project/project-1.qmd
-          - href: project/project-2.qmd
-          - href: project/project-tips-resources.qmd
-            text: Tips + resources
-      - section: "Lab"
+      - section: "Labs"
         contents:
           - href: labs/lab-1.qmd
             text: Lab 1
@@ -87,7 +73,21 @@ website:
           - href: labs/lab-7.qmd
             text: Lab 7
           - href: labs/lab-8.qmd
-            text: Lab 8  
+            text: Lab 8
+      - section: "Projects"
+        contents:
+          - href: project/project-1.qmd
+          - href: project/project-2.qmd
+          - href: project/project-tips-resources.qmd
+            text: Tips + resources
+      - section: "Computing"
+        contents:
+          - href: computing/computing-access.qmd
+            text: Access
+          - href: computing/computing-troubleshooting.qmd
+            text: Troubleshooting
+          - href: computing/computing-cheatsheets.qmd
+            text: Cheatsheets
 
   page-footer:
     right: "This page is built with 🤍 and [Quarto](https://quarto.org/)."
