@@ -20,20 +20,18 @@ website:
 
     tools:
       - icon: cloud
-        href: https://cmgr.oit.duke.edu/containers
+        href: https://posit.cloud/spaces/405361
         text: "Posit Cloud"
       - icon: slack
-        href: https://google.com
+        href: https://sta101-f23.slack.com
         text: "Slack"
       - icon: person-fill
         text: "Canvas"
         menu:
           - text: Announcements
-            url: https://sakai.duke.edu/portal/directtool/e0d406f3-bd6a-41fe-a2e9-18bfecebeed0/
-          - text: Zoom meetings
-            url: https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/
-          - text: Gradebook
-            url: https://sakai.duke.edu/portal/directtool/3ec6ed6c-6bc7-4758-917b-431e0b5b39c7/
+            url: https://canvas.duke.edu/courses/4625/announcements
+          - text: Grades
+            url: https://canvas.duke.edu/courses/4625/gradebook
 
     style: docked
     search: true
