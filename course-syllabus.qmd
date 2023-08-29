@@ -110,7 +110,7 @@ The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) 
 
 All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website: [sta101-f23.github.io](https://sta101-f23.github.io "STA 101 - Fall 2023 - Course website").
 
-I will regularly send course announcements via email and Sakai, make sure to check one or the other of these regularly. If an announcement is sent Monday through Thursday, I will assume that you have read the announcement by the next day. If an announcement is sent on a Friday or over the weekend, I will assume that you have read it by Monday.
+I will regularly send course announcements via email and Canvas, make sure to check one or the other of these regularly. If an announcement is sent Monday through Thursday, I will assume that you have read the announcement by the next day. If an announcement is sent on a Friday or over the weekend, I will assume that you have read it by Monday.
 
 ### Where to get help
 
