@@ -18,7 +18,6 @@ gs4_deauth()
 d <- read_sheet("https://docs.google.com/spreadsheets/d/1VvyWuppOFLLJHHhoA1vTf7kuehWZ0nTaXI10fPsrzSk/edit?usp=sharing")
 ```
 
-::: {style="font-size: 10px;"}
 ```{r}
 #| echo: false
 
@@ -29,7 +28,7 @@ d |>
   ) |>
   gt() |>
   fmt_date(date, date_style = 31) |>
-  sub_missing(columns = c(week, topic, prepare, materials, notes), missing_text = "") |>
+  sub_missing(columns = c(week, topic, prepare, materials, due), missing_text = "") |>
   cols_align(
     align = "center", 
     columns = c(week)
@@ -40,7 +39,7 @@ d |>
     ) |>
   cols_align(
     align = "left", 
-    columns = c(topic, prepare, materials, notes)
+    columns = c(topic, prepare, materials, due)
     ) |>
   tab_style(
     style = cell_borders(
@@ -53,21 +52,22 @@ d |>
     )
   ) |>
   fmt_markdown(
-    columns = c(topic, prepare, materials, notes)
+    columns = c(topic, prepare, materials, due)
   ) |>
   cols_width(
-    week ~ px(50),
-    date ~ px(120), 
-    topic ~ px(380),
-    prepare ~ px(180),
-    materials ~ px(100),
-    notes ~ px(300)
+    week ~ px(45),
+    date ~ px(100), 
+    topic ~ px(300),
+    prepare ~ px(220),
+    materials ~ px(90),
+    due ~ px(190)
   ) |>
   cols_label_with(fn = function(x) {
       janitor::make_clean_names(x, case = "title") |>
         toupper() |>
         stringr::str_replace_all("^|$", "**") |>
         md()
-    })
+    }) |>
+  tab_options(table.font.size = 13) |>
+  opt_row_striping()
 ```
-:::
