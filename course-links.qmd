@@ -3,13 +3,19 @@ title: "Useful links"
 ---
 
 +-----------------------+------------------------------------------------------------------------------------------+
-| Posit Cloud           | 🔗 on [Posit Cloud](https://posit.cloud/)                                                |
+| Posit Cloud           | 🔗 [Posit Cloud](https://posit.cloud/spaces/405361)                                     |
 +-----------------------+------------------------------------------------------------------------------------------+
-| Lecture recordings    | 🔗 on Panopto / Duke Capture **\[TO DO: Add link\]**                                     |
+| Lecture recordings    | 🔗 Panopto / Duke Capture **\[To be posted\]**                                           |
 +-----------------------+------------------------------------------------------------------------------------------+
-| Gradebook             | 🔗 on [Canvas](https://google.com) **\[TO DO: Add link\]**                               |
+| Slack                 | 🔗 [Slack](https://sta101-f23.slack.com)                                                 |
 +-----------------------+------------------------------------------------------------------------------------------+
-| Texbooks              | 🔗 [Introduction to Modern Statistics, 2nd Edition](https://openintro-ims2.netlify.app/) |
+| Gradebook             | 🔗 on [Canvas](https://canvas.duke.edu/courses/4625/gradebook)                           |
++-----------------------+------------------------------------------------------------------------------------------+
+| Announcements         | 🔗 on [Canvas]https://canvas.duke.edu/courses/4625/announcements)                       |
++-----------------------+------------------------------------------------------------------------------------------+
+| Tutorial submission   | 🔗 on [Canvas](https://canvas.duke.edu/courses/4625/quizzes)                             |
++-----------------------+------------------------------------------------------------------------------------------+
+| Textbooks             | 🔗 [Introduction to Modern Statistics, 2nd Edition](https://openintro-ims2.netlify.app/) |
 |                       |                                                                                          |
 |                       | 🔗 [R for Data Science, 2nd Edition](https://r4ds.hadley.nz/)                            |
 +-----------------------+------------------------------------------------------------------------------------------+
