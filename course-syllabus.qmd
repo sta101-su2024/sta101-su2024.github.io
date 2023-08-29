@@ -340,12 +340,19 @@ Students are permitted by university policy to be absent from class to observe a
 ## Important dates {#sec-important-dates}
 
 -   **Monday, August 28:** Classes begin
+-   **Monday, September 4**: Labor Day - No lecture
 -   **Friday, September 8:** Drop/add ends
+-   **Wednesday, October 4:** Exam 1 - In class
+-   **Friday, October 6:** Exam 1 - Take home due
 -   **Friday, October 13:** Project 1 due + Mid-semester grades reported
--   **Saturday, October 20 - Tuesday, October 18**: Spring Break (continuing, but limited course support available)
+-   **Monday, October 16**: Fall Break - No lecture
 -   **Friday, November 10:** Last day to withdraw with W
+-   **Wednesday, November 15:** Exam 2 - In class
+-   **Friday, November 17:** Exam 2 - Take home due
+-   **Wednesday, November 22:** Thanksgiving Break - No lecture
+-   **Friday, November 24:** Thanksgiving Break - No lab
 -   **Friday, December 8**: Classes end
 -   **Saturday, December 9 - Tuesday, December 12**: Reading period
--   **Wednesday, December 4, 2-5pm**: Project 2 presentations
+-   **Thursday, December 14, 2-5pm**: Project 2 presentations
 
 For more important dates, see the full [Duke Academic Calendar](https://registrar.duke.edu/academic-calendar/current-academic-calendar/#fall2023).
