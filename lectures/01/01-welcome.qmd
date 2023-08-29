@@ -366,13 +366,13 @@ See course announcement (on Canvas or in your email) and click on the links to
 
 -   Read the [syllabus](https://sta101-f23.github.io/course-syllabus.html)
 
--   Complete the *Getting to know you* survey on Canvas -- to be posted
+-   Complete the *Getting to know you* survey on Canvas
 
 -   Complete the readings
 
 ### the end of the week
 
--   Get started on the lab assignment -- to be posted
+-   Get started on the lab assignment
 
 -   Complete the interactive tutorials
 
