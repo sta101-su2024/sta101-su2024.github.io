@@ -18,7 +18,7 @@ The goal of this lab is to acquaint you with R (the computing language), RStudio
 
 3.  Complete the exercises in this document.
 
-# R, RStudio, Quarto review
+# Toolkit review
 
 ## YAML
 
