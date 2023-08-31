@@ -24,7 +24,7 @@ The goal of this lab is to acquaint you with R (the computing language), RStudio
 
 The top portion of your Quarto Markdown file (aka `.qmd`), you'll find three dashed lines. Between the dashed lines is called YAML. YAML stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
 
-Change the `author` name to your name and update the `date` with today's date. Click the `render button` to render the document. What do you notice?
+Change the `author` name to your name and update the `date` with today's date. Click the **Render** to render the document. What do you notice?
 
 ::: callout-note
 To avoid issues that can occur while rendering, it is a good idea to render early and often. **At least after every exercise**.
@@ -50,7 +50,6 @@ If you are using `R` on Posit Cloud, packages we use should already be installed
 
 install.packages("tidyverse")
 install.packages("datasauRus")
-install.packages("openintro")
 ```
 :::
 
@@ -111,7 +110,7 @@ You can view the whole data frame by running the code `view(datasaurus_dozen)` i
 Plot y vs. x for the dino data set. Then, calculate the correlation coefficient between x and y for this data set. Make sure that this value is printed in your document.
 :::
 
-Below is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your `qmd` document and successfully render it and view the results.
+Below is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your `.qmd` document and successfully render it and view the results.
 
 Start with the `datasaurus_dozen` and pipe it into the filter function to filter for observations where `dataset == "dino"`. Store the resulting filtered data frame as a new data frame called `dino_data`.
 
@@ -132,12 +131,12 @@ Second, the assignment operator: `<-`, assigns the name `dino_data` to the filte
 Note in `R` you may use either `<-` or `=` for an assignment operator. We'll use `<-` in this class as it's the more commonly used assignment operator, but when you look for R help online, you might see `=` being used as well.
 :::
 
-Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the aesthetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the x axis will represent the variable called x and the y axis will represent the variable called y. Then, we add another layer to this plot where we define which geometric shapes we want to use to represent each observation in the data. In this case we want these to be points, hence `geom_point`.
+Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the `aes`thetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the x axis will represent the variable called x and the y axis will represent the variable called y. Then, we add another layer to this plot where we define which geometric shapes we want to use to represent each observation in the data. In this case we want these to be points, hence `geom_point`.
 
 ```{r}
 #| label: plot-dino
 
-ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+ggplot(dino_data, aes(x = x, y = y)) +
   geom_point()
 ```
 
@@ -242,15 +241,15 @@ The exercises in this section do not require code. Make sure to answer the quest
 
 ## Exercise 8
 
-IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #4.
+IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #4: Cheaters, study components.
 
 ## Exercise 9
 
-IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #14.
+IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #14: UN Votes.
 
 ## Exercise 10
 
-IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #16.
+IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #16: Shows on Netflix.
 
 # Wrap up
 
