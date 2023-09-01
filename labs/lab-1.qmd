@@ -1,9 +1,8 @@
 ---
 title: "Lab 1: Hello R!"
-format: 
-  html:
-    theme: labs.scss
+format: html
 editor: visual
+css: labs.css
 ---
 
 The goal of this lab is to acquaint you with R (the computing language), RStudio (the IDE, integrated development environment), and Posit Cloud (the browser based service we will use to access RStudio).
@@ -241,15 +240,21 @@ The exercises in this section do not require code. Make sure to answer the quest
 
 ## Exercise 8
 
+::: exercise
 IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #4: Cheaters, study components.
+:::
 
 ## Exercise 9
 
+::: exercise
 IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #14: UN Votes.
+:::
 
 ## Exercise 10
 
+::: exercise
 IMS - [Chapter 1 exercises](https://openintro-ims2.netlify.app/data-hello#chp1-exercises), #16: Shows on Netflix.
+:::
 
 # Wrap up
 
