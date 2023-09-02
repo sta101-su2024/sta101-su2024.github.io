@@ -91,6 +91,8 @@ website:
             text: Troubleshooting
           - href: computing/computing-cheatsheets.qmd
             text: Cheatsheets
+      - href: extra-credit.qmd
+        text: Extra credit
 
   page-footer:
     right: "This page is built with 🤍 and [Quarto](https://quarto.org/)."
