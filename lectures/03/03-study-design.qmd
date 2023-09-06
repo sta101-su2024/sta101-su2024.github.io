@@ -27,6 +27,22 @@ Any questions about the first assignment due?
 Any questions on the readings or tutorials?
 :::
 
+## SAT scores and teacher salaries
+
+::: question
+What is going on in the following plot?
+:::
+
+![](images/fig-sat1-1.png){fig-align="center"}
+
+## SAT scores and teacher salaries
+
+::: question
+What about this plot?
+:::
+
+![](images/fig-sat2-1.png){fig-align="center"}
+
 ## Application exercise
 
 Go to Posit Cloud and start the project titled **ae-03-Delta**.
