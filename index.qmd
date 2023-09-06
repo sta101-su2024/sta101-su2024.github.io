@@ -60,7 +60,7 @@ d |>
     topic ~ px(300),
     prepare ~ px(220),
     materials ~ px(90),
-    due ~ px(190)
+    due ~ px(185)
   ) |>
   cols_label_with(fn = function(x) {
       janitor::make_clean_names(x, case = "title") |>
