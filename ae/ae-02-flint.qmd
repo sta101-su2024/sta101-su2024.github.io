@@ -1,7 +1,7 @@
 ---
 title: "Exploring Flint's water data"
-author: "Insert your name here"
-format: html
+categories: 
+  - Application exercise
 editor: visual
 ---
 
