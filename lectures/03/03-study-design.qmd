@@ -15,7 +15,7 @@ auto-stretch: false
 
 -   Late policy review
 
-::: question
+::: task
 Any questions about the first assignment due?
 :::
 
@@ -23,13 +23,13 @@ Any questions about the first assignment due?
 
 ## Reading check in
 
-::: question
+::: task
 Any questions on the readings or tutorials?
 :::
 
 ## SAT scores and teacher salaries
 
-::: question
+::: task
 What is going on in the following plot?
 :::
 
@@ -37,7 +37,7 @@ What is going on in the following plot?
 
 ## SAT scores and teacher salaries
 
-::: question
+::: task
 What about this plot?
 :::
 
