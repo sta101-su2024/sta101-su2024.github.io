@@ -58,7 +58,7 @@ The `courage` dataset has `r nrow(courage)` rows and `r ncol(courage)` variables
 Create a bar plot of the `result`s of games for NC Courage. Additionally, calculate the numbers of wins, losses, and ties. Write a one sentence narrative for your findings.
 :::
 
-**Hint:** `result` is a categorical variable, so use a barplot for the visualization and the `count()` function for calculating the frequencies of *levels* of this variable.
+**Hint:** `result` is a categorical variable, so use a bar plot for the visualization and the `count()` function for calculating the frequencies of *levels* of this variable.
 
 ## Exercise 2
 
@@ -253,23 +253,19 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 ## Grading
 
-**TO DO:** Add up points to confirm they sum to 50.
-
 | Exercise    | Points |
 |-------------|--------|
 | Exercise 1  | 5      |
 | Exercise 2  | 5      |
-| Exercise 3  | 5      |
-| Exercise 4  | 5      |
-| Exercise 5  | 5      |
-| Exercise 6  | 5      |
-| Exercise 7  | 5      |
-| Exercise 8  | 5      |
+| Exercise 3  | 6      |
+| Exercise 4  | 6      |
+| Exercise 5  | 6      |
+| Exercise 6  | 4      |
+| Exercise 7  | 6      |
+| Exercise 8  | 2      |
 | Exercise 9  | 5      |
 | Exercise 10 | 5      |
 | **Total**   | 50     |
-
--   adjust for workflow points
 
 ## Acknowledgements
 
