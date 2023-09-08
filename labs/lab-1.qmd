@@ -1,6 +1,5 @@
 ---
 title: "Lab 1: Hello R!"
-format: html
 editor: visual
 css: labs.css
 ---
