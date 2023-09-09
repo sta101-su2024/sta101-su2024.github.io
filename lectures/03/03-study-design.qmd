@@ -33,7 +33,11 @@ Any questions on the readings or tutorials?
 What is going on in the following plot?
 :::
 
-![](images/fig-sat1-1.png){fig-align="center"}
+![](images/fig-sat1-1.png){fig-align="center" width="900"}
+
+::: aside
+[Modern Data Science with R](https://mdsr-book.github.io/). Baumer, Kaplan, Horton. (2023)
+:::
 
 ## SAT scores and teacher salaries
 
@@ -41,7 +45,7 @@ What is going on in the following plot?
 What about this plot?
 :::
 
-![](images/fig-sat2-1.png){fig-align="center"}
+![](images/fig-sat2-1.png){fig-align="center" width="900"}
 
 ## Application exercise
 
