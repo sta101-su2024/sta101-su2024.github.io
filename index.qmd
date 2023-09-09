@@ -58,7 +58,7 @@ d |>
     week ~ px(45),
     date ~ px(100), 
     topic ~ px(300),
-    prepare ~ px(220),
+    prepare ~ px(250),
     materials ~ px(90),
     due ~ px(185)
   ) |>
