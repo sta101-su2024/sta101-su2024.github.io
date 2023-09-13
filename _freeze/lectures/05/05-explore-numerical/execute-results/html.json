@@ -1,0 +1,18 @@
+{
+  "hash": "c923dcb858afe86ed9e5c267ef3724be",
+  "result": {
+    "markdown": "---\ntitle: Exploring numerical data\nsubtitle: Lecture 5\nformat: revealjs\nauto-stretch: false\n---\n\n\n# Warm up\n\n## Check-in\n\n-   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts\n-   Go to Canvas and open today's \"quiz\" titled `2023-09-13 Check-in`\n-   Access code: `___` (released in class)\n-   \"Graded\" for completion\n\n## Announcements\n\n-   Lab 2 is due Thu, Sep 14 at 5 pm on Gradescope\n\n## Recap from last time\n\n::: task\nSuppose you have a data frame called `df` and a single variable in it called `x`. How many variables will `df` have after running the following code?\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |>\n  mutate(y = x + 2)\n```\n:::\n\n:::\n\n. . .\n\n::: task\nSuppose you have a data frame called `df` and a single variable in it called `x`. How many variables will `df` have after running the following code?\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf <- df |>\n  mutate(y = x + 2)\n```\n:::\n\n:::\n\n. . .\n\n::: task\nWhat is the `<-` operator called and what does it do?\n:::\n\n# Exploring (categorical and) numerical data\n\n## 2020 Durham City and County Resident Survey\n\nWe'll continue working with this dataset.\n\n![](images/durham-survey.png){fig-align=\"center\" width=\"400\"}\n\n## Services\n\n![](images/quality-annotated.png){fig-align=\"center\" width=\"800\"}\n\n## Demographics\n\n![](images/demographics-annotated.png){fig-align=\"center\" width=\"800\"}\n\n## Application exercise\n\nGo to Posit Cloud and start the project titled **ae-05-Durham**.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
