@@ -6,7 +6,7 @@ css: labs.css
 
 The goal of this lab is to effectively visualize numerical and categorical data.
 
-For all visualizations you create, b sure to include informative titles for the plot, axes, and legend!
+For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!
 
 # Getting started
 
@@ -29,8 +29,7 @@ library(tidyverse)
 
 # Part 1: Nobel laurates
 
-The dataset for this lab can be found in `nobel.csv` file in the `data` folder of your repository.
-You can read it in using the following.
+The dataset for this lab can be found in `nobel.csv` file in the `data` folder of your repository. You can read it in using the following.
 
 ```{r}
 #| label: load-data
@@ -62,8 +61,7 @@ The descriptions of the variables are as follows:
 19. `share`: Number of other winners award is shared with
 20. `motivation`: Motivation for recognition
 
-In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
-In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.
+In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia). In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.
 
 21. `born_country_original`: Original country where laureate was born
 22. `born_city_original`: Original city where laureate was born
@@ -103,16 +101,9 @@ Confirm that once you have filtered for these characteristics you are left with 
 
 > Most living Nobel laureates were based in the US when they won their prizes
 
-... says the Buzzfeed article.
-Let's see if that's true.
+... says the Buzzfeed article. Let's see if that's true.
 
-First, we'll create a new variable to identify whether the laureate was in the US when they won their prize.
-We'll use the `mutate()` function for this.
-The following pipeline mutates the `nobel_living` data frame by adding a new variable called `country_us`.
-We use an if statement to create this variable.
-The first argument in the `if_else()` function we're using to write this if statement is the condition we're testing for.
-If `country` is equal to `"USA"`, we set `country_us` to `"USA"`.
-If not, we set the `country_us` to `"Other"`.
+First, we'll create a new variable to identify whether the laureate was in the US when they won their prize. We'll use the `mutate()` function for this. The following pipeline mutates the `nobel_living` data frame by adding a new variable called `country_us`. We use an if statement to create this variable. The first argument in the `if_else()` function we're using to write this if statement is the condition we're testing for. If `country` is equal to `"USA"`, we set `country_us` to `"USA"`. If not, we set the `country_us` to `"Other"`.
 
 ```{r}
 nobel_living <- nobel_living |>
@@ -128,14 +119,12 @@ nobel_living_science <- nobel_living |>
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
 
-For the following exercises, work with the `nobel_living_science` data frame you created above.
-This means you'll need to define this data frame in your Quarto document, even though the next exercise doesn't explicitly ask you to do so.
+For the following exercises, work with the `nobel_living_science` data frame you created above. This means you'll need to define this data frame in your Quarto document, even though the next exercise doesn't explicitly ask you to do so.
 
 ## Exercise 3
 
 ::: exercise
-Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
-Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
+Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
 -   Your visualization should be faceted by category.
 -   For each facet you should have two bars, one for winners in the US and one for Other.
@@ -166,8 +155,7 @@ Here are some instructions that apply to both of these visualizations:
 -   Within each facet, there should be two bars for whether the laureate won the award in the US or not.
 -   Each bar should have segments for whether the laureate was born in the US or not.
 
-Which of these visualizations is a better fit for answering the following question: "Do the data appear to support Buzzfeed's claim that of those US-based Nobel laureates, many were born in other countries?" First, state which plot you're using to answer the question.
-Then, answer the question, explaining your reasoning in 1-2 sentences.
+Which of these visualizations is a better fit for answering the following question: "Do the data appear to support Buzzfeed's claim that of those US-based Nobel laureates, many were born in other countries?" First, state which plot you're using to answer the question. Then, answer the question, explaining your reasoning in 1-2 sentences.
 :::
 
 ## Exercise 6
