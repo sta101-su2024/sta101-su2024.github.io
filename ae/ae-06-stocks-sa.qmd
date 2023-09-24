@@ -2,8 +2,13 @@
 title: "Apple and Microsoft stock prices"
 categories: 
   - Application exercise
+  - Suggested answers
 editor: visual
 ---
+
+::: callout-important
+These are suggested answers for the application exercise. They're not necessarily complete or 100% accurate, they're roughly what we develop in class while going through the exercises.
+:::
 
 Today we'll explore the question "How do stock prices of Apple and Microsoft relate to each other?"
 
@@ -53,7 +58,9 @@ stocks_jan2020 <- stocks |>
 
 At first, you might be tempted to minimize $\sum_i e_i$, the sum of all residuals, but this is problematic. Why? Can you come up with a better solution (other than the one listed below)?
 
-*Add response here.*
+> -   Large positive residuals would cancel with large negative residuals.
+>
+> -   We could minimize the sum of the absolute value of the residuals.
 
 ## Minimize the sum of squared residuals
 
@@ -66,14 +73,16 @@ $$
 Note, this is the same as
 
 $$
-\sum_i (y_i - \hat{y})^2
+\sum_i (y_i - \hat{y}_i)^2
 $$
 
 ## Exercise 2
 
 Check out an interactive visualization of "least squares regression" [here](https://seeing-theory.brown.edu/regression-analysis/index.html#section1). Click on `I` and drag the points around to get started. Describe what you see.
 
-*Add response here*
+> Each square is a "square residual". The line minimizes the sum of squared residuals, (i.e. it minimizes the total area of squares I see on the screen).
+>
+> This is called "Ordinary Least Squares" (OLS) regression.
 
 # Plotting the least squares regression line
 
@@ -103,7 +112,7 @@ In the slides we fit a model with slope 0.5 and intercept -5. The code for layer
 ggplot(stocks_jan2020, aes(x = MSFT.Open, y = AAPL.Open)) +
   geom_point() + 
   geom_abline(slope = 0.5, intercept = -5) +
-  # add code here
+  geom_smooth(method = "lm", se = F, color = "steelblue") +
   labs(
     x = "MSFT Open", 
     y = "AAPL Open", 
@@ -141,19 +150,41 @@ Find the least squares line $y = \hat{\beta_0} + \hat{\beta_1} x$ for January 20
 ```{r}
 #| label: fit-MSFT-AAPL-January
 
-# code here
+stock_fit <- linear_reg() |>
+  fit(AAPL.Open ~ MSFT.Open, data = stocks_jan2020)
+
+tidy(stock_fit)
 ```
 
 ## Exercise 6
 
 Re-write the fitted equation replacing $\hat{\beta}_0$ and $\hat{\beta}_1$ with the estimates from the model you fit in the previous exercise.
 
-$$
-\text{[add equation here]}
-$$
+> My fitted model is:
+>
+> $$
+> \hat{y} = 3.3117408 + 0.4542263 x
+> $$
+>
+> where $\hat{y}$ is the predicted Apple open price and $x$ is the open price of Microsoft.
 
 ## Exercise 7
 
 Interpret $\hat{\beta}_0$ and $\hat{\beta}_1$ in context of the data.
 
-*Add response here*
+> $\hat{\beta_0} = 3.3117408$
+>
+> It's the price of APPL if MSFT opened at 0.
+>
+> $\hat{\beta_1} = 0.4542263$.
+>
+> For every dollar increase in MSFT open price, we expect AAPL open price to increase by .45.
+
+## Bonus exercise
+
+Say Microsoft opens at 166 dollars. What do I predict the opening price of AAPL to be?
+
+```{r}
+yhat <- 3.3117408 + (0.4542263 * 166)
+yhat
+```
