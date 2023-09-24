@@ -236,7 +236,7 @@ The exercises in this section do not require code. Make sure to answer the quest
 ## Exercise 9
 
 ::: exercise
-IMS - [Chapter 5 exercises](https://openintro-ims2.netlify.app/07-model-slr#chp7-exercises), #18: Over-under, II.
+IMS - [Chapter 7 exercises](https://openintro-ims2.netlify.app/07-model-slr#chp7-exercises), #18: Over-under, II.
 :::
 
 ## Exercise 10
