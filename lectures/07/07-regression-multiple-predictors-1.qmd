@@ -11,7 +11,7 @@ auto-stretch: false
 
 -   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
 -   Go to Canvas and open today's "quiz" titled `2023-09-25 Check-in`
--   Access code: `___` (released in class) <!-- influential point -->
+-   Access code: `influential point` (released in class) <!-- influential point -->
 -   "Graded" for completion
 
 ## Announcements {.smaller}
