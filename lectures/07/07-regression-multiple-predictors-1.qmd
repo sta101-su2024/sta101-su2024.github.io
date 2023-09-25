@@ -14,8 +14,12 @@ auto-stretch: false
 -   Access code: `___` (released in class) <!-- influential point -->
 -   "Graded" for completion
 
-## Announcements
+## Announcements {.smaller}
 
+-   *Suggested answers* for application exercises posted
+-   My office hours this week:
+    -   Tuesday 4:45-5:45 in Old Chem 213 (instead of the usual 3:30 - 5:30)
+    -   Wednesday 5-6 on Zoom
 -   Lab 4 is due Thu, Sep 28 at 5 pm on Gradescope
 -   Lab this week: Exam 1 review
 -   Exam 1:
@@ -25,7 +29,10 @@ auto-stretch: false
 
 ## Load packages and data
 
-```{r load-libraroies, warning = F, message = F}
+```{r}
+#| label: load-packages
+#| message: false
+
 library(tidyverse)
 library(tidymodels)
 library(scatterplot3d)
@@ -38,22 +45,38 @@ library(scatterplot3d)
 $R^2$, aka "the coefficient of determination" or "correlation squared" is a way to see how well a given model fits the data.
 
 $$
-R^2 = 1 - \frac{\sum_i r_i^2}{\sum_i (y_i - \bar{y})^2}
+R^2 = r_i^2 
 $$
 
-where $\bar{y}$ is the **mean** of all *y* values.
+## Sum of squares total, SST
 
-## $R^2$, in words
+The sum of squares total is a measure of the total variability in the outcome variable:
 
 $$
-R^2 = 1 - \frac{\text{sum of squared residuals}}{\text{sum of outcome squared distance from the mean}}
+SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2
 $$
 
-::: incremental
--   The sum of squared residuals is a measure of how wrong our model is (how much our model **doesn't** explain)
--   The denominator is proportional to the average square distance from the mean, i.e. the variance, i.e. the amount of variability in the data.
--   Together, the fraction represents the proportion of variability that is not explained by the model.
-:::
+## Sum of squares residuals, SSE
+
+The sum of squares residuals (error) is a measure of the variability in the residuals, i.e., variability left unexplained in the outcome variable after the model is fit:
+
+$$
+SSE = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2
+$$
+
+## $R^2$, another look
+
+$$
+R^2 = \frac{SST - SSE}{SST} = 1 - \frac{SSE}{SST}
+$$
+
+. . .
+
+-   This can be summarized as "$R^2$ is 1 minus the sum of squared residuals divided by the sum of squared total".
+
+. . .
+
+-   In other words, $R^2$ is the proportion of variability in the outcome that is unexplained by the model.
 
 ## $R^2$
 
@@ -91,7 +114,7 @@ $$
 -   $x_i$: the $i^{th}$ **predictor**. Also commonly referred to as "regressor", "independent variable", "covariate", "feature", "the data".
 -   $\beta_i$: "constants" or **coefficients** i.e. fixed numbers. These are **population parameters**. $\beta_0$ has another special name, "the intercept".
 -   $\epsilon$: the **error**. This quantity represents observational error, i.e. the difference between our observation and the true population-level expected value: $\beta_0 + \beta_1 x$.
--   Effectively this model says our data $y$ is linearly related to the $x_1$ and $x_2$ but is not perfectly observed due to some error.
+-   Effectively this model says our data $y$ is linearly related to the $x_1$ and $x_2$ but is not perfectly observed due to unexplained errors.
 :::
 
 ## A simple example
@@ -124,9 +147,7 @@ scatterplot3d(
 
 ## 2 predictors + 1 outcome = 3 dimensions
 
--   Our fitted linear model no longer looks like a line, but instead looks like a **plane**.
-
--   This plane shows our prediction of AAPL price ($y$) given both MSFT price ($x_1$) and IBM price ($x_2$).
+The fitted linear model no longer looks like a line, but instead looks like a **plane**. It shows our prediction of AAPL price ($y$) given both MSFT price ($x_1$) and IBM price ($x_2$).
 
 ```{r}
 #| label: simple-example-plane
@@ -154,7 +175,7 @@ Find the **equation of the plane** by adding in new predictors:
 #| eval: false
 
 my_model_fit <- linear_reg() |>
-  fit(outcome ~ predictor1 + predictor2 + predictor3 + ..., data = data-set-here)
+  fit(outcome ~ predictor1 + predictor2 + predictor3 + ..., data = data_frame)
 ```
 
 . . .
