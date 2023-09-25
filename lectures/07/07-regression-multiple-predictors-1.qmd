@@ -11,7 +11,7 @@ auto-stretch: false
 
 -   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
 -   Go to Canvas and open today's "quiz" titled `2023-09-25 Check-in`
--   Access code: `influential point` (released in class) <!-- influential point -->
+-   Access code: `___` (released in class) <!-- influential point -->
 -   "Graded" for completion
 
 ## Announcements {.smaller}
@@ -76,7 +76,7 @@ $$
 
 . . .
 
--   In other words, $R^2$ is the proportion of variability in the outcome that is unexplained by the model.
+-   In other words, $R^2$ is the proportion of variability in the outcome that is explained by the model.
 
 ## $R^2$
 
@@ -95,7 +95,7 @@ To find $R^2$ simply call the function `glance()` on your `model_fit`, e.g.
 ```{r}
 #| eval: false
 
-model_fit = linear_reg() |>
+model_fit <- linear_reg() |>
   fit(outcome ~ predictor, data = data_set)
   
 glance(model_fit)
@@ -193,5 +193,5 @@ Go to Posit Cloud and start the project titled ae-07-Books.
 ::: callout-note
 ## ICYMI
 
-Today's daily check-in access code: `influential point` (released in class)
+Today's daily check-in access code: `___` (released in class)
 :::
