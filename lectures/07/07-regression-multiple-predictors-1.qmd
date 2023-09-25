@@ -189,3 +189,9 @@ my_model_fit <- linear_reg() |>
 ## Application exercise
 
 Go to Posit Cloud and start the project titled ae-07-Books.
+
+::: callout-note
+## ICYMI
+
+Today's daily check-in access code: `influential point` (released in class)
+:::
