@@ -1,5 +1,6 @@
 ---
-title: "Project 1"
+title: "Project 1 - Regression"
+subtitle: "Due Friday, October 13 at 5 pm"
 ---
 
 More info to be posted.
