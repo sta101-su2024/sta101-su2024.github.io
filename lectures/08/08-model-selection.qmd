@@ -11,13 +11,15 @@ auto-stretch: false
 
 -   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
 -   Go to Canvas and open today's "quiz" titled `2023-09-27 Check-in`
--   Access code: `__` (released in class) <!-- parsimonious -->
+-   Access code: `parsimonious` (released in class) <!-- parsimonious -->
 -   "Graded" for completion
 
-## Announcements {.smaller}
+## Announcements
 
 -   My remaining office hours this week:
     -   Wednesday 5-6 on Zoom (link emailed)
+-   Accommodation requests for exam must go in this week to SDAO
+-   Exam classroom -- check email over the weekend, some of you will take in Gross 104 to give some elbow room to everyone
 -   Project 1 teams + assignment to be posted later today
     -   Read before lab
     -   Sit with your teams in lab
@@ -43,5 +45,5 @@ Go to Posit Cloud and start the project titled ae-08-Tips.
 ::: callout-note
 ## ICYMI
 
-Today's daily check-in access code: `___` (released in class)
+Today's daily check-in access code: `parsimonious` (released in class)
 :::
