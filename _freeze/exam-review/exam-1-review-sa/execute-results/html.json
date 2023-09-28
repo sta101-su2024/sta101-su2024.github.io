@@ -1,0 +1,16 @@
+{
+  "hash": "a5d251eb9f60a87bffbdffd8fd3e4e48",
+  "result": {
+    "markdown": "---\ntitle: \"Exam 1 Review\"\nformat:\n  html: default\nexecute:\n  echo: false\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n\n:::\n\n\n# Blizzard salary\n\n::: {.callout-note appearance=\"minimal\"}\nUse the following visualizations for Question \\_\\_ through \\_\\_.\n:::\n\n\n::: {.cell}\n\n:::\n\n\nIn 2020, employees of Blizzard Entertainment circulated a spreadsheet to anonymously share salaries and recent pay increases amidst rising tension in the video game industry over wage disparities and executive compensation. @fig-blizzard-1 and @fig-blizzard-2 contain plots that display the distributions of annual salaries of hourly and salaried Blizzard employees.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![Distribution of annual salaries of Blizzard employees, Option 1](exam-1-review-sa_files/figure-html/fig-blizzard-1-1.png){#fig-blizzard-1 width=672}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![Distribution of annual salaries of Blizzard employees, Option 2](exam-1-review-sa_files/figure-html/fig-blizzard-2-1.png){#fig-blizzard-2 width=960}\n:::\n:::\n\n\n1.  Which of the figures is better for comparing the median annual salaries of hourly and salaried workers.\n\n    a.  @fig-blizzard-1\n    b.  @fig-blizzard-2\n\n2.  In one sentence, explain your reasoning for your answer to Question 1.\n\n    ***A shared x-axis makes it easier to compare summary statistics for the variable on the x-axis.***\n\n3.  The name of the data frame used for this analysis is `blizzard_salary` and the variables plotted are `salary_type` (with values `Hourly` and `Salaried`) and `annual_salary`. Suppose your teammate wrote the following code as part of their analysis of the data.\n\n\n    ::: {.cell}\n    \n    :::\n\n\n    They then printed out the results shown below. Unfortunately one of the number got erased from the printout, it's indicated with `_____` below.\n\n    ```         \n    # A tibble: 2 × 3\n      salary_type mean_annual_salary median_annual_salary\n      <chr>                    <dbl>                <dbl>\n    1 Hourly                  63003.               54246.\n    2 Salaried                90183.               _____\n    ```\n\n    Which of the following is the best estimate for that erased value?\n\n    a.  30,000\n    b.  50,000\n    c.  **80,000 *(It's a value higher than the median for hourly but lower than the mean for salaried)***\n    d.  100,000\n\n4.  Which distribution has a higher standard deviation?\n\n    a.  Hourly workers\n    b.  **Salaried workers *(There is more variability around the mean compared to the hourly distribution)***\n    c.  Roughly the same\n    d.  Can't tell from the information given\n\n5.  \n",
+    "supporting": [
+      "exam-1-review-sa_files/figure-html"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

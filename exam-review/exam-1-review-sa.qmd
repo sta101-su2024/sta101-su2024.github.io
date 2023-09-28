@@ -1,0 +1,18 @@
+---
+title: "Exam 1 Review"
+subtitle: "Suggested answers"
+format:
+  html: default
+execute:
+  echo: false
+editor_options: 
+  chunk_output_type: console
+---
+
+1.  There are 409 rows in the `blizzard_salary` dataset. Each row represents a Blizzard Entertainment worker who filled out the spreadsheet.
+2.  a - A shared x-axis makes it easier to compare summary statistics for the variable on the x-axis.
+3.  c - It's a value higher than the median for hourly but lower than the mean for salaried.
+4.  b - There is more variability around the mean compared to the hourly distribution.
+5.  b - Pie charts and waffle charts are for categorical data only.
+6.  c - For every additional \$1,000 of annual salary, the model predicts the raise to be higher, on average, by 0.0155%.
+7.  d - $R^2$ of `raise_2_fit` is higher than $R^2$ of `raise_1_fit` since `raise_2_fit` has one more predictor and $R^2$ always goes up with the addition of a predictor.
