@@ -12,7 +12,7 @@ For all visualizations you create, b sure to include informative titles for the 
 
 1.  Go to [Posit Cloud](https://posit.cloud/spaces/405361) and start the project titled **lab-4 - Regression with a single predictor**.
 
-2.  Under the *Files* tab on the lower right, click on `lab-3.qmd` to open the lab template.
+2.  Under the *Files* tab on the lower right, click on `lab-4.qmd` to open the lab template.
 
 3.  Complete the exercises in this document.
 
