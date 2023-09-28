@@ -34,13 +34,7 @@ blizzard_salary <- blizzard_salary |>
       salary_type == "hour" ~ current_salary * 40 * 52,
       TRUE ~ current_salary
     ),
-    performance_rating = case_when(
-      performance_rating == "Developing" ~ 1,
-      performance_rating == "Successful" ~ 2,
-      performance_rating == "High" ~ 3,
-      performance_rating == "Top" ~ 4,
-      TRUE ~ NA_real_
-    )
+    performance_rating = if_else(performance_rating == "Developing", "Poor", performance_rating)
   ) |>
   filter(salary_type != "week") |>
   mutate(
@@ -60,7 +54,7 @@ The name of the data frame used for this analysis is `blizzard_salary` and the r
 
 -   `annual_salary`: Annual salary, in USD, with values ranging from \$50,939 to \$216,856.
 
--   `performance_rating`: Most recent review performance rating, with levels `Developing`, `Successful`, `High`, and `Top`. The `Developing` level is the lowest rating and the `Top` level is the highest rating.
+-   `performance_rating`: Most recent review performance rating, with levels `Poor`, `Successful`, `High`, and `Top`. The `Poor` level is the lowest rating and the `Top` level is the highest rating.
 
 The top ten rows of `blizzard_salary` are shown below:
 
@@ -158,10 +152,12 @@ c.  Roughly the same
 
 Which of the following alternate plots would also be useful for visualizing the distributions of annual salaries of hourly and salaried workers?
 
-    I.  Box plot
-    II. Density plot
-    III. Pie chart
-    IV. Waffle chart
+```         
+I.  Box plot
+II. Density plot
+III. Pie chart
+IV. Waffle chart
+```
 
 a.  I
 b.  I and II
@@ -178,8 +174,7 @@ Next, you fit a model for predicting raises (`percent_incr`) from salaries (`ann
 raise_1_fit <- linear_reg() |>
   fit(percent_incr ~ annual_salary, data = blizzard_salary)
 
-tidy(raise_1_fit) |>
-  kable()
+tidy(raise_1_fit)
 ```
 
 Which of the following is the best interpretation of the slope coefficient?
@@ -196,7 +191,7 @@ You then fit a model for predicting raises (`percent_incr`) from salaries (`annu
 a.  Intercept of `raise_2_fit` is higher than intercept of `raise_1_fit`.
 b.  RMSE of `raise_2_fit` is higher than RMSE of `raise_1_fit`.
 c.  Adjusted $R^2$ of `raise_2_fit` is higher than adjusted $R^2$ of `raise_1_fit`.
-d.  
+d.  Slope of $R^2$ of `raise_2_fit` is higher than slope of `raise_1_fit`.
 
 ## Question 8
 
@@ -209,18 +204,93 @@ raise_2_fit <- linear_reg() |>
   fit(percent_incr ~ annual_salary + performance_rating, data = blizzard_salary)
 
 tidy(raise_2_fit)
-glance(raise_2_fit)
-
 ```
 
-When your teammate sees this model output, they remark "The coefficient for `performance_rating` is negative, that's weird. I guess it means that people who get higher performance ratings get lower raises." Which of the following is the best response to your teammate?
+When your teammate sees this model output, they remark "The coefficient for `performance_ratingSuccessful` is negative, that's weird. I guess it means that people who get successful performance ratings get lower raises." How would you respond to your teammate?
+
+## Question 9
+
+Ultimately, your teammate decides they don't like the negative slope coefficients in the model output you created (not that there's anything wrong with negative slope coefficients!), does something else, and comes up with the following model output.
+
+```{r}
+blizzard_salary <- blizzard_salary |>
+  mutate(performance_rating = fct_relevel(performance_rating, "Poor", "Successful", "High", "Top"))
+
+raise_2_fit <- linear_reg() |>
+  fit(percent_incr ~ annual_salary + performance_rating, data = blizzard_salary)
+
+tidy(raise_2_fit)
+```
+
+Unfortunately they didn't write their code in a Quarto document, instead just wrote some code in the Console and then lost track of their work. They remember using the `fct_relevel()` function and doing something like the following:
+
+```{r}
+#| eval: false
+
+blizzard_salary <- blizzard_salary |>
+  mutate(performance_rating = fct_relevel(performance_rating, ___))
+```
+
+What should they put in the blanks to get the same model output as above?
+
+a. "Poor", "Successful", "High", "Top"
+b. "Successful", "High", "Top"
+c. "Top", "High", "Successful", "Poor"
+d. Poor, Successful, High, Top
+
+## Question 10
+
+Finally, create the following two plots and ask you for help deciding which one to use in the final report for visualizing the relationship between performance rating and salary type. In 1-3 sentences, can you help them make a decision, justify your choice, and write the narrative that should go with the plot?
+
+```{r}
+#| label: fig-salary-performance-rating
+#| layout-ncol: 2
+#| fig-cap: Distribution of salary type by performance rating
+#| fig-subcap: 
+#|   - Option 1
+#|   - Option 2
+
+blizzard_salary |>
+  drop_na(salary_type, performance_rating) |>
+  ggplot(aes(x = salary_type, fill = fct_rev(performance_rating))) +
+  geom_bar() +
+  scale_fill_viridis_d() +
+  labs(
+    x = "Salary type",
+    y = "Count",
+    fill = "Performance\nrating"
+  )
+
+blizzard_salary |>
+  drop_na(salary_type, performance_rating) |>
+  ggplot(aes(x = salary_type, fill = fct_rev(performance_rating))) +
+  geom_bar(position = "fill") +
+  scale_fill_viridis_d() +
+  labs(
+    x = "Salary type",
+    y = "Proportion",
+    fill = "Performance\nrating"
+  )
+```
+
+## Question 11
+
+Show the proportions of performance ratings for hourly and salaried workers in a table and ask students to place those numbers on the segments of the plot.
+
+## Question 12
+
+Show a mosaicplot of the same thing and ask what additional information it provides, if any.
+
+## Question 13
+
+Ask a question about something mentioned in class only.
+
+## Question 14
+
+Ask a question about one of the keywords for class attendance quizzes.
+
+## Question 15
+
+Ask them to mention one concept they're struggling with.
 
 
-
-    ```{r}
-    ggplot(blizzard_salary, aes(x = salary_type, fill = performance_rating)) +
-      geom_bar()
-
-    ggplot(blizzard_salary, aes(x = salary_type, fill = performance_rating)) +
-      geom_bar(position = "fill")
-    ```
