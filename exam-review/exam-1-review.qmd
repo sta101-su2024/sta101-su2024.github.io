@@ -52,10 +52,11 @@ The name of the data frame used for this analysis is `blizzard_salary` and the r
 
 -   `performance_rating`: Most recent review performance rating, with levels `Poor`, `Successful`, `High`, and `Top`. The `Poor` level is the lowest rating and the `Top` level is the highest rating.
 
-The top ten rows of `blizzard_salary` are shown below:
+The top six rows of `blizzard_salary` are shown below:
 
 ```{r}
 blizzard_salary |>
+  slice_head(n = 6) |>
   select(percent_incr, salary_type, annual_salary, performance_rating)
 ```
 
@@ -63,14 +64,23 @@ blizzard_salary |>
 
 How rows observations are there in the `blizzard_salary` dataset and what does each row represent?
 
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+:::
+
 ## Question 2
 
-@fig-blizzard-hist-1 and @fig-blizzard-hist-2 show the distributions of annual salaries of hourly and salaried workers. The two figures show the same data, with the facets organized across rows and across columns.
+@fig-blizzard-hist-1 and @fig-blizzard-hist-2 show the distributions of annual salaries of hourly and salaried workers. The two figures show the same data, with the facets organized across rows and across columns. Which of the two figures is better for comparing the median annual salaries of hourly and salaried workers. Explain your reasoning.
+
+::: {#fig-blizzard-hist}
 
 ```{r}
 #| label: fig-blizzard-hist-1
-#| fig-cap: Distribution of annual salaries of Blizzard employees, Option 1
-#| fig-asp: 0.8
+#| fig-cap: Option 1
+#| fig-width: 10
+#| fig-asp: 0.5
 
 ggplot(blizzard_salary, aes(x = annual_salary)) +
   geom_histogram(binwidth = 10000, color = "white") +
@@ -84,9 +94,9 @@ ggplot(blizzard_salary, aes(x = annual_salary)) +
 
 ```{r}
 #| label: fig-blizzard-hist-2
-#| fig-cap: Distribution of annual salaries of Blizzard employees, Option 2
-#| fig-asp: 0.4
+#| fig-cap: Option 2
 #| fig-width: 10
+#| fig-asp: 0.3
 
 ggplot(blizzard_salary, aes(x = annual_salary)) +
   geom_histogram(binwidth = 10000, color = "white") +
@@ -98,12 +108,19 @@ ggplot(blizzard_salary, aes(x = annual_salary)) +
   )
 ```
 
-Which of the two figures is better for comparing the median annual salaries of hourly and salaried workers.
+Distribution of annual salaries of Blizzard employees
 
-a.  @fig-blizzard-hist-1
-b.  @fig-blizzard-hist-2
+:::
 
-## Question 2
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+{{< pagebreak >}}
+
+:::
+
+## Question 3
 
 Suppose your teammate wrote the following code as part of their analysis of the data.
 
@@ -135,6 +152,14 @@ a.  30,000
 b.  50,000
 c.  80,000
 d.  100,000
+
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+{{< pagebreak >}}
+
+:::
 
 ## Question 4
 
@@ -180,6 +205,12 @@ b.  For every additional \$1,000 of annual salary, the raise goes up by 0.0155%.
 c.  For every additional \$1,000 of annual salary, the model predicts the raise to be higher, on average, by 0.0155%.
 d.  For every additional \$1,000 of annual salary, the model predicts the raise to be higher, on average, by 1.87%.
 
+::: {.content-visible when-format="pdf"}
+
+{{< pagebreak >}}
+
+:::
+
 ## Question 7
 
 You then fit a model for predicting raises (`percent_incr`) from salaries (`annual_salary`) and performance ratings (`performance_rating`). We'll call this model `raise_2_fit`. Which of the following is definitely true based on the information you have so far?
@@ -203,6 +234,14 @@ tidy(raise_2_fit)
 ```
 
 When your teammate sees this model output, they remark "The coefficient for `performance_ratingSuccessful` is negative, that's weird. I guess it means that people who get successful performance ratings get lower raises." How would you respond to your teammate?
+
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+{{< pagebreak >}}
+
+:::
 
 ## Question 9
 
@@ -234,9 +273,15 @@ b. "Successful", "High", "Top"
 c. "Top", "High", "Successful", "Poor"
 d. Poor, Successful, High, Top
 
+::: {.content-visible when-format="pdf"}
+
+{{< pagebreak >}}
+
+:::
+
 ## Question 10
 
-Finally, create the following two plots and ask you for help deciding which one to use in the final report for visualizing the relationship between performance rating and salary type. In 1-3 sentences, can you help them make a decision, justify your choice, and write the narrative that should go with the plot?
+Finally, your teammate creates the following two plots and ask you for help deciding which one to use in the final report for visualizing the relationship between performance rating and salary type. In 1-3 sentences, can you help them make a decision, justify your choice, and write the narrative that should go with the plot?
 
 ```{r}
 #| label: fig-salary-performance-rating
@@ -273,9 +318,15 @@ blizzard_salary |>
 
 A friend with a keen eye points out that the number of observations in @fig-salary-performance-rating-1 seems lower than the total number of observations in `blizzard_salary`. What might be going on here? Explain your reasoning.
 
-## Question 11
+::: {.content-visible when-format="pdf"}
 
-Show the proportions of performance ratings for hourly and salaried workers in a table and ask students to place those numbers on the segments of the plot.
+{{< pagebreak >}}
+
+:::
+
+## Question 12
+
+Show the proportions of performance ratings for hourly and salaried workers in a table and ask students to place those numbers on the segments of @fig-salary-performance-rating-2.
 
 ```{r}
 #| label: salary-type-perfecormance-table
@@ -287,7 +338,7 @@ blizzard_salary |>
   mutate(across(-performance_rating, ~ .x / sum(.x)))
 ```
 
-## Question 12
+## Question 13
 
 @fig-salary-performance-rating-mosaic is yet another visualization of the relationship between salary type and performance rating. What type of plot is ths, and what does it display that @fig-salary-performance-rating-2 doesn't?
 
@@ -309,7 +360,15 @@ blizzard_salary |>
   )
 ```
 
-## Question 13
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+{{< pagebreak >}}
+
+:::
+
+## Question 14
 
 Suppose we fit a model to predict `percent_incr` from `annual_salary` and `salary_type`. A tidy output of the model is shown below.
 
@@ -385,11 +444,28 @@ ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_
   scale_y_continuous(labels = label_percent(scale = 1))
 ```
 
-## Question 14
+::: {.content-visible when-format="pdf"}
 
-Define the term parsimonious model.
+{{< pagebreak >}}
+
+:::
 
 ## Question 15
 
+Define the term parsimonious model.
+
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+:::
+
+## Bonus
+
 Pick a concept we introduced in class so far that you've been struggling with and explain it in your own words.
 
+::: {.content-visible when-format="pdf"}
+
+$\vspace{2cm}$
+
+:::
