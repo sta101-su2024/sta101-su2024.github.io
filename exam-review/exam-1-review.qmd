@@ -2,6 +2,7 @@
 title: "Exam 1 Review"
 format:
   html: default
+  pdf: default
 execute:
   echo: false
 editor_options: 
@@ -16,13 +17,8 @@ library(tidyverse)
 library(tidymodels)
 library(openintro)
 library(scales)
+library(ggmosaic)
 ```
-
-# Blizzard salary
-
-::: {.callout-note appearance="minimal"}
-Use the following visualizations for Question \_\_ through \_\_.
-:::
 
 ```{r}
 #| label: blizzard-data-prep
@@ -275,22 +271,125 @@ blizzard_salary |>
 
 ## Question 11
 
+A friend with a keen eye points out that the number of observations in @fig-salary-performance-rating-1 seems lower than the total number of observations in `blizzard_salary`. What might be going on here? Explain your reasoning.
+
+## Question 11
+
 Show the proportions of performance ratings for hourly and salaried workers in a table and ask students to place those numbers on the segments of the plot.
+
+```{r}
+#| label: salary-type-perfecormance-table
+
+blizzard_salary |>
+  drop_na(salary_type, performance_rating) |>
+  count(salary_type, performance_rating) |>
+  pivot_wider(names_from = salary_type, values_from = n, values_fill = 0) |>
+  mutate(across(-performance_rating, ~ .x / sum(.x)))
+```
 
 ## Question 12
 
-Show a mosaicplot of the same thing and ask what additional information it provides, if any.
+@fig-salary-performance-rating-mosaic is yet another visualization of the relationship between salary type and performance rating. What type of plot is ths, and what does it display that @fig-salary-performance-rating-2 doesn't?
+
+```{r}
+#| label: fig-salary-performance-rating-mosaic
+#| fig-cap: Another visualization of salary type by performance rating
+#| warning: false
+
+blizzard_salary |>
+  drop_na(salary_type, performance_rating) |>
+  ggplot() +
+  geom_mosaic(aes(x = product(salary_type), fill = performance_rating)) +
+  scale_fill_viridis_d() +
+  scale_y_continuous(breaks = seq(0, 1, 0.25)) +
+  labs(
+    x = "Salary type",
+    fill = "Performance\nrating",
+    y = "Proportion"
+  )
+```
 
 ## Question 13
 
-Ask a question about something mentioned in class only.
+Suppose we fit a model to predict `percent_incr` from `annual_salary` and `salary_type`. A tidy output of the model is shown below.
+
+```{r}
+#| label: raise-salary-type-fit
+
+raise_3_fit <- linear_reg() |>
+  fit(percent_incr ~ annual_salary + salary_type, data = blizzard_salary)
+
+tidy(raise_3_fit)
+```
+
+Which of the following visualizations represent this model? Explain your reasoning.
+
+```{r}
+#| label: fig-raise-salary-type
+#| warning: false
+#| layout-ncol: 2
+#| fig-cap: |
+#|   Visualizations of the relationship between percent increase, annual 
+#|   salary, and salary type
+#| fig-subcap:
+#|   - Option 1
+#|   - Option 2
+#|   - Option 3
+#|   - Option 4
+
+ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_type)) +
+  geom_point(aes(shape = salary_type), alpha = 0.4) +
+  geom_smooth(aes(linetype = salary_type), method = "lm", se = FALSE, fullrange = TRUE) +
+  labs(
+    x = "Annual salary",
+    y = "Percent increase",
+    color = "Salary type",
+    linetype = "Salary type",
+    shape = "Salary type"
+  ) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_percent(scale = 1)) +
+  theme(legend.position = "top")
+
+ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_type)) +
+  geom_point(aes(shape = salary_type), alpha = 0.4) +
+  geom_smooth(aes(linetype = salary_type), se = FALSE, fullrange = TRUE) +
+  labs(
+    x = "Annual salary",
+    y = "Percent increase"
+  ) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_percent(scale = 1)) +
+  theme(legend.position = "top")
+
+ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_type)) +
+  geom_point(aes(shape = salary_type), alpha = 0.4, show.legend = FALSE) +
+  geom_abline(intercept = 1.24, slope = 0.0000137, color = "#E87d72", linewidth = 1, linetype = "solid") +
+  geom_abline(intercept = 1.24+0.913, slope = 0.0000137, color = "#56bcc2", linewidth = 1, linetype = "dashed") +
+  labs(
+    x = "Annual salary",
+    y = "Percent increase",
+  ) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_percent(scale = 1))
+
+ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_type)) +
+  geom_point(alpha = 0.4, show.legend = FALSE) +
+  geom_abline(intercept = 1.24, slope = 0.0000137, color = "#56bcc2", linewidth = 1, linetype = "dashed") +
+  geom_abline(intercept = 1.24+0.913, slope = 0.0000137,  color = "#E87d72", linewidth = 1) +
+  labs(
+    x = "Annual salary",
+    y = "Percent increase",
+  ) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_percent(scale = 1))
+```
 
 ## Question 14
 
-Ask a question about one of the keywords for class attendance quizzes.
+Define the term parsimonious model.
 
 ## Question 15
 
-Ask them to mention one concept they're struggling with.
-
+Pick a concept we introduced in class so far that you've been struggling with and explain it in your own words.
 

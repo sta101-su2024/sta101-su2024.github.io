@@ -19,3 +19,8 @@ editor_options:
 8.  The reference level of `performance_rating` is High, since it's the first level alphabetically. Therefore, the coefficient -2.40% is the predicted difference in raise comparing High to Successful. In this context a negative coefficient makes sense since we would expect those with High performance rating to get higher raises than those with Successful performance.
 9.  a - "Poor", "Successful", "High", "Top"
 10. Choose Option 2 since it shows the proportions of employees with top, high, successful, and poor performance within each salary type, and is not affected by there being much fewer hourly paid employees.
+11. There are probably some `NA`s that are not being represented in the plot.
+12. Mosaic plot. It shows the marginal distribution of salary type (proportion of hourly and salaried employees).
+13. c - Option 3. Parallel lines and salaried line has a higher intercept since Hourly is the reference level in `raise_3_fit` and the slope for `salary_typeSalaried` is positive.
+14. A parsimonious model is the simplest model with the best predictive performance.
+15. Answers may vary.
