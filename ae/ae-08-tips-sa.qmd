@@ -210,19 +210,19 @@ glance(tip_full_fit)$adj.r.squared
 linear_reg() |> fit(tip_percentage ~ meal + party + alcohol, data = tips) |> glance() |> pull(adj.r.squared)
 linear_reg() |> fit(tip_percentage ~ meal + party + bill, data = tips) |> glance() |> pull(adj.r.squared)
 linear_reg() |> fit(tip_percentage ~ meal + alcohol + bill, data = tips) |> glance() |> pull(adj.r.squared)
-linear_reg() |> fit(tip_percentage ~ party + alcohol + bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq: 0.021
+linear_reg() |> fit(tip_percentage ~ party + alcohol + bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq: 0.012
 
 # step 2
 linear_reg() |> fit(tip_percentage ~ party + alcohol, data = tips) |> glance() |> pull(adj.r.squared)
-linear_reg() |> fit(tip_percentage ~ party + bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq:  0.027
+linear_reg() |> fit(tip_percentage ~ party + bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq:  0.019
 linear_reg() |> fit(tip_percentage ~ alcohol + bill, data = tips) |> glance() |> pull(adj.r.squared)
 
-# step 3 - no increase in adj R-sq
-linear_reg() |> fit(tip_percentage ~ bill, data = tips) |> glance() |> pull(adj.r.squared)
+# step 3
+linear_reg() |> fit(tip_percentage ~ bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq:  0.02
 linear_reg() |> fit(tip_percentage ~ party, data = tips) |> glance() |> pull(adj.r.squared)
 ```
 
-> The "best" model attained with backwards elimination predicts `tip_percentage` from `party` and `bill`.
+> The "best" model attained with backwards elimination predicts `tip_percentage` from `bill`.
 
 ## Exercise 9
 
@@ -233,19 +233,15 @@ Perform backward elimination to find the best model for predicting `tip_percenta
 linear_reg() |> fit(tip_percentage ~ meal, data = tips) |> glance() |> pull(adj.r.squared)
 linear_reg() |> fit(tip_percentage ~ party, data = tips) |> glance() |> pull(adj.r.squared)
 linear_reg() |> fit(tip_percentage ~ alcohol, data = tips) |> glance() |> pull(adj.r.squared)
-linear_reg() |> fit(tip_percentage ~ bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq: 0.02
+linear_reg() |> fit(tip_percentage ~ bill, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq: 0.021
 
-# step 2
+# step 2 - no increase in adj R-sq
 linear_reg() |> fit(tip_percentage ~ bill + meal, data = tips) |> glance() |> pull(adj.r.squared)
-linear_reg() |> fit(tip_percentage ~ bill + party, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq:  0.027
+linear_reg() |> fit(tip_percentage ~ bill + party, data = tips) |> glance() |> pull(adj.r.squared) # highest adj R-sq:  0.02
 linear_reg() |> fit(tip_percentage ~ bill + alcohol, data = tips) |> glance() |> pull(adj.r.squared)
-
-# step 3 - no increase in adj R-sq
-linear_reg() |> fit(tip_percentage ~ bill + party + meal, data = tips) |> glance() |> pull(adj.r.squared)
-linear_reg() |> fit(tip_percentage ~ bill + party + alcohol, data = tips) |> glance() |> pull(adj.r.squared)
 ```
 
-> The "best" model attained with forward selection also predicts `tip_percentage` from `party` and `bill`.
+> The "best" model attained with forward selection also predicts `tip_percentage` from `bill`.
 
 ## Exercise 10
 
@@ -253,7 +249,7 @@ Fit the "best" model and interpret it.
 
 ```{r}
 tip_fit <- linear_reg() |> 
-  fit(tip_percentage ~ bill + party, data = tips)
+  fit(tip_percentage ~ bill, data = tips)
 
 tidy(tip_fit)
 ```
