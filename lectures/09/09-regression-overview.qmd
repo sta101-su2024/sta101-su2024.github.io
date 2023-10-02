@@ -11,7 +11,7 @@ auto-stretch: false
 
 -   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
 -   Go to Canvas and open today's "quiz" titled `2023-10-02 Check-in`
--   Access code: `multicollinearity` (released in class) <!-- multicollinearity -->
+-   Access code: `___` (released in class) <!-- multicollinearity -->
 -   "Graded" for completion
 
 ## Exam 1
@@ -147,7 +147,7 @@ Go to Posit Cloud and continue the project titled ae-08-Tips.
 ::: callout-note
 ## ICYMI
 
-Today's daily check-in access code: `multicollinearity` (released in class) <!-- multicollinearity -->
+Today's daily check-in access code: `___` (released in class) <!-- multicollinearity -->
 :::
 
 # Q&A
