@@ -52,7 +52,7 @@ delta <- read_csv("data/delta.csv")
 
 How many rows and columns are in this dataset? Answer in a full sentence using **inline code**. What does each row represent and what does each column represent? For each variable, identify its type.
 
-> There are `r nrow(delta)` rows and `r col(delta)` columns in the dataset. Each row represents a person with COVID, and the columns represent whether the person was vaccinated or not, their age, and whether they died or survived.
+> There are `r nrow(delta)` rows and `r ncol(delta)` columns in the dataset. Each row represents a person with COVID, and the columns represent whether the person was vaccinated or not, their age, and whether they died or survived.
 
 ## Exercise 2
 
