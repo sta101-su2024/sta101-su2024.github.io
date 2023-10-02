@@ -226,7 +226,7 @@ linear_reg() |> fit(tip_percentage ~ party, data = tips) |> glance() |> pull(adj
 
 ## Exercise 9
 
-Perform backward elimination to find the best model for predicting `tip_percentage` from `meal`, `party`, `alcohol`, `bill`.
+Perform forward selection to find the best model for predicting `tip_percentage` from `meal`, `party`, `alcohol`, `bill`.
 
 ```{r}
 # step 1

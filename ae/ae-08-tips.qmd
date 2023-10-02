@@ -184,7 +184,7 @@ Perform backward elimination to find the best model for predicting `tip_percenta
 
 ## Exercise 9
 
-Perform backward elimination to find the best model for predicting `tip_percentage` from `meal`, `party`, `alcohol`, `bill`.
+Perform forward selection to find the best model for predicting `tip_percentage` from `meal`, `party`, `alcohol`, `bill`.
 
 ```{r}
 #| label: forward
