@@ -50,7 +50,7 @@ Using this data, we want to build a model that **predicts** whether a new email 
 
 One predictor model: Visualize a **linear model** where the outcome is `type` (spam or not) and `george` is the only predictor. Then, discuss your visualization with your neighbor. Is this a good model? Why or why not?
 
-*Doesn't make sense to draw a line and predict values between 0 and 1.*
+*Add response here.*
 
 ```{r}
 #| label: one-predictor-plot
@@ -82,13 +82,7 @@ Two predictor model: In this exercise focus on two predictors: `you` and `capita
 
 Write the model equation.
 
-$$
-logit(\hat{p}) = -1.50 + 0.361 \times you + 0.00173 \times capitalTotal
-$$
-
-$$
-log(\frac{\hat{p}}{1 - \hat{p}}) = -1.50 + 0.361 \times you + 0.00173 \times capitalTotal
-$$
+*Add response here.*
 
 ## Exercise 4
 
@@ -136,15 +130,13 @@ if $p > p^*$, then label the email as spam.
 
 -   Change `decision_boundary` in the code above to 0.01 and 0.999999. Do the results surprise you? Why or why not?
 
-*Answers may vary.*
+*Add response here.*
 
 ## Exercise 6
 
 If you set a lower decision boundary, do you label fewer or more emails as spam? What happens if you set 0 as your boundary? What about 1 as your boundary? If you very much dislike spam, should you set a high or low boundary?
 
-*Lower boundary means that we label more emails as spam, high boundary means fewer emails as spam. We can adjust the boundary depending on how much we value receiving important emails vs how much we dislike spam.*
-
-*0 means all emails are spam, 1 means no emails are spam. Note you cannot set decision boundary to 0 or 1 because of logit function (would evaluate to inf or negative inf)*
+*Add response here.*
 
 # Classify a new email
 
@@ -174,7 +166,7 @@ Using your model, predict whether this email will be classified as spam or not. 
 # add code here
 ```
 
-*The model predicts 0.99 probability that this new email is spam. This seems reasonable based on the new email text.*
+*Add response here.*
 
 # Assessing predictive ability
 
@@ -192,6 +184,14 @@ hp_spam_test <- testing(hp_spam_split)
 ## Exercise 7
 
 Inspect `hp_spam_split`. How many emails are in `hp_spam_train`, how many are in `hp_spam_test`. Check out the documentation for the `initial_split()` function, what ratio does it use for splitting the dataset into training and testing samples?
+
+*Add response here.*
+
+```{r}
+#| label: initial-split-inspect
+
+# add code here
+```
 
 ## Exercise 8
 
@@ -222,3 +222,5 @@ What are the false positive and false negative rates of this model?
 
 # add code here
 ```
+
+*Add response here.*
