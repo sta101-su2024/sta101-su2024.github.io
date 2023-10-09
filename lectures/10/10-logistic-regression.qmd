@@ -13,7 +13,7 @@ editor_options:
 
 -   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
 -   Go to Canvas and open today's "quiz" titled `2023-10-09 Check-in`
--   Access code: `___` (released in class) <!-- slopes -->
+-   Access code: `slopes` (released in class) <!-- slopes -->
 -   "Graded" for completion
 
 ## Project
@@ -48,7 +48,7 @@ Any questions about projects?
 -   Outcome: Categorical with any number of levels, Predictors: Any number of numerical or categorical variables with any number of levels $\rightarrow$ Generalized linear models -- Not covered in STA 101
 :::
 
-## Data + packages
+## Data + packages {.smaller}
 
 ```{r}
 #| label: load-data-packages
@@ -153,5 +153,5 @@ Go to Posit Cloud and continue the project titled ae-09-Spam.
 ::: callout-note
 ## ICYMI
 
-Today's daily check-in access code: `___` (released in class) <!-- slopes -->
+Today's daily check-in access code: `slopes` (released in class) <!-- slopes -->
 :::
