@@ -1,7 +1,5 @@
 ---
 title: "Lab 4"
-editor: visual
-css: labs.css
 ---
 
 By the end of this lab you will create and fit regression models with a single predictor and visualize a simple regression model.

@@ -1,7 +1,5 @@
 ---
 title: "Lab 1: Hello R!"
-editor: visual
-css: labs.css
 ---
 
 The goal of this lab is to acquaint you with R (the computing language), RStudio (the IDE, integrated development environment), and Posit Cloud (the browser based service we will use to access RStudio).

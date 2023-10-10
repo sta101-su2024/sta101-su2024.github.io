@@ -1,7 +1,5 @@
 ---
 title: "Lab 2"
-editor: visual
-css: labs.css
 ---
 
 The goal of this lab is to effectively visualize numerical and categorical data.
@@ -132,7 +130,7 @@ courage |>
 ## Exercise 6
 
 ::: exercise
-Next we\'ll investigate visually whether or not NC Courage has a home-field advantage. To start, let\'s build on the courage2 data frame. Add a new column called home_courage that takes the value \"home\" if Courage is the home team and \"away\" if Courage is the away team. Hint: use the ifelse logic from exercise 4.
+Next we'll investigate visually whether or not NC Courage has a home-field advantage. To start, let's build on the courage2 data frame. Add a new column called home_courage that takes the value "home" if Courage is the home team and "away" if Courage is the away team. Hint: use the ifelse logic from exercise 4.
 
 Mutate the `courage` data frame to create two new variables:
 
