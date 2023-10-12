@@ -3,8 +3,6 @@ title: Logistic regression
 subtitle: Lecture 10
 format: revealjs
 auto-stretch: false
-editor_options: 
-  chunk_output_type: console
 ---
 
 # Warm up
