@@ -26,7 +26,7 @@ Any questions about projects?
 
 ## Application exercise
 
-Go to Posit Cloud and continue the project titled ae-09-Spam.
+Go to Posit Cloud and continue the project titled `ae-09-Spam`.
 
 ::: callout-note
 ## ICYMI
