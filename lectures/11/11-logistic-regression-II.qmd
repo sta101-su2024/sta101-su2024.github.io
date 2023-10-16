@@ -9,13 +9,6 @@ editor_options:
 
 # Warm up
 
-## Check-in
-
--   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts
--   Go to Canvas and open today's "quiz" titled `2023-10-11 Check-in`
--   Access code: `___` (released in class) <!-- logit -->
--   "Graded" for completion
-
 ## Project
 
 ::: task
@@ -27,12 +20,6 @@ Any questions about projects?
 ## Application exercise
 
 Go to Posit Cloud and continue the project titled `ae-09-Spam`.
-
-::: callout-note
-## ICYMI
-
-Today's daily check-in access code: `___` (released in class) <!-- logit -->
-:::
 
 # Logistic regression
 
