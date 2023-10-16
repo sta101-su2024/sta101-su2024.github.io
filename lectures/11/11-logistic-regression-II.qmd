@@ -1,6 +1,6 @@
 ---
 title: Logistic regression
-subtitle: Lecture 10
+subtitle: Lecture 11
 format: revealjs
 auto-stretch: false
 editor_options: 
