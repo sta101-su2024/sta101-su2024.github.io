@@ -134,23 +134,22 @@ Complication rate for this consultant is **different** than the US average of 10
     -   if they do, then reject the null hypothesis in favor of the alternative
 :::
 
-## Setting the hypotheses
+## Setting the hypotheses {.smaller}
 
 ::: task
-The consultant claims that her complication rate is lower than the US average of 10%. Which of the following is the correct set of hypotheses for evaluating her claim?
+Which of the following is the correct set of hypotheses for evaluating whether the consultant's complication rate is different than the US average of 10%?
 :::
 
-(a) $H_0: p = 0.10$; $H_A: p \ne 0.10$ <br>
+a.  $H_0: p = 0.10$; $H_A: p \ne 0.10$
+b.  $H_0: p = 0.10$; $H_A: p > 0.10$
+c.  $H_0: p = 0.10$; $H_A: p < 0.10$
+d.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} \ne 0.10$
+e.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} > 0.10$
+f.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} < 0.10$
 
-(b) $H_0: p = 0.10$; $H_A: p > 0.10$ <br>
-
-(c) $H_0: p = 0.10$; $H_A: p < 0.10$ <br>
-
-(d) $H_0: \hat{p} = 0.10$; $H_A: \hat{p} \ne 0.10$ <br>
-
-(e) $H_0: \hat{p} = 0.10$; $H_A: \hat{p} > 0.10$ <br>
-
-(f) $H_0: \hat{p} = 0.10$; $H_A: \hat{p} < 0.10$
+::: {.callout-tip appearance="minimal" icon="false"}
+Go to Canvas and open today's "quiz" titled `2023-10-18 Check-in` to vote. Access code: `___` (released in class)
+:::
 
 ## Simulating the null distribution
 
