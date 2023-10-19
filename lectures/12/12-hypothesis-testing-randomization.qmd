@@ -15,7 +15,7 @@ editor_options:
 
 -   My office hours this week by appointment, next week 10-11 am on Zoom and by appointment (no Tuesday office hours for me either week)
 
--   Readings and tutorials poster for the next batch of lessons
+-   Readings and tutorials posted for the next batch of lessons
 
 # Hypothesis testing
 
@@ -148,7 +148,7 @@ e.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} > 0.10$
 f.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} < 0.10$
 
 ::: {.callout-tip appearance="minimal" icon="false"}
-Go to Canvas and open today's "quiz" titled `2023-10-18 Check-in` to vote. Access code: `___` (released in class)
+Go to Canvas and open today's "quiz" titled `2023-10-18 Check-in` to vote. Access code: `hypothesis` (released in class)
 :::
 
 ## Simulating the null distribution
