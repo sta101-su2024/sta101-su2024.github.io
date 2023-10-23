@@ -65,7 +65,7 @@ glimpse(heart_transplant)
 The data dictionary is as follows:
 
 | Variable   | Description                                                                                                                                             |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|-----------------------------------------------------------|
 | id         | ID number of the patient                                                                                                                                |
 | outcome    | Survival status with levels `alive` and `deceased`                                                                                                      |
 | transplant | Transplant group with levels `control` (did not receive a transplant) and `treatment` (received a transplant)                                           |
@@ -125,7 +125,7 @@ null_dist_outcome <- heart_transplant |>
   calculate(stat = "diff in props", order = c("treatment", "control"))
 ```
 
-Then, inspect the object `null_dist_transplant` using either `glimpse()` or just printing it to screen. How many rows and how many columns does it have? What does each row represent? What does each variable represent?
+Then, inspect the object `null_dist_outcome` using either `glimpse()` or just printing it to screen. How many rows and how many columns does it have? What does each row represent? What does each variable represent?
 :::
 
 ## Exercise 7
