@@ -1,10 +1,9 @@
 {
   "hash": "c923dcb858afe86ed9e5c267ef3724be",
   "result": {
+    "engine": "knitr",
     "markdown": "---\ntitle: Exploring numerical data\nsubtitle: Lecture 5\nformat: revealjs\nauto-stretch: false\n---\n\n\n# Warm up\n\n## Check-in\n\n-   Daily check-ins for getting you thinking at the beginning of the class and reviewing recent/important concepts\n-   Go to Canvas and open today's \"quiz\" titled `2023-09-13 Check-in`\n-   Access code: `___` (released in class)\n-   \"Graded\" for completion\n\n## Announcements\n\n-   Lab 2 is due Thu, Sep 14 at 5 pm on Gradescope\n\n## Recap from last time\n\n::: task\nSuppose you have a data frame called `df` and a single variable in it called `x`. How many variables will `df` have after running the following code?\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |>\n  mutate(y = x + 2)\n```\n:::\n\n:::\n\n. . .\n\n::: task\nSuppose you have a data frame called `df` and a single variable in it called `x`. How many variables will `df` have after running the following code?\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf <- df |>\n  mutate(y = x + 2)\n```\n:::\n\n:::\n\n. . .\n\n::: task\nWhat is the `<-` operator called and what does it do?\n:::\n\n# Exploring (categorical and) numerical data\n\n## 2020 Durham City and County Resident Survey\n\nWe'll continue working with this dataset.\n\n![](images/durham-survey.png){fig-align=\"center\" width=\"400\"}\n\n## Services\n\n![](images/quality-annotated.png){fig-align=\"center\" width=\"800\"}\n\n## Demographics\n\n![](images/demographics-annotated.png){fig-align=\"center\" width=\"800\"}\n\n## Application exercise\n\nGo to Posit Cloud and start the project titled **ae-05-Durham**.\n",
-    "supporting": [
-      "05-explore-numerical_files"
-    ],
+    "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
