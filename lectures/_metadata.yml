@@ -4,6 +4,7 @@ footer: "[🔗 sta101-f23.github.io](https://sta101-f23.github.io/)"
 logo: "../logo.png"
 format:
   revealjs:
+    html-math-method: mathjax
     theme: slides.scss
     transition: fade
     slide-number: true
