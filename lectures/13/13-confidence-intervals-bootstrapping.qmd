@@ -1,5 +1,5 @@
 ---
-title: Hypothesis testing with randomization
+title: Confidence intervals with bootstrapping
 subtitle: Lecture 13
 format: revealjs
 auto-stretch: false
