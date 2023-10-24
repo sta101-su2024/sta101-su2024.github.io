@@ -65,7 +65,7 @@ glimpse(heart_transplant)
 The data dictionary is as follows:
 
 | Variable   | Description                                                                                                                                             |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|-----------------------------------------------------------|
 | id         | ID number of the patient                                                                                                                                |
 | outcome    | Survival status with levels `alive` and `deceased`                                                                                                      |
 | transplant | Transplant group with levels `control` (did not receive a transplant) and `treatment` (received a transplant)                                           |
@@ -137,7 +137,7 @@ Visualize the distribution of simulated differences in proportions of deceased b
 ::: callout-tip
 ## Hint
 
-These simulated values are in the `stat` column of `null_dist_transplant`.
+These simulated values are in the `stat` column of `null_dist_outcome`.
 :::
 
 ## Exercise 8
@@ -145,7 +145,7 @@ These simulated values are in the `stat` column of `null_dist_transplant`.
 ::: exercise
 Calculate the p-value. Do this in two ways:
 
-1.  Filter `null_dist_transplant` for `stat` values that are at least as far away from the null value as the observed value you calculated in Exercise 4. Make sure you're considering both directions! Note how many such values there are, and calculate the proportion out of the total number of resamples.
+1.  Filter `null_dist_outcome` for `stat` values that are at least as far away from the null value as the observed value you calculated in Exercise 4. Make sure you're considering both directions! Note how many such values there are, and calculate the proportion out of the total number of resamples.
 2.  Use `get_p_value()`:
 
 ```{r}

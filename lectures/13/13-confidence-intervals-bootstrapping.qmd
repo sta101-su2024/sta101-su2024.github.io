@@ -313,7 +313,7 @@ boot_dist_abb |>
 ::: task
 Which of the following is the correct interpretation of the bootstrap interval?
 
-Reply on Canvas in "2023-10-23 Check-in" with access code `___`.
+Reply on Canvas in "2023-10-23 Check-in" with access code `bootstrap`.
 :::
 
 a. There is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.
