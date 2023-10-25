@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - lectures/14/14-decision-errors.pdf
 
 website:
   page-navigation: true
