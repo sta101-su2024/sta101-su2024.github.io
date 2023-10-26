@@ -4,9 +4,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-::: callout-warning
-THIS IS A DRAFT LAB, FINAL VERSION WILL BE POSTED BY FRIDAY!
-:::
 
 By the end of this lab you will construct and interpret confidence intervals via bootstrapping.
 
@@ -173,7 +170,7 @@ IMS - [Chapter 12 exercises](https://openintro-ims2.netlify.app/12-foundations-b
 ## Exercise 9
 
 ::: exercise
-IMS - [Chapter 12 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #4: Bootstrap distributions of $\hat{p}$, III.
+IMS - [Chapter 12 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #6: Bootstrap distributions of $\hat{p}$, III.
 :::
 
 ## Exercise 10
@@ -208,14 +205,14 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 | Exercise    | Points |
 |-------------|--------|
-| Exercise 1  |        |
-| Exercise 2  |        |
-| Exercise 3  |        |
-| Exercise 4  |        |
-| Exercise 5  |        |
-| Exercise 6  |        |
-| Exercise 7  |        |
-| Exercise 8  |        |
-| Exercise 9  |        |
-| Exercise 10 |        |
+| Exercise 1  |   3    |
+| Exercise 2  |   6    |
+| Exercise 3  |   7    |
+| Exercise 4  |   5    |
+| Exercise 5  |   5    |
+| Exercise 6  |   7    |
+| Exercise 7  |   8    |
+| Exercise 8  |   3    |
+| Exercise 9  |   3    |
+| Exercise 10 |   3    |
 | **Total**   | 50     |
