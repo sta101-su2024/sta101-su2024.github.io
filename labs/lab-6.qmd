@@ -4,10 +4,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-::: callout-warning
-THIS IS A DRAFT LAB, FINAL VERSION WILL BE POSTED BY FRIDAY!
-:::
-
 By the end of this lab you will construct and interpret confidence intervals via bootstrapping.
 
 For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!
