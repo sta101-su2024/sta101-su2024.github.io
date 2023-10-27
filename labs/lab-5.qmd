@@ -65,7 +65,7 @@ glimpse(heart_transplant)
 The data dictionary is as follows:
 
 | Variable   | Description                                                                                                                                             |
-|-------------|-----------------------------------------------------------|
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id         | ID number of the patient                                                                                                                                |
 | outcome    | Survival status with levels `alive` and `deceased`                                                                                                      |
 | transplant | Transplant group with levels `control` (did not receive a transplant) and `treatment` (received a transplant)                                           |
