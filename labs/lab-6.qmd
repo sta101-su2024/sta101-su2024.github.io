@@ -40,7 +40,9 @@ library(tidymodels)
 
 ## Exercise 1
 
+::: exercise
 Load the `lemurs` data from your `data` folder and save it as `lemurs`. Then, report which "types" of lemurs are represented in the sample and how many of each. Note that this information is in the `taxon` variable. You should refer back to the linked data dictionary to understand what the different values of `taxon` mean.
+:::
 
 ```{r}
 #| label: load-glimpse-data
