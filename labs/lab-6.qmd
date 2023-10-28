@@ -137,7 +137,7 @@ Your friend has never taken a statistics course. Describe to your friend the pro
 ## Exercise 5
 
 ::: exercise
-Do female lemurs differ in weight from male lemurs? Report the difference in mean weights between groups. Next, construct a 99% bootstrap distribution for the difference in means between groups and interpret it. If the interval covers 0, you might think there is no difference between groups. Does the interval cover 0?
+Do female lemurs differ in weight from male lemurs? Report the difference in mean weights between groups. Next, construct a 99% bootstrap distribution for the difference in means between groups and interpret it. If the interval covers 0, you might think there is no difference between groups. Does the interval cover 0? Use `set.seed(123)` and `reps = 10000.`
 :::
 
 ## Exercise 6
@@ -206,14 +206,14 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 | Exercise    | Points |
 |-------------|--------|
-| Exercise 1  |   3    |
-| Exercise 2  |   6    |
-| Exercise 3  |   7    |
-| Exercise 4  |   5    |
-| Exercise 5  |   5    |
-| Exercise 6  |   7    |
-| Exercise 7  |   8    |
-| Exercise 8  |   3    |
-| Exercise 9  |   3    |
-| Exercise 10 |   3    |
+| Exercise 1  | 3      |
+| Exercise 2  | 6      |
+| Exercise 3  | 7      |
+| Exercise 4  | 5      |
+| Exercise 5  | 5      |
+| Exercise 6  | 7      |
+| Exercise 7  | 8      |
+| Exercise 8  | 3      |
+| Exercise 9  | 3      |
+| Exercise 10 | 3      |
 | **Total**   | 50     |
