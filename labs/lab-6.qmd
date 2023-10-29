@@ -143,7 +143,7 @@ Do female lemurs differ in weight from male lemurs? Report the difference in mea
 ## Exercise 6
 
 ::: exercise
-Create a new column that tells you whether or not a lemur was born in the first or second half of the year (January through June vs July through December). Create a meaningful plot to illustrate the weights of each group of lemurs. Use `theme_bw()` to replace the default gray plot background. Based on your figure, which group of lemurs weighs more? Is the distribution of one or both groups skewed or symmetric? See [here](https://openintro-ims2.netlify.app/explore-numerical.html?q=skew#boxplots) for more information about skew vs symmetric distributions.
+Create a new column that tells you whether or not a lemur was born in the first or second half of the year (January through June vs July through December). Create a meaningful plot to illustrate the weights of each group of lemurs. Use `theme_bw()` to replace the default gray plot background. Based on your figure, which group of lemurs weighs more? Is the distribution of one or both groups skewed or symmetric? See [here](https://openintro-ims2.netlify.app/05-explore-numerical#sec-histograms) for more information about skew vs symmetric distributions.
 :::
 
 ## Exercise 7
