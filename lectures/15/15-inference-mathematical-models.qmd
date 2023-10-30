@@ -1,5 +1,5 @@
 ---
-title: Confidence intervals with bootstrapping
+title: Inference with mathematical models
 subtitle: Lecture 13
 format: revealjs
 auto-stretch: false
@@ -9,7 +9,8 @@ auto-stretch: false
 
 ## Announcements
 
--   ...
+-   My office hours by appointment this week.
+-   Wednesday lecture on Zoom -- can join from wherever, will send Zoom link by email and on Slack.
 
 ## Packages
 
@@ -54,11 +55,11 @@ Two questions:
 -   You'd either use simulation (randomization, bootstrapping, stuff we've done so far!) or you would leverage mathematical theory to know what to expect if we *had* taken repeated samples.
 :::
 
-## The (technical) conditions 
+## The (technical) conditions
 
 1.  **Independent observations:** Observations in the sample are independent. Independence is guaranteed when we take a random sample from a population. Independence can also be guaranteed if we randomly divide individuals into treatment and control groups.
 
-2.  **Large enough sample:** The sample size cannot be too small. What qualifies as \"small\" differs from one context (i.e., from sample statistic to sample statistic).
+2.  **Large enough sample:** The sample size cannot be too small. What qualifies as "small" differs from one context (i.e., from sample statistic to sample statistic).
 
 ## More to the CLT
 
