@@ -1,6 +1,6 @@
 ---
 title: Inference with mathematical models
-subtitle: Lecture 13
+subtitle: Lecture 15
 format: revealjs
 auto-stretch: false
 ---
