@@ -5,6 +5,8 @@ categories:
   - Suggested answers
 fig-width: 6
 fig-asp: 0.618
+execute:
+  echo: false
 ---
 
 In this application exercise, we'll do inference on a single population proportion.
