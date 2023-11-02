@@ -162,6 +162,9 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 ## Grading
 
+The lab will be graded out of 50 total points.
+
+<!--
 | Exercise    | Points |
 |-------------|--------|
 | Exercise 1  | TBA    |
@@ -175,3 +178,4 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 | Exercise 9  | TBA    |
 | Exercise 10 | TBA    |
 | **Total**   | 50     |
+-->
