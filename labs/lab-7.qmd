@@ -2,4 +2,141 @@
 title: "Lab 7"
 ---
 
-To be posted...
+By the end of this lab you will
+
+-   calculate probabilities under the normal distribution
+
+-   construct and interpret confidence intervals via bootstrapping
+
+For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!
+
+# Getting started
+
+1.  Go to [Posit Cloud](https://posit.cloud/spaces/405361) and start the project titled **lab-7 - XXX**.
+
+2.  Under the *Files* tab on the lower right, click on `lab-7.qmd` to open the lab template.
+
+3.  Complete the exercises in this document.
+
+# Part 1: Course scores
+
+## Exercise 1
+
+Students in large university course that is offered each semester average 32 (out of 50) on the midterm, with a standard deviation of 4. The scores are distributed normally.
+
+::: exercise
+-   What is the probability a randomly selected student scored less than 28?
+
+-   What is the probability a randomly selected student scored higher than than 35?
+
+<!-- -->
+
+-   What score did only 20 percent of the class exceed?1
+:::
+
+## Exercise 2
+
+::: execise
+I pick 10 students at random from the class.
+
+-   \[Without looking at the next question\] How does the standard error of their average score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.
+
+-   What is the probability the average midterm score of these 10 students is less than 28?
+
+-   What is the probability the average midterm score of these 10 students is higher than 35?
+
+-   How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 1? Why?
+:::
+
+::: callout-important
+## Pause and render
+
+Now that you've completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.
+:::
+
+# Part 2: Duke houses
+
+## Exercise 3
+
+## Exercise 4
+
+## Exercise 5
+
+::: callout-important
+## Pause and render
+
+Now that you've completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.
+:::
+
+# Part 3: IMS exercises
+
+The exercises in this section do not require code. Make sure to answer the questions in full sentences.
+
+## Exercise 6
+
+::: exercise
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises), #2: Married at 25.
+:::
+
+## Exercise 7
+
+::: exercise
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises), #5: If I fits, I sits, bootstrap test.
+:::
+
+## Exercise 8
+
+::: exercise
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #6: Legalization of marijuana, bootstrap test..
+:::
+
+## Exercise 9
+
+::: exercise
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #8: Legalization of marijuana, standard errors.
+:::
+
+## Exercise 10
+
+::: exercise
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #22: Legalization of marijuana, mathematical interval.
+:::
+
+
+# Wrap up
+
+## Submitting
+
+::: callout-important
+Before you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.
+:::
+
+To submit your assignment to Gradescope:
+
+-   Go to your Files pane and check the box next to the PDF output of your document (`lab-7.pdf`).
+
+-   Then, in the Files pane, go to More \> Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.
+
+-   Go to the course Canvas page and click on Gradescope and then click on the assignment. You'll be prompted to submit it.
+
+-   Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be "checked").
+
+::: callout-warning
+If you fail to mark the pages associated with an exercise, that exercise won't be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can't mark your pages for you, and for them to be able to grade, you must mark them.
+:::
+
+## Grading
+
+| Exercise    | Points |
+|-------------|--------|
+| Exercise 1  | TBA    |
+| Exercise 2  | TBA    |
+| Exercise 3  | TBA    |
+| Exercise 4  | TBA    |
+| Exercise 5  | TBA    |
+| Exercise 6  | TBA    |
+| Exercise 7  | TBA    |
+| Exercise 8  | TBA    |
+| Exercise 9  | TBA    |
+| Exercise 10 | TBA    |
+| **Total**   | 50     |
