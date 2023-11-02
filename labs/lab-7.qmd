@@ -57,7 +57,7 @@ Answers to this question are stored in the `harass5` variable in `gss16` set.
 ## Exercise 3
 
 ::: exercise
-- Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1000 iterations when creating your bootstrap distribution. Interpret this interval in context of the data.
+- Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to `1234`. Interpret this interval in context of the data.
 - Where was your 95% confidence interval centered? Why does this make sense?
 - Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Report the interval below. Is it wider or more narrow than the 95% confidence interval?
 - Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulatiob, just conceptually think about it.
