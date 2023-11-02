@@ -165,4 +165,4 @@ What is $p$ vs. $\hat{p}$ vs. p-value. Explain generically as well as in the con
 
 What is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.
 
-*Add response here.*
+*Add response here..*
