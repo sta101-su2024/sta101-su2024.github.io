@@ -18,23 +18,72 @@ For all visualizations you create, be sure to include informative titles for the
 
 3.  Complete the exercises in this document.
 
-# Part 1: Course scores
+# Packages
+
+We'll use the following packages in this lab:
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(tidymodels)
+library(dsbox)
+```
+
+# Part 1: General Social Survey
+
+The [General Social Survey (GSS)](https://gss.norc.org/) is a sociological survey used to collect data on demographic characteristics and attitudes of residents of the United States. The GSS has been conducted each year since 1972 by the National Opinion Research Center at the University of Chicago. The GSS collects data on demographic characteristics and attitudes of residents of the United States. The GSS sample is designed as a multistage stratified sample.
+
+For the exercises in this part, we'll use the `gss16` data set from the `dsbox` package. You can find out more about the dataset by inspecting its documentation, which you can access by running `?gss16` in the Console or using the Help menu in RStudio to search for `gss16`. You can also find this information [here](https://tidyverse.github.io/dsbox/reference/gss16.html).
+
+In 2016, the GSS added a new question on harassment at work. The question is phrased as the following.
+
+> Over the past five years, have you been harassed by your superiors or co-workers at your job, for example, have you experienced any bullying, physical or psychological abuse?
+
+Answers to this question are stored in the `harass5` variable in `gss16` set.
 
 ## Exercise 1
 
+::: exercise
+- Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?
+:::
+
+## Exercise 2
+
+::: exercise
+- Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.
+:::
+
+## Exercise 3
+
+::: exercise
+- Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1000 iterations when creating your bootstrap distribution. Interpret this interval in context of the data.
+- Where was your 95% confidence interval centered? Why does this make sense?
+- Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Report the interval below. Is it wider or more narrow than the 95% confidence interval?
+- Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulatiob, just conceptually think about it.
+:::
+
+::: callout-important
+## Pause and render
+
+Now that you've completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.
+:::
+
+# Part 2: Course scores
+
 Students in large university course that is offered each semester average 32 (out of 50) on the midterm, with a standard deviation of 4. The scores are distributed normally.
+
+## Exercise 4
 
 ::: exercise
 -   What is the probability a randomly selected student scored less than 28?
 
 -   What is the probability a randomly selected student scored higher than than 35?
 
-<!-- -->
-
 -   What score did only 20 percent of the class exceed?1
 :::
 
-## Exercise 2
+## Exercise 5
 
 ::: execise
 I pick 10 students at random from the class.
@@ -52,20 +101,6 @@ I pick 10 students at random from the class.
 ## Pause and render
 
 Now that you've completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.
-:::
-
-# Part 2: Duke houses
-
-## Exercise 3
-
-## Exercise 4
-
-## Exercise 5
-
-::: callout-important
-## Pause and render
-
-Now that you've completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.
 :::
 
 # Part 3: IMS exercises
