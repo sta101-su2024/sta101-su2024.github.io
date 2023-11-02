@@ -667,6 +667,22 @@
       ],
       "Hash": "e85ffbebaad5f70e1a2e2ef4302b4949"
     },
+    "dsbox": {
+      "Package": "dsbox",
+      "Version": "0.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "tidyverse",
+      "RemoteRepo": "dsbox",
+      "RemoteRef": "main",
+      "RemoteSha": "244ecdfe3c8d68b25db3024d9fdd0465ae991059",
+      "Remotes": "rstudio/gradethis",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "c1c6e2569ec08160e34157c6ad83d982"
+    },
     "dtplyr": {
       "Package": "dtplyr",
       "Version": "1.3.1",

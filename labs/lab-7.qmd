@@ -1,5 +1,5 @@
 ---
-title: "Lab 7"
+title: "Lab 7 - Inference for proportions and means"
 ---
 
 By the end of this lab you will
@@ -12,7 +12,7 @@ For all visualizations you create, be sure to include informative titles for the
 
 # Getting started
 
-1.  Go to [Posit Cloud](https://posit.cloud/spaces/405361) and start the project titled **lab-7 - XXX**.
+1.  Go to [Posit Cloud](https://posit.cloud/spaces/405361) and start the project titled **lab-7 - Inference for proportions and means**.
 
 2.  Under the *Files* tab on the lower right, click on `lab-7.qmd` to open the lab template.
 
