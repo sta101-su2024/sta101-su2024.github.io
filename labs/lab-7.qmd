@@ -45,22 +45,22 @@ Answers to this question are stored in the `harass5` variable in `gss16` set.
 ## Exercise 1
 
 ::: exercise
-- Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?
+Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?
 :::
 
 ## Exercise 2
 
 ::: exercise
-- Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.
+Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.
 :::
 
 ## Exercise 3
 
 ::: exercise
-- Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to `1234`. Interpret this interval in context of the data.
-- Where was your 95% confidence interval centered? Why does this make sense?
-- Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Report the interval below. Is it wider or more narrow than the 95% confidence interval?
-- Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulatiob, just conceptually think about it.
+a.  Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to `1234`. Interpret this interval in context of the data. Make sure to visualize this interval as well.
+b.  Where was your 95% confidence interval centered? Why does this make sense?
+c.  Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Interpret this interval in context of the data. Is it wider or more narrow than the 95% confidence interval? Additionally, visualize the interval by layering it on the visualization (for the 95% confidence interval) from part (a). You can do this simply by adding another shading layer where the endpoints now come from the new 90% confidence interval. Use a [different pair of colors](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) for the `color` and `fill` arguments, e.g., `darkorange4` and darkorange1.
+d.  Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulation, just conceptually think about it.
 :::
 
 ::: callout-important
@@ -80,7 +80,7 @@ Students in large university course that is offered each semester average 32 (ou
 
 -   What is the probability a randomly selected student scored higher than than 35?
 
--   What score did only 20 percent of the class exceed?1
+-   What score did only 20 percent of the class exceed?
 :::
 
 ## Exercise 5
@@ -137,7 +137,6 @@ IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-b
 IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #22: Legalization of marijuana, mathematical interval.
 :::
 
-
 # Wrap up
 
 ## Submitting
@@ -164,6 +163,7 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 The lab will be graded out of 50 total points.
 
+```{=html}
 <!--
 | Exercise    | Points |
 |-------------|--------|
@@ -179,3 +179,4 @@ The lab will be graded out of 50 total points.
 | Exercise 10 | TBA    |
 | **Total**   | 50     |
 -->
+```
