@@ -76,11 +76,11 @@ Students in large university course that is offered each semester average 32 (ou
 ## Exercise 4
 
 ::: exercise
--   What is the probability a randomly selected student scored less than 28?
+a.  What is the probability a randomly selected student scored less than 28?
 
--   What is the probability a randomly selected student scored higher than than 35?
+b.  What is the probability a randomly selected student scored higher than than 35?
 
--   What score did only 20 percent of the class exceed?
+c.  What score did only 20 percent of the class exceed?
 :::
 
 ## Exercise 5
@@ -88,13 +88,13 @@ Students in large university course that is offered each semester average 32 (ou
 ::: execise
 I pick 10 students at random from the class.
 
--   \[Without looking at the next question\] How does the standard error of their average score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.
+a.  \[Without looking at the next question\] How does the standard error of their average score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.
 
--   What is the probability the average midterm score of these 10 students is less than 28?
+b.  The standard error of the mean can be calculated as $SE = \frac{\sigma}{\sqrt{n}}$. What is the probability the average midterm score of these 10 students is less than 28?
 
--   What is the probability the average midterm score of these 10 students is higher than 35?
+c.  What is the probability the average midterm score of these 10 students is higher than 35?
 
--   How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 1? Why?
+d.  How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 4? Why?
 :::
 
 ::: callout-important
