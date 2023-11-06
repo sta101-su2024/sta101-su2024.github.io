@@ -9,8 +9,28 @@ auto-stretch: false
 
 ## Announcements
 
--   ...
+-   Lab 7 due Thu, Nov 9 at 5pm
+-   Exam 2 coming up:
+    -   Fri, Nov 10: Exam 2 review in lab
+    -   Wed, Nov 15: Exam 2 in-class
+    -   Wed, Nov 15 - Fri, Nov 17: Exam 2 take-home, due at 5 on Fri, Nov 17
 
+## Project 2 {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   Teams to be announced soon
+-   Poll based on multiple requests I've received so far (presumably more to come...)
+:::
+
+::: {.column width="50%"}
+![](images/slido.png){width="899"}
+:::
+:::
+
+```{=html}
+<iframe src="https://app.sli.do/event/61VdeTA3pDq7bEGb2kruAG/embed/polls/eea18cd7-1840-4975-812e-641336458c49" width="900" height="400"></iframe>
+```
 # Inference for two proportions
 
 ## NC poll on equality
