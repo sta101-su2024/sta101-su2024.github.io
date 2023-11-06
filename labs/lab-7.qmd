@@ -122,19 +122,19 @@ IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one
 ## Exercise 8
 
 ::: exercise
-IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #6: Legalization of marijuana, bootstrap test..
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises), #6: Legalization of marijuana, bootstrap test.
 :::
 
 ## Exercise 9
 
 ::: exercise
-IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #8: Legalization of marijuana, standard errors.
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises), #8: Legalization of marijuana, standard errors.
 :::
 
 ## Exercise 10
 
 ::: exercise
-IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises), #22: Legalization of marijuana, mathematical interval.
+IMS - [Chapter 16 exercises](https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises), #22: Legalization of marijuana, mathematical interval.
 :::
 
 # Wrap up
