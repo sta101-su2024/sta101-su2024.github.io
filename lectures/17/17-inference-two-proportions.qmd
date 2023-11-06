@@ -1,6 +1,6 @@
 ---
 title: Inference for a proportion
-subtitle: Lecture 16
+subtitle: Lecture 17
 format: revealjs
 auto-stretch: false
 ---
@@ -53,7 +53,7 @@ A September 16-19, 2023, asked North Carolina voters, among other issues, about 
 ## STA 101 vs. NC
 
 ::: task
-Vote on Canvas under `2023-11-06 Check-in` with the access code `___`.
+Vote on Canvas under `2023-11-06 Check-in` with the access code `equality`.
 
 ------------------------------------------------------------------------
 
@@ -69,5 +69,5 @@ c\. Lower percentage of "The country has made most of the changes needed to give
 ## Application exercise
 
 ::: task
-Go to Posit Cloud and continue the project titled `ae-14-Equality`.
+Go to Posit Cloud and continue the project titled `ae-13-Equality`.
 :::
