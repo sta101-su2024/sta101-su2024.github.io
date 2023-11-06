@@ -185,7 +185,7 @@ Interpret the confidence interval in context of the data.
 
 Describe how the simulation scheme for bootstrapping is different than that for the hypothesis test.
 
-*Add response here.*
+*Add response here...*
 
 # Conceptual
 
