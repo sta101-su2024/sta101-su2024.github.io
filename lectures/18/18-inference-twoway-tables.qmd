@@ -32,6 +32,16 @@ Go to Posit Cloud and continue the project titled `ae-13 - Equality`.
 
 # Inference for two-way proportions
 
+First:
+
+::: task
+Vote on Canvas under `2023-11-08 Check-in` with the access code `twoway`.
+:::
+
+. . .
+
+Then:
+
 ::: task
 Go to Posit Cloud and continue the project titled `ae-14 - Candidate talk`.
 :::
