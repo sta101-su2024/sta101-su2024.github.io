@@ -10,7 +10,9 @@ auto-stretch: false
 ## Announcements
 
 -   Project 2: Video presentations, no in person meeting on Thu, Dec 14
--   Exam 2: Yes, you can have a cheat sheet
+-   Exam 2:
+    -   Yes, you can have a cheat sheet
+    -   Minor update in coverage: Up to end of inference with proportions, inference with means to start after exam
 
 # Inference for two proportions
 
