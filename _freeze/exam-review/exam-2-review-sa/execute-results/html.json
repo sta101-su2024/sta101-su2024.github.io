@@ -1,0 +1,17 @@
+{
+  "hash": "25175bf7362ee646859a3c0a1d614b84",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Exam 2 Review\"\nsubtitle: \"Suggested answers\"\nexecute:\n  echo: false\n  warning: false\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n\n:::\n\n\n1.  explanatory: income bracket; response: preferred alcoholic beverage\n\n2.  III and IV\n\n3.  $H_0$: Income bracket and preference for alcoholic beverage are independent.\n\n    $H_A$: Income bracket and preference for alcoholic beverage are dependent.\n\n4.  $E = 250 \\times \\frac{500}{1000} = 125$\n\n5.  The shaded area below represents the p-value.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](exam-2-review-sa_files/figure-html/unnamed-chunk-2-1.png){width=576}\n:::\n:::\n\n\n6.  Add up the heights of the bars that contain simulated sample statistics with a value of 4.74 or higher and divide by the number of simulations. Approximately 352 (113+76+51+36+30+19+8+6+7+2+3+0+1) simulations out of 1,000 meet this criteria, resulting in a p-value of approximately 0.352.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](exam-2-review-sa_files/figure-html/unnamed-chunk-3-1.png){width=576}\n:::\n:::\n\n\n7.  The p-value is much larger than 0.05, therefore the data do not provide convincing evidence that income bracket and preference for alcoholic beverage are dependent.\n\n8.  Take a random sample of size 25, with replacement, from the original sample. Calculate the proportion of students in this simulated sample who work 5 or more hours. Repeat this process 1000 times to build the bootstrap distribution. Take the middle 95% of this distribution to construct a 95% confidence interval for the true proportion of statistics majors who work 5 or more hours.\n\n9.  (40%, 90%)\n\n10. ..\n\n11. ..\n\n12. \n\n    (c) We are 95% confident that the mean number of texts per month of all American teens is between 1450 and 1550.\n\n13. \n\n    (a) I \\> II\n\n14. a. Power of the test is the probability of rejecting the null hypothesis when the null hypothesis is false.\n\n    b\\. Type 1 error rate is the probability of rejecting the null hypothesis when the null hypothesis is true.\n\n    c\\. Type 1 error rate is the probability of failing to reject the null hypothesis when the null hypothesis is false.\n\n    d\\. 0.05.\n\n15. a\\. False. It will be centered at $p$, the true population proportion.\n\n    b\\. False. Increasing the number of bootstrap samples does not affect the variability of the sample statistic.\n\n    c\\. True.\n",
+    "supporting": [
+      "exam-2-review-sa_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
