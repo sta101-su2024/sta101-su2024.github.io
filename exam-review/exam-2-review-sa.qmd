@@ -88,13 +88,9 @@ null_dist_plot +
 
 11. Range of the boostrap distribution is 0.90 - 0.30 = 0.60. This spans roughly 6 standard errors. Therefore, the approximate standard error is 0.60 / 6 = 0.10.
 
-12. 
+12. \(c\) We are 95% confident that the mean number of texts per month of all American teens is between 1450 and 1550.
 
-    (c) We are 95% confident that the mean number of texts per month of all American teens is between 1450 and 1550.
-
-13. 
-
-    (a) I \> II
+13. \(a\) I \> II
 
 14. a. Power of the test is the probability of rejecting the null hypothesis when the null hypothesis is false.
 
