@@ -195,13 +195,15 @@ a\. Between L to U of statistics majors work at least 5 hours per week.
 
 b\. 95% of the time the true proportion of statistics majors who work at least 5 hours per week is between L and U.
 
-c\. Between L and U of random samples of 25 Americans are expected to yield confidence intervals that contain the true proportion of Americans who walk for at least 10 minutes per day.
+c\. Between L and U of random samples of 25 statistics majors are expected to yield confidence intervals that contain the true proportion of statistics majors who work at least 5 hours per week.
 
-d\. 95% of random samples of 23,129 Americans will yield confidence intervals between 61.1% and 62.9%.
+d\. 95% of random samples of 25 statistics majors will yield confidence intervals between L and U.
 
 e\. None of the above.
 
 ## Question 11
+
+Estimate the standard error of the bootstrap distribution.
 
 # Part 3 - Miscellaneous
 
