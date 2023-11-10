@@ -15,7 +15,7 @@ library(tidymodels)
 
 1.  explanatory: income bracket; response: preferred alcoholic beverage
 
-2.  III and IV
+2.  (d) IV and V
 
 3.  $H_0$: Income bracket and preference for alcoholic beverage are independent.
 

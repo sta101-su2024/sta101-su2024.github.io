@@ -65,13 +65,15 @@ Which of the following are appropriate visualizations for these data? Check **al
 I.   Pie chart
 II.  Ridge plot
 III. Side-by-side box plots
-IV.  Stacked var plot
+IV.  Mosaic plot
+V.  Stacked bar plot
 ```
 
 a.  I
 b.  I and II
-c.  I, II, and III
-d.  III and IV
+c.  II and III
+d.  IV and V
+e.  Only V
 
 ## Question 3
 
