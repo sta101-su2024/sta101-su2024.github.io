@@ -165,7 +165,7 @@ $\vspace{2cm}$
 
 ## Question 9
 
-A bootstrap distribution with 1000 simulations is show below. Approximate the bounds of the 90% confidence interval based on this distribution.
+A bootstrap distribution with 1000 simulations is show below. Approximate the bounds of the 95% confidence interval based on this distribution.
 
 ```{r}
 students <- tibble(
