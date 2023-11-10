@@ -15,7 +15,9 @@ library(tidymodels)
 
 1.  explanatory: income bracket; response: preferred alcoholic beverage
 
-2.  (d) IV and V
+2.  
+
+    (d) IV and V
 
 3.  $H_0$: Income bracket and preference for alcoholic beverage are independent.
 
@@ -84,7 +86,7 @@ null_dist_plot +
 
 9.  (40%, 80%)
 
-10. \(e\) None of the above. The correct interpretation is "We are 95% confident that 40% to 90% of statistics majors work at least 5 hours per week.
+10. \(e\) None of the above. The correct interpretation is "We are 95% confident that 40% to 80% of statistics majors work at least 5 hours per week.
 
 11. Range of the boostrap distribution is 0.90 - 0.30 = 0.60. This spans roughly 6 standard errors. Therefore, the approximate standard error is 0.60 / 6 = 0.10.
 
