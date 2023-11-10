@@ -84,11 +84,11 @@ null_dist_plot +
 
 8.  Take a random sample of size 25, with replacement, from the original sample. Calculate the proportion of students in this simulated sample who work 5 or more hours. Repeat this process 1000 times to build the bootstrap distribution. Take the middle 95% of this distribution to construct a 95% confidence interval for the true proportion of statistics majors who work 5 or more hours.
 
-9.  (40%, 80%)
+9.  The exact 95% CI is (40%, 80%). Answers reasonably close to the upper and lower bounds would be accepted.
 
-10. \(e\) None of the above. The correct interpretation is "We are 95% confident that 40% to 80% of statistics majors work at least 5 hours per week.
+10. \(e\) None of the above. The correct interpretation is "We are 95% confident that 40% to 80% of statistics majors work at least 5 hours per week."
 
-11. Range of the boostrap distribution is 0.90 - 0.30 = 0.60. This spans roughly 6 standard errors. Therefore, the approximate standard error is 0.60 / 6 = 0.10.
+11. Range of the bootstrap distribution is 0.90 - 0.30 = 0.60. This spans roughly 6 standard errors. Therefore, the approximate standard error is 0.60 / 6 = 0.10.
 
 12. \(c\) We are 95% confident that the mean number of texts per month of all American teens is between 1450 and 1550.
 
