@@ -1,0 +1,39 @@
+---
+title: "Overview: Inference for proportions"
+subtitle: Lecture 19
+format: revealjs
+auto-stretch: false
+---
+
+# Warm up
+
+## Announcements -- Exam 2
+
+-   Classroom: You should have received your exam location assignment this morning. Reach out to me ASAP if you haven't received it.
+-   In-class: On Wednesday
+    -   1 page, both sides notes ("cheat sheet")
+    -   Nothing else
+-   Take-home: Wednesday - Friday
+    -   Open everything except for other humans, except for me :)
+
+# From last time 
+
+## Inference for two-way proportions
+
+First:
+
+::: task
+Vote on Canvas under `2023-11-13 Check-in` with the access code `twoway`.
+:::
+
+. . .
+
+Then:
+
+::: task
+Go to Posit Cloud and continue the project titled `ae-14 - Candidate talk`.
+:::
+
+# Overview
+
+# Some slides for review...
