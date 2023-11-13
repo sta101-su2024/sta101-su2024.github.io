@@ -80,7 +80,7 @@ Load the data.
 
 ## Exercise 3
 
-Create a 2x2 table of the responses across the two age groups and visualize the frequency distribution.
+Create a two-way table of the issues across parties and visualize the frequency distribution.
 
 ```{r}
 #| label: freq-table
