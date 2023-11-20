@@ -9,7 +9,8 @@ auto-stretch: false
 
 ## Announcements
 
--   ...
+-   Slight change of plans on materials post-Thanksgiving
+-   Exam 2 to be returned Monday after Thanksgiving
 
 # Inference for one mean
 
