@@ -10,7 +10,7 @@ auto-stretch: false
 ## Announcements
 
 -   Project 2:
-    -   Assignment details + teams posted
+    -   Assignment details + teams posted: <https://sta101-f23.github.io/project/project-2.html>
     -   All team members must be in lab on Friday for the proposal conversation with your TA (5 pts / 100 total points for the project)
     -   Before Friday: Meet with your team at least once to decide on a dataset and research question
     -   Wednesday in class: Last 20-30 minutes dedicated to project work
