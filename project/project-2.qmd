@@ -2,4 +2,309 @@
 title: "Project 2"
 ---
 
-More info to be posted.
+# Timeline
+
+[Proposal](#project-proposal-conversation) in lab on Fri, Dec 1
+
+[Peer review](#peer-review) in lab on Fri, Dec 8
+
+[Presentation](#presentation) due Thur, Dec 14 at 5 pm
+
+[Final report](#project-report) due Thur, Dec 14 at 5 pm
+
+# Introduction
+
+**TL;DR**: *Ask a question you're curious about and answer it with a dataset of your choice. This is your project in a nutshell.*
+
+**May be too long, but please do read**
+
+The final project for this class will consist of analysis on a dataset of your own choosing. The dataset may already exist, or you may collect your own data using a survey or by conducting an experiment. You can choose the data based on your teams' interests or based on work in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a novel dataset in a meaningful way.
+
+The goal is not to do an exhaustive data analysis i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. You do not have to apply every statistical procedure we learned. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis should be discussed here.
+
+The project is very open ended. You should
+
+-   create some kind of compelling visualization(s) of this data, and
+-   perform statistical inference and/or fit a model or descriptive or predictive purposes
+
+There is no limit on what tools or packages you may use but sticking to packages we learned in class is required. You do not need to visualize all of the data at once. A single high-quality visualization will receive a much higher grade than a large number of poor-quality visualizations. Also pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R, and all components of the project **must be reproducible** (with the exception of the presentation).
+
+You will work on the project with your lab teams.
+
+The four primary deliverables for the final project are
+
+1.  A project **proposal conversation** with your TA in your lab section on Friday, December 1.
+2.  Formal **peer review** on another team's project in your lab section on Friday, December 8.
+3.  A reproducible project **writeup** of your analysis submitted on Gradescope by Thursday, December 14.
+4.  A **presentation video** submitted on Canvas by Thursday, December 14.
+
+# Proposal conversation (5 pts) {#project-proposal-conversation}
+
+There are two main purposes of the project proposal conversation with your TA:
+
+-   To help you think about the project thoroughly before you go too far down a path and form an analysis plan that is feasible and that will allow you to be successful for this project.
+-   To ensure all members of the team are on the same page about the status of the project and the remaining work to be done and how it will be distributed among yourselves.
+
+To prepare for this conversation:
+
+-   Make sure all team members are present in lab on Friday, December 1.
+-   Identify a data set and a research question for the final project. If you're unsure where to find data, you can use the list of potential data sources in the [Resources for datasets](#resources) section as a starting point. It may also help to think of topics you're interested in investigating and find data sets on those topics.
+
+## Criteria for datasets
+
+The data sets should meet the following criteria:
+
+-   At least 100 observations
+
+-   At least 5 columns
+
+-   At least 4 of the columns must be useful and unique explanatory variables.
+
+    -   Identifier variables such as "name", "social security number", etc. are not useful explanatory variables.
+    -   If you have multiple columns with the same information (e.g. "state abbreviation" and "state name"), then they are not unique explanatory variables.
+
+-   You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials.
+
+::: callout-tip
+Please ask a member of the teaching team if you're unsure whether your data set meets the criteria.
+:::
+
+If you set your hearts on a dataset that has fewer observations or variables than what's suggested here, that might still be ok; use these numbers as guidance for a successful proposal, not as minimum requirements.
+
+## Resources for datasets {#resources}
+
+You can find data wherever you like, but here are some recommendations to get you started. You shouldn't feel constrained to datasets that are already in a tidy format, you can start with data that needs cleaning and tidying, scrape data off the web, or collect your own data.
+
+-   [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
+-   [Bikeshare data portal](https://www.bikeshare.com/data/)
+-   [CDC](https://www.cdc.gov/datastatistics/)
+-   [Data.gov](https://www.data.gov/)
+-   [Data is Plural](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
+-   [Durham Open Data Portal](https://live-durhamnc.opendata.arcgis.com/)
+-   [Edinburgh Open Data](https://edinburghopendata.info/)
+-   [Election Studies](https://electionstudies.org//)
+-   [European Statistics](https://ec.europa.eu/eurostat/)
+-   [CORGIS: The Collection of Really Great, Interesting, Situated Datasets](https://think.cs.vt.edu/corgis/csv/)
+-   [General Social Survey](https://gss.norc.org/)
+-   [Google Dataset Search](https://datasetsearch.research.google.com/)
+-   [Harvard Dataverse](https://dataverse.harvard.edu/)
+-   [International Monetary Fund](https://data.imf.org/?sk=388DFA60-1D26-4ADE-B505-A05A558D9A42&sId=1479329328660)
+-   [IPUMS survey data from around the world](https://ipums.org/)
+-   [Los Angeles Open Data](https://data.lacity.org/browse)
+-   [National Crime Victimization Survey](https://www.icpsr.umich.edu/web/NACJD/studies/38090/summary)
+-   [NHS Scotland Open Data](https://www.opendata.nhs.scot/)
+-   [NYC OpenData](https://opendata.cityofnewyork.us/)
+-   [Open access to Scotland's official statistics](https://statistics.gov.scot/home)
+-   [Pew Research](https://www.pewresearch.org/download-datasets/)
+-   [PRISM Data Archive Project](https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html)
+-   [Statistics Canada](https://www.statcan.gc.ca/en/start)
+-   [The National Bureau of Economic Research](https://www.nber.org/research/data?page=1&perPage=50)
+-   [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+-   [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
+-   [UK Government Data](https://data.gov.uk/)
+-   [UNICEF Data](https://data.unicef.org/)
+-   [United Nations Data](http://data.un.org/)
+-   [United Nations Statistics Division](https://unstats.un.org/UNSDWebsite/)
+-   [US Census Data](https://www.census.gov/data.html)
+-   [US Government Data](https://sctyner.github.io/static/presentations/Misc/GraphicsGroupISU/2018-11-16-us-govt-data.html)
+-   [World Bank Data](https://datacatalog.worldbank.org/home)
+-   [Youth Risk Behavior Surveillance System (YRBSS)](https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au)
+
+## Proposal conversation grading
+
+Each component will be graded as follows:
+
+-   **Meets expectations (full credit)**: All team members are present and contribute to the conversation. The team has a dataset and research question identified. There is a plan for completing the project as envisioned.
+
+-   **Close to expectations (half credit)**: Not all team members are present and contribute to the conversation (without any excused absences). The team does not have a dataset and/or research question identified. The plan for completing the project as envisioned is not well designed.
+
+-   **Does not meet expectations (no credit)**: Not all team members are present and contribute to the conversation (without any excused absences). The team does not have a dataset or research question identified. There is no plan for completing the project as envisioned.
+
+Even if you earn full credit, it may not mean that your proposal is perfect.
+
+# Peer review (5 pts) {#peer-review}
+
+Critically reviewing others' work is a crucial part of the scientific process, and STA 101 is no exception. You will be assigned one team's project to review. This feedback is intended to help you create a high quality final project, as well as give you experience reading and constructively critiquing the work of others.
+
+At the beginning of the peer feedback process, you will be asked to email your project (PDF of your report) to one team. The code should be visible in the PDF you share with your reviewers. Then, you will work with your team to read and provide feedback in the form of an email (with your TA cc'ed) to the team whose work you're reviewing, answering the following questions:
+
+-   Peer review by: \[NAME OF TEAM DOING THE REVIEW\]
+-   Names of team members that participated in this review: \[FULL NAMES OF TEAM MEMBERS PARTICIPATING IN THE REVIEW DURING THE LAB SESSION\]
+-   Describe the goal of the project.
+-   Describe the data used or collected, if any. If the proposal does not include the use of a specific dataset, comment on whether the project would be strengthened by the inclusion of a dataset.
+-   Describe the approaches, tools, and methods that will be used.
+-   Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on the statistical reasoning aspect of the project, but do feel free to comment on aspects beyond the reasoning as well.
+-   What aspect of this project are you most interested in and would like to see highlighted in the presentation.
+-   Provide constructive feedback on any issues with report or code organization.
+-   What have you learned from this team's project that you are considering implementing in your own project?
+-   (Optional) Any further comments or feedback?
+
+Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the reviewee's team's report.
+
+# Report (50 pts) {#project-report}
+
+Your report must be written using Quarto. Your written report should not exceed five pages inclusive of all tables and figures. You can access a template for that report in [Posit Cloud](https://posit.cloud/spaces/405361) in the project titled `project-2`.
+
+To begin, edit the YAML at the top to specify a project title, your team name (get creative!), and the names of each group member, e.g.,
+
+```         
+---
+title: "Predicting baby weights"
+author: "The Last Rbenders: Aang, Katara, Sokka, Momo"
+---
+```
+
+All team members must contribute to the report.
+
+Before you finalize your report, make sure the printing of code chunks is turned off by setting `echo` to `false` in your document YAML.
+
+## Components
+
+You should include, at a minimum, the following sections in your report.
+
+### Introduction (7 pts)
+
+The introduction provides motivation and context for your research.
+
+To begin, introduce the data set in a few short sentences. Next, create a code book (aka a "data dictionary") of the variables in the data set. Although a code book is provided above, you should include one in your report as well so that your report is self-contained. Specifically, only include in your report a code book of the variables that you use.
+
+Complete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.
+
+Example research question and hypotheses (if we were predicting penguin weights instead of baby weights):
+
+*Can we predict body mass with bill depth? We hypothesize that penguins with deeper bills will also have more mass.*
+
+### Methodology (15 pts)
+
+Here you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. You might also include any preliminary summary statistics or figures you use to explore the data.
+
+### Results (15 pts)
+
+Place figure(s) here to illustrate the main results from your analysis. 1 beautiful figure is worth more than several poorly formatted figures. You must have at least 1 figure.
+
+Provide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and create every possible model for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in writing about and interpreting results, and that you can accomplish these tasks using R. More is not better.
+
+### Discussion (6 pts)
+
+This section is a conclusion and discussion. You should
+
+- Summarize your main finding in a sentence or two.
+
+- Discuss your finding and why it is useful (put in the context of your motivation from the introduction).
+
+- Critique your own analyses and include a brief paragraph on what you would do differently if you were able to start the project over.
+
+### Appendix (2 pts)
+
+List a brief (1 or 2 sentence) summary of the relative contributions of each team member, e.g., "Aang built the models, Katara implemented them in R, and Sokka wrote the introduction and discussion."
+
+::: callout-important
+All team members should be comfortable describing all aspects of the project and understanding all code.
+:::
+
+### Formatting (5 pts)
+
+Your project should be professionally formatted. For example, this means labeling graphs and figures, turning off code chunks, using proper citations and cross-references, and following typical style guidelines.
+
+## Submission
+
+-   Select **one** team member to upload the team's PDF submission to Gradescope.
+
+-   Be sure to select every team member's name in Gradescope.
+
+-   Associate all pages with "Full report".
+
+# Presentation (30 pts) {#presentation}
+
+Your presentation must be no longer than 5 minutes.
+
+::: callout-warning
+We will not watch your recording past the 5-minute mark so please make sure the video you submit is not longer than 5 minutes.
+:::
+
+## Slides
+
+For your presentation, you must create presentation slides that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality.
+
+Here is a suggested outline as you think through the slides; you do not have to use this exact format for the slide deck.
+
+- Title Slide
+
+- Slide 1: Introduce the topic and motivation
+
+- Slide 2: Introduce the data
+
+- Slide 3 - 4: Highlights from exploratory data analysis
+
+- Slide 4 - 5: Highlights from inference and/or modeling
+
+- Slide 6: Conclusions + critique/shortcomings
+
+You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.). We recommend choosing an option that's easy to collaborate with, e.g., Google Slides.
+
+::: callout-note
+You can also use Quarto to make your slides! While we won't be covering making slides with Quarto in the class, we would be happy to help you with it in office hours. It's no different than writing other documents with Quarto, so the learning curve will not be steep!
+:::
+
+## Recording
+
+Presentations will be submitted as a pre-recorded video by the due date.
+
+For recording, you may use can use any platform that works best for your group to record your presentation. Below are a few resources on recording videos:
+
+-   [Recording presentations in Zoom](https://kb.siue.edu/61721)
+-   [Apple Quicktime for screen recording](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac)
+-   [Windows 10 built-in screen recording functionality](https://www.youtube.com/watch?v=OfPbr1mRDuo)
+-   [Kap for screen recording](https://getkap.co/)
+
+Once your video is ready, upload the video to Warpwire or another video platform (e.g., YouTube), then add a link to your video in your repo README.
+
+To upload your video to Warpwire:
+
+-   Click the [Warpwire tab](https://canvas.duke.edu/courses/4625/external_tools/214) in the course Canvas site.
+-   Click the "+" and select "Upload files".
+-   Locate the video on your computer and click to upload.
+-   Once you've uploaded the video to Warpwire, click to share the video and copy the video's URL. You will need this when you post the video in the [Project 2 spreadsheet](https://docs.google.com/spreadsheets/d/1mGLkIqhtUEylFR4Ovlpuysv4xWCz6L4FdWqFGmjUKPw/edit?usp=sharing).
+
+# Teamwork (10 pts)
+
+You will be asked to fill out a survey where you rate the contribution and teamwork of each team member by assigning a contribution percentage for each team member. Filling out the survey is a prerequisite for getting credit on the team member evaluation. If you are suggesting that an individual did less than half the expected contribution given your team size (e.g., for a team of four students, if a student contributed less than 12.5% of the total effort), please provide some explanation. If any individual gets an average peer score indicating that this was the case, their grade will be assessed accordingly and penalties may apply beyond the teamwork component of the grade.
+
+If you have concerns with the teamwork and/or contribution from any team members, please email me by the project presentation deadline. **You only need to email me if you have concerns.** Otherwise, I will assume everyone on the team equally contributed and will receive full credit for the teamwork portion of the grade.
+
+# Overall grading
+
+The grade breakdown is as follows:
+
+| Total                              | 100 pts |
+|------------------------------------|---------|
+| **Project proposal conversation**  |  5 pts  |
+| **Peer review**                    |  5 pts  |
+| **Final report**                   | 50 pts  |
+| **Presentation**                   | 30 pts  |
+| **Teamwork**                       | 10 pts  |
+
+## Grading summary
+
+Grading of the project will take into account the following:
+
+-   Content - What is the quality of research and/or policy question and relevancy of data to those questions?
+-   Correctness - Are statistical procedures carried out and explained correctly?
+-   Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
+-   Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
+
+A general breakdown of scoring is as follows:
+
+-   *90%-100%*: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
+-   *80%-89%*: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.
+-   *70%-79%*: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.
+-   *60%-69%*: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
+-   *Below 60%*: Student is not making a sufficient effort.
+
+## Late work policy
+
+Be sure to turn in your work early to avoid any technological mishaps.
+
+::: callout-warning
+There is no late work accepted on this project. 
+:::
