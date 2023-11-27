@@ -7,7 +7,7 @@ auto-stretch: false
 
 # Warm up
 
-## Announcements
+## Announcements {.smaller}
 
 -   Project 2:
     -   Assignment details + teams posted: <https://sta101-f23.github.io/project/project-2.html>
