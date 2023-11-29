@@ -1,0 +1,21 @@
+{
+  "hash": "95fbddbf3da3fef05ee179c1d8f70a71",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Inference more means\"\nsubtitle: Lecture 22\nformat: revealjs\nauto-stretch: false\n---\n\n\n# Warm up\n\n## Announcements {.smaller}\n\n-   Project 2 / Lab: Make sure to go to your assigned lab section\n\n# From last time\n\n## Application exercise\n\nGo to Posit Cloud and continue the project titled `ae-16-Birth weights`.\n\n# Inference for comparing two means\n\n## Today's focus\n\n-   Dive into: Inference for comparing two population means, but for groups that are dependent\n\n-   Touch on: Inference for comparing many population means\n\n## Setup\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(openintro)\nlibrary(tidymodels)\nlibrary(ggthemes)\n```\n:::\n\n\n## Paired data {.smaller}\n\nTwo sets of observations are paired if each observation in one column has a special correspondence or connection with exactly one observation in the other.\n\n## Case study: Climate change {.smaller}\n\n::: task\nLet's consider a limited set of climate data, examining temperature differences in 1948 vs 2018. 197 locations from the National Oceanic and Atmospheric Administration’s (NOAA) historical data, where the data was available for both years of interest, were sampled. We want to know: is there a difference in the average number of days with temperatures exceeding 90F in 2018 vs. in 1948?\n:::\n\n## Application exercise\n\nGo to Posit Cloud and continue the project titled `ae-17-Climate`.\n\n# Inference for comparing many means\n\n## Case study: Hours to relax or pursue activities that you enjoy {.smaller}\n\n::: columns\n::: {.column width=\"50%\"}\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(gss2010, aes(x = hrsrelax, y = degree)) +\n  geom_boxplot()\n```\n\n::: {.cell-output-display}\n![](22-inference-more-means_files/figure-revealjs/unnamed-chunk-2-1.png){width=960}\n:::\n:::\n\n:::\n\n::: {.column width=\"50%\"}\n\n::: {.cell}\n\n```{.r .cell-code}\ngss2010 |> \n  group_by(degree) |> \n  summarize(mean(hrsrelax, na.rm = TRUE))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 5 × 2\n  degree         `mean(hrsrelax, na.rm = TRUE)`\n  <fct>                                   <dbl>\n1 BACHELOR                                 3.48\n2 GRADUATE                                 3.67\n3 HIGH SCHOOL                              3.79\n4 JUNIOR COLLEGE                           3.53\n5 LT HIGH SCHOOL                           3.73\n```\n\n\n:::\n:::\n\n:::\n:::\n",
+    "supporting": [
+      "22-inference-more-means_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
