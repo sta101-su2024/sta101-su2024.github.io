@@ -7,10 +7,16 @@ auto-stretch: false
 
 # Warm up
 
-## Announcements {.smaller}
+## Announcements
 
--   Course evaluations
--   TA evaluations
+-   Course evaluations - On DukeHub
+-   TA evaluations - Email from Dr. Joan Durso
+
+```{r}
+#| echo: false
+
+countdown::countdown(minutes = 10)
+```
 
 # Misrepresentation
 
@@ -245,3 +251,13 @@ A data analyst received permission to post a data set that was scraped from a so
 -   [How Charts Lie](http://www.thefunctionalart.com/p/reviews.html): Getting Smarter about Visual Information by Alberto Cairo
 
 -   [Calling Bullshit](https://www.callingbullshit.org/): The Art of Skepticism in a Data-Driven World by Carl Bergstrom and Jevin West
+
+# Time permitting
+
+## Project questions?
+
+-   Any content questions?
+
+-   Any formatting questions?
+
+-   Any requests for live review?
