@@ -7,7 +7,7 @@ auto-stretch: false
 
 # Warm up
 
-## Announcements
+## Announcements {.smaller}
 
 -   Check grades on Canvas, if anything seems off let me know asap. Your final grade will be calculated based on what's on Canvas. No grades will be changed after the project is due.
 -   My office hours next week by appointment.
