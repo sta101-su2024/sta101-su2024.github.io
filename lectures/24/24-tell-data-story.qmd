@@ -62,6 +62,22 @@ library(palmerpenguins)
 **Project note:** If possible, ask a friend who is not in the class to listen to your presentation and then ask them what they remember. Then, ask yourself: is that what you wanted them to remember?
 :::
 
+## Your project plans
+
+::: task
+How are you telling your story?
+
+a.  Sequential reveal
+
+b.  Instant reveal
+
+c.  Our approach doesn't fit either of these paradigms
+
+d.  No idea
+
+Submit your answer on Canvas for 12-06 Check-in (access code: `___`)
+:::
+
 # Designing effective visualizations
 
 ## Data
