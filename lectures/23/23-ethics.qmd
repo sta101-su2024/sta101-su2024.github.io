@@ -112,7 +112,7 @@ Los Angeles Times. 16 May 2016.
 ::: task
 -   What does this graph show?
 
--   Work with your neighbor to write a misleading news article title based on this graph. (Submit on canvas as today's check in. Access code: `___`)
+-   Work with your neighbor to write a misleading news article title based on this graph. (Submit on canvas as today's check in. Access code: `spurious`)
 :::
 
 ::: aside
