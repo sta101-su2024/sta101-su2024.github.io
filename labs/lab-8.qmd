@@ -90,13 +90,13 @@ Take one of the visualizations from your first project, ideally one you received
 ## Exercise 5
 
 ::: exercise
-IMS - [Chapter 19 exercises](hhttps://openintro-ims2.netlify.app/19-inference-one-mean#sec-chp19-exercises), #14: Interpreting p-values for population mean.
+IMS - [Chapter 19 exercises](https://openintro-ims2.netlify.app/19-inference-one-mean#sec-chp19-exercises), #14: Interpreting p-values for population mean.
 :::
 
 ## Exercise 6
 
 ::: exercise
-IMS - [Chapter 19 exercises](hhttps://openintro-ims2.netlify.app/19-inference-one-mean#sec-chp19-exercises), #20: Possible bootstrap samples.
+IMS - [Chapter 19 exercises](https://openintro-ims2.netlify.app/19-inference-one-mean#sec-chp19-exercises), #20: Possible bootstrap samples.
 :::
 
 ## Exercise 7
