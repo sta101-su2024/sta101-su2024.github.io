@@ -261,7 +261,7 @@ For recording, you may use can use any platform that works best for your group t
 -   [Windows 10 built-in screen recording functionality](https://www.youtube.com/watch?v=OfPbr1mRDuo)
 -   [Kap for screen recording](https://getkap.co/)
 
-Once your video is ready, upload the video to Warpwire or another video platform (e.g., YouTube), then add a link to your video in your repo README.
+Once your video is ready, upload the video to Warpwire or another video platform (e.g., YouTube), then add a link to your video at <https://docs.google.com/spreadsheets/d/1mGLkIqhtUEylFR4Ovlpuysv4xWCz6L4FdWqFGmjUKPw/edit?usp=sharing>.
 
 To upload your video to Warpwire:
 
