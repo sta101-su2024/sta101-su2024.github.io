@@ -51,7 +51,7 @@
     "href": "course-overview.html",
     "title": "Course overview",
     "section": "",
-    "text": "This is the homepage for STA 101 - Data Analysis and Statistical Inference taught by Dr. Mine Çetinkaya-Rundel in Fall 2023 at Duke University. All course materials will be posted on this site.\nYou can find the course syllabus here and the course schedule here.",
+    "text": "This is the homepage for STA 101 - Data Analysis and Statistical Inference taught by Kat Husar in Summer 2024 at Duke University. All course materials will be posted on this site.\nYou can find the course syllabus here and the course schedule here.",
     "crumbs": [
       "Course information",
       "Overview"
@@ -62,7 +62,18 @@
     "href": "course-overview.html#class-meetings",
     "title": "Course overview",
     "section": "Class meetings",
-    "text": "Class meetings\n\n\n\n\n\n\n\n\n\nMeeting\nLocation\nTime\nInstructor / Lab leader\n\n\n\n\nLectures\nGross Hall 103\nMon & Wed 1:25 - 2:40 pm\nMine\n\n\nLab 1\nPerkins LINK 087 (Classroom 3)\nFri 8:30 - 9:45 am\nShuo\n\n\nLab 2\nPerkins LINK 087 (Classroom 3)\nFri 10:05 - 11:20 am\nSylvia\n\n\nLab 3\nPerkins LINK 087 (Classroom 3)\nFri 11:45 am - 1:00 pm\nJohn\n\n\nLab 4\nPerkins LINK 087 (Classroom 3)\nFri 1:25 - 2:40 pm\nChris",
+    "text": "Class meetings\n\n\n\n\n\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLectures\nPerkins LINK 087 (Classroom 3)\nMon- Fri 11:00 - 12:15 pm\n\n\nLab\nPerkins LINK 087 (Classroom 3)\nMon, Thu 9:30 - 10:45 am",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-overview.html#acknowledgement",
+    "href": "course-overview.html#acknowledgement",
+    "title": "Course overview",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course.",
     "crumbs": [
       "Course information",
       "Overview"
@@ -84,7 +95,7 @@
     "href": "course-team.html",
     "title": "Teaching team",
     "section": "",
-    "text": "Dr. Mine Çetinkaya-Rundel (she/her) is Professor of the Practice and Director of Undergraduate Studies at the Department of Statistical Science at Duke University and an affiliated faculty in the Computational Media, Arts, and Cultures. Mine’s work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education as well as pedagogical approaches for enhancing retention of women and under-represented minorities in STEM.\n\n\n\nOffice hours\nLocation\n\n\n\n\nTue 3:30 - 5:30 pm\nOld Chem 213",
+    "text": "Kat Husar (she/her) is a second year PhD student at the Department of Statistical Science at Duke University.\n\n\n\nOffice hours\nLocation",
     "crumbs": [
       "Course information",
       "Teaching team"
@@ -95,18 +106,18 @@
     "href": "course-team.html#instructor",
     "title": "Teaching team",
     "section": "",
-    "text": "Dr. Mine Çetinkaya-Rundel (she/her) is Professor of the Practice and Director of Undergraduate Studies at the Department of Statistical Science at Duke University and an affiliated faculty in the Computational Media, Arts, and Cultures. Mine’s work focuses on innovation in statistics and data science pedagogy, with an emphasis on computing, reproducible research, student-centered learning, and open-source education as well as pedagogical approaches for enhancing retention of women and under-represented minorities in STEM.\n\n\n\nOffice hours\nLocation\n\n\n\n\nTue 3:30 - 5:30 pm\nOld Chem 213",
+    "text": "Kat Husar (she/her) is a second year PhD student at the Department of Statistical Science at Duke University.\n\n\n\nOffice hours\nLocation",
     "crumbs": [
       "Course information",
       "Teaching team"
     ]
   },
   {
-    "objectID": "course-team.html#teaching-assistants",
-    "href": "course-team.html#teaching-assistants",
+    "objectID": "course-team.html#teaching-assistant",
+    "href": "course-team.html#teaching-assistant",
     "title": "Teaching team",
-    "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\n\nName\nRole\nLab section\nOffice hours\n\n\n\n\n\nShuo Wang\nHead + Lab TA\nFri 8:30 - 9:45 am\nMon 2:45 - 4:45 pm\nOld Chem 203B\n\n\n\nSylvia Vincent\nLab TA\nFri 10:05 - 11:20 am\nWed 3 - 5 pm\nOld Chem 025\n\n\n\nJohn Gillen\nLab TA\nFri 11:45 am - 1:00 pm\nWed 10:30 am - 12:30 pm\nZoom\n\n\n\nChris Oswald\nLab TA\nFri 1:25 - 2:40 pm\nMon 9 - 10 am\nTue 9 - 10 am\nJones Open Lab (Bostock Library, 1st Floor)\n\n\n\nMinh Anh To\nTA\n\nMon 10 am - 12 pm\nOld Chem 203B\n\n\n\nHao Wang\nTA\n\nTue 10 am - 12 pm\nOld Chem 203B\n\n\n\nNoah Obuya\nTA\n\nSun 12 - 2 pm\nZoom\n\n\n\nMeghna Katyal\nTA\n\nMon 7:30 - 8:30 pm\nZoom\n\n\n\nAvery Hodges\nTA\n\nMon 5 - 7 pm\nZoom",
+    "section": "Teaching assistant",
+    "text": "Teaching assistant\n\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\n\nJohn Gillen",
     "crumbs": [
       "Course information",
       "Teaching team"
@@ -942,7 +953,7 @@
     "href": "course-links.html",
     "title": "Useful links",
     "section": "",
-    "text": "Posit Cloud\n🔗 Posit Cloud\n\n\nLecture recordings\n🔗 Panopto\n\n\nSlack\n🔗 Slack\n\n\nGradebook\n🔗 on Canvas\n\n\nAnnouncements\n🔗 on Canvas\n\n\nTutorial submission\n🔗 on Canvas\n\n\nTextbooks\n🔗 Introduction to Modern Statistics, 2nd Edition\n🔗 R for Data Science, 2nd Edition\n\n\nPackage documentation\n🔗 tidyverse: tidyverse.org\n🔗 tidymodels: tidymodels.org",
+    "text": "Discussion board\n🔗 on Canvas\n\n\n\nGradebook\n🔗 on Canvas |\n\n\n\nAnnouncements\n🔗 on Canvas |\n\n\n\nTextbooks\n🔗 Introduction to Modern Statistics, 2nd Edition\n🔗 R for Data Science, 2nd Edition\n\n\n\nPackage documentation\n🔗 tidyverse: tidyverse.org\n🔗 tidymodels: tidymodels.org",
     "crumbs": [
       "Course information",
       "Useful links"
