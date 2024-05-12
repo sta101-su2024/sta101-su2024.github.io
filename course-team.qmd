@@ -4,7 +4,7 @@ title: "Teaching team"
 
 ## Instructor
 
-![](images/team/john.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Kat Husar" width="200"}
+![](images/team/kat.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Kat Husar" width="100"}
 
 **Kat Husar** (she/her) is a second year PhD student at the [Department of Statistical Science](#0) at Duke University.
 
@@ -15,5 +15,5 @@ title: "Teaching team"
 ## Teaching assistant
 
 |                                        | Name                                                              | Office hours | Location |
-|-------------|------------------|----------------|--------------------------|
+|----------------------------------------|-------------------------------------------------------------------|--------------|----------|
 | ![](images/team/john.png){width="100"} | [John Gillen](https://www.linkedin.com/in/john-gillen-611471229/) |              |          |
