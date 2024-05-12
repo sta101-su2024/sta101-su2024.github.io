@@ -15,7 +15,7 @@ library(googlesheets4)
 library(gt)
 library(tidyverse)
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1VvyWuppOFLLJHHhoA1vTf7kuehWZ0nTaXI10fPsrzSk/edit?usp=sharing")
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1WejH5wYqC5KOhPxavc3IQh9GNF7a-weTCZAByH8EDkQ/edit?usp=sharing")
 ```
 
 ```{r}
