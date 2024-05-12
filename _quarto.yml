@@ -85,7 +85,7 @@ website:
         text: Extra credit
 
   page-footer:
-    right: "This page is built with 🤍 and [Quarto](https://quarto.org/). Thank you Mine Çetinkaya-Rundel for the class material!"
+    right: "This page is built with 🤍 and [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2023, Mine Çetinkaya-Rundel"
     background: "#5d6d74"
 
