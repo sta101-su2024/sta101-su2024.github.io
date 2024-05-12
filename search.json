@@ -365,319 +365,368 @@
     "text": "Exercise 10\nWhat is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.\nAdd response here.."
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html",
-    "href": "ae/ae-14-candidate-talk.html",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html",
+    "href": "ae/ae-07-books-sa.html",
+    "title": "Weights of books",
     "section": "",
-    "text": "In this application exercise, we’ll do inference tables – categorical variables with many levels."
+    "text": "Important\n\n\n\nThese are suggested answers for the application exercise. They’re not necessarily complete or 100% accurate, they’re roughly what we develop in class while going through the exercises.\nToday we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”"
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-1",
-    "href": "ae/ae-14-candidate-talk.html#exercise-1",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-1",
+    "href": "ae/ae-07-books-sa.html#exercise-1",
+    "title": "Weights of books",
     "section": "Exercise 1",
-    "text": "Exercise 1\nState the hypotheses for evaluating whether the issue of choice is independent of party affiliation.\nAdd response here."
+    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\nggplot(allbacks, aes(x = volume, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(\n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-2",
-    "href": "ae/ae-14-candidate-talk.html#exercise-2",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-2",
+    "href": "ae/ae-07-books-sa.html#exercise-2",
+    "title": "Weights of books",
     "section": "Exercise 2",
-    "text": "Exercise 2\nLoad the data.\n\n# add code here"
+    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\nweight_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume, data = allbacks)\n\ntidy(weight_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic    p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 (Intercept)  108.      88.4         1.22 0.245     \n2 volume         0.709    0.0975      7.27 0.00000626"
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-3",
-    "href": "ae/ae-14-candidate-talk.html#exercise-3",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-3",
+    "href": "ae/ae-07-books-sa.html#exercise-3",
+    "title": "Weights of books",
     "section": "Exercise 3",
-    "text": "Exercise 3\nCreate a two-way table of the responses across the two age groups and visualize the frequency distribution.\n\n# add code here\n\n\n# add code here"
+    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\n\nIntercept: Books with 0 volume are expected, on average, to weigh approximately 107.68 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the y-axis.\nSlope: For each additional cubic centimeter the book’s volume is larger, we expect the weight to be higher, on average, by 0.71 grams."
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-4",
-    "href": "ae/ae-14-candidate-talk.html#exercise-4",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-4",
+    "href": "ae/ae-07-books-sa.html#exercise-4",
+    "title": "Weights of books",
     "section": "Exercise 4",
-    "text": "Exercise 4\nWhich do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.\n\n# add code here"
+    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\nglance(weight_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic    p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.803         0.787  124.      52.9 0.00000626     1  -92.5  191.  193.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\nVolume explains approximately 80% of the variability in book weights."
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-5",
-    "href": "ae/ae-14-candidate-talk.html#exercise-5",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-5",
+    "href": "ae/ae-07-books-sa.html#exercise-5",
+    "title": "Weights of books",
     "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the observed sample statistic.\n\n# add code here"
+    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\nggplot(allbacks, aes(x = volume, y = weight)) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray\", linetype = \"dashed\") +\n  geom_point(aes(color = cover, shape = cover)) +\n  geom_smooth(aes(color = cover), method = \"lm\", se = FALSE) +\n  labs(\n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\",\n    shape = \"Cover\", color = \"Cover\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-6",
-    "href": "ae/ae-14-candidate-talk.html#exercise-6",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-6",
+    "href": "ae/ae-07-books-sa.html#exercise-6",
+    "title": "Weights of books",
     "section": "Exercise 6",
-    "text": "Exercise 6\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\n# add code here"
+    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\nweight_cover_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume + cover, data = allbacks)\n\ntidy(weight_cover_fit)\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic      p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 (Intercept)  198.      59.2         3.34 0.00584     \n2 volume         0.718    0.0615     11.7  0.0000000660\n3 coverpb     -184.      40.5        -4.55 0.000672"
   },
   {
-    "objectID": "ae/ae-14-candidate-talk.html#exercise-7",
-    "href": "ae/ae-14-candidate-talk.html#exercise-7",
-    "title": "Issues candidates should talk more about",
+    "objectID": "ae/ae-07-books-sa.html#exercise-7",
+    "href": "ae/ae-07-books-sa.html#exercise-7",
+    "title": "Weights of books",
     "section": "Exercise 7",
-    "text": "Exercise 7\nWhat is the conclusion of the hypothesis test?\nAdd response here."
+    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nHardback is the reference level, therefore doesn’t show up in the model output."
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html",
-    "href": "ae/ae-04-durham-sa.html",
+    "objectID": "ae/ae-07-books-sa.html#exercise-8",
+    "href": "ae/ae-07-books-sa.html#exercise-8",
+    "title": "Weights of books",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\n\nIntercept: Books with 0 volume and that are hardback are expected, on average, to weigh approximately 197.96 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the y-axis.\nSlope - volume: All else held constant, for each additional cubic centimeter the book’s volume is larger, we expect the weight to be higher, on average, by 0.72 grams.\nSlope - cover: All else held constant, paperback books weigh, on average, 184.05 grams lower than harback books."
+  },
+  {
+    "objectID": "ae/ae-07-books-sa.html#exercise-9",
+    "href": "ae/ae-07-books-sa.html#exercise-9",
+    "title": "Weights of books",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\nglance(weight_cover_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic     p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.927         0.915  78.2      76.7 0.000000145     2  -85.0  178.  181.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\\(R^2\\) of this model will be higher since it has an additional predictor.\nVolume and cover type explain approximately 93% of the variability in book weights."
+  },
+  {
+    "objectID": "ae/ae-07-books-sa.html#exercise-10",
+    "href": "ae/ae-07-books-sa.html#exercise-10",
+    "title": "Weights of books",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nThe second model, since it has a higher adjusted \\(R^2\\)."
+  },
+  {
+    "objectID": "ae/ae-07-books-sa.html#exercise-11",
+    "href": "ae/ae-07-books-sa.html#exercise-11",
+    "title": "Weights of books",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\nnew_book &lt;- tibble(\n  cover = \"hb\",\n  volume = 1000\n)\n\npredict(weight_cover_fit, new_data = new_book)\n\n# A tibble: 1 × 1\n  .pred\n  &lt;dbl&gt;\n1  916."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html",
+    "href": "ae/ae-13-equality-sa.html",
+    "title": "Equality",
+    "section": "",
+    "text": "In this application exercise, we’ll do inference on two population proportions."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-1",
+    "href": "ae/ae-13-equality-sa.html#exercise-1",
+    "title": "Equality",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nThe two populations of interest in this survey are 18-24 year olds and 25+ year olds. State the hypotheses for evaluating whether there is a discernible difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men.” (need more changes) in the two age groups.\nLet \\(p\\) = the true proportion of those who think “The country needs to continue to make changes to give women equal rights to men” among 18-24 year old NC voters and 25+ year old NC voters.\n\\(H_0: p_{18-24} = p_{25+}\\)\n\\(H_A: p_{18-24} \\ne p_{25+}\\)"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-2",
+    "href": "ae/ae-13-equality-sa.html#exercise-2",
+    "title": "Equality",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nLoad the data.\n\nequality &lt;- read_csv(\"data/equality.csv\")"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-3",
+    "href": "ae/ae-13-equality-sa.html#exercise-3",
+    "title": "Equality",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCreate a 2x2 table of the responses across the two age groups.\n\nequality_table &lt;- equality |&gt;\n  count(age, response) |&gt;\n  pivot_wider(names_from = \"response\", values_from = \"n\") |&gt;\n  rename(Age = age)\n\nequality_table\n\n# A tibble: 2 × 3\n  Age   `Most changes done` `Need more changes`\n  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt;\n1 18-24                  32                  35\n2 25+                   211                 450"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-4",
+    "href": "ae/ae-13-equality-sa.html#exercise-4",
+    "title": "Equality",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhat proportion of 18-24 year olds think “The country needs to continue to make changes to give women equal rights to men”? What proportion of 25+ year olds? Calculate and visualize these proportions.\n\nequality_table |&gt;\n  mutate(phat = round(`Need more changes` / (`Most changes done` + `Need more changes`), 3))\n\n# A tibble: 2 × 4\n  Age   `Most changes done` `Need more changes`  phat\n  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt; &lt;dbl&gt;\n1 18-24                  32                  35 0.522\n2 25+                   211                 450 0.681\n\nggplot(equality, aes(y = age, fill = response)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-5",
+    "href": "ae/ae-13-equality-sa.html#exercise-5",
+    "title": "Equality",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nCalculate the observed sample statistic, i.e., the difference between the proportions of respondents who think “The country needs to continue to make changes to give women equal rights to men” between the two age groups.\n\nobs_stat &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nobs_stat\n\nResponse: response (factor)\nExplanatory: age (factor)\n# A tibble: 1 × 1\n    stat\n   &lt;dbl&gt;\n1 -0.158"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-6",
+    "href": "ae/ae-13-equality-sa.html#exercise-6",
+    "title": "Equality",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nWhat is the parameter of interest?\nDifference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between 18-24 and 25+ year old NC voters."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-7",
+    "href": "ae/ae-13-equality-sa.html#exercise-7",
+    "title": "Equality",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nExplain how you can set up a simulation for this hypothesis test.\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-8",
+    "href": "ae/ae-13-equality-sa.html#exercise-8",
+    "title": "Equality",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\nset.seed(1234)\n\nnull_dist &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nnull_dist |&gt;\n  get_p_value(obs_stat = obs_stat, direction = \"two sided\")\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.012\n\nnull_dist |&gt;\n  visualize() +\n  shade_p_value(obs_stat = obs_stat, direction = \"two sided\")"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-9",
+    "href": "ae/ae-13-equality-sa.html#exercise-9",
+    "title": "Equality",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nWhat is the conclusion of the hypothesis test?\nWith a p-value of 0.018, which is smaller than the discernability level of 0.05, we reject the null hypothesis. The data provide convincing evidence that there is a difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men”."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-10",
+    "href": "ae/ae-13-equality-sa.html#exercise-10",
+    "title": "Equality",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nInterpret the p-value in the context of the data and the hypotheses.\nThe probability of observing a difference in sample proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between a sample of 67 18-24 year olds and 661 25+ year olds of 0.158 or more (in either direction) is 0.018 if in fact the two population proportions are equal."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-11",
+    "href": "ae/ae-13-equality-sa.html#exercise-11",
+    "title": "Equality",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nEstimate the difference in population proportions of 18-24 year old NC voters and 25+ year old NC voters using a 95% bootstrap interval.\n\nset.seed(1234)\n\nboot_dist &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nci &lt;- boot_dist |&gt;\n  get_ci()\nci\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1   -0.288  -0.0279\n\nvisualize(boot_dist) +\n  shade_ci(ci)"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-12",
+    "href": "ae/ae-13-equality-sa.html#exercise-12",
+    "title": "Equality",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nInterpret the confidence interval in context of the data.\nWe are 95% confident that the proportion of 18-24 year old NC voters who think “The country needs to continue to make changes to give women equal rights to men” is 28.4% to 3.4% lower than 25+ year old NC voters who share this opinion."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-13",
+    "href": "ae/ae-13-equality-sa.html#exercise-13",
+    "title": "Equality",
+    "section": "Exercise 13",
+    "text": "Exercise 13\nDescribe how the simulation scheme for bootstrapping is different than that for the hypothesis test.\nAdd response here…"
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-14",
+    "href": "ae/ae-13-equality-sa.html#exercise-14",
+    "title": "Equality",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nWhat is \\(p\\) vs. \\(\\hat{p}\\) vs. p-value. Explain generically as well as in the context of these data and research question.\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-13-equality-sa.html#exercise-15",
+    "href": "ae/ae-13-equality-sa.html#exercise-15",
+    "title": "Equality",
+    "section": "Exercise 15",
+    "text": "Exercise 15\nWhat is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-05-durham.html",
+    "href": "ae/ae-05-durham.html",
     "title": "2020 Durham City and County Resident Survey",
     "section": "",
-    "text": "Important\n\n\n\nThese are suggested answers for the application exercise. They’re not necessarily complete or 100% accurate, they’re roughly what we develop in class while going through the exercises.\nThe main question we’ll explore today is “What are the demographics and priorities of City of Durham residents?”"
+    "text": "The main questions we’ll explore today are:"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-1",
-    "href": "ae/ae-04-durham-sa.html#exercise-1",
+    "objectID": "ae/ae-05-durham.html#exercise-1",
+    "href": "ae/ae-05-durham.html#exercise-1",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 1",
-    "text": "Exercise 1\nHow many rows and columns are in this dataset? Answer in a full sentence using inline code. What does each row represent and what does each column represent?\nAdd your answer here."
+    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-2",
-    "href": "ae/ae-04-durham-sa.html#exercise-2",
+    "objectID": "ae/ae-05-durham.html#exercise-2",
+    "href": "ae/ae-05-durham.html#exercise-2",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 2",
-    "text": "Exercise 2\nThe variables we’ll use in this analysis are as follows. Rename the variables to the updated names shown below.\n\n\n\nOriginal name\nUpdated name\n\n\n\n\nprimary_language\nprimary_language\n\n\ndo_you_own_or_rent_your_current_resi_31\nown_rent\n\n\nwould_you_say_your_total_annual_hous_35\nincome\n\n\n\n\ndurham &lt;- durham |&gt;\n  rename(\n    own_rent = do_you_own_or_rent_your_current_resi_31,\n    income = would_you_say_your_total_annual_hous_35\n  )"
+    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-3",
-    "href": "ae/ae-04-durham-sa.html#exercise-3",
+    "objectID": "ae/ae-05-durham.html#exercise-3",
+    "href": "ae/ae-05-durham.html#exercise-3",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWhat language do Durham residents speak: primary_language?\n\nWhat is the primary language used in your household?\n\nAdd your answer here.\n\nggplot(durham, aes(x = primary_language)) +\n  geom_bar()"
+    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-4",
-    "href": "ae/ae-04-durham-sa.html#exercise-4",
+    "objectID": "ae/ae-05-durham.html#exercise-4",
+    "href": "ae/ae-05-durham.html#exercise-4",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 4",
-    "text": "Exercise 4\nMake similar bar plots of own_rent and income. What distinct values do these variables take?\n\nggplot(durham, aes(x = own_rent)) +\n  geom_bar()\n\nWarning: Removed 2 rows containing non-finite values (`stat_count()`).\n\n\n\n\n\n\n\n\n\n\nggplot(durham, aes(x = income)) +\n  geom_bar()\n\nWarning: Removed 110 rows containing non-finite values (`stat_count()`)."
+    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-5",
-    "href": "ae/ae-04-durham-sa.html#exercise-5",
+    "objectID": "ae/ae-05-durham.html#exercise-5",
+    "href": "ae/ae-05-durham.html#exercise-5",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 5",
-    "text": "Exercise 5\nThe variables own_rent and income are both categorical, but they’re stored as numbers. In R, categorical data are called factors. Recode these variables as factors with the as_factor() function.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income = as_factor(income),\n    own_rent = as_factor(own_rent)\n    )"
+    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-6",
-    "href": "ae/ae-04-durham-sa.html#exercise-6",
+    "objectID": "ae/ae-05-durham.html#exercise-6",
+    "href": "ae/ae-05-durham.html#exercise-6",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 6",
-    "text": "Exercise 6\nRecreate the visualization from the previous exerciseincome` barplot, improving it for both visual appeal and better communication of findings.\nAdd your answer here.\n\ndurham |&gt;\n  ggplot(aes(y = income, fill = income)) +\n  geom_bar(show.legend = FALSE) +\n  scale_fill_viridis_d(na.value = \"darkgray\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  labs(\n    x = \"Count\",\n    y = NULL,\n    title = \"Would you say your total annual household income is...\"\n  )"
+    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-7",
-    "href": "ae/ae-04-durham-sa.html#exercise-7",
+    "objectID": "ae/ae-05-durham.html#exercise-7",
+    "href": "ae/ae-05-durham.html#exercise-7",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 7",
-    "text": "Exercise 7\nRecreate the visualization from the previous exercise, but first calculate relative frequencies (proportions) of income (the marginal distribution) and plot the proportions instead of counts.\n\ndurham |&gt;\n  count(income) |&gt;\n  mutate(prop = n / sum(n)) |&gt;\n  ggplot(aes(y = income, x = prop, fill = income)) +\n  geom_col(show.legend = FALSE) +\n  scale_fill_viridis_d(na.value = \"gray\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  labs(\n    x = \"Proportion\",\n    y = NULL,\n    title = \"Would you say your total annual household income is...\"\n  )"
+    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-8",
-    "href": "ae/ae-04-durham-sa.html#exercise-8",
+    "objectID": "ae/ae-05-durham.html#exercise-8",
+    "href": "ae/ae-05-durham.html#exercise-8",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 8",
-    "text": "Exercise 8\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  ggplot(aes(y = income, fill = own_rent)) +\n  geom_bar(position = \"fill\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  scale_fill_manual(\n    values = c(\"1\" = \"cadetblue\", \"2\" = \"coral\"),\n    labels = c(\"1\" = \"Own\", \"2\" = \"Rent\")\n  ) +\n  labs(\n    x = \"Proportion\",\n    y = \"Would you say your total\\nannual household income is...\",\n    fill = \"Do you own\\nor rent\\nyour current\\nresidence?\",\n    title = \"Income vs. home ownership of Durham residents\"\n  )"
+    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-9",
-    "href": "ae/ae-04-durham-sa.html#exercise-9",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income own_rent     n   prop\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 1      1           51 0.362 \n2 1      2           90 0.638 \n3 2      1          105 0.565 \n4 2      2           81 0.435 \n5 3      1          107 0.552 \n6 3      2           87 0.448 \n7 4      1          160 0.930 \n8 4      2           12 0.0698"
-  },
-  {
-    "objectID": "ae/ae-04-durham-sa.html#exercise-10",
-    "href": "ae/ae-04-durham-sa.html#exercise-10",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nStretch goal: Recode the levels of these two variables to be more informatively labeled.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income = case_when(\n      income == \"1\" ~ \"Under $30,000\",\n      income == \"2\" ~ \"$30,000-$59,999\",\n      income == \"3\" ~ \"$60,000-$99,999\",\n      income == \"4\" ~ \"$100,000 or more\"      \n    ),\n    own_rent = if_else(own_rent == 1, \"Own\", \"Rent\")\n  )\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income           own_rent     n   prop\n  &lt;chr&gt;            &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 $100,000 or more Own        160 0.930 \n2 $100,000 or more Rent        12 0.0698\n3 $30,000-$59,999  Own        105 0.565 \n4 $30,000-$59,999  Rent        81 0.435 \n5 $60,000-$99,999  Own        107 0.552 \n6 $60,000-$99,999  Rent        87 0.448 \n7 Under $30,000    Own         51 0.362 \n8 Under $30,000    Rent        90 0.638"
-  },
-  {
-    "objectID": "ae/ae-04-durham-sa.html#conceptual",
-    "href": "ae/ae-04-durham-sa.html#conceptual",
+    "objectID": "ae/ae-05-durham.html#conceptual",
+    "href": "ae/ae-05-durham.html#conceptual",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Conceptual",
     "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#r",
-    "href": "ae/ae-04-durham-sa.html#r",
+    "objectID": "ae/ae-05-durham.html#r",
+    "href": "ae/ae-05-durham.html#r",
     "title": "2020 Durham City and County Resident Survey",
     "section": "R",
-    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\n\n\n\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one codition\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
+    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\ngeom_histogram(): Represent data with a histogram\ngeom_boxplot(): Represent data with a box plot\ngeom_point(): Represent data with points\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\nsummarize(): Calculate summary statistics\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one condition\nfct_relevel: Change the order of levels in a factor\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
   },
   {
-    "objectID": "ae/ae-04-durham-sa.html#quarto",
-    "href": "ae/ae-04-durham-sa.html#quarto",
+    "objectID": "ae/ae-05-durham.html#quarto",
+    "href": "ae/ae-05-durham.html#quarto",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Quarto",
     "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
   },
   {
-    "objectID": "ae/ae-17-climate-sa.html",
-    "href": "ae/ae-17-climate-sa.html",
-    "title": "Climate change",
+    "objectID": "ae/ae-07-books.html",
+    "href": "ae/ae-07-books.html",
+    "title": "Weights of books",
     "section": "",
-    "text": "In this application exercise, we’ll do inference for a comparing two paired means and many means.\n\nPackages\nWe’ll use the tidyverse, tidymodels, openintro, and ggthemes packages.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\n\n\n\nPaired means\nThroughout this application exercise, we’ll make use of the climate70 dataset supplied by the openintro package.\n\nglimpse(climate70)\n\nRows: 197\nColumns: 7\n$ station   &lt;fct&gt; USC00203823, USC00276818, USC00186620, USC00331890, USC00235…\n$ latitude  &lt;dbl&gt; 41.93520, 44.25800, 39.41317, 40.24030, 37.83950, 45.56550, …\n$ longitude &lt;dbl&gt; -84.64110, -71.25250, -79.40025, -81.87100, -94.37400, -100.…\n$ dx70_1948 &lt;int&gt; 131, 80, 143, 156, 216, 138, 131, 194, 198, 213, 224, 74, 17…\n$ dx70_2018 &lt;int&gt; 147, 99, 150, 158, 175, 132, 129, 188, 240, 213, 191, 101, 2…\n$ dx90_1948 &lt;int&gt; 11, 1, 4, 18, 59, 39, 23, 17, 46, 67, 49, 0, 34, 35, 71, 100…\n$ dx90_2018 &lt;int&gt; 16, 1, 1, 15, 51, 18, 17, 3, 65, 104, 39, 0, 62, 3, 86, 117,…\n\n\nThe question we want to answer is: Do these data provide convincing evidence that the number of days above 90 degrees between 2018 and 1948?\nFirst, let’s set the hypotheses.\nAdd response here.\nTo carry out inference on paired data, we pre-compute the difference between paired values at the beginning of the analysis, and use those differences as our values of interest.\n\nclimate70 &lt;- climate70 |&gt;\n  mutate(dx90_diff = dx90_2018 - dx90_1948)\n\nclimate70 |&gt;\n   select(station, latitude, longitude, contains(\"dx90\"))\n\n# A tibble: 197 × 6\n   station     latitude longitude dx90_1948 dx90_2018 dx90_diff\n   &lt;fct&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;     &lt;int&gt;     &lt;int&gt;\n 1 USC00203823     41.9     -84.6        11        16         5\n 2 USC00276818     44.3     -71.3         1         1         0\n 3 USC00186620     39.4     -79.4         4         1        -3\n 4 USC00331890     40.2     -81.9        18        15        -3\n 5 USC00235987     37.8     -94.4        59        51        -8\n 6 USC00395691     45.6    -100.         39        18       -21\n 7 USC00219046     43.8     -94.2        23        17        -6\n 8 USW00003812     35.4     -82.5        17         3       -14\n 9 USC00047643     38.5    -122.         46        65        19\n10 USW00013896     34.7     -87.6        67       104        37\n# ℹ 187 more rows\n\n\nAnd then visualize these differences:\n\nggplot(climate70, aes(x = dx90_diff)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nWe calculate the observed statistic in the paired setting in the same way that we would outside of the paired setting. Using specify() and calculate():\n\nobs_stat &lt;- climate70 |&gt; \n  specify(response = dx90_diff) |&gt; \n  calculate(stat = \"mean\")\n\nobs_stat\n\nResponse: dx90_diff (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  2.90\n\n\nNow, we want to compare this statistic to a null distribution, generated under the assumption that the true difference was actually zero, to get a sense of how likely it would be for us to see this observed difference or something more extreme.\nTests for paired data are carried out via the null = \"paired independence\" argument to hypothesize().\n\nset.seed(1129)\n\nnull_dist &lt;- climate70 |&gt; \n   specify(response = dx90_diff) |&gt; \n   hypothesize(null = \"paired independence\") |&gt;\n   generate(reps = 1000, type = \"permute\") |&gt;\n   calculate(stat = \"mean\")\n   \nvisualize(null_dist)\n\n\n\n\n\n\n\n\n\n\nFor each replicate, generate() carries out type = \"permute\" with null = \"paired independence\" by:\n\nRandomly sampling a vector of signs (i.e., -1 or 1), probability 0.5 for either, with length equal to the input data, and\nMultiplying the response variable by the vector of signs, “flipping” the observed values for a random subset of value in each replicate\n\nTo get a sense for what this distribution looks like, and where our observed statistic falls, we can use visualize():\n\nvisualize(null_dist) + \n  shade_p_value(obs_stat, direction = \"two-sided\")\n\n\n\n\n\n\n\n\n\n\nThen, we calculate the p-value:\n\np_value &lt;- null_dist |&gt;\n  get_p_value(obs_stat, direction = \"two-sided\")\n\np_value\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.016"
+    "text": "Today we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”"
   },
   {
-    "objectID": "ae/ae-04-durham.html",
-    "href": "ae/ae-04-durham.html",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "",
-    "text": "The main question we’ll explore today is “What are the demographics and priorities of City of Durham residents?”"
-  },
-  {
-    "objectID": "ae/ae-04-durham.html#exercise-1",
-    "href": "ae/ae-04-durham.html#exercise-1",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-1",
+    "href": "ae/ae-07-books.html#exercise-1",
+    "title": "Weights of books",
     "section": "Exercise 1",
-    "text": "Exercise 1\nHow many rows and columns are in this dataset? Answer in a full sentence using inline code. What does each row represent and what does each column represent?\nAdd your answer here."
+    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\n# add code here\n\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-2",
-    "href": "ae/ae-04-durham.html#exercise-2",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-2",
+    "href": "ae/ae-07-books.html#exercise-2",
+    "title": "Weights of books",
     "section": "Exercise 2",
-    "text": "Exercise 2\nThe variables we’ll use in this analysis are as follows. Rename the variables to the updated names shown below.\n\n\n\nOriginal name\nUpdated name\n\n\n\n\nprimary_language\nprimary_language\n\n\ndo_you_own_or_rent_your_current_resi_31\nown_rent\n\n\nwould_you_say_your_total_annual_hous_35\nincome\n\n\n\n\n# add code here"
+    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-3",
-    "href": "ae/ae-04-durham.html#exercise-3",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-3",
+    "href": "ae/ae-07-books.html#exercise-3",
+    "title": "Weights of books",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWhat language do Durham residents speak: primary_language?\n\nWhat is the primary language used in your household?\n\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-4",
-    "href": "ae/ae-04-durham.html#exercise-4",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-4",
+    "href": "ae/ae-07-books.html#exercise-4",
+    "title": "Weights of books",
     "section": "Exercise 4",
-    "text": "Exercise 4\nMake similar bar plots of own_rent and income. What distinct values do these variables take?\n\n# add code here"
+    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-5",
-    "href": "ae/ae-04-durham.html#exercise-5",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-5",
+    "href": "ae/ae-07-books.html#exercise-5",
+    "title": "Weights of books",
     "section": "Exercise 5",
-    "text": "Exercise 5\nThe variables own_rent and income are both categorical, but they’re stored as numbers. In R, categorical data are called factors. Recode these variables as factors with the as_factor() function.\n\n# add code here"
+    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-6",
-    "href": "ae/ae-04-durham.html#exercise-6",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-6",
+    "href": "ae/ae-07-books.html#exercise-6",
+    "title": "Weights of books",
     "section": "Exercise 6",
-    "text": "Exercise 6\nRecreate the visualization from the previous exerciseincome` barplot, improving it for both visual appeal and better communication of findings.\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-7",
-    "href": "ae/ae-04-durham.html#exercise-7",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-7",
+    "href": "ae/ae-07-books.html#exercise-7",
+    "title": "Weights of books",
     "section": "Exercise 7",
-    "text": "Exercise 7\nRecreate the visualization from the previous exercise, but first calculate relative frequencies (proportions) of income (the marginal distribution) and plot the proportions instead of counts.\n\n# add code here"
+    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-8",
-    "href": "ae/ae-04-durham.html#exercise-8",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-8",
+    "href": "ae/ae-07-books.html#exercise-8",
+    "title": "Weights of books",
     "section": "Exercise 8",
-    "text": "Exercise 8\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-9",
-    "href": "ae/ae-04-durham.html#exercise-9",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-9",
+    "href": "ae/ae-07-books.html#exercise-9",
+    "title": "Weights of books",
     "section": "Exercise 9",
-    "text": "Exercise 9\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#exercise-10",
-    "href": "ae/ae-04-durham.html#exercise-10",
-    "title": "2020 Durham City and County Resident Survey",
+    "objectID": "ae/ae-07-books.html#exercise-10",
+    "href": "ae/ae-07-books.html#exercise-10",
+    "title": "Weights of books",
     "section": "Exercise 10",
-    "text": "Exercise 10\nStretch goal: Recode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
+    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nAdd response here."
   },
   {
-    "objectID": "ae/ae-04-durham.html#conceptual",
-    "href": "ae/ae-04-durham.html#conceptual",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Conceptual",
-    "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
-  },
-  {
-    "objectID": "ae/ae-04-durham.html#r",
-    "href": "ae/ae-04-durham.html#r",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "R",
-    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\n\n\n\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one codition\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
-  },
-  {
-    "objectID": "ae/ae-04-durham.html#quarto",
-    "href": "ae/ae-04-durham.html#quarto",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Quarto",
-    "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html",
-    "href": "ae/ae-14-candidate-talk-sa.html",
-    "title": "Issues candidates should talk more about",
-    "section": "",
-    "text": "In this application exercise, we’ll do inference tables – categorical variables with many levels."
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-1",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-1",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nState the hypotheses for evaluating whether the issue of choice is independent of party affiliation.\nH0: Issue of choice and party affiliation are independent.\nHA: Issue of choice and party affiliation are independent."
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-2",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-2",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nLoad the data.\n\ncandidate_talk &lt;- read_csv(\"data/candidate-talk.csv\")"
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-3",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-3",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nCreate a two-way table of the responses across the two age groups and visualize the frequency distribution.\n\ncandidate_talk &lt;- candidate_talk |&gt;\n  mutate(\n    party = fct_relevel(party, \"Democrat\", \"Republican\", \"Unaffiliated\", \"Other\"),\n    issue = fct_relevel(issue, \"Abortion/Reproductive rights\", \"Crime\", \"Economy\", \"Gun rights/restrictions\", \"Immigration\", \"Something else\", \"Don't know\")\n  )\n\ncandidate_talk_table &lt;- candidate_talk |&gt;\n  count(party, issue) |&gt;\n  pivot_wider(names_from = \"issue\", values_from = \"n\")\n\ncandidate_talk_table\n\n# A tibble: 4 × 8\n  party  Abortion/Reproductiv…¹ Crime Economy Gun rights/restricti…² Immigration\n  &lt;fct&gt;                   &lt;int&gt; &lt;int&gt;   &lt;int&gt;                  &lt;int&gt;       &lt;int&gt;\n1 Democ…                     70    22      94                     59          10\n2 Repub…                     21    35     138                     14          76\n3 Unaff…                     20    10      79                     16          20\n4 Other                       4     4      14                      4           5\n# ℹ abbreviated names: ¹​`Abortion/Reproductive rights`,\n#   ²​`Gun rights/restrictions`\n# ℹ 2 more variables: `Something else` &lt;int&gt;, `Don't know` &lt;int&gt;\n\n\n\nggplot(candidate_talk, aes(x = party, fill = issue)) +\n  geom_bar() +\n  scale_fill_colorblind()"
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-4",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-4",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nWhich do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.\n\nggplot(candidate_talk, aes(x = party, fill = issue)) +\n  geom_bar(position = \"fill\") +\n  scale_fill_colorblind()"
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-5",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-5",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the observed sample statistic.\n\nobs_stat &lt;- candidate_talk |&gt;\n  specify(response = issue, explanatory = party) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  calculate(stat = \"Chisq\")\n\nobs_stat\n\nResponse: issue (factor)\nExplanatory: party (factor)\nNull Hypothesis: independence\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  144."
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-6",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-6",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\nset.seed(1234)\n\nnull_dist &lt;- candidate_talk |&gt;\n  specify(response = issue, explanatory = party) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  calculate(stat = \"Chisq\")\n\nnull_dist |&gt;\n  get_p_value(obs_stat = obs_stat, direction = \"greater\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an\napproximation based on the number of `reps` chosen in the `generate()` step.\nSee `?get_p_value()` for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1       0\n\nnull_dist |&gt;\n  visualize() +\n  shade_p_value(obs_stat = obs_stat, direction = \"greater\")\n\nWarning in min(diff(unique_loc)): no non-missing arguments to min; returning\nInf"
-  },
-  {
-    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-7",
-    "href": "ae/ae-14-candidate-talk-sa.html#exercise-7",
-    "title": "Issues candidates should talk more about",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nWhat is the conclusion of the hypothesis test?\nWith a p-value of approximately 0, which is smaller than the discernability level of 0.05, we reject the null hypothesis. The data provide convincing evidence that there is a relationship between party affiliation and issues voters want candidates to discuss."
+    "objectID": "ae/ae-07-books.html#exercise-11",
+    "href": "ae/ae-07-books.html#exercise-11",
+    "title": "Weights of books",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\n# add code here"
   },
   {
     "objectID": "ae/ae-17-climate.html",
@@ -5300,508 +5349,319 @@
     "text": "Exercise 10\nWhat are the false positive and false negative rates of this model?\n\nmy_model_aug |&gt;\n  count(type, .pred_class) |&gt;\n  group_by(type) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   type [2]\n  type  .pred_class     n  prop\n  &lt;fct&gt; &lt;fct&gt;       &lt;int&gt; &lt;dbl&gt;\n1 0     0             597 0.863\n2 0     1              95 0.137\n3 1     0             302 0.658\n4 1     1             157 0.342"
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html",
-    "href": "ae/ae-16-birth-weight.html",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html",
+    "href": "ae/ae-14-candidate-talk-sa.html",
+    "title": "Issues candidates should talk more about",
     "section": "",
-    "text": "In this application exercise, we’ll do inference for a comparing two means, using simulation-based and mathematical models."
+    "text": "In this application exercise, we’ll do inference tables – categorical variables with many levels."
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#sec-exercise-1",
-    "href": "ae/ae-16-birth-weight.html#sec-exercise-1",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-1",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-1",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSet the hypotheses for testing if there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers.\nAdd answer here."
+    "text": "Exercise 1\nState the hypotheses for evaluating whether the issue of choice is independent of party affiliation.\nH0: Issue of choice and party affiliation are independent.\nHA: Issue of choice and party affiliation are independent."
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-2",
-    "href": "ae/ae-16-birth-weight.html#exercise-2",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-2",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-2",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the observed difference between the mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers in this sample.\n\n# add code here"
+    "text": "Exercise 2\nLoad the data.\n\ncandidate_talk &lt;- read_csv(\"data/candidate-talk.csv\")"
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-3",
-    "href": "ae/ae-16-birth-weight.html#exercise-3",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-3",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-3",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 3",
-    "text": "Exercise 3\nSuppose the birth weights of the babies in this sample are written on pieces of paper. Explain how you would conduct the randomization test tactically. Hint: You may need to calculate some summary statistics first.\n\n# add code here\n\nAdd answer here."
+    "text": "Exercise 3\nCreate a two-way table of the responses across the two age groups and visualize the frequency distribution.\n\ncandidate_talk &lt;- candidate_talk |&gt;\n  mutate(\n    party = fct_relevel(party, \"Democrat\", \"Republican\", \"Unaffiliated\", \"Other\"),\n    issue = fct_relevel(issue, \"Abortion/Reproductive rights\", \"Crime\", \"Economy\", \"Gun rights/restrictions\", \"Immigration\", \"Something else\", \"Don't know\")\n  )\n\ncandidate_talk_table &lt;- candidate_talk |&gt;\n  count(party, issue) |&gt;\n  pivot_wider(names_from = \"issue\", values_from = \"n\")\n\ncandidate_talk_table\n\n# A tibble: 4 × 8\n  party  Abortion/Reproductiv…¹ Crime Economy Gun rights/restricti…² Immigration\n  &lt;fct&gt;                   &lt;int&gt; &lt;int&gt;   &lt;int&gt;                  &lt;int&gt;       &lt;int&gt;\n1 Democ…                     70    22      94                     59          10\n2 Repub…                     21    35     138                     14          76\n3 Unaff…                     20    10      79                     16          20\n4 Other                       4     4      14                      4           5\n# ℹ abbreviated names: ¹​`Abortion/Reproductive rights`,\n#   ²​`Gun rights/restrictions`\n# ℹ 2 more variables: `Something else` &lt;int&gt;, `Don't know` &lt;int&gt;\n\n\n\nggplot(candidate_talk, aes(x = party, fill = issue)) +\n  geom_bar() +\n  scale_fill_colorblind()"
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-4",
-    "href": "ae/ae-16-birth-weight.html#exercise-4",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-4",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-4",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 4",
-    "text": "Exercise 4\nConstruct and visualize the null distribution. Based on your visualization, speculate on whether the p-value will be small or large.\n\n# add code here\n\nAdd answer here."
+    "text": "Exercise 4\nWhich do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.\n\nggplot(candidate_talk, aes(x = party, fill = issue)) +\n  geom_bar(position = \"fill\") +\n  scale_fill_colorblind()"
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-5",
-    "href": "ae/ae-16-birth-weight.html#exercise-5",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-5",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-5",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize and calculate the p-value. At the 5% discernability level, what is the conclusion of the hypothesis test?\n\n# add code here\n\nAdd answer here."
+    "text": "Exercise 5\nCalculate the observed sample statistic.\n\nobs_stat &lt;- candidate_talk |&gt;\n  specify(response = issue, explanatory = party) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  calculate(stat = \"Chisq\")\n\nobs_stat\n\nResponse: issue (factor)\nExplanatory: party (factor)\nNull Hypothesis: independence\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  144."
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-6",
-    "href": "ae/ae-16-birth-weight.html#exercise-6",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-6",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-6",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 6",
-    "text": "Exercise 6\nConstruct and interpret confidence interval at the equivalent level as the previous hypothesis test for the difference between the mean weight of babies born to mothers who are smokers and those who are bor to mothers who are not smokers.\n\n# add code here\n\nAdd response here."
+    "text": "Exercise 6\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\nset.seed(1234)\n\nnull_dist &lt;- candidate_talk |&gt;\n  specify(response = issue, explanatory = party) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  calculate(stat = \"Chisq\")\n\nnull_dist |&gt;\n  get_p_value(obs_stat = obs_stat, direction = \"greater\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an\napproximation based on the number of `reps` chosen in the `generate()` step.\nSee `?get_p_value()` for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1       0\n\nnull_dist |&gt;\n  visualize() +\n  shade_p_value(obs_stat = obs_stat, direction = \"greater\")\n\nWarning in min(diff(unique_loc)): no non-missing arguments to min; returning\nInf"
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-7",
-    "href": "ae/ae-16-birth-weight.html#exercise-7",
-    "title": "Birth weights",
+    "objectID": "ae/ae-14-candidate-talk-sa.html#exercise-7",
+    "href": "ae/ae-14-candidate-talk-sa.html#exercise-7",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 7",
-    "text": "Exercise 7\nCheck that the technical conditions for conducting inference using mathematical models for comparing two means are met for these data.\nAdd response here."
+    "text": "Exercise 7\nWhat is the conclusion of the hypothesis test?\nWith a p-value of approximately 0, which is smaller than the discernability level of 0.05, we reject the null hypothesis. The data provide convincing evidence that there is a relationship between party affiliation and issues voters want candidates to discuss."
   },
   {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-8",
-    "href": "ae/ae-16-birth-weight.html#exercise-8",
-    "title": "Birth weights",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nConduct a hypothesis test using mathematical models for the hypotheses you set in Section 3.1.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight.html#exercise-9",
-    "href": "ae/ae-16-birth-weight.html#exercise-9",
-    "title": "Birth weights",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nImprove the density plot from the lecture slides.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-07-books.html",
-    "href": "ae/ae-07-books.html",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html",
+    "href": "ae/ae-04-durham.html",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "",
-    "text": "Today we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”"
+    "text": "The main question we’ll explore today is “What are the demographics and priorities of City of Durham residents?”"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-1",
-    "href": "ae/ae-07-books.html#exercise-1",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-1",
+    "href": "ae/ae-04-durham.html#exercise-1",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 1\nHow many rows and columns are in this dataset? Answer in a full sentence using inline code. What does each row represent and what does each column represent?\nAdd your answer here."
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-2",
-    "href": "ae/ae-07-books.html#exercise-2",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-2",
+    "href": "ae/ae-04-durham.html#exercise-2",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 2",
-    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\n# add code here"
+    "text": "Exercise 2\nThe variables we’ll use in this analysis are as follows. Rename the variables to the updated names shown below.\n\n\n\nOriginal name\nUpdated name\n\n\n\n\nprimary_language\nprimary_language\n\n\ndo_you_own_or_rent_your_current_resi_31\nown_rent\n\n\nwould_you_say_your_total_annual_hous_35\nincome\n\n\n\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-3",
-    "href": "ae/ae-07-books.html#exercise-3",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-3",
+    "href": "ae/ae-04-durham.html#exercise-3",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 3",
-    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\nAdd response here."
+    "text": "Exercise 3\nWhat language do Durham residents speak: primary_language?\n\nWhat is the primary language used in your household?\n\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-4",
-    "href": "ae/ae-07-books.html#exercise-4",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-4",
+    "href": "ae/ae-04-durham.html#exercise-4",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 4",
-    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 4\nMake similar bar plots of own_rent and income. What distinct values do these variables take?\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-5",
-    "href": "ae/ae-07-books.html#exercise-5",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-5",
+    "href": "ae/ae-04-durham.html#exercise-5",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\n# add code here"
+    "text": "Exercise 5\nThe variables own_rent and income are both categorical, but they’re stored as numbers. In R, categorical data are called factors. Recode these variables as factors with the as_factor() function.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-6",
-    "href": "ae/ae-07-books.html#exercise-6",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-6",
+    "href": "ae/ae-04-durham.html#exercise-6",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 6",
-    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\n# add code here"
+    "text": "Exercise 6\nRecreate the visualization from the previous exerciseincome` barplot, improving it for both visual appeal and better communication of findings.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-7",
-    "href": "ae/ae-07-books.html#exercise-7",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-7",
+    "href": "ae/ae-04-durham.html#exercise-7",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 7",
-    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nAdd response here."
+    "text": "Exercise 7\nRecreate the visualization from the previous exercise, but first calculate relative frequencies (proportions) of income (the marginal distribution) and plot the proportions instead of counts.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-8",
-    "href": "ae/ae-07-books.html#exercise-8",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-8",
+    "href": "ae/ae-04-durham.html#exercise-8",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 8",
-    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\nAdd response here."
+    "text": "Exercise 8\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-9",
-    "href": "ae/ae-07-books.html#exercise-9",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-9",
+    "href": "ae/ae-04-durham.html#exercise-9",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 9",
-    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 9\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-10",
-    "href": "ae/ae-07-books.html#exercise-10",
-    "title": "Weights of books",
+    "objectID": "ae/ae-04-durham.html#exercise-10",
+    "href": "ae/ae-04-durham.html#exercise-10",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 10",
-    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nAdd response here."
+    "text": "Exercise 10\nStretch goal: Recode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books.html#exercise-11",
-    "href": "ae/ae-07-books.html#exercise-11",
-    "title": "Weights of books",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html",
-    "href": "ae/ae-05-durham.html",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "",
-    "text": "The main questions we’ll explore today are:"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-1",
-    "href": "ae/ae-05-durham.html#exercise-1",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-2",
-    "href": "ae/ae-05-durham.html#exercise-2",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-3",
-    "href": "ae/ae-05-durham.html#exercise-3",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-4",
-    "href": "ae/ae-05-durham.html#exercise-4",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\nAdd your response here.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-5",
-    "href": "ae/ae-05-durham.html#exercise-5",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\nAdd your response here.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-6",
-    "href": "ae/ae-05-durham.html#exercise-6",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-7",
-    "href": "ae/ae-05-durham.html#exercise-7",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#exercise-8",
-    "href": "ae/ae-05-durham.html#exercise-8",
-    "title": "2020 Durham City and County Resident Survey",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-05-durham.html#conceptual",
-    "href": "ae/ae-05-durham.html#conceptual",
+    "objectID": "ae/ae-04-durham.html#conceptual",
+    "href": "ae/ae-04-durham.html#conceptual",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Conceptual",
     "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
   },
   {
-    "objectID": "ae/ae-05-durham.html#r",
-    "href": "ae/ae-05-durham.html#r",
+    "objectID": "ae/ae-04-durham.html#r",
+    "href": "ae/ae-04-durham.html#r",
     "title": "2020 Durham City and County Resident Survey",
     "section": "R",
-    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\ngeom_histogram(): Represent data with a histogram\ngeom_boxplot(): Represent data with a box plot\ngeom_point(): Represent data with points\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\nsummarize(): Calculate summary statistics\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one condition\nfct_relevel: Change the order of levels in a factor\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
+    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\n\n\n\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one codition\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
   },
   {
-    "objectID": "ae/ae-05-durham.html#quarto",
-    "href": "ae/ae-05-durham.html#quarto",
+    "objectID": "ae/ae-04-durham.html#quarto",
+    "href": "ae/ae-04-durham.html#quarto",
     "title": "2020 Durham City and County Resident Survey",
     "section": "Quarto",
     "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html",
-    "href": "ae/ae-13-equality-sa.html",
-    "title": "Equality",
+    "objectID": "ae/ae-17-climate-sa.html",
+    "href": "ae/ae-17-climate-sa.html",
+    "title": "Climate change",
     "section": "",
-    "text": "In this application exercise, we’ll do inference on two population proportions."
+    "text": "In this application exercise, we’ll do inference for a comparing two paired means and many means.\n\nPackages\nWe’ll use the tidyverse, tidymodels, openintro, and ggthemes packages.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\n\n\n\nPaired means\nThroughout this application exercise, we’ll make use of the climate70 dataset supplied by the openintro package.\n\nglimpse(climate70)\n\nRows: 197\nColumns: 7\n$ station   &lt;fct&gt; USC00203823, USC00276818, USC00186620, USC00331890, USC00235…\n$ latitude  &lt;dbl&gt; 41.93520, 44.25800, 39.41317, 40.24030, 37.83950, 45.56550, …\n$ longitude &lt;dbl&gt; -84.64110, -71.25250, -79.40025, -81.87100, -94.37400, -100.…\n$ dx70_1948 &lt;int&gt; 131, 80, 143, 156, 216, 138, 131, 194, 198, 213, 224, 74, 17…\n$ dx70_2018 &lt;int&gt; 147, 99, 150, 158, 175, 132, 129, 188, 240, 213, 191, 101, 2…\n$ dx90_1948 &lt;int&gt; 11, 1, 4, 18, 59, 39, 23, 17, 46, 67, 49, 0, 34, 35, 71, 100…\n$ dx90_2018 &lt;int&gt; 16, 1, 1, 15, 51, 18, 17, 3, 65, 104, 39, 0, 62, 3, 86, 117,…\n\n\nThe question we want to answer is: Do these data provide convincing evidence that the number of days above 90 degrees between 2018 and 1948?\nFirst, let’s set the hypotheses.\nAdd response here.\nTo carry out inference on paired data, we pre-compute the difference between paired values at the beginning of the analysis, and use those differences as our values of interest.\n\nclimate70 &lt;- climate70 |&gt;\n  mutate(dx90_diff = dx90_2018 - dx90_1948)\n\nclimate70 |&gt;\n   select(station, latitude, longitude, contains(\"dx90\"))\n\n# A tibble: 197 × 6\n   station     latitude longitude dx90_1948 dx90_2018 dx90_diff\n   &lt;fct&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;     &lt;int&gt;     &lt;int&gt;\n 1 USC00203823     41.9     -84.6        11        16         5\n 2 USC00276818     44.3     -71.3         1         1         0\n 3 USC00186620     39.4     -79.4         4         1        -3\n 4 USC00331890     40.2     -81.9        18        15        -3\n 5 USC00235987     37.8     -94.4        59        51        -8\n 6 USC00395691     45.6    -100.         39        18       -21\n 7 USC00219046     43.8     -94.2        23        17        -6\n 8 USW00003812     35.4     -82.5        17         3       -14\n 9 USC00047643     38.5    -122.         46        65        19\n10 USW00013896     34.7     -87.6        67       104        37\n# ℹ 187 more rows\n\n\nAnd then visualize these differences:\n\nggplot(climate70, aes(x = dx90_diff)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nWe calculate the observed statistic in the paired setting in the same way that we would outside of the paired setting. Using specify() and calculate():\n\nobs_stat &lt;- climate70 |&gt; \n  specify(response = dx90_diff) |&gt; \n  calculate(stat = \"mean\")\n\nobs_stat\n\nResponse: dx90_diff (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  2.90\n\n\nNow, we want to compare this statistic to a null distribution, generated under the assumption that the true difference was actually zero, to get a sense of how likely it would be for us to see this observed difference or something more extreme.\nTests for paired data are carried out via the null = \"paired independence\" argument to hypothesize().\n\nset.seed(1129)\n\nnull_dist &lt;- climate70 |&gt; \n   specify(response = dx90_diff) |&gt; \n   hypothesize(null = \"paired independence\") |&gt;\n   generate(reps = 1000, type = \"permute\") |&gt;\n   calculate(stat = \"mean\")\n   \nvisualize(null_dist)\n\n\n\n\n\n\n\n\n\n\nFor each replicate, generate() carries out type = \"permute\" with null = \"paired independence\" by:\n\nRandomly sampling a vector of signs (i.e., -1 or 1), probability 0.5 for either, with length equal to the input data, and\nMultiplying the response variable by the vector of signs, “flipping” the observed values for a random subset of value in each replicate\n\nTo get a sense for what this distribution looks like, and where our observed statistic falls, we can use visualize():\n\nvisualize(null_dist) + \n  shade_p_value(obs_stat, direction = \"two-sided\")\n\n\n\n\n\n\n\n\n\n\nThen, we calculate the p-value:\n\np_value &lt;- null_dist |&gt;\n  get_p_value(obs_stat, direction = \"two-sided\")\n\np_value\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.016"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-1",
-    "href": "ae/ae-13-equality-sa.html#exercise-1",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html",
+    "href": "ae/ae-04-durham-sa.html",
+    "title": "2020 Durham City and County Resident Survey",
+    "section": "",
+    "text": "Important\n\n\n\nThese are suggested answers for the application exercise. They’re not necessarily complete or 100% accurate, they’re roughly what we develop in class while going through the exercises.\nThe main question we’ll explore today is “What are the demographics and priorities of City of Durham residents?”"
+  },
+  {
+    "objectID": "ae/ae-04-durham-sa.html#exercise-1",
+    "href": "ae/ae-04-durham-sa.html#exercise-1",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 1",
-    "text": "Exercise 1\nThe two populations of interest in this survey are 18-24 year olds and 25+ year olds. State the hypotheses for evaluating whether there is a discernible difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men.” (need more changes) in the two age groups.\nLet \\(p\\) = the true proportion of those who think “The country needs to continue to make changes to give women equal rights to men” among 18-24 year old NC voters and 25+ year old NC voters.\n\\(H_0: p_{18-24} = p_{25+}\\)\n\\(H_A: p_{18-24} \\ne p_{25+}\\)"
+    "text": "Exercise 1\nHow many rows and columns are in this dataset? Answer in a full sentence using inline code. What does each row represent and what does each column represent?\nAdd your answer here."
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-2",
-    "href": "ae/ae-13-equality-sa.html#exercise-2",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-2",
+    "href": "ae/ae-04-durham-sa.html#exercise-2",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 2",
-    "text": "Exercise 2\nLoad the data.\n\nequality &lt;- read_csv(\"data/equality.csv\")"
+    "text": "Exercise 2\nThe variables we’ll use in this analysis are as follows. Rename the variables to the updated names shown below.\n\n\n\nOriginal name\nUpdated name\n\n\n\n\nprimary_language\nprimary_language\n\n\ndo_you_own_or_rent_your_current_resi_31\nown_rent\n\n\nwould_you_say_your_total_annual_hous_35\nincome\n\n\n\n\ndurham &lt;- durham |&gt;\n  rename(\n    own_rent = do_you_own_or_rent_your_current_resi_31,\n    income = would_you_say_your_total_annual_hous_35\n  )"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-3",
-    "href": "ae/ae-13-equality-sa.html#exercise-3",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-3",
+    "href": "ae/ae-04-durham-sa.html#exercise-3",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 3",
-    "text": "Exercise 3\nCreate a 2x2 table of the responses across the two age groups.\n\nequality_table &lt;- equality |&gt;\n  count(age, response) |&gt;\n  pivot_wider(names_from = \"response\", values_from = \"n\") |&gt;\n  rename(Age = age)\n\nequality_table\n\n# A tibble: 2 × 3\n  Age   `Most changes done` `Need more changes`\n  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt;\n1 18-24                  32                  35\n2 25+                   211                 450"
+    "text": "Exercise 3\nWhat language do Durham residents speak: primary_language?\n\nWhat is the primary language used in your household?\n\nAdd your answer here.\n\nggplot(durham, aes(x = primary_language)) +\n  geom_bar()"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-4",
-    "href": "ae/ae-13-equality-sa.html#exercise-4",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-4",
+    "href": "ae/ae-04-durham-sa.html#exercise-4",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 4",
-    "text": "Exercise 4\nWhat proportion of 18-24 year olds think “The country needs to continue to make changes to give women equal rights to men”? What proportion of 25+ year olds? Calculate and visualize these proportions.\n\nequality_table |&gt;\n  mutate(phat = round(`Need more changes` / (`Most changes done` + `Need more changes`), 3))\n\n# A tibble: 2 × 4\n  Age   `Most changes done` `Need more changes`  phat\n  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt; &lt;dbl&gt;\n1 18-24                  32                  35 0.522\n2 25+                   211                 450 0.681\n\nggplot(equality, aes(y = age, fill = response)) +\n  geom_bar(position = \"fill\")"
+    "text": "Exercise 4\nMake similar bar plots of own_rent and income. What distinct values do these variables take?\n\nggplot(durham, aes(x = own_rent)) +\n  geom_bar()\n\nWarning: Removed 2 rows containing non-finite values (`stat_count()`).\n\n\n\n\n\n\n\n\n\n\nggplot(durham, aes(x = income)) +\n  geom_bar()\n\nWarning: Removed 110 rows containing non-finite values (`stat_count()`)."
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-5",
-    "href": "ae/ae-13-equality-sa.html#exercise-5",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-5",
+    "href": "ae/ae-04-durham-sa.html#exercise-5",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the observed sample statistic, i.e., the difference between the proportions of respondents who think “The country needs to continue to make changes to give women equal rights to men” between the two age groups.\n\nobs_stat &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nobs_stat\n\nResponse: response (factor)\nExplanatory: age (factor)\n# A tibble: 1 × 1\n    stat\n   &lt;dbl&gt;\n1 -0.158"
+    "text": "Exercise 5\nThe variables own_rent and income are both categorical, but they’re stored as numbers. In R, categorical data are called factors. Recode these variables as factors with the as_factor() function.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income = as_factor(income),\n    own_rent = as_factor(own_rent)\n    )"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-6",
-    "href": "ae/ae-13-equality-sa.html#exercise-6",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-6",
+    "href": "ae/ae-04-durham-sa.html#exercise-6",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWhat is the parameter of interest?\nDifference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between 18-24 and 25+ year old NC voters."
+    "text": "Exercise 6\nRecreate the visualization from the previous exerciseincome` barplot, improving it for both visual appeal and better communication of findings.\nAdd your answer here.\n\ndurham |&gt;\n  ggplot(aes(y = income, fill = income)) +\n  geom_bar(show.legend = FALSE) +\n  scale_fill_viridis_d(na.value = \"darkgray\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  labs(\n    x = \"Count\",\n    y = NULL,\n    title = \"Would you say your total annual household income is...\"\n  )"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-7",
-    "href": "ae/ae-13-equality-sa.html#exercise-7",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-7",
+    "href": "ae/ae-04-durham-sa.html#exercise-7",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 7",
-    "text": "Exercise 7\nExplain how you can set up a simulation for this hypothesis test.\nAdd response here."
+    "text": "Exercise 7\nRecreate the visualization from the previous exercise, but first calculate relative frequencies (proportions) of income (the marginal distribution) and plot the proportions instead of counts.\n\ndurham |&gt;\n  count(income) |&gt;\n  mutate(prop = n / sum(n)) |&gt;\n  ggplot(aes(y = income, x = prop, fill = income)) +\n  geom_col(show.legend = FALSE) +\n  scale_fill_viridis_d(na.value = \"gray\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  labs(\n    x = \"Proportion\",\n    y = NULL,\n    title = \"Would you say your total annual household income is...\"\n  )"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-8",
-    "href": "ae/ae-13-equality-sa.html#exercise-8",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-8",
+    "href": "ae/ae-04-durham-sa.html#exercise-8",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 8",
-    "text": "Exercise 8\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\nset.seed(1234)\n\nnull_dist &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nnull_dist |&gt;\n  get_p_value(obs_stat = obs_stat, direction = \"two sided\")\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.012\n\nnull_dist |&gt;\n  visualize() +\n  shade_p_value(obs_stat = obs_stat, direction = \"two sided\")"
+    "text": "Exercise 8\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  ggplot(aes(y = income, fill = own_rent)) +\n  geom_bar(position = \"fill\") +\n  scale_y_discrete(\n    labels = c(\n      \"1\" = \"Under $30,000\",\n      \"2\" = \"$30,000-$59,999\",\n      \"3\" = \"$60,000-$99,999\",\n      \"4\" = \"$100,000 or more\"\n    )\n  ) +\n  scale_fill_manual(\n    values = c(\"1\" = \"cadetblue\", \"2\" = \"coral\"),\n    labels = c(\"1\" = \"Own\", \"2\" = \"Rent\")\n  ) +\n  labs(\n    x = \"Proportion\",\n    y = \"Would you say your total\\nannual household income is...\",\n    fill = \"Do you own\\nor rent\\nyour current\\nresidence?\",\n    title = \"Income vs. home ownership of Durham residents\"\n  )"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-9",
-    "href": "ae/ae-13-equality-sa.html#exercise-9",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-9",
+    "href": "ae/ae-04-durham-sa.html#exercise-9",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 9",
-    "text": "Exercise 9\nWhat is the conclusion of the hypothesis test?\nWith a p-value of 0.018, which is smaller than the discernability level of 0.05, we reject the null hypothesis. The data provide convincing evidence that there is a difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men”."
+    "text": "Exercise 9\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income own_rent     n   prop\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 1      1           51 0.362 \n2 1      2           90 0.638 \n3 2      1          105 0.565 \n4 2      2           81 0.435 \n5 3      1          107 0.552 \n6 3      2           87 0.448 \n7 4      1          160 0.930 \n8 4      2           12 0.0698"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-10",
-    "href": "ae/ae-13-equality-sa.html#exercise-10",
-    "title": "Equality",
+    "objectID": "ae/ae-04-durham-sa.html#exercise-10",
+    "href": "ae/ae-04-durham-sa.html#exercise-10",
+    "title": "2020 Durham City and County Resident Survey",
     "section": "Exercise 10",
-    "text": "Exercise 10\nInterpret the p-value in the context of the data and the hypotheses.\nThe probability of observing a difference in sample proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between a sample of 67 18-24 year olds and 661 25+ year olds of 0.158 or more (in either direction) is 0.018 if in fact the two population proportions are equal."
+    "text": "Exercise 10\nStretch goal: Recode the levels of these two variables to be more informatively labeled.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income = case_when(\n      income == \"1\" ~ \"Under $30,000\",\n      income == \"2\" ~ \"$30,000-$59,999\",\n      income == \"3\" ~ \"$60,000-$99,999\",\n      income == \"4\" ~ \"$100,000 or more\"      \n    ),\n    own_rent = if_else(own_rent == 1, \"Own\", \"Rent\")\n  )\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income           own_rent     n   prop\n  &lt;chr&gt;            &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 $100,000 or more Own        160 0.930 \n2 $100,000 or more Rent        12 0.0698\n3 $30,000-$59,999  Own        105 0.565 \n4 $30,000-$59,999  Rent        81 0.435 \n5 $60,000-$99,999  Own        107 0.552 \n6 $60,000-$99,999  Rent        87 0.448 \n7 Under $30,000    Own         51 0.362 \n8 Under $30,000    Rent        90 0.638"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-11",
-    "href": "ae/ae-13-equality-sa.html#exercise-11",
-    "title": "Equality",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nEstimate the difference in population proportions of 18-24 year old NC voters and 25+ year old NC voters using a 95% bootstrap interval.\n\nset.seed(1234)\n\nboot_dist &lt;- equality |&gt;\n  specify(response = response, explanatory = age, success = \"Need more changes\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"18-24\", \"25+\"))\n\nci &lt;- boot_dist |&gt;\n  get_ci()\nci\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1   -0.288  -0.0279\n\nvisualize(boot_dist) +\n  shade_ci(ci)"
+    "objectID": "ae/ae-04-durham-sa.html#conceptual",
+    "href": "ae/ae-04-durham-sa.html#conceptual",
+    "title": "2020 Durham City and County Resident Survey",
+    "section": "Conceptual",
+    "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-12",
-    "href": "ae/ae-13-equality-sa.html#exercise-12",
-    "title": "Equality",
-    "section": "Exercise 12",
-    "text": "Exercise 12\nInterpret the confidence interval in context of the data.\nWe are 95% confident that the proportion of 18-24 year old NC voters who think “The country needs to continue to make changes to give women equal rights to men” is 28.4% to 3.4% lower than 25+ year old NC voters who share this opinion."
+    "objectID": "ae/ae-04-durham-sa.html#r",
+    "href": "ae/ae-04-durham-sa.html#r",
+    "title": "2020 Durham City and County Resident Survey",
+    "section": "R",
+    "text": "R\nIn this application exercise we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\n\n\n\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one codition\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-13",
-    "href": "ae/ae-13-equality-sa.html#exercise-13",
-    "title": "Equality",
-    "section": "Exercise 13",
-    "text": "Exercise 13\nDescribe how the simulation scheme for bootstrapping is different than that for the hypothesis test.\nAdd response here…"
+    "objectID": "ae/ae-04-durham-sa.html#quarto",
+    "href": "ae/ae-04-durham-sa.html#quarto",
+    "title": "2020 Durham City and County Resident Survey",
+    "section": "Quarto",
+    "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
   },
   {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-14",
-    "href": "ae/ae-13-equality-sa.html#exercise-14",
-    "title": "Equality",
-    "section": "Exercise 14",
-    "text": "Exercise 14\nWhat is \\(p\\) vs. \\(\\hat{p}\\) vs. p-value. Explain generically as well as in the context of these data and research question.\nAdd response here."
-  },
-  {
-    "objectID": "ae/ae-13-equality-sa.html#exercise-15",
-    "href": "ae/ae-13-equality-sa.html#exercise-15",
-    "title": "Equality",
-    "section": "Exercise 15",
-    "text": "Exercise 15\nWhat is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.\nAdd response here."
-  },
-  {
-    "objectID": "ae/ae-07-books-sa.html",
-    "href": "ae/ae-07-books-sa.html",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html",
+    "href": "ae/ae-14-candidate-talk.html",
+    "title": "Issues candidates should talk more about",
     "section": "",
-    "text": "Important\n\n\n\nThese are suggested answers for the application exercise. They’re not necessarily complete or 100% accurate, they’re roughly what we develop in class while going through the exercises.\nToday we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”"
+    "text": "In this application exercise, we’ll do inference tables – categorical variables with many levels."
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-1",
-    "href": "ae/ae-07-books-sa.html#exercise-1",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-1",
+    "href": "ae/ae-14-candidate-talk.html#exercise-1",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\nggplot(allbacks, aes(x = volume, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(\n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Exercise 1\nState the hypotheses for evaluating whether the issue of choice is independent of party affiliation.\nAdd response here."
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-2",
-    "href": "ae/ae-07-books-sa.html#exercise-2",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-2",
+    "href": "ae/ae-14-candidate-talk.html#exercise-2",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 2",
-    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\nweight_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume, data = allbacks)\n\ntidy(weight_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic    p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 (Intercept)  108.      88.4         1.22 0.245     \n2 volume         0.709    0.0975      7.27 0.00000626"
+    "text": "Exercise 2\nLoad the data.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-3",
-    "href": "ae/ae-07-books-sa.html#exercise-3",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-3",
+    "href": "ae/ae-14-candidate-talk.html#exercise-3",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 3",
-    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\n\nIntercept: Books with 0 volume are expected, on average, to weigh approximately 107.68 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the y-axis.\nSlope: For each additional cubic centimeter the book’s volume is larger, we expect the weight to be higher, on average, by 0.71 grams."
+    "text": "Exercise 3\nCreate a two-way table of the responses across the two age groups and visualize the frequency distribution.\n\n# add code here\n\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-4",
-    "href": "ae/ae-07-books-sa.html#exercise-4",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-4",
+    "href": "ae/ae-14-candidate-talk.html#exercise-4",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 4",
-    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\nglance(weight_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic    p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.803         0.787  124.      52.9 0.00000626     1  -92.5  191.  193.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\nVolume explains approximately 80% of the variability in book weights."
+    "text": "Exercise 4\nWhich do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-5",
-    "href": "ae/ae-07-books-sa.html#exercise-5",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-5",
+    "href": "ae/ae-14-candidate-talk.html#exercise-5",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\nggplot(allbacks, aes(x = volume, y = weight)) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"gray\", linetype = \"dashed\") +\n  geom_point(aes(color = cover, shape = cover)) +\n  geom_smooth(aes(color = cover), method = \"lm\", se = FALSE) +\n  labs(\n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\",\n    shape = \"Cover\", color = \"Cover\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Exercise 5\nCalculate the observed sample statistic.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-6",
-    "href": "ae/ae-07-books-sa.html#exercise-6",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-6",
+    "href": "ae/ae-14-candidate-talk.html#exercise-6",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 6",
-    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\nweight_cover_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume + cover, data = allbacks)\n\ntidy(weight_cover_fit)\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic      p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 (Intercept)  198.      59.2         3.34 0.00584     \n2 volume         0.718    0.0615     11.7  0.0000000660\n3 coverpb     -184.      40.5        -4.55 0.000672"
+    "text": "Exercise 6\nConduct the hypothesis test using randomization and visualize and report the p-value.\n\n# add code here"
   },
   {
-    "objectID": "ae/ae-07-books-sa.html#exercise-7",
-    "href": "ae/ae-07-books-sa.html#exercise-7",
-    "title": "Weights of books",
+    "objectID": "ae/ae-14-candidate-talk.html#exercise-7",
+    "href": "ae/ae-14-candidate-talk.html#exercise-7",
+    "title": "Issues candidates should talk more about",
     "section": "Exercise 7",
-    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nHardback is the reference level, therefore doesn’t show up in the model output."
-  },
-  {
-    "objectID": "ae/ae-07-books-sa.html#exercise-8",
-    "href": "ae/ae-07-books-sa.html#exercise-8",
-    "title": "Weights of books",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\n\nIntercept: Books with 0 volume and that are hardback are expected, on average, to weigh approximately 197.96 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the y-axis.\nSlope - volume: All else held constant, for each additional cubic centimeter the book’s volume is larger, we expect the weight to be higher, on average, by 0.72 grams.\nSlope - cover: All else held constant, paperback books weigh, on average, 184.05 grams lower than harback books."
-  },
-  {
-    "objectID": "ae/ae-07-books-sa.html#exercise-9",
-    "href": "ae/ae-07-books-sa.html#exercise-9",
-    "title": "Weights of books",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\nglance(weight_cover_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic     p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.927         0.915  78.2      76.7 0.000000145     2  -85.0  178.  181.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\\(R^2\\) of this model will be higher since it has an additional predictor.\nVolume and cover type explain approximately 93% of the variability in book weights."
-  },
-  {
-    "objectID": "ae/ae-07-books-sa.html#exercise-10",
-    "href": "ae/ae-07-books-sa.html#exercise-10",
-    "title": "Weights of books",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nThe second model, since it has a higher adjusted \\(R^2\\)."
-  },
-  {
-    "objectID": "ae/ae-07-books-sa.html#exercise-11",
-    "href": "ae/ae-07-books-sa.html#exercise-11",
-    "title": "Weights of books",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\nnew_book &lt;- tibble(\n  cover = \"hb\",\n  volume = 1000\n)\n\npredict(weight_cover_fit, new_data = new_book)\n\n# A tibble: 1 × 1\n  .pred\n  &lt;dbl&gt;\n1  916."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html",
-    "href": "ae/ae-16-birth-weight-sa.html",
-    "title": "Birth weights",
-    "section": "",
-    "text": "In this application exercise, we’ll do inference for a comparing two means, using simulation-based and mathematical models."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#sec-exercise-1",
-    "href": "ae/ae-16-birth-weight-sa.html#sec-exercise-1",
-    "title": "Birth weights",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nSet the hypotheses for testing if there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers.\nAdd answer here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-2",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-2",
-    "title": "Birth weights",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the observed difference between the mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers in this sample.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-3",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-3",
-    "title": "Birth weights",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nSuppose the birth weights of the babies in this sample are written on pieces of paper. Explain how you would conduct the randomization test tactically. Hint: You may need to calculate some summary statistics first.\n\n# add code here\n\nAdd answer here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-4",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-4",
-    "title": "Birth weights",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nConstruct and visualize the null distribution. Based on your visualization, speculate on whether the p-value will be small or large.\n\n# add code here\n\nAdd answer here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-5",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-5",
-    "title": "Birth weights",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize and calculate the p-value. At the 5% discernability level, what is the conclusion of the hypothesis test?\n\n# add code here\n\nAdd answer here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-6",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-6",
-    "title": "Birth weights",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nConstruct and interpret confidence interval at the equivalent level as the previous hypothesis test for the difference between the mean weight of babies born to mothers who are smokers and those who are bor to mothers who are not smokers.\n\n# add code here\n\nAdd response here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-7",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-7",
-    "title": "Birth weights",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nCheck that the technical conditions for conducting inference using mathematical models for comparing two means are met for these data.\nAdd response here."
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-8",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-8",
-    "title": "Birth weights",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nConduct a hypothesis test using mathematical models for the hypotheses you set in Section 3.1.\n\nt_hat &lt;- births14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  calculate(\"t\", order = c(\"smoker\", \"nonsmoker\"))\n\nnull_dist_theory &lt;- births14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  assume(\"t\")\n\nvisualize(null_dist_theory) +\n  shade_p_value(obs_stat = t_hat, direction = \"two-sided\")\n\n\n\n\n\n\n\n\n\nbirths14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  assume(\"t\") |&gt;\n  get_p_value(obs_stat = t_hat, direction = \"two-sided\")\n\n# A tibble: 1 × 1\n   p_value\n     &lt;dbl&gt;\n1 0.000208"
-  },
-  {
-    "objectID": "ae/ae-16-birth-weight-sa.html#exercise-9",
-    "href": "ae/ae-16-birth-weight-sa.html#exercise-9",
-    "title": "Birth weights",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nImprove the density plot from the lecture slides.\n\n# add code here"
+    "text": "Exercise 7\nWhat is the conclusion of the hypothesis test?\nAdd response here."
   },
   {
     "objectID": "ae/ae-05-durham-sa.html",
