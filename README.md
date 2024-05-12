@@ -1,1 +1,1 @@
-# sta101-f23.github.io
+# sta101-su2024.github.io
