@@ -1,5 +1,8 @@
 ---
 title: "Teaching team"
+format: 
+  html: default
+  pdf: default
 ---
 
 ## Instructor
