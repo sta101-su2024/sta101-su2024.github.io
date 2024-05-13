@@ -302,7 +302,6 @@ Student health, safety, and well-being are the university's top priorities. To h
 
 In the event of inclement weather or other connectivity-related events that prohibit class attendance, I will notify you how we will make up missed course content and work. This might entail holding the class on Zoom synchronously, we may rely on Duke's designated make-up days, or you may be asked to watch a recording of the class.
 
-
 ## Accommodations
 
 ### Academic accommodations
@@ -320,12 +319,12 @@ Students are permitted by university policy to be absent from class to observe a
 -   **Wednesday, May 15:** Classes begin
 -   **Friday, May 17:** Drop/add ends
 -   **Monday, May 27**: Memorial Day - No lecture
--   **Friday, June 7:** Exam  - In class
+-   **Friday, June 7:** Exam - In class
 -   **Sunday, June 9:** Exam - Take home due
 -   **Wednesday, June 12:** Last day to withdraw with W
 -   **Monday, June 24, 9:30 am -12:15 pm**: Project presentations
 -   **Monday, June 24:** Classes end
 -   **Tuesday, June 25:** Reading period
--   **Wednesday, June 26: ** Project report due
+-   **Wednesday, June 26:** Project report due
 
 For more important dates, see the full [Duke Academic Calendar](https://registrar.duke.edu/academic-calendar/current-academic-calendar/#fall2023).
