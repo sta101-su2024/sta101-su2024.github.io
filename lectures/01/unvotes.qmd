@@ -1,7 +1,6 @@
 ---
 title: "UN Votes"
-categories: 
-  - Application exercise
+format: html
 editor: visual
 ---
 
