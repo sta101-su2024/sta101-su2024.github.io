@@ -2,7 +2,6 @@
 title: "Computing access"
 ---
 
-To access RStudio in the browser, go to the [Posit Cloud](https://posit.cloud/spaces/405361) space for this course.
+To access RStudio in the browser, go to the [Duke Container Manager](https://cmgr.oit.duke.edu/containers).
 
-At the beginning of the semester you should have received a link to join this space. 
-If you haven't yet joined, you can find the link in Canvas Announcements or ask for it on the course Slack.
+At the beginning of the semester you should reserve an RStudio container for STA101. 

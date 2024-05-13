@@ -68,25 +68,21 @@ website:
             text: Lab 7
           - href: labs/lab-8.qmd
             text: Lab 8
-      - section: "Projects"
+          - href: labs/lab-9.qmd
+            text: Lab 9
+      - section: "Project"
         contents:
-          - href: project/project-1.qmd
-            text: "Project 1"
-          - href: project/project-2.qmd
+          - href: project/project.qmd
+            text: "Project"
       - section: "Computing"
         contents:
           - href: computing/computing-access.qmd
             text: Access
-          - href: computing/computing-troubleshooting.qmd
-            text: Troubleshooting
           - href: computing/computing-cheatsheets.qmd
             text: Cheatsheets
-      - href: extra-credit.qmd
-        text: Extra credit
-
   page-footer:
     right: "This page is built with 🤍 and [Quarto](https://quarto.org/)"
-    left: "&copy; Copyright 2023, Mine Çetinkaya-Rundel"
+    left: "&copy; Copyright 2023, Mine Çetinkaya-Rundel; 2024, Kat Husar"
     background: "#5d6d74"
 
 

@@ -12,15 +12,15 @@ If you have a question during lecture or lab, feel free to ask it! There are lik
 
 The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage each and every one of you to take advantage of this resource! Make a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself. You can find a list of everyone's office hours [here](/course-team.html).
 
-## Slack
+## Discussion Board
 
-Have a question that can't wait for office hours? Prefer to write out your question in detail rather than asking in person? The course Slack is the best venue for these! There is a chance another student has already asked a similar question, so please check the other posts on Slack before asking a new question. If you know the answer to a question that is posted, I encourage you to respond!
+Have a question that can't wait for office hours? Prefer to write out your question in detail rather than asking in person? The course Discussion Board on Canvas is the best venue for these! There is a chance another student has already asked a similar question, so please check the other posts before asking a new question. If you know the answer to a question that is posted, I encourage you to respond!
 
 ## Email
 
-Please refrain from emailing any course content questions (those should go to Slack), and only use email for questions about personal matters that may not be appropriate for the public course forum (e.g., illness, accommodations, etc.). For such matters, you may email Dr. Mine Çetinkaya-Rundel at [mc301\@duke.edu](mailto:mc301@duke.edu).
+Please refrain from emailing any course content questions (those should go to discussion board), and only use email for questions about personal matters that may not be appropriate for the public course forum (e.g., illness, accommodations, etc.). For such matters, you may email Kat Husar at [kat.husar\@duke.edu](mailto:kat.husar@duke.edu).
 
-If there is a question that's not appropriate for the public forum, you are welcome to email me directly. **If you email me, please include "STA 101" in the subject line.** Barring extenuating circumstances, I will respond to STA 101 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.
+If there is a question that's not appropriate for the public forum, you are welcome to email me directly. **If you email me, please include "STA 101" in the subject line.** Barring extenuating circumstances, I will respond to STA 101 emails within 24 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.
 
 ## Academic support
 

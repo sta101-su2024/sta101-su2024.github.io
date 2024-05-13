@@ -4,7 +4,7 @@ title: "Course overview"
 
 This is the homepage for STA 101 - Data Analysis and Statistical Inference taught by Kat Husar in Summer 2024 at Duke University.  All course materials will be posted on this site.
 
-You can find the course syllabus [here](/syllabus) and the course schedule [here](/).
+You can find the course syllabus [here](/Syllabus) and the course schedule [here](/).
 
 ## Class meetings
 
