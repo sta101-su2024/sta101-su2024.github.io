@@ -6,7 +6,7 @@ title: "Teaching team"
 
 ![](images/team/kat.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Kat Husar" width="200"}
 
-[**Kat Husar**](https://scholars.duke.edu/person/kat.husar) (she/her) - Hi everyone! I am a second year PhD student at the [Department of Statistical Science](#0) at Duke University working with professor [Alex Volfovsky](https://scholars.duke.edu/person/alexander.volfovsky) and professor [Fan Li](https://scholars.duke.edu/person/fli). My research interest lies in causal inference.
+[**Kat Husar**](https://scholars.duke.edu/person/kat.husar) (she/her) - Hi everyone! I am a second year PhD student at the [Department of Statistical Science](#0) at Duke University working with professors [Alex Volfovsky](https://scholars.duke.edu/person/alexander.volfovsky) and [Fan Li](https://scholars.duke.edu/person/fli). My research interest lies in causal inference.
 
 Prior to starting at Duke, I completed my undergraduate degree at The Ohio State University majoring in mathematics and data analytics.
 
@@ -18,6 +18,10 @@ During my free time, I like to go on walks, hang out with my friends, bake, and 
 
 ## Teaching assistant
 
-|                                        | Name                                                              | Office hours | Location |
-|----------------------------------------|-------------------------------------------------------------------|--------------|----------|
-| ![](images/team/john.png){width="100"} | [John Gillen](https://www.linkedin.com/in/john-gillen-611471229/) |              |          |
+![](images/team/john.png){style="float:right;padding: 0 0 0 10px;" width="200"}
+
+[John Gillen](https://www.linkedin.com/in/john-gillen-611471229/)
+
+| Office hours | Location |
+|--------------|----------|
+| TBD          | TBD      |
