@@ -1,7 +1,6 @@
 ---
 title: "UN Votes"
 format: html
-editor: visual
 ---
 
 ## Introduction
