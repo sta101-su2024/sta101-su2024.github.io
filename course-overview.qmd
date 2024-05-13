@@ -17,7 +17,7 @@ You can find the course syllabus [here](/course-syllabus.qmd) and the course sch
 
 ## **Acknowledgement**
 
-Thank you [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) for class material and help preparing the course.
+Thank you [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) for class material and help preparing the course and setting up this website.
 
 ## **License**
 

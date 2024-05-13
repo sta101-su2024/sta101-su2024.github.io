@@ -71,3 +71,7 @@ d |>
   tab_options(table.font.size = 13) |>
   opt_row_striping()
 ```
+
+### **Acknowledgement**
+
+Thank you [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) for class material and help preparing the course and setting up this website.
