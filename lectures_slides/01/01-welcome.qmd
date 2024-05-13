@@ -52,7 +52,6 @@ John Gillen
 
 8.  Complete research projects demonstrating mastery of statistical data analysis from exploratory analysis to inference to modeling.
 
-
 # Course components
 
 ## Course website
@@ -124,7 +123,9 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 -   Required throughout the semester in lecture and lab
 
 -   Students who attend at least 80% of the lectures and participate regularly in lecture and/or other course venues (discussion board) will receive full credit for the lecture attendance
+
 -   You are allowed to miss 2 lab meetings without penalty.
+
 -   Lecture and lab attendance will be equally weighted in the final attendace grade calculation.
 
 ::: callout-tip
@@ -182,7 +183,7 @@ Final presentation date cannot be changed. If you can't present on that date, yo
 
 -   Project submissions:
 
-    -   Proposal ;ate, but within 24 hours of deadline: -20% of available points
+    -   Proposal late, but within 24 hours of deadline: -20% of available points
     -   Any later: No credit, and we will not provide written feedback
 
 -   Project presentation: Late submissions not accepted
@@ -267,11 +268,9 @@ I want to make sure that you learn everything you were hoping to learn from this
 
 -   Personal questions (e.g., extensions, illnesses, etc.) should be via email to me
 
-
 # To do before...
 
 ## To do before... {.smaller}
-
 
 ### the next class tomorrow
 
@@ -280,12 +279,6 @@ I want to make sure that you learn everything you were hoping to learn from this
 -   Complete the *Getting to know you* survey
 
 -   Complete the readings
-
-### the end of the week
-
--   Get started on the lab assignment
-
--   Complete the interactive tutorials
 
 # Hello data
 
