@@ -4,13 +4,17 @@ title: "Teaching team"
 
 ## Instructor
 
-![](images/team/kat.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Kat Husar" width="100"}
+![](images/team/kat.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Kat Husar" width="200"}
 
-**Kat Husar** (she/her) is a second year PhD student at the [Department of Statistical Science](#0) at Duke University.
+[**Kat Husar**](https://scholars.duke.edu/person/kat.husar) (she/her) - Hi everyone! I am a second year PhD student at the [Department of Statistical Science](#0) at Duke University working with professor [Alex Volfovsky](https://scholars.duke.edu/person/alexander.volfovsky) and professor [Fan Li](https://scholars.duke.edu/person/fli). My research interest lies in causal inference.
 
-| Office hours | Location |
-|--------------|----------|
-|              |          |
+Prior to starting at Duke, I completed my undergraduate degree at The Ohio State University majoring in mathematics and data analytics.
+
+During my free time, I like to go on walks, hang out with my friends, bake, and spend time with my cat.
+
+| Office hours | Location      |
+|--------------|---------------|
+| TBD          | Old Chem 203B |
 
 ## Teaching assistant
 
