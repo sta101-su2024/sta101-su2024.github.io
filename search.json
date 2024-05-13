@@ -290,7 +290,7 @@
     "href": "labs/lab-1.html#yaml",
     "title": "Lab 1: Hello R!",
     "section": "YAML",
-    "text": "YAML\nThe top portion of your Quarto Markdown file (aka .qmd), you’ll find three dashed lines. Between the dashed lines is called YAML. YAML stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\nChange the author name to your name and update the date with today’s date. Click the Render to render the document. What do you notice?\n\n\n\n\n\n\nNote\n\n\n\nTo avoid issues that can occur while rendering, it is a good idea to render early and often. At least after every exercise.",
+    "text": "YAML\nThe top portion of your Quarto Markdown file (aka .qmd), you’ll find three dashed lines. Between the dashed lines is called YAML. YAML stands for “Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\nChange the author name to your name and update the date with today’s date. Click the Render to render the document. What do you notice?\n\n\n\n\n\n\nNote\n\n\n\nTo avoid issues that can occur while rendering, it is a good idea to render early and often. At least after every exercise.",
     "crumbs": [
       "Labs",
       "Lab 1"
@@ -605,11 +605,11 @@
     "text": "To do before…\nthe next class tomorrow\n\nRead the syllabus\nComplete the Getting to know you survey\nComplete the readings"
   },
   {
-    "objectID": "lectures_slides/01/01-welcome.html#application-exercise-un-votes",
-    "href": "lectures_slides/01/01-welcome.html#application-exercise-un-votes",
+    "objectID": "lectures_slides/01/01-welcome.html#un-votes",
+    "href": "lectures_slides/01/01-welcome.html#un-votes",
     "title": "Welcome to STA 101",
-    "section": "Application exercise: UN Votes",
-    "text": "Application exercise: UN Votes\n\nGo to Container and upload the document titled unvotes.qmd. Review the narrative and the data visualization you just created. Then, change “Turkey” to another country of your choice. Re-render the document. Show the plot you created to your neighbor and discuss (1) why you chose that country and (2) how this new visualization is different than the original (and what that says about country politics, if anything).\nTime permitting: How were these data collected?\n\n\n\n\n🔗 sta101-su2024.github.io"
+    "section": "UN Votes",
+    "text": "UN Votes\n\nGo to Container and upload the document titled unvotes.qmd. Review the narrative and the data visualization you just created. Then, change “Turkey” to another country of your choice. Re-render the document. Show the plot you created to your neighbor and discuss (1) why you chose that country and (2) how this new visualization is different than the original (and what that says about country politics, if anything).\nTime permitting: How were these data collected?\n\n\n\n\n🔗 sta101-su2024.github.io"
   },
   {
     "objectID": "lectures/01/unvotes.html",
