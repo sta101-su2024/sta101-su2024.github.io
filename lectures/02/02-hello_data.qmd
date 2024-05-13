@@ -1,18 +1,14 @@
 ---
 title: "Hello data"
-categories: 
-  - Application exercise
 editor: visual
 ---
-
 
 # Announcements
 
 1.  Office hours are updated with minor changes on the course website .
 2.  If you haven't yet done so, please:
     -   complete the Getting to know you survey
-    -   read through the syllabus 
-
+    -   read through the syllabus
 
 # Goals
 
