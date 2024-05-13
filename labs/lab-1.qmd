@@ -6,11 +6,11 @@ The goal of this lab is to acquaint you with R (the computing language), RStudio
 
 # Getting started
 
-1.  Go to [Posit Cloud](https://posit.cloud/spaces/405361) and start the project titled **lab-1 - Hello R!**.
+1.  Go to [Duke Container Manager](https://cmgr.oit.duke.edu/containers) and create a new folder titled **lab-1 - Hello R!**.
 
-2.  Under the *Files* tab on the lower right, click on `lab-1.qmd` to open the lab template.
+2.  Under the *Files* tab on the lower right, click on the upload button to upload `lab-1.qmd`.
 
-![](images/open-the-file.png){fig-alt="Where to find the file" width="500"}
+![](images/upload.png){fig-alt="Where to find the upload" width="500"}
 
 3.  Complete the exercises in this document.
 
@@ -18,7 +18,7 @@ The goal of this lab is to acquaint you with R (the computing language), RStudio
 
 ## YAML
 
-The top portion of your Quarto Markdown file (aka `.qmd`), you'll find three dashed lines. Between the dashed lines is called YAML. YAML stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+The top portion of your Quarto Markdown file (aka `.qmd`), you'll find three dashed lines. Between the dashed lines is called YAML. YAML stands for "Yet Another Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
 
 Change the `author` name to your name and update the `date` with today's date. Click the **Render** to render the document. What do you notice?
 

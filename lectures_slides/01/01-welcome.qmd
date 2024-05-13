@@ -282,7 +282,7 @@ I want to make sure that you learn everything you were hoping to learn from this
 
 # Hello data
 
-## Application exercise: UN Votes
+## UN Votes
 
 ::: task
 Go to Container and upload the document titled `unvotes.qmd`. Review the narrative and the data visualization you just created. Then, change "Turkey" to another country of your choice. Re-render the document. Show the plot you created to your neighbor and discuss (1) why you chose that country and (2) how this new visualization is different than the original (and what that says about country politics, if anything).
