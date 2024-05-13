@@ -1,79 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sta101-su2024.github.io/exam-review/exam-1-review-sa.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/exam-review/exam-2-review-sa.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
     <loc>https://sta101-su2024.github.io/course-faq.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/index.html</loc>
-    <lastmod>2024-05-13T15:00:39.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-overview.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-team.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/computing/computing-access.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/computing/computing-cheatsheets.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/lectures/01/01-welcome.html</loc>
-    <lastmod>2024-05-13T15:00:39.427Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/labs/lab-2.html</loc>
-    <lastmod>2024-05-13T15:00:39.427Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/labs/lab-1.html</loc>
-    <lastmod>2024-05-13T15:00:39.427Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-syllabus.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/computing/computing-troubleshooting.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/ae/ae-01-unvotes.html</loc>
-    <lastmod>2024-05-13T15:00:39.371Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-support.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/course-links.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
   </url>
   <url>
-    <loc>https://sta101-su2024.github.io/extra-credit.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
+    <loc>https://sta101-su2024.github.io/course-support.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
   </url>
   <url>
-    <loc>https://sta101-su2024.github.io/exam-review/exam-2-review.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
+    <loc>https://sta101-su2024.github.io/computing/computing-access.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
   </url>
   <url>
-    <loc>https://sta101-su2024.github.io/exam-review/exam-1-review.html</loc>
-    <lastmod>2024-05-13T15:00:39.403Z</lastmod>
+    <loc>https://sta101-su2024.github.io/course-syllabus.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/labs/lab-1.html</loc>
+    <lastmod>2024-05-13T15:33:26.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/lectures/01/01-welcome.html</loc>
+    <lastmod>2024-05-13T15:33:26.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/computing/computing-cheatsheets.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-team.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-overview.html</loc>
+    <lastmod>2024-05-13T15:33:26.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/index.html</loc>
+    <lastmod>2024-05-13T15:33:26.317Z</lastmod>
   </url>
 </urlset>
