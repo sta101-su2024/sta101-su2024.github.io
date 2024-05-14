@@ -545,34 +545,6 @@
     "text": "UN Votes\n\nGo to Container and upload the document titled unvotes.qmd. Review the narrative and the data visualization you just created. Then, change “Turkey” to another country of your choice. Re-render the document. Show the plot you created to your neighbor and discuss (1) why you chose that country and (2) how this new visualization is different than the original (and what that says about country politics, if anything).\nTime permitting: How were these data collected?\n\n\n\n\n\n🔗 sta101-su2024.github.io"
   },
   {
-    "objectID": "lectures_slides/02/02-hello-data.html#from-canvas",
-    "href": "lectures_slides/02/02-hello-data.html#from-canvas",
-    "title": "Hello data",
-    "section": "From Canvas",
-    "text": "From Canvas\n\nCourse recordings have been set up. Link has also been added to the course website. Remember that the videos are for “make up”, not a replacement for class attendance.\nTA office hours are updated with minor changes on the course website and Zoom links for virtual office hours are also included.\nIf you haven’t yet done so, please:\n\ncomplete the Getting to know you survey\nread through the syllabus (and follow the prompts)"
-  },
-  {
-    "objectID": "lectures_slides/02/02-hello-data.html#concerns",
-    "href": "lectures_slides/02/02-hello-data.html#concerns",
-    "title": "Hello data",
-    "section": "Concerns",
-    "text": "Concerns\nd |&gt;\n  unnest_tokens(word, concerns) |&gt; \n  anti_join(stop_words) |&gt; \n  count(word, sort = TRUE)\n## Joining with `by = join_by(word)`\n## # A tibble: 227 × 2\n##    word            n\n##    &lt;chr&gt;       &lt;int&gt;\n##  1 coding         34\n##  2 class          12\n##  3 concerned      11\n##  4 nervous        10\n##  5 programming     9\n##  6 math            8\n##  7 understand      8\n##  8 bit             7\n##  9 experience      7\n## 10 learning        6\n## # ℹ 217 more rows"
-  },
-  {
-    "objectID": "lectures_slides/02/02-hello-data.html#stats-and-coding-before",
-    "href": "lectures_slides/02/02-hello-data.html#stats-and-coding-before",
-    "title": "Hello data",
-    "section": "Stats and coding before",
-    "text": "Stats and coding before\n75% so far no stats and no coding background/experience!"
-  },
-  {
-    "objectID": "lectures_slides/02/02-hello-data.html#application-exercise",
-    "href": "lectures_slides/02/02-hello-data.html#application-exercise",
-    "title": "Hello data",
-    "section": "Application exercise",
-    "text": "Application exercise\nGo to Posit Cloud and start the project titled ae-02-Flint.\n\n\n\n\n🔗 sta101-su2024.github.io"
-  },
-  {
     "objectID": "labs/lab-1.html",
     "href": "labs/lab-1.html",
     "title": "Lab 1: Hello R!",
