@@ -21,9 +21,9 @@ During my free time, I like to go on walks, hang out with my friends, bake, and 
 
 ## Teaching assistant
 
-![](images/team/john.png){style="float:leftt;padding: 0 0 0 10px;" width="200"}
 
-[**John Gillen**](https://www.linkedin.com/in/john-gillen-611471229/) - Hello! I’m a second-year student in the Master of Statistical Science program here at Duke. I completed undergraduate degrees in statistics and mathematics at UC Riverside, and am hoping to pursue a PhD in statistics after completing my Master’s degree.
+
+[**John Gillen**](https://www.linkedin.com/in/john-gillen-611471229/) - Hello! I’m a second-year student in the Master of Statistical Science program here at Duke. I completed undergraduate degrees in statistics and mathematics at UC Riverside, and am hoping to pursue a PhD in statistics after completing my Master’s degree.![](images/team/john.png){style="float:leftt;padding: 0 0 0 10px;" width="200"}
 
 
 Outside of school, I enjoy playing tennis, running, and reading.
