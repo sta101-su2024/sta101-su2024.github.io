@@ -39,7 +39,7 @@ library(datasauRus)
 ```
 
 ::: callout-warning
-If you are using `R` on Posit Cloud, packages we use should already be installed and only need to be **loaded** with the function `library()`. If you are using a local version of `R` you probably have to run the following code in the **console** to install the packages (one time only!)
+If you are using `R` on Duke Containers, packages we use should already be installed and only need to be **loaded** with the function `library()`. If you are using a local version of `R` you probably have to run the following code in the **console** to install the packages (one time only!)
 
 ```{r}
 #| eval: false
