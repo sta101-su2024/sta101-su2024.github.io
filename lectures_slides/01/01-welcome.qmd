@@ -13,7 +13,7 @@ auto-stretch: false
 ::: {.column width="50%"}
 ### Instructor
 
-Kat Husat
+Kat Husar
 
 Old Chem 406
 
