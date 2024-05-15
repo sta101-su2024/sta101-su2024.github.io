@@ -15,7 +15,7 @@
     "href": "course-links.html",
     "title": "Useful links",
     "section": "",
-    "text": "Container Manager\n🔗 Container Manager\n\n\n\nGradescope\n🔗 Gradescope\n\n\n\nDiscussion board\n🔗 on Canvas\n\n\n\nGradebook\n🔗 on Canvas\n\n\n\nAnnouncements\n🔗 on Canvas\n\n\n\nTextbooks\n🔗 Introduction to Modern Statistics, 2nd Edition\n🔗 R for Data Science, 2nd Edition\n\n\n\nPackage documentation\n🔗 tidyverse: tidyverse.org\n🔗 tidymodels: tidymodels.org",
+    "text": "Container Manager\n🔗 Container Manager\n\n\n\nGradescope\n🔗 Gradescope\n\n\n\nDiscussion board\n🔗 on Canvas\n\n\n\nAnnouncements\n🔗 on Canvas\n\n\n\nTextbooks\n🔗 Introduction to Modern Statistics, 2nd Edition\n🔗 R for Data Science, 2nd Edition\n\n\n\nPackage documentation\n🔗 tidyverse: tidyverse.org\n🔗 tidymodels: tidymodels.org",
     "crumbs": [
       "Course information",
       "Useful links"
@@ -540,7 +540,7 @@
     "href": "course-support.html#assistance-with-canvas-and-zoom",
     "title": "Course support",
     "section": "Assistance with Canvas and Zoom",
-    "text": "Assistance with Canvas and Zoom\nFor technical help with Canvas or Zoom, contact the Duke OIT Service Desk at oit.duke.edu/help. You can also access the self-service help documentation for Zoom here and for Canvas here.\nNote that we will be making minimal use of Canvas in this course (primarily for announcements and grade book). All assignment submission will take place on Gradescope and conversation on Slack.\nZoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person.",
+    "text": "Assistance with Canvas and Zoom\nFor technical help with Canvas or Zoom, contact the Duke OIT Service Desk at oit.duke.edu/help. You can also access the self-service help documentation for Zoom here and for Canvas here.\nZoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person.",
     "crumbs": [
       "Course information",
       "Support"
