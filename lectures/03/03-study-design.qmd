@@ -11,9 +11,9 @@ editor_options:
 
 ## Announcements
 
--   Thanks to those who read the syllabus and followed the prompts 🐈 🐕 🐍 🐦
+-   Thanks to those who read the syllabus and followed the prompts
 
--   Lab 1 is due tomorrow (Thu, Sep 7) at 5 pm on Gradescope
+-   Lab 1 is due Sunday (May 19) at 11:59 pm on Gradescope
 
 -   Late policy review
 
