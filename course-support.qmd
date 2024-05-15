@@ -62,6 +62,4 @@ If you are having difficulty with costs associated with this course, here are so
 
 For technical help with Canvas or Zoom, contact the Duke OIT Service Desk at [oit.duke.edu/help](https://oit.duke.edu/help). You can also access the self-service help documentation for Zoom [here](https://oit.duke.edu/help/articles/kb0029318) and for Canvas [here](https://go.canvas.duke.edu/canvas-training-materials/).
 
-Note that we will be making minimal use of Canvas in this course (primarily for announcements and grade book). All assignment submission will take place on Gradescope and conversation on Slack.
-
 Zoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person.
