@@ -77,9 +77,7 @@ Loading this package prints out a message. What does this message mean? How can 
 
 ## Load data
 
-The `read_csv()` function can be used for reading CSV (comma separated values) files. The file we're reading is called `flint` with the suffix (`.csv`) which indicates its file type. The file is in the `data` folder.
-
-Before reading in the file, go to the `data` folder in the Files pane to confirm that it is, indeed, there. Then, read the file by running the code chunk below by clicking on the green triangle icon on the code chunk.
+The `read_csv()` function can be used for reading CSV (comma separated values) files. The file we're reading is called `flint` with the suffix (`.csv`) which indicates its file type.
 
 ```{r}
 #| label: load-data
