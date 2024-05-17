@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Computing access</title>
+<title>STA 101 - Summer 24 - Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../computing/computing-cheatsheets.html" rel="next">
-<link href="../project/project.html" rel="prev">
+<link href="../computing/computing-access.html" rel="next">
+<link href="../labs/lab-9.qmd" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="STA 101 - Summer 24 - Computing access">
+<meta property="og:title" content="STA 101 - Summer 24 - Project">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/computing-access.html">Access</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project.html">Project</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -249,16 +249,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Project</span></a>
   </div>
 </li>
@@ -266,16 +266,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
  <span class="menu-text">Computing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing/computing-access.html" class="sidebar-item-text sidebar-link active">
+  <a href="../computing/computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
@@ -293,14 +293,55 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#timeline" id="toc-timeline" class="nav-link active" data-scroll-target="#timeline">Timeline</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Proposal (10 pts)</a>
+  <ul class="collapse">
+  <li><a href="#criteria-for-datasets" id="toc-criteria-for-datasets" class="nav-link" data-scroll-target="#criteria-for-datasets">Criteria for datasets</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources for datasets</a></li>
+  <li><a href="#proposal-grading" id="toc-proposal-grading" class="nav-link" data-scroll-target="#proposal-grading">Proposal grading</a></li>
+  </ul></li>
+  <li><a href="#intro_eda" id="toc-intro_eda" class="nav-link" data-scroll-target="#intro_eda">Intro + EDA (10 pts)</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
+  <li><a href="#intro-eda-grading" id="toc-intro-eda-grading" class="nav-link" data-scroll-target="#intro-eda-grading">Intro + EDA grading</a></li>
+  </ul></li>
+  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review (10 pts)</a></li>
+  <li><a href="#project-report" id="toc-project-report" class="nav-link" data-scroll-target="#project-report">Report (50 pts)</a>
+  <ul class="collapse">
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a>
+  <ul class="collapse">
+  <li><a href="#introduction-10-pts" id="toc-introduction-10-pts" class="nav-link" data-scroll-target="#introduction-10-pts">Introduction (10 pts)</a></li>
+  <li><a href="#methodology-15-pts" id="toc-methodology-15-pts" class="nav-link" data-scroll-target="#methodology-15-pts">Methodology (15 pts)</a></li>
+  <li><a href="#results-15-pts" id="toc-results-15-pts" class="nav-link" data-scroll-target="#results-15-pts">Results (15 pts)</a></li>
+  <li><a href="#discussion-5-pts" id="toc-discussion-5-pts" class="nav-link" data-scroll-target="#discussion-5-pts">Discussion (5 pts)</a></li>
+  <li><a href="#formatting-5-pts" id="toc-formatting-5-pts" class="nav-link" data-scroll-target="#formatting-5-pts">Formatting (5 pts)</a></li>
+  </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  </ul></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation (20 pts)</a>
+  <ul class="collapse">
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  </ul></li>
+  <li><a href="#overall-grading" id="toc-overall-grading" class="nav-link" data-scroll-target="#overall-grading">Overall grading</a>
+  <ul class="collapse">
+  <li><a href="#grading-summary" id="toc-grading-summary" class="nav-link" data-scroll-target="#grading-summary">Grading summary</a></li>
+  <li><a href="#late-work-policy" id="toc-late-work-policy" class="nav-link" data-scroll-target="#late-work-policy">Late work policy</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/project/project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/computing-access.html">Access</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project.html">Project</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Computing access</h1>
+<h1 class="title">Project</h1>
 </div>
 
 
@@ -317,10 +358,331 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To access RStudio in the browser, go to the <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a>.</p>
-<p>At the beginning of the semester you should reserve an RStudio container for STA101.</p>
+<p>The deliverable for this project (what you will turn in) is a written report and a presentation. See below for more details.</p>
+<section id="timeline" class="level1">
+<h1>Timeline</h1>
+<p><a href="#project-proposal">Proposal</a> due Tue, May 28 at 11:59 pm</p>
+<p><a href="#intro_eda">Intro + EDA</a> due Wed, Jun 12 at 11:59 pm</p>
+<p><a href="#peer-review">Peer review</a> due Sun, Jun 16 at 11:59 pm</p>
+<p><a href="#presentation">Presentation</a> due Mon, Jun 24 in class</p>
+<p><a href="#project-report">Final report</a> due Wed, Jun 26 at 11:59 pm</p>
+</section>
+<section id="description" class="level1">
+<h1>Description</h1>
+<p><strong>TL;DR</strong>: <em>Ask a question you’re curious about and answer it with a dataset of your choice. This is your project in a nutshell.</em></p>
+<p><strong>May be too long, but please do read</strong></p>
+<p>The final project for this class will consist of analysis on a dataset of your own choosing. The dataset may already exist, or you may collect your own data using a survey or by conducting an experiment. You can choose the data based on your interests or based on work in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a novel dataset in a meaningful way.</p>
+<p>The goal is not to do an exhaustive data analysis i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. You do not have to apply every statistical procedure we learned. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis should be discussed here.</p>
+<p>The project is very open ended. You should</p>
+<ul>
+<li>create some kind of compelling visualization(s) of this data, and</li>
+<li>perform statistical inference and/or fit a model or descriptive or predictive purposes</li>
+</ul>
+<p>There is no limit on what tools or packages you may use but sticking to packages we learned in class is <strong>required</strong>. You do not need to visualize all of the data at once. A single high-quality visualization will receive a much higher grade than a large number of poor-quality visualizations. Also pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R, and all components of the project <strong>must be reproducible</strong> (with the exception of the presentation).</p>
+<p>You will work on the project alone.</p>
+<p>The five primary deliverables for the final project are</p>
+<ol type="1">
+<li>A project <strong>proposal</strong> due Tuesday, May 28th at 11:59 pm.</li>
+<li>Intro and EDA due Wednesday, June 12th at 11:59 pm + email to classmate with pdf of intro for peer review.</li>
+<li>Formal <strong>peer review</strong> of another classmate’s project in your lab section due Sunday, June 16th at 11:59 pm.</li>
+<li>A <strong>presentation</strong> in class on Monday, June 24th (slides submitted on Gradescope before class).</li>
+<li>A reproducible project <strong>writeup</strong> of your analysis submitted on Gradescope by Wednesday, June 26th at 11:59 pm.</li>
+</ol>
+</section>
+<section id="project-proposal" class="level1">
+<h1>Proposal (10 pts)</h1>
+<p>The main purpose of the project proposal is to help you think about the project thoroughly before you go too far down a path and form an analysis plan that is feasible and that will allow you to be successful for this project.</p>
+<p>You will: - Identify two (or three) data sets and a research questions for the final project to choose from. If you’re unsure where to find data, you can use the list of potential data sources in the <a href="#resources">Resources for datasets</a> section as a starting point. It may also help to think of topics you’re interested in investigating and find data sets on those topics. - Submit the summary of each dataset and research question in order of which one you’d want to work on the most. I will then look through these and help you choose which data I think is better for the project.</p>
+<section id="criteria-for-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="criteria-for-datasets">Criteria for datasets</h2>
+<p>The data sets should meet the following criteria:</p>
+<ul>
+<li><p>At least 100 observations</p></li>
+<li><p>At least 5 columns</p></li>
+<li><p>At least 4 of the columns must be useful and unique explanatory variables.</p>
+<ul>
+<li>Identifier variables such as “name”, “social security number”, etc. are not useful explanatory variables.</li>
+<li>If you have multiple columns with the same information (e.g.&nbsp;“state abbreviation” and “state name”), then they are not unique explanatory variables.</li>
+</ul></li>
+<li><p>You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials (this or previous semesters of STA101).</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please ask a member of the teaching team if you’re unsure whether your data set meets the criteria.</p>
+</div>
+</div>
+<p>If you set your hearts on a dataset that has fewer observations or variables than what’s suggested here, that might still be ok; use these numbers as guidance for a successful proposal, not as minimum requirements.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources for datasets</h2>
+<p>You can find data wherever you like, but here are some recommendations to get you started. You shouldn’t feel constrained to datasets that are already in a tidy format, you can start with data that needs cleaning and tidying, scrape data off the web, or collect your own data.</p>
+<ul>
+<li><a href="https://github.com/awesomedata/awesome-public-datasets">Awesome public datasets</a></li>
+<li><a href="https://www.bikeshare.com/data/">Bikeshare data portal</a></li>
+<li><a href="https://www.cdc.gov/datastatistics/">CDC</a></li>
+<li><a href="https://www.data.gov/">Data.gov</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0">Data is Plural</a></li>
+<li><a href="https://live-durhamnc.opendata.arcgis.com/">Durham Open Data Portal</a></li>
+<li><a href="https://edinburghopendata.info/">Edinburgh Open Data</a></li>
+<li><a href="https://electionstudies.org//">Election Studies</a></li>
+<li><a href="https://ec.europa.eu/eurostat/">European Statistics</a></li>
+<li><a href="https://think.cs.vt.edu/corgis/csv/">CORGIS: The Collection of Really Great, Interesting, Situated Datasets</a></li>
+<li><a href="https://gss.norc.org/">General Social Survey</a></li>
+<li><a href="https://datasetsearch.research.google.com/">Google Dataset Search</a></li>
+<li><a href="https://dataverse.harvard.edu/">Harvard Dataverse</a></li>
+<li><a href="https://data.imf.org/?sk=388DFA60-1D26-4ADE-B505-A05A558D9A42&amp;sId=1479329328660">International Monetary Fund</a></li>
+<li><a href="https://ipums.org/">IPUMS survey data from around the world</a></li>
+<li><a href="https://data.lacity.org/browse">Los Angeles Open Data</a></li>
+<li><a href="https://www.icpsr.umich.edu/web/NACJD/studies/38090/summary">National Crime Victimization Survey</a></li>
+<li><a href="https://www.opendata.nhs.scot/">NHS Scotland Open Data</a></li>
+<li><a href="https://opendata.cityofnewyork.us/">NYC OpenData</a></li>
+<li><a href="https://statistics.gov.scot/home">Open access to Scotland’s official statistics</a></li>
+<li><a href="https://www.pewresearch.org/download-datasets/">Pew Research</a></li>
+<li><a href="https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html">PRISM Data Archive Project</a></li>
+<li><a href="https://www.statcan.gc.ca/en/start">Statistics Canada</a></li>
+<li><a href="https://www.nber.org/research/data?page=1&amp;perPage=50">The National Bureau of Economic Research</a></li>
+<li><a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a></li>
+<li><a href="https://archive.ics.uci.edu/ml/index.php">UCI Machine Learning Repository</a></li>
+<li><a href="https://data.gov.uk/">UK Government Data</a></li>
+<li><a href="https://data.unicef.org/">UNICEF Data</a></li>
+<li><a href="http://data.un.org/">United Nations Data</a></li>
+<li><a href="https://unstats.un.org/UNSDWebsite/">United Nations Statistics Division</a></li>
+<li><a href="https://www.census.gov/data.html">US Census Data</a></li>
+<li><a href="https://sctyner.github.io/static/presentations/Misc/GraphicsGroupISU/2018-11-16-us-govt-data.html">US Government Data</a></li>
+<li><a href="https://datacatalog.worldbank.org/home">World Bank Data</a></li>
+<li><a href="https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au">Youth Risk Behavior Surveillance System (YRBSS)</a></li>
+</ul>
+</section>
+<section id="proposal-grading" class="level2">
+<h2 class="anchored" data-anchor-id="proposal-grading">Proposal grading</h2>
+<p>Each component will be graded as follows:</p>
+<ul>
+<li><p><strong>Meets expectations (full credit)</strong>: Two (or more) data sets and research questions are identified. There is a plan for completing the project as envisioned.</p></li>
+<li><p><strong>Close to expectations (half credit)</strong>: Only one data set and/or research question identified. The plan for completing the project as envisioned is not well designed.</p></li>
+<li><p><strong>Does not meet expectations (no credit)</strong>: No dataset or research question identified. There is no plan for completing the project as envisioned.</p></li>
+</ul>
+<p>Even if you earn full credit, it may not mean that your proposal is perfect.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will only be working with one of the data sets for your project. I ask you to find two or more to have a back-up plan in case I don’t think the first data set will result in a successful project.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="intro_eda" class="level1">
+<h1>Intro + EDA (10 pts)</h1>
+<p>There are three reasons behind this project check-in: - To ensure you have incorporated suggestions given to you during project proposal stage. - To get a head-start on the project and receive advice on how to improve before final submission. - To prepare an introduction file for a peer review.</p>
+<p>You will begin writing the first part of you report. Your report must be written using Quarto. The template will be provided.</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>The introduction provides motivation and context for your research.</p>
+<p>To begin, introduce the data set in a few short sentences. Next, create a code book (aka a “data dictionary”) of the variables in the data set. Only include in your report a code book of the variables that you use.</p>
+<p>Complete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.</p>
+<p>Example research question and hypotheses (if we were predicting penguin weights instead of baby weights):</p>
+<p><em>Can we predict body mass with bill depth? We hypothesize that penguins with deeper bills will also have more mass.</em></p>
+</section>
+<section id="eda" class="level3">
+<h3 class="anchored" data-anchor-id="eda">EDA</h3>
+<p>Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows: - Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables). - Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables. - Describe which variable(s) in your data set have missing data, if any.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are not sure if your plots/tables are satisfactory, or if you think you need more than 3 plots/tables, come talk to me.</p>
+</div>
+</div>
+</section>
+<section id="intro-eda-grading" class="level2">
+<h2 class="anchored" data-anchor-id="intro-eda-grading">Intro + EDA grading</h2>
+<p>You will be graded on whether you incorporated the feedback from project proposal submission as well as whether the requirements listed above have been completed. Even if you earn full credit, it may not mean that your submission is perfect. I expect you to incorporate the feedback in the final report submission.</p>
+</section>
+</section>
+<section id="peer-review" class="level1">
+<h1>Peer review (10 pts)</h1>
+<p>Critically reviewing others’ work is a crucial part of the scientific process, and STA 101 is no exception. You will be assigned one classmate to review. This feedback is intended to help you create a high quality final project, as well as give you experience reading and constructively critiquing the work of others.</p>
+<p>At the beginning of the peer feedback process, you will be asked to email your project (PDF of your introduction + EDA) to one classmate (cc me (Kat)) by <strong>Wednesday, June 12th at 11:59 pm</strong>. The code should be visible in the PDF you share with your reviewer. Then, you will read and provide feedback in the form of an email (with me (Kat) cc’ed) to the peer whose work you’re reviewing by <strong>Sunday, June 16th at 11:59 pm</strong>, answering the following questions:</p>
+<ul>
+<li>Peer review by: [NAME OF PEER DOING THE REVIEW]</li>
+<li>Describe the goal of the project.</li>
+<li>Describe the data used or collected, if any. If the introduction does not include the use of a specific data set, comment on whether the project would be strengthened by the inclusion of a data set.</li>
+<li>Provide constructive feedback on how your might be able to improve their project. Make sure your feedback includes at least one comment on the statistical reasoning aspect of the project, but do feel free to comment on aspects beyond the reasoning as well.</li>
+<li>What aspect of this project are you most interested in and would like to see highlighted in the presentation.</li>
+<li>Provide constructive feedback on any issues with report or code organization.</li>
+<li>What have you learned from this project that you are considering implementing in your own project?</li>
+<li>(Optional) Any further comments or feedback?</li>
+</ul>
+<p>Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the reviewee’s report.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Only introduction and EDA sections will likely be completed. Your review should address these sections only! Thus, comments like “lack of analysis” or such will not be constructive, as I do not expect the rest to be completed yet.</p>
+</div>
+</div>
+</section>
+<section id="project-report" class="level1">
+<h1>Report (50 pts)</h1>
+<p>Your report must be written using Quarto. Your written report should not exceed six pages inclusive of all tables and figures.</p>
+<p>Before you finalize your report, make sure the printing of code chunks is turned off by setting <code>echo</code> to <code>false</code> in your document YAML.</p>
+<section id="components" class="level2">
+<h2 class="anchored" data-anchor-id="components">Components</h2>
+<p>You should include, at a minimum, the following sections in your report.</p>
+<section id="introduction-10-pts" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-10-pts">Introduction (10 pts)</h3>
+<p>The introduction provides motivation and context for your research.</p>
+<p>To begin, introduce the data set in a few short sentences. Next, create a code book (aka a “data dictionary”) of the variables in the data set. Although a code book is provided above, you should include one in your report as well so that your report is self-contained. Specifically, only include in your report a code book of the variables that you use.</p>
+<p>Complete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.</p>
+<p>Example research question and hypotheses (if we were predicting penguin weights instead of baby weights):</p>
+<p><em>Can we predict body mass with bill depth? We hypothesize that penguins with deeper bills will also have more mass.</em></p>
+</section>
+<section id="methodology-15-pts" class="level3">
+<h3 class="anchored" data-anchor-id="methodology-15-pts">Methodology (15 pts)</h3>
+<p>Here you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. You might also include any preliminary summary statistics or figures you use to explore the data.</p>
+</section>
+<section id="results-15-pts" class="level3">
+<h3 class="anchored" data-anchor-id="results-15-pts">Results (15 pts)</h3>
+<p>Place figure(s) here to illustrate the main results from your analysis. 1 beautiful figure is worth more than several poorly formatted figures. You must have at least 1 figure.</p>
+<p>Provide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and create every possible model for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in writing about and interpreting results, and that you can accomplish these tasks using R. More is not better.</p>
+</section>
+<section id="discussion-5-pts" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-5-pts">Discussion (5 pts)</h3>
+<p>This section is a conclusion and discussion. You should</p>
+<ul>
+<li><p>Summarize your main finding in a sentence or two.</p></li>
+<li><p>Discuss your finding and why it is useful (put in the context of your motivation from the introduction).</p></li>
+<li><p>Critique your own analyses and include a brief paragraph on what you would do differently if you were able to start the project over.</p></li>
+</ul>
+</section>
+<section id="formatting-5-pts" class="level3">
+<h3 class="anchored" data-anchor-id="formatting-5-pts">Formatting (5 pts)</h3>
+<p>Your project should be professionally formatted. For example, this means labeling graphs and figures, turning off code chunks, using proper citations and cross-references, and following typical style guidelines.</p>
+</section>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<ul>
+<li><p>Upload the PDF submission to Gradescope.</p></li>
+<li><p>Associate all pages with “Full report”.</p></li>
+</ul>
+</section>
+</section>
+<section id="presentation" class="level1">
+<h1>Presentation (20 pts)</h1>
+<p>Your presentation must be no longer than 15 minutes (aim for around 10-12 minutes).</p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p>For your presentation, you must create presentation slides that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality.</p>
+<p>Here is a suggested outline as you think through the slides; you do not have to use this exact format for the slide deck.</p>
+<ul>
+<li><p>Title Slide</p></li>
+<li><p>Slide 1: Introduce the topic and motivation</p></li>
+<li><p>Slide 2: Introduce the data</p></li>
+<li><p>Slide 3 - 4: Highlights from exploratory data analysis</p></li>
+<li><p>Slide 4 - 5: Highlights from inference and/or modeling</p></li>
+<li><p>Slide 6: Conclusions + critique/shortcomings</p></li>
+</ul>
+<p>You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.).</p>
+</section>
+</section>
+<section id="overall-grading" class="level1">
+<h1>Overall grading</h1>
+<p>The grade breakdown is as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Total</th>
+<th>100 pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Project proposal </strong></td>
+<td>10 pts</td>
+</tr>
+<tr class="even">
+<td><strong>Intro + EDA update </strong></td>
+<td>10 pts</td>
+</tr>
+<tr class="odd">
+<td><strong>Peer review</strong></td>
+<td>10 pts</td>
+</tr>
+<tr class="even">
+<td><strong>Final report</strong></td>
+<td>50 pts</td>
+</tr>
+<tr class="odd">
+<td><strong>Presentation</strong></td>
+<td>20 pts</td>
+</tr>
+</tbody>
+</table>
+<section id="grading-summary" class="level2">
+<h2 class="anchored" data-anchor-id="grading-summary">Grading summary</h2>
+<p>Grading of the project will take into account the following:</p>
+<ul>
+<li>Content - What is the quality of research and/or policy question and relevancy of data to those questions?</li>
+<li>Correctness - Are statistical procedures carried out and explained correctly?</li>
+<li>Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?</li>
+<li>Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?</li>
+</ul>
+<p>A general breakdown of scoring is as follows:</p>
+<ul>
+<li><em>90%-100%</em>: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.</li>
+<li><em>80%-89%</em>: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.</li>
+<li><em>70%-79%</em>: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.</li>
+<li><em>60%-69%</em>: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.</li>
+<li><em>Below 60%</em>: Student is not making a sufficient effort.</li>
+</ul>
+</section>
+<section id="late-work-policy" class="level2">
+<h2 class="anchored" data-anchor-id="late-work-policy">Late work policy</h2>
+<p>Be sure to turn in your work early to avoid any technological mishaps.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no late work accepted on the final report and presentation.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -878,13 +1240,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../project/project.html" class="pagination-link" aria-label="Project">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Project</span>
+      <a href="../labs/lab-9.qmd" class="pagination-link" aria-label="Lab 9">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 9</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../computing/computing-cheatsheets.html" class="pagination-link" aria-label="Cheatsheets">
-        <span class="nav-page-text">Cheatsheets</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../computing/computing-access.html" class="pagination-link" aria-label="Access">
+        <span class="nav-page-text">Access</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -896,7 +1258,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/computing/computing-access.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/project/project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
