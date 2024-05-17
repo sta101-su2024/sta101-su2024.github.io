@@ -2,74 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sta101-su2024.github.io/computing/computing-cheatsheets.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/course-links.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/02/02-hello_data_filled_in.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/03/03_study_design.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/04/04-explore-categorical.html</loc>
-    <lastmod>2024-05-17T18:12:21.225Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-syllabus.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/index.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/labs/lab1/lab-1.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-faq.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-support.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-overview.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/labs/lab2/lab-2.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta101-su2024.github.io/course-team.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.163Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures_slides/01/01-welcome.html</loc>
-    <lastmod>2024-05-17T18:12:21.229Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-team.html</loc>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/labs/lab2/lab-2.html</loc>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-overview.html</loc>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-support.html</loc>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-faq.html</loc>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/labs/lab1/lab-1.html</loc>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/index.html</loc>
+    <lastmod>2024-05-17T18:36:26.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/course-syllabus.html</loc>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta101-su2024.github.io/lectures/05/05-explore-numerical.html</loc>
+    <lastmod>2024-05-17T18:36:26.171Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/01/unvotes.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/03/03-study_design_filled_in.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/lectures/02/02-hello_data.html</loc>
-    <lastmod>2024-05-17T18:12:21.209Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.151Z</lastmod>
   </url>
   <url>
     <loc>https://sta101-su2024.github.io/computing/computing-access.html</loc>
-    <lastmod>2024-05-17T18:12:21.189Z</lastmod>
+    <lastmod>2024-05-17T18:36:26.127Z</lastmod>
   </url>
 </urlset>
