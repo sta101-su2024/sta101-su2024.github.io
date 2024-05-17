@@ -89,7 +89,7 @@ delta <- read_csv("delta.csv")
 
 How many rows and columns are in this dataset? Answer in a full sentence using **inline code**. What does each row represent and what does each column represent? For each variable, identify its type.
 
-*Add your answer here.*
+> *Add your answer here.*
 
 ## Exercise 2
 
