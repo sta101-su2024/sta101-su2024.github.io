@@ -1,0 +1,59 @@
+---
+title: "Project Proposal"
+author: "Your name here"
+format: pdf
+---
+
+#### Load Packages
+
+```{r load-packages, message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+# Dataset 1 (top choice)
+
+**Data source:**
+
+**Brief description:**
+
+**Research question:**
+
+-   Outcome variable (numeric or binary?):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-1, warning=FALSE}
+
+```
+
+# Dataset 2
+
+**Data source:**
+
+**Brief description:**
+
+**Research question:**
+
+-   Outcome variable (numeric or binary?):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-2, warning=FALSE}
+
+```
+
+# Dataset 3 (optional)
+
+**Data source:**
+
+**Brief description:**
+
+**Research question:**
+
+-   Outcome variable (numeric or binary?):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-3, warning=FALSE}
+
+```
