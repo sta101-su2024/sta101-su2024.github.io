@@ -17,15 +17,9 @@ editor: visual
 
 ![](images/safety.png){fig-align="center" width="800"}
 
-## Sample survey questions - demographics
+## Sample survey questions - demographics (Today's focus)
 
 ![](images/demographics.png){fig-align="center" width="800"}
-
-## Today's focus
-
-![](images/demographics.png){fig-align="center" width="800"}
-
-
 
 The main question we'll explore today is "What are the demographics and priorities of City of Durham residents?"
 
