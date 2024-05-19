@@ -37,7 +37,7 @@ You will work on the project alone.
 
 The five primary deliverables for the final project are
 
-1.  A project **proposal**  due Tuesday, May 28th at 11:59 pm.
+1.  A project **proposal** due Tuesday, May 28th at 11:59 pm.
 2.  Intro and EDA due Wednesday, June 12th at 11:59 pm + email to classmate with pdf of intro for peer review.
 3.  Formal **peer review** of another classmate's project in your lab section due Sunday, June 16th at 11:59 pm.
 4.  A **presentation** in class on Monday, June 24th (slides submitted on Gradescope before class).
@@ -47,9 +47,7 @@ The five primary deliverables for the final project are
 
 The main purpose of the project proposal is to help you think about the project thoroughly before you go too far down a path and form an analysis plan that is feasible and that will allow you to be successful for this project.
 
-You will:
--   Identify two (or three) data sets and a research questions for the final project to choose from. If you're unsure where to find data, you can use the list of potential data sources in the [Resources for datasets](#resources) section as a starting point. It may also help to think of topics you're interested in investigating and find data sets on those topics.
--  Submit the summary of each dataset and research question in order of which one you'd want to work on the most. I will then look through these and help you choose which data I think is better for the project.
+You will: - Identify two (or three) data sets and a research questions for the final project to choose from. If you're unsure where to find data, you can use the list of potential data sources in the [Resources for datasets](#resources) section as a starting point. It may also help to think of topics you're interested in investigating and find data sets on those topics. - Submit the summary of each dataset and research question in order of which one you'd want to work on the most. I will then look through these and help you choose which data I think is better for the project.
 
 ## Criteria for datasets
 
@@ -71,8 +69,6 @@ Please ask a member of the teaching team if you're unsure whether your data set 
 :::
 
 If you set your hearts on a dataset that has fewer observations or variables than what's suggested here, that might still be ok; use these numbers as guidance for a successful proposal, not as minimum requirements.
-
-
 
 ## Resources for datasets {#resources}
 
@@ -121,23 +117,19 @@ Each component will be graded as follows:
 
 -   **Close to expectations (half credit)**: Only one data set and/or research question identified. The plan for completing the project as envisioned is not well designed.
 
--   **Does not meet expectations (no credit)**:  No dataset or research question identified. There is no plan for completing the project as envisioned.
+-   **Does not meet expectations (no credit)**: No dataset or research question identified. There is no plan for completing the project as envisioned.
 
-Even if you earn full credit, it may not mean that your proposal is perfect. 
+Even if you earn full credit, it may not mean that your proposal is perfect.
 
 ::: callout-important
 You will only be working with one of the data sets for your project. I ask you to find two or more to have a back-up plan in case I don't think the first data set will result in a successful project.
 :::
 
-
 # Intro + EDA (10 pts) {#intro_eda}
 
-There are three reasons behind this project check-in:
-- To ensure you have incorporated suggestions given to you during project proposal stage.
-- To get a head-start on the project and receive advice on how to improve before final submission.
-- To prepare an introduction file for a peer review.
+There are three reasons behind this project check-in: - To ensure you have incorporated suggestions given to you during project proposal stage. - To get a head-start on the project and receive advice on how to improve before final submission. - To prepare an introduction file for a peer review.
 
-You will begin writing the first part of you report. Your report must be written using Quarto. The template will be provided. 
+You will begin writing the first part of you report. Your report must be written using Quarto. The template will be provided.
 
 ### Introduction
 
@@ -153,11 +145,7 @@ Example research question and hypotheses (if we were predicting penguin weights 
 
 ### EDA
 
-Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should
-be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows:
-- Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables).
-- Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables.
-- Describe which variable(s) in your data set have missing data, if any.
+Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows: - Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables). - Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables. - Describe which variable(s) in your data set have missing data, if any.
 
 ::: callout-tip
 If you are not sure if your plots/tables are satisfactory, or if you think you need more than 3 plots/tables, come talk to me.
@@ -182,8 +170,7 @@ At the beginning of the peer feedback process, you will be asked to email your p
 -   What have you learned from this project that you are considering implementing in your own project?
 -   (Optional) Any further comments or feedback?
 
-Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the reviewee's report.  
-
+Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the reviewee's report.
 
 ::: callout-important
 Only introduction and EDA sections will likely be completed. Your review should address these sections only! Thus, comments like "lack of analysis" or such will not be constructive, as I do not expect the rest to be completed yet.
@@ -191,7 +178,7 @@ Only introduction and EDA sections will likely be completed. Your review should 
 
 # Report (50 pts) {#project-report}
 
-Your report must be written using Quarto. Your written report should not exceed six pages inclusive of all tables and figures. 
+Your report must be written using Quarto. Your written report should not exceed six pages inclusive of all tables and figures.
 
 Before you finalize your report, make sure the printing of code chunks is turned off by setting `echo` to `false` in your document YAML.
 
@@ -231,7 +218,6 @@ This section is a conclusion and discussion. You should
 
 -   Critique your own analyses and include a brief paragraph on what you would do differently if you were able to start the project over.
 
-
 ### Formatting (5 pts)
 
 Your project should be professionally formatted. For example, this means labeling graphs and figures, turning off code chunks, using proper citations and cross-references, and following typical style guidelines.
@@ -264,20 +250,19 @@ Here is a suggested outline as you think through the slides; you do not have to 
 
 -   Slide 6: Conclusions + critique/shortcomings
 
-You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.). 
-
+You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.).
 
 # Overall grading
 
 The grade breakdown is as follows:
 
-| Total                             | 100 pts |
-|-----------------------------------|---------|
-| **Project proposal **             | 10 pts  |
-| **Intro + EDA update  **          | 10 pts  |
-| **Peer review**                   | 10 pts  |
-| **Final report**                  | 50 pts  |
-| **Presentation**                  | 20 pts  |
+| Total                   | 100 pts |
+|-------------------------|---------|
+| **Project proposal**    | 10 pts  |
+| **Intro + EDA update**  | 10 pts  |
+| **Peer review**         | 10 pts  |
+| **Final report**        | 50 pts  |
+| **Presentation**        | 20 pts  |
 
 ## Grading summary
 
