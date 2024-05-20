@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Explore numerical data</title>
+<title>STA 101 - Summer 24 - Explore categorical data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="STA 101 - Summer 24 - Explore numerical data">
+<meta property="og:title" content="STA 101 - Summer 24 - Explore categorical data">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Explore numerical data</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Explore categorical data</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -329,33 +329,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
-  <ul class="collapse">
-  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#recap-from-last-time" id="toc-recap-from-last-time" class="nav-link" data-scroll-target="#recap-from-last-time">Recap from last time</a></li>
-  </ul></li>
-  <li><a href="#exploring-categorical-and-numerical-data" id="toc-exploring-categorical-and-numerical-data" class="nav-link" data-scroll-target="#exploring-categorical-and-numerical-data">Exploring (categorical and) numerical data</a>
+  <li><a href="#exploring-categorical-data" id="toc-exploring-categorical-data" class="nav-link active" data-scroll-target="#exploring-categorical-data">Exploring categorical data</a>
   <ul class="collapse">
   <li><a href="#durham-city-and-county-resident-survey" id="toc-durham-city-and-county-resident-survey" class="nav-link" data-scroll-target="#durham-city-and-county-resident-survey">2020 Durham City and County Resident Survey</a></li>
-  <li><a href="#services" id="toc-services" class="nav-link" data-scroll-target="#services">Services</a></li>
-  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics">Demographics</a></li>
+  <li><a href="#sample-survey-questions---services" id="toc-sample-survey-questions---services" class="nav-link" data-scroll-target="#sample-survey-questions---services">Sample survey questions - services</a></li>
+  <li><a href="#sample-survey-questions---safety" id="toc-sample-survey-questions---safety" class="nav-link" data-scroll-target="#sample-survey-questions---safety">Sample survey questions - safety</a></li>
+  <li><a href="#sample-survey-questions---demographics-todays-focus" id="toc-sample-survey-questions---demographics-todays-focus" class="nav-link" data-scroll-target="#sample-survey-questions---demographics-todays-focus">Sample survey questions - demographics (Today’s focus)</a></li>
   </ul></li>
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#visualizing-relationships-between-categorical-variables" id="toc-visualizing-relationships-between-categorical-variables" class="nav-link" data-scroll-target="#visualizing-relationships-between-categorical-variables">Visualizing relationships between categorical variables</a>
+  <li><a href="#visualizing-and-summarizing-categorical-data" id="toc-visualizing-and-summarizing-categorical-data" class="nav-link" data-scroll-target="#visualizing-and-summarizing-categorical-data">Visualizing and summarizing categorical data</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  </ul></li>
-  <li><a href="#visualizing-numerical-data" id="toc-visualizing-numerical-data" class="nav-link" data-scroll-target="#visualizing-numerical-data">Visualizing numerical data</a>
-  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  </ul></li>
+  <li><a href="#visualizing-relationships" id="toc-visualizing-relationships" class="nav-link" data-scroll-target="#visualizing-relationships">Visualizing relationships</a>
+  <ul class="collapse">
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a>
   <ul class="collapse">
@@ -365,14 +363,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/05/05-explore-numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/04/04-explore-categorical_filled_in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Explore numerical data</h1>
+<h1 class="title">Explore categorical data</h1>
 </div>
 
 
@@ -389,82 +387,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="warm-up" class="level1">
-<h1>Warm up</h1>
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
-<ul>
-<li>Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope</li>
-</ul>
-</section>
-<section id="recap-from-last-time" class="level2">
-<h2 class="anchored" data-anchor-id="recap-from-last-time">Recap from last time</h2>
-<div class="task">
-<p>Suppose you have a data frame called <code>df</code> and a single variable in it called <code>x</code>. How many variables will <code>df</code> have after running the following code?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> x <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<p>. . .</p>
-<div class="task">
-<p>Suppose you have a data frame called <code>df</code> and a single variable in it called <code>x</code>. How many variables will <code>df</code> have after running the following code?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> x <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<p>. . .</p>
-<div class="task">
-<p>What is the <code>&lt;-</code> operator called and what does it do?</p>
-</div>
-</section>
-</section>
-<section id="exploring-categorical-and-numerical-data" class="level1">
-<h1>Exploring (categorical and) numerical data</h1>
+<section id="exploring-categorical-data" class="level1">
+<h1>Exploring categorical data</h1>
 <section id="durham-city-and-county-resident-survey" class="level2">
 <h2 class="anchored" data-anchor-id="durham-city-and-county-resident-survey">2020 Durham City and County Resident Survey</h2>
-<p>We’ll continue working with this dataset.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/durham-survey.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </section>
-<section id="services" class="level2">
-<h2 class="anchored" data-anchor-id="services">Services</h2>
+<section id="sample-survey-questions---services" class="level2">
+<h2 class="anchored" data-anchor-id="sample-survey-questions---services">Sample survey questions - services</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/quality-annotated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+<p><img src="images/services.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
 </figure>
 </div>
 </section>
-<section id="demographics" class="level2">
-<h2 class="anchored" data-anchor-id="demographics">Demographics</h2>
+<section id="sample-survey-questions---safety" class="level2">
+<h2 class="anchored" data-anchor-id="sample-survey-questions---safety">Sample survey questions - safety</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/demographics-annotated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+<p><img src="images/safety.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
 </figure>
 </div>
-<p>The main questions we’ll explore today are:</p>
-<ul>
-<li><p>“What are the demographics and priorities of City of Durham residents?”</p></li>
-<li><p>“How do City of Durham residents feel about quality of services by the city and how, if at all, does that vary by income?”</p></li>
-</ul>
+</section>
+<section id="sample-survey-questions---demographics-todays-focus" class="level2">
+<h2 class="anchored" data-anchor-id="sample-survey-questions---demographics-todays-focus">Sample survey questions - demographics (Today’s focus)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/demographics.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<p>The main question we’ll explore today is “What are the demographics and priorities of City of Durham residents?”</p>
 </section>
 </section>
 <section id="goals" class="level1">
 <h1>Goals</h1>
 <ul>
-<li><p>Wrapping up discussion on categorical data</p></li>
-<li><p>Visualizing and summarizing numerical data</p></li>
+<li><p>Getting familiar with survey data</p></li>
+<li><p>Visualizing and summarizing categorical data</p></li>
+<li><p>Make connections between concepts of variable types in a study and variable types in R</p></li>
+<li><p>Exploring relationships between categorical variables</p></li>
 <li><p>Improving visualizations for visual appeal and better communication</p></li>
 </ul>
 </section>
 <section id="packages" class="level1">
 <h1>Packages</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1">
@@ -472,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The data for this case study come from the 2020 Durham City and County Resident Survey.</p>
 <p>First, let’s load the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"durham-2020.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"durham-2020.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 803 Columns: 49
 ── Column specification ────────────────────────────────────────────────────────
@@ -484,88 +456,286 @@ dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>Yesterday we manipulated the data a bit.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> durham <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">own_rent =</span> do_you_own_or_rent_your_current_resi_31,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> would_you_say_your_total_annual_hous_35,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a new one</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">qos_city =</span> overall_quality_of_services_3_01</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">as_factor</span>(income),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">own_rent =</span> <span class="fu">as_factor</span>(own_rent)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
-<section id="visualizing-relationships-between-categorical-variables" class="level1">
-<h1>Visualizing relationships between categorical variables</h1>
+<section id="visualizing-and-summarizing-categorical-data" class="level1">
+<h1>Visualizing and summarizing categorical data</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Visualize and describe the relationship between income and home ownership of Durham residents.</p>
-<p><em>Stretch goal:</em> Customize the colors using named colors from <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a>.</p>
-<p><em>Add your answer here.</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>How many rows and columns are in this dataset? Answer in a full sentence using <strong>inline code</strong>. What does each row represent and what does each column represent?</p>
+<blockquote class="blockquote">
+<p>There are 803 rows and 49 columns in this data set.</p>
+</blockquote>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Calculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the <strong>conditional distribution</strong> of home ownership based on income level.</p>
-<p><em>Add your answer here.</em></p>
+<p>The variables we’ll use in this analysis are as follows. Rename the variables to the updated names shown below.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Original name</th>
+<th>Updated name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>primary_language</code></td>
+<td><code>primary_language</code></td>
+</tr>
+<tr class="even">
+<td><code>do_you_own_or_rent_your_current_resi_31</code></td>
+<td><code>own_rent</code></td>
+</tr>
+<tr class="odd">
+<td><code>would_you_say_your_total_annual_hous_35</code></td>
+<td><code>income</code></td>
+</tr>
+</tbody>
+</table>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> durham <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">own_rent =</span> do_you_own_or_rent_your_current_resi_31,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">income =</span> would_you_say_your_total_annual_hous_35)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Recode the <strong>level</strong>s of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.</p>
+<p>What language do Durham residents speak: <code>primary_language</code>?</p>
+<blockquote class="blockquote">
+<p>What is the primary language used in your household?</p>
+</blockquote>
+<p><em>Add your answer here.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> primary_language)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/primary-language-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(primary_language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  primary_language     n
+  &lt;chr&gt;            &lt;int&gt;
+1 English            768
+2 Other                3
+3 Spanish             18
+4 &lt;NA&gt;                14</code></pre>
+</div>
 </div>
 </section>
-</section>
-<section id="visualizing-numerical-data" class="level1">
-<h1>Visualizing numerical data</h1>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>One of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable <code>qos_city</code>. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!</p>
-<p>Visualize and describe the distribution of <code>qos_city</code>. If you get a warning with your visualization, comment on what it means.</p>
-<p><em>Add your response here.</em></p>
+<p>Make similar bar plots of <code>own_rent</code> and <code>income</code>. What distinct values do these variables take?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 110 rows containing non-finite values (`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/own-rent-income-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> own_rent)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/own-rent-income-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Calculate the mean and median of the distribution of <code>qos_city</code>. If these values are not exactly the same, can you explain what the difference might be attributed to?</p>
-<p><em>Add your response here.</em></p>
+<p>The variables <code>own_rent</code> and <code>income</code> are both categorical, but they’re stored as numbers. In R, categorical data are called <strong>factor</strong>s. <em>Recode</em> these variables as factors with the <code>as_factor()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> durham <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">income =</span> <span class="fu">as_factor</span>(income),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">own_rent =</span> <span class="fu">as_factor</span>(own_rent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Based on the shape of the distribution of <code>qos_city</code>, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.</p>
+<p>Recreate the visualization from the <code>previous exercise</code>income` barplot, improving it for both visual appeal and better communication of findings.</p>
+<p><em>Add your answer here.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> income, <span class="at">fill =</span> income)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">na.value =</span> <span class="st">"darkgray"</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Under $30,000"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"$30,000 - $59,999"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"$60,000 - $99,999"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"$100,000 or more"</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Count"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Would you say your total annual household income is ... "</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/income-improve-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Make a box plot of <code>qos_city</code> and comment on how the values you calculated map on to the box plot.</p>
+<p>Recreate the visualization from the previous exercise, but first calculate relative frequencies (proportions) of income (the <strong>marginal distribution</strong>) and plot the proportions instead of counts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(income) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> income, <span class="at">x=</span> prop, <span class="at">fill =</span> income)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">na.value =</span> <span class="st">"darkgray"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Under $30,000"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"$30,000 - $59,999"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"$60,000 - $99,999"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"$100,000 or more"</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Would you say your total annual household income is ... "</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/income-proportions-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
+</section>
+<section id="visualizing-relationships" class="level1">
+<h1>Visualizing relationships</h1>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>How the average level of happiness with quality of services provided by the city vary by income group?</p>
-<p><em>Stretch goal:</em> Visualize mean <code>qos_city</code> by income group.</p>
-<p><em>Add your response here.</em></p>
+<p>Visualize and describe the relationship between income and home ownership of Durham residents.</p>
+<p><em>Stretch goal:</em> Customize the colors using named colors from <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(income, own_rent) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> income, <span class="at">fill =</span> own_rent )) <span class="sc">+</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Under $30,000"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"$30,000 - $59,999"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"$60,000 - $99,999"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"$100,000 or more"</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"cadetblue"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"coral"</span>), <span class="co"># can choose your own colors</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Own"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Rent"</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Would you say your total</span><span class="sc">\n</span><span class="st"> annual household incom is..."</span>,</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Do you own</span><span class="sc">\n</span><span class="st"> or rent</span><span class="sc">\n</span><span class="st"> your current</span><span class="sc">\n</span><span class="st"> residence?"</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Income v. home ownership of Durham residents"</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-explore-categorical_filled_in_files/figure-html/income-own-rent-plot-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Calculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the <strong>conditional distribution</strong> of home ownership based on income level.</p>
+<p><em>Add your answer here.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(income, own_rent) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(income, own_rent) <span class="sc">|&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(income) <span class="sc">|&gt;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+# Groups:   income [4]
+  income own_rent     n   prop
+  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;
+1 1      1           51 0.362 
+2 1      2           90 0.638 
+3 2      1          105 0.565 
+4 2      2           81 0.435 
+5 3      1          107 0.552 
+6 3      2           87 0.448 
+7 4      1          160 0.930 
+8 4      2           12 0.0698</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p><em>Stretch goal:</em> Recode the <strong>level</strong>s of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> durham <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      income <span class="sc">==</span> <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Under $30,000"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      income <span class="sc">==</span> <span class="st">"2"</span> <span class="sc">~</span> <span class="st">"$30,000 - $59,999"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      income <span class="sc">==</span> <span class="st">"3"</span> <span class="sc">~</span> <span class="st">"$60,000 - $99,999"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      income <span class="sc">==</span> <span class="st">"4"</span> <span class="sc">~</span> <span class="st">"$100,000 or more"</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">own_rent =</span> <span class="fu">if_else</span>(own_rent <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Own"</span>, <span class="st">"Rent"</span>) </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>durham <span class="sc">|&gt;</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(income, own_rent) <span class="sc">|&gt;</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(income, own_rent) <span class="sc">|&gt;</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(income) <span class="sc">|&gt;</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+# Groups:   income [4]
+  income            own_rent     n   prop
+  &lt;chr&gt;             &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;
+1 $100,000 or more  Own        160 0.930 
+2 $100,000 or more  Rent        12 0.0698
+3 $30,000 - $59,999 Own        105 0.565 
+4 $30,000 - $59,999 Rent        81 0.435 
+5 $60,000 - $99,999 Own        107 0.552 
+6 $60,000 - $99,999 Rent        87 0.448 
+7 Under $30,000     Own         51 0.362 
+8 Under $30,000     Rent        90 0.638 </code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -581,9 +751,12 @@ dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
 </section>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
-<p>In this lecture we:</p>
+<p>In this application exercise we:</p>
 <ul>
 <li>Defined <strong>factor</strong>s – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of <strong>level</strong>s.</li>
+</ul>
+<!-- -->
+<ul>
 <li>Reviewed data imports, visualization, and wrangling functions encountered before:
 <ul>
 <li>Import: <code>read_csv()</code>: Read data from a CSV (comma separated values) file</li>
@@ -592,9 +765,6 @@ dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
 <li><code>ggplot()</code>: Create a plot using the ggplot2 package</li>
 <li><code>aes()</code>: Map variables from the data to <strong>aes</strong>thetic elements of the plot, generally passed as an argument to <code>ggplot()</code> or to <code>geom_*()</code> functions (define only <code>x</code> <strong>or</strong> <code>y</code> aesthetic)</li>
 <li><code>geom_bar()</code>: Represent data with bars, after calculating heights of bars under the hood</li>
-<li><code>geom_histogram()</code>: Represent data with a histogram</li>
-<li><code>geom_boxplot()</code>: Represent data with a box plot</li>
-<li><code>geom_point()</code>: Represent data with points</li>
 <li><code>labs()</code>: Label <code>x</code> axis, <code>y</code> axis, legend for <code>color</code> of plot, title` of plot, etc.</li>
 </ul></li>
 <li>Wrangling:
@@ -602,7 +772,6 @@ dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
 <li><code>mutate()</code>: Mutate the data frame by creating a new column or overwriting one of the existing columns</li>
 <li><code>count()</code>: Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable</li>
 <li><code>group_by()</code>: Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables</li>
-<li><code>summarize()</code>: Calculate summary statistics</li>
 </ul></li>
 </ul></li>
 <li>Introduced new data wrangling functions:
@@ -611,8 +780,7 @@ dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
 <li><code>as_factor()</code>: Convert a variable to a factor</li>
 <li><code>drop_na()</code>: Drop rows that have <code>NA</code> in one ore more specified variables</li>
 <li><code>if_else()</code>: Write logic for what happens if a condition is true and what happens if it’s not</li>
-<li><code>case_when()</code>: Write a generalized <code>if_else()</code> logic for more than one condition</li>
-<li><code>fct_relevel</code>: Change the order of levels in a factor</li>
+<li><code>case_when()</code>: Write a generalized <code>if_else()</code> logic for more than one codition</li>
 </ul></li>
 <li>Introduced new data visualization functions:
 <ul>
@@ -1202,7 +1370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/05/05-explore-numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/04/04-explore-categorical_filled_in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
