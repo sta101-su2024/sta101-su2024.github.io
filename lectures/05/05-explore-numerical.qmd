@@ -3,7 +3,6 @@ title: "Explore numerical data"
 editor: visual
 ---
 
-
 # Warm up
 
 ## Announcements
@@ -58,7 +57,6 @@ We'll continue working with this dataset.
 
 ![](images/demographics-annotated.png){fig-align="center" width="800"}
 
-
 The main questions we'll explore today are:
 
 -   "What are the demographics and priorities of City of Durham residents?"
@@ -94,7 +92,7 @@ First, let's load the data:
 durham <- read_csv("durham-2020.csv")
 ```
 
-In the last application exercise we manipulated the data a bit.
+Yesterday we manipulated the data a bit.
 
 ```{r}
 durham <- durham |>
