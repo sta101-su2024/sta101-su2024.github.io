@@ -25,6 +25,7 @@ website:
         text: "Canvas"
         href: https://canvas.duke.edu/courses/32831
       - icon: github
+        text: "GitHub"
         href: https://github.com/sta101-su2024/sta101-su2024.github.io
 
     style: docked
