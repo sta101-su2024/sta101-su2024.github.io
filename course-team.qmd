@@ -15,19 +15,18 @@ Prior to starting at Duke, I completed my undergraduate degree at The Ohio State
 
 During my free time, I like to go on walks, hang out with my friends, bake, and spend time with my cat.
 
-| Office hours | Location      |
-|--------------|---------------|
-|  Wed & Fri: 3:30 - 4:30 pm    | Old Chem 203B |
+| Office hours              | Location      |
+|---------------------------|---------------|
+| Wed & Fri: 3:30 - 4:30 pm | Old Chem 203B |
 
 ## Teaching assistant
 
+![](images/team/john.png){style="float:left;padding: 0 0 0 10px;" width="200"}
 
-
-[**John Gillen**](https://www.linkedin.com/in/john-gillen-611471229/) - Hello! I’m a second-year student in the Master of Statistical Science program here at Duke. I completed undergraduate degrees in statistics and mathematics at UC Riverside, and am hoping to pursue a PhD in statistics after completing my Master’s degree.![](images/team/john.png){style="float:left;padding: 0 0 0 10px;" width="200"}
-
+[**John Gillen**](https://www.linkedin.com/in/john-gillen-611471229/) - Hello! I’m a second-year student in the Master of Statistical Science program here at Duke. I completed undergraduate degrees in statistics and mathematics at UC Riverside, and am hoping to pursue a PhD in statistics after completing my Master’s degree.
 
 Outside of school, I enjoy playing tennis, running, and reading.
 
-| Office hours | Location |
-|--------------|----------|
-| Sun: 10 - 11 am         | [Zoom](https://duke.zoom.us/j/2814677671)|
+| Office hours    | Location                                  |
+|-----------------|-------------------------------------------|
+| Sun: 10 - 11 am | [Zoom](https://duke.zoom.us/j/2814677671) |
