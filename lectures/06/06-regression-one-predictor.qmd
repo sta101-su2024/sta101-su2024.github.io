@@ -3,13 +3,6 @@ title: "Regression with one predictor "
 editor: visual
 ---
 
-# Warm up
-
-## Announcements
-
--   Lab 3 is due Thu, Sep 21 at 5 pm on Gradescope
--   No class on Wednesday, catch up on readings, interactive tutorials, labs!
-
 # Regression with a single predictor
 
 ## Data and packages
