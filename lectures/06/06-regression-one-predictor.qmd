@@ -82,9 +82,7 @@ ggplot(stocks_jan2020, aes(x = MSFT.Open, y = AAPL.Open)) +
 ## Fitting "some" model
 
 $$
-\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 ~ x \\
-
-
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 ~ x \quad \quad\quad
 \hat{y} = -5 + 0.5 ~ x
 $$
 
