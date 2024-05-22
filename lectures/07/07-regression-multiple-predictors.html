@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Explore numerical data</title>
+<title>STA 101 - Summer 24 - Regression with multiple predictors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,8 +102,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="STA 101 - Summer 24 - Explore numerical data">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="STA 101 - Summer 24 - Regression with multiple predictors">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
@@ -117,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Explore numerical data</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Regression with multiple predictors</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -318,47 +347,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
   <ul class="collapse">
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#recap-from-last-time" id="toc-recap-from-last-time" class="nav-link" data-scroll-target="#recap-from-last-time">Recap from last time</a></li>
+  <li><a href="#load-packages-and-data" id="toc-load-packages-and-data" class="nav-link" data-scroll-target="#load-packages-and-data">Load packages and data</a></li>
   </ul></li>
-  <li><a href="#exploring-categorical-and-numerical-data" id="toc-exploring-categorical-and-numerical-data" class="nav-link" data-scroll-target="#exploring-categorical-and-numerical-data">Exploring (categorical and) numerical data</a>
+  <li><a href="#r2-and-model-fit" id="toc-r2-and-model-fit" class="nav-link" data-scroll-target="#r2-and-model-fit"><span class="math inline">\(R^2\)</span> and model fit</a>
   <ul class="collapse">
-  <li><a href="#durham-city-and-county-resident-survey" id="toc-durham-city-and-county-resident-survey" class="nav-link" data-scroll-target="#durham-city-and-county-resident-survey">2020 Durham City and County Resident Survey</a></li>
-  <li><a href="#services" id="toc-services" class="nav-link" data-scroll-target="#services">Services</a></li>
-  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics">Demographics</a></li>
+  <li><a href="#r2" id="toc-r2" class="nav-link" data-scroll-target="#r2"><span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#sum-of-squares-total-sst" id="toc-sum-of-squares-total-sst" class="nav-link" data-scroll-target="#sum-of-squares-total-sst">Sum of squares total, SST</a></li>
+  <li><a href="#sum-of-squares-residuals-sse" id="toc-sum-of-squares-residuals-sse" class="nav-link" data-scroll-target="#sum-of-squares-residuals-sse">Sum of squares residuals, SSE</a></li>
+  <li><a href="#r2-another-look" id="toc-r2-another-look" class="nav-link" data-scroll-target="#r2-another-look"><span class="math inline">\(R^2\)</span>, another look</a></li>
+  <li><a href="#r2-1" id="toc-r2-1" class="nav-link" data-scroll-target="#r2-1"><span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#finding-r2" id="toc-finding-r2" class="nav-link" data-scroll-target="#finding-r2">Finding <span class="math inline">\(R^2\)</span></a></li>
+  </ul></li>
+  <li><a href="#models-with-multiple-predictors" id="toc-models-with-multiple-predictors" class="nav-link" data-scroll-target="#models-with-multiple-predictors">Models with multiple predictors</a>
+  <ul class="collapse">
+  <li><a href="#two-predictors" id="toc-two-predictors" class="nav-link" data-scroll-target="#two-predictors">Two predictors</a></li>
+  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example">A simple example</a></li>
+  <li><a href="#predictors-1-outcome-3-dimensions" id="toc-predictors-1-outcome-3-dimensions" class="nav-link" data-scroll-target="#predictors-1-outcome-3-dimensions">2 predictors + 1 outcome = 3 dimensions</a></li>
+  <li><a href="#fitting-a-multiple-regression-model-in-r" id="toc-fitting-a-multiple-regression-model-in-r" class="nav-link" data-scroll-target="#fitting-a-multiple-regression-model-in-r">Fitting a multiple regression model in R</a></li>
   </ul></li>
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#visualizing-relationships-between-categorical-variables" id="toc-visualizing-relationships-between-categorical-variables" class="nav-link" data-scroll-target="#visualizing-relationships-between-categorical-variables">Visualizing relationships between categorical variables</a>
+  <li><a href="#single-predictor" id="toc-single-predictor" class="nav-link" data-scroll-target="#single-predictor">Single predictor</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  </ul></li>
-  <li><a href="#visualizing-numerical-data" id="toc-visualizing-numerical-data" class="nav-link" data-scroll-target="#visualizing-numerical-data">Visualizing numerical data</a>
-  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  </ul></li>
+  <li><a href="#multiple-predictors" id="toc-multiple-predictors" class="nav-link" data-scroll-target="#multiple-predictors">Multiple predictors</a>
+  <ul class="collapse">
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
   </ul></li>
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a>
-  <ul class="collapse">
-  <li><a href="#conceptual" id="toc-conceptual" class="nav-link" data-scroll-target="#conceptual">Conceptual</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  </ul></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/05/05-explore-numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/07-regression-multiple-predictors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Explore numerical data</h1>
+<h1 class="title">Regression with multiple predictors</h1>
 </div>
 
 
@@ -377,254 +412,279 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="warm-up" class="level1">
 <h1>Warm up</h1>
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<section id="announcements" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li>Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope</li>
-<li>Please, come to class on time!</li>
+<li>No lab or class on Monday, May 27th.</li>
+<li>Project proposal due Tuesday, May 28th.</li>
+<li>Lab 3 due Wednesday, May 29th.</li>
 </ul>
 </section>
-<section id="recap-from-last-time" class="level2">
-<h2 class="anchored" data-anchor-id="recap-from-last-time">Recap from last time</h2>
-<div class="task">
-<p>Suppose you have a data frame called <code>df</code> and a single variable in it called <code>x</code>. How many variables will <code>df</code> have after running the following code?</p>
+<section id="load-packages-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages-and-data">Load packages and data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> x <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+</section>
+</section>
+<section id="r2-and-model-fit" class="level1">
+<h1><span class="math inline">\(R^2\)</span> and model fit</h1>
+<section id="r2" class="level2">
+<h2 class="anchored" data-anchor-id="r2"><span class="math inline">\(R^2\)</span></h2>
+<p><span class="math inline">\(R^2\)</span>, aka “the coefficient of determination” or “correlation squared” is a way to see how well a given model fits the data.</p>
+<p><span class="math display">\[
+R^2 = r_i^2
+\]</span></p>
+</section>
+<section id="sum-of-squares-total-sst" class="level2">
+<h2 class="anchored" data-anchor-id="sum-of-squares-total-sst">Sum of squares total, SST</h2>
+<p>The sum of squares total is a measure of the total variability in the outcome variable:</p>
+<p><span class="math display">\[
+SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2
+\]</span></p>
+</section>
+<section id="sum-of-squares-residuals-sse" class="level2">
+<h2 class="anchored" data-anchor-id="sum-of-squares-residuals-sse">Sum of squares residuals, SSE</h2>
+<p>The sum of squares residuals (error) is a measure of the variability in the residuals, i.e., variability left unexplained in the outcome variable after the model is fit:</p>
+<p><span class="math display">\[
+SSE = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2
+\]</span></p>
+</section>
+<section id="r2-another-look" class="level2">
+<h2 class="anchored" data-anchor-id="r2-another-look"><span class="math inline">\(R^2\)</span>, another look</h2>
+<p><span class="math display">\[
+R^2 = \frac{SST - SSE}{SST} = 1 - \frac{SSE}{SST}
+\]</span></p>
 <p>. . .</p>
-<div class="task">
-<p>Suppose you have a data frame called <code>df</code> and a single variable in it called <code>x</code>. How many variables will <code>df</code> have after running the following code?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> x <span class="sc">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<p>. . .</p>
-<div class="task">
-<p>What is the <code>&lt;-</code> operator called and what does it do?</p>
-</div>
-</section>
-</section>
-<section id="exploring-categorical-and-numerical-data" class="level1">
-<h1>Exploring (categorical and) numerical data</h1>
-<section id="durham-city-and-county-resident-survey" class="level2">
-<h2 class="anchored" data-anchor-id="durham-city-and-county-resident-survey">2020 Durham City and County Resident Survey</h2>
-<p>We’ll continue working with this dataset.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/durham-survey.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-</section>
-<section id="services" class="level2">
-<h2 class="anchored" data-anchor-id="services">Services</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quality-annotated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
-</figure>
-</div>
-</section>
-<section id="demographics" class="level2">
-<h2 class="anchored" data-anchor-id="demographics">Demographics</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/demographics-annotated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
-</figure>
-</div>
-<p>The main questions we’ll explore today are:</p>
 <ul>
-<li><p>“What are the demographics and priorities of City of Durham residents?”</p></li>
-<li><p>“How do City of Durham residents feel about quality of services by the city and how, if at all, does that vary by income?”</p></li>
+<li>This can be summarized as “<span class="math inline">\(R^2\)</span> is 1 minus the sum of squared residuals divided by the sum of squared total”.</li>
 </ul>
+<p>. . .</p>
+<ul>
+<li>In other words, <span class="math inline">\(R^2\)</span> is the proportion of variability in the outcome that is explained by the model.</li>
+</ul>
+</section>
+<section id="r2-1" class="level2">
+<h2 class="anchored" data-anchor-id="r2-1"><span class="math inline">\(R^2\)</span></h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>If the sum of squared residuals is 0, then the model explains all variability and <span class="math inline">\(R^2 = 1 - 0 = 1\)</span>.</p></li>
+<li><p>If the sum of squared residuals is the same as all the variability in the data, then model does not explain any variability and <span class="math inline">\(R^2 = 1 - 1 = 0\)</span>.</p></li>
+<li><p><span class="math inline">\(R^2\)</span> is a measure of the proportion of variability the model explains. An <span class="math inline">\(R^2\)</span> of 0 is a poor fit and <span class="math inline">\(R^2\)</span> of 1 is a perfect fit.</p></li>
+</ul>
+</div>
+</section>
+<section id="finding-r2" class="level2">
+<h2 class="anchored" data-anchor-id="finding-r2">Finding <span class="math inline">\(R^2\)</span></h2>
+<p>To find <span class="math inline">\(R^2\)</span> simply call the function <code>glance()</code> on your <code>model_fit</code>, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(outcome <span class="sc">~</span> predictor, <span class="at">data =</span> data_set)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="models-with-multiple-predictors" class="level1">
+<h1>Models with multiple predictors</h1>
+<section id="two-predictors" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="two-predictors">Two predictors</h2>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+\]</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="math inline">\(y\)</span>: the <strong>outcome</strong> variable. Also called the “response” or “dependent variable”. In prediction problems, this is what we are interested in predicting.</li>
+<li><span class="math inline">\(x_i\)</span>: the <span class="math inline">\(i^{th}\)</span> <strong>predictor</strong>. Also commonly referred to as “regressor”, “independent variable”, “covariate”, “feature”, “the data”.</li>
+<li><span class="math inline">\(\beta_i\)</span>: “constants” or <strong>coefficients</strong> i.e.&nbsp;fixed numbers. These are <strong>population parameters</strong>. <span class="math inline">\(\beta_0\)</span> has another special name, “the intercept”.</li>
+<li><span class="math inline">\(\epsilon\)</span>: the <strong>error</strong>. This quantity represents observational error, i.e.&nbsp;the difference between our observation and the true population-level expected value: <span class="math inline">\(\beta_0 + \beta_1 x\)</span>.</li>
+<li>Effectively this model says our data <span class="math inline">\(y\)</span> is linearly related to the <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> but is not perfectly observed due to unexplained errors.</li>
+</ul>
+</div>
+</section>
+<section id="a-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-example">A simple example</h2>
+<p>Let’s examine the first quarter of 2020 high prices of Microsoft, IBM, and Apple stocks to illustrate some ideas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-regression-multiple-predictors_files/figure-html/simple-example-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>If we have three measurements (variables) then each observation is a point in three-dimensional space. In this example, we can choose one of our measurements to be the outcome variable (e.g.&nbsp;Apple stock price) and use our other two measurements (MSFT and IBM price) as predictors.</p></li>
+<li><p>In general, the total number of measurements, i.e.&nbsp;variables (columns) in our linear model represents the spatial dimension of our model.</p></li>
+</ul>
+</section>
+<section id="predictors-1-outcome-3-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="predictors-1-outcome-3-dimensions">2 predictors + 1 outcome = 3 dimensions</h2>
+<p>The fitted linear model no longer looks like a line, but instead looks like a <strong>plane</strong>. It shows our prediction of AAPL price (<span class="math inline">\(y\)</span>) given both MSFT price (<span class="math inline">\(x_1\)</span>) and IBM price (<span class="math inline">\(x_2\)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-regression-multiple-predictors_files/figure-html/simple-example-plane-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-a-multiple-regression-model-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-a-multiple-regression-model-in-r">Fitting a multiple regression model in R</h2>
+<p>Find the <strong>equation of the plane</strong> by adding in new predictors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_model_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(outcome <span class="sc">~</span> predictor1 <span class="sc">+</span> predictor2 <span class="sc">+</span> predictor3 <span class="sc">+</span> ..., <span class="at">data =</span> data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<ul>
+<li>This code template will fit the model according to the ordinary least squares (OLS) objective function, i.e., we are finding the equation of the hyperplane that minimizes the sum of squared residuals</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li>You can then display a tidy output of the model with the <code>tidy()</code> function on your fitted model: <code>tidy(my_model_fit)</code></li>
+</ul>
+<p>Today we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”</p>
 </section>
 </section>
 <section id="goals" class="level1">
 <h1>Goals</h1>
 <ul>
-<li><p>Wrapping up discussion on categorical data</p></li>
-<li><p>Visualizing and summarizing numerical data</p></li>
-<li><p>Improving visualizations for visual appeal and better communication</p></li>
+<li><p>Build, fit, and interpret linear models with more than one predictor</p></li>
+<li><p>Use categorical variables as a predictor in a model</p></li>
+<li><p>Compute <span class="math inline">\(R^2\)</span> and use it to select between models</p></li>
 </ul>
 </section>
 <section id="packages" class="level1">
 <h1>Packages</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DAAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>The data for this case study come from the 2020 Durham City and County Resident Survey.</p>
-<p>First, let’s load the data:</p>
+<p>The data for this application exercise comes from the <code>allbacks</code> dataset in the <strong>DAAG</strong> package. The dataset has 15 observations and 4 columns. Each observation represents a book. Let’s take a peek at the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"durham-2020.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 803 Columns: 49
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (7): please_define_other_32_5, primary_language, please_define_other_34...
-dbl (42): id, overall_quality_of_services_3_01, overall_quality_of_services_...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>allbacks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   volume area weight cover
+1     885  382    800    hb
+2    1016  468    950    hb
+3    1125  387   1050    hb
+4     239  371    350    hb
+5     701  371    750    hb
+6     641  367    600    hb
+7    1228  396   1075    hb
+8     412    0    250    pb
+9     953    0    700    pb
+10    929    0    650    pb
+11   1492    0    975    pb
+12    419    0    350    pb
+13   1010    0    950    pb
+14    595    0    425    pb
+15   1034    0    725    pb</code></pre>
 </div>
 </div>
-<p>Yesterday we manipulated the data a bit.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> durham <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">own_rent =</span> do_you_own_or_rent_your_current_resi_31,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> would_you_say_your_total_annual_hous_35,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a new one</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">qos_city =</span> overall_quality_of_services_3_01</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">as_factor</span>(income),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">own_rent =</span> <span class="fu">as_factor</span>(own_rent)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Note that <code>volume</code> is measured in cubic centimeters and <code>weight</code> is measured in grams. More information on the dataset can be found in the documentation for <code>allbacks</code>, with <code>?allbacks</code>.</p>
 </section>
-<section id="visualizing-relationships-between-categorical-variables" class="level1">
-<h1>Visualizing relationships between categorical variables</h1>
+<section id="single-predictor" class="level1">
+<h1>Single predictor</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Visualize and describe the relationship between income and home ownership of Durham residents.</p>
-<p><em>Stretch goal:</em> Customize the colors using named colors from <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a>.</p>
-<p><em>Add your answer here.</em></p>
+<p>Visualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Calculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the <strong>conditional distribution</strong> of home ownership based on income level.</p>
-<p><em>Add your answer here.</em></p>
+<p>Fit a model predicting weight from volume for these books and save it as <code>weight_fit</code>. Display a tidy output of the model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Recode the <strong>level</strong>s of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.</p>
+<p>Interpret the slope and the intercept in context of the data.</p>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Calculate the <span class="math inline">\(R^2\)</span> of this model and interpret it in context of the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
 </section>
 </section>
-<section id="visualizing-numerical-data" class="level1">
-<h1>Visualizing numerical data</h1>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>One of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable <code>qos_city</code>. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!</p>
-<p>Visualize and describe the distribution of <code>qos_city</code>. If you get a warning with your visualization, comment on what it means.</p>
-<p><em>Add your response here.</em></p>
+<section id="multiple-predictors" class="level1">
+<h1>Multiple predictors</h1>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Visualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Calculate the mean and median of the distribution of <code>qos_city</code>. If these values are not exactly the same, can you explain what the difference might be attributed to?</p>
-<p><em>Add your response here.</em></p>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Fit a model predicting weight from volume for these books and save it as <code>weight_cover_fit</code>. Display a tidy output of the model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Based on the shape of the distribution of <code>qos_city</code>, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Make a box plot of <code>qos_city</code> and comment on how the values you calculated map on to the box plot.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>In the model output we have a variable <code>coverpb</code>. Why is only the <code>pb</code> (paperback) level of the <code>cover</code> variable shown? What happened to the <code>hb</code> (hardback) level?</p>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>How the average level of happiness with quality of services provided by the city vary by income group?</p>
-<p><em>Stretch goal:</em> Visualize mean <code>qos_city</code> by income group.</p>
-<p><em>Add your response here.</em></p>
+<p>Interpret the slopes and the intercept in context of the data.</p>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>First, guess whether the <span class="math inline">\(R^2\)</span> of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the <span class="math inline">\(R^2\)</span> of this model to confirm your guess, and then interpret it in context of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
 </section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Which model is preferred for predicting book weights and why?</p>
+<blockquote class="blockquote">
+<p>Add response here.</p>
+</blockquote>
 </section>
-<section id="recap" class="level1">
-<h1>Recap</h1>
-<section id="conceptual" class="level2">
-<h2 class="anchored" data-anchor-id="conceptual">Conceptual</h2>
-<p>Some of the terms we introduced are:</p>
-<ul>
-<li><p><strong>Marginal distribution</strong>: Distribution of a single variable.</p></li>
-<li><p><strong>Conditional distribution</strong>: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another.</p></li>
-</ul>
-</section>
-<section id="r" class="level2">
-<h2 class="anchored" data-anchor-id="r">R</h2>
-<p>In this lecture we:</p>
-<ul>
-<li>Defined <strong>factor</strong>s – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of <strong>level</strong>s.</li>
-<li>Reviewed data imports, visualization, and wrangling functions encountered before:
-<ul>
-<li>Import: <code>read_csv()</code>: Read data from a CSV (comma separated values) file</li>
-<li>Visualization:
-<ul>
-<li><code>ggplot()</code>: Create a plot using the ggplot2 package</li>
-<li><code>aes()</code>: Map variables from the data to <strong>aes</strong>thetic elements of the plot, generally passed as an argument to <code>ggplot()</code> or to <code>geom_*()</code> functions (define only <code>x</code> <strong>or</strong> <code>y</code> aesthetic)</li>
-<li><code>geom_bar()</code>: Represent data with bars, after calculating heights of bars under the hood</li>
-<li><code>geom_histogram()</code>: Represent data with a histogram</li>
-<li><code>geom_boxplot()</code>: Represent data with a box plot</li>
-<li><code>geom_point()</code>: Represent data with points</li>
-<li><code>labs()</code>: Label <code>x</code> axis, <code>y</code> axis, legend for <code>color</code> of plot, title` of plot, etc.</li>
-</ul></li>
-<li>Wrangling:
-<ul>
-<li><code>mutate()</code>: Mutate the data frame by creating a new column or overwriting one of the existing columns</li>
-<li><code>count()</code>: Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable</li>
-<li><code>group_by()</code>: Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables</li>
-<li><code>summarize()</code>: Calculate summary statistics</li>
-</ul></li>
-</ul></li>
-<li>Introduced new data wrangling functions:
-<ul>
-<li><code>rename()</code>: Rename columns in a data frame</li>
-<li><code>as_factor()</code>: Convert a variable to a factor</li>
-<li><code>drop_na()</code>: Drop rows that have <code>NA</code> in one ore more specified variables</li>
-<li><code>if_else()</code>: Write logic for what happens if a condition is true and what happens if it’s not</li>
-<li><code>case_when()</code>: Write a generalized <code>if_else()</code> logic for more than one condition</li>
-<li><code>fct_relevel</code>: Change the order of levels in a factor</li>
-</ul></li>
-<li>Introduced new data visualization functions:
-<ul>
-<li><code>geom_col()</code>: Represent data with bars (<strong>col</strong>umns), for heights that have already been calculated (must define <code>x</code> <strong>and</strong> <code>y</code> aesthetics)</li>
-<li><code>scale_fill_viridis_d()</code>: Customize the <strong>d</strong>iscrete <code>fill</code> scale, using a color-blind friendly, ordinal <strong>d</strong>iscrete color scale</li>
-<li><code>scale_y_discrete()</code>: Customize the discrete <code>y</code> scale</li>
-<li><code>scale_fill_manual()</code>: Customize the <code>fill</code> scale by manually adjusting values for colors</li>
-</ul></li>
-</ul>
-</section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>We also introduced chunk options for managing figure sizes:</p>
-<ul>
-<li><code>fig-width</code>: Width of figure</li>
-<li><code>fig-asp</code>: Aspect ratio of figure (height / width)</li>
-<li><code>fig-height</code>: Height of figure – but I recommend using <code>fig-width</code> and <code>fig-asp</code>, instead of <code>fig-width</code> and <code>fig-height</code></li>
-</ul>
-</section>
-</section>
-<section id="acknowledgements" class="level1">
-<h1>Acknowledgements</h1>
-<p>This dataset was cleaned and prepared for analysis by Duke StatSci PhD student <a href="https://samgrosen.github.io/">Sam Rosen</a>.</p>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
+<p>Using the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1189,7 +1249,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/05/05-explore-numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/07-regression-multiple-predictors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
