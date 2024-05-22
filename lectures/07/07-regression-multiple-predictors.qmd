@@ -186,7 +186,7 @@ Today we'll explore the question "How do volume and weights books relate?" and "
 # Packages
 
 ```{r}
-#| label: load-packages
+#| label: load-packages2
 #| message: false
 
 library(DAAG)
