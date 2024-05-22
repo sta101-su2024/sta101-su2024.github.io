@@ -83,6 +83,8 @@ ggplot(stocks_jan2020, aes(x = MSFT.Open, y = AAPL.Open)) +
 
 $$
 \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 ~ x \\
+
+
 \hat{y} = -5 + 0.5 ~ x
 $$
 
