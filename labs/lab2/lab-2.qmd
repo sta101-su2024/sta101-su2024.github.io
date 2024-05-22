@@ -4,11 +4,11 @@ title: "Lab 2"
 
 The goal of this lab is to effectively visualize numerical and categorical data.
 
-For all visualizations you create, b sure to include informative titles for the plot, axes, and legend!
+For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!
 
 # Getting started
 
-1.  Go to [Duke Container Manager](https://cmgr.oit.duke.edu/containers) and create a new folder titled **lab-1 - Hello data!**..
+1.  Go to [Duke Container Manager](https://cmgr.oit.duke.edu/containers) and create a new folder titled **lab-2 - Hello data!**..
 
 2.  Download the files from [Canvas](https://posit.cloud/spaces/405361) and upload them into the new folder you created in step 1.
 
