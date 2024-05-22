@@ -1703,7 +1703,7 @@
     "href": "lectures/07/07-regression-multiple-predictors.html#r2",
     "title": "Regression with multiple predictors",
     "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\n\\(R^2\\), aka “the coefficient of determination” or “correlation squared” is a way to see how well a given model fits the data.\n\\[\nR^2 = r_i^2\n\\]"
+    "text": "\\(R^2\\)\n\\(R^2\\), aka “the coefficient of determination” or “correlation squared” is a way to see how well a given model fits the data.\n\\[\nR^2 = r^2\n\\]"
   },
   {
     "objectID": "lectures/07/07-regression-multiple-predictors.html#sum-of-squares-total-sst",
