@@ -112,7 +112,7 @@ Let's examine the first quarter of 2020 high prices of Microsoft, IBM, and Apple
 #| echo: false
 #| warning: false
 
-stocks <- read_csv("data/stocks.csv")
+stocks <- read_csv("stocks.csv")
 
 stocks_subset <- stocks |>
   slice(1:62)
