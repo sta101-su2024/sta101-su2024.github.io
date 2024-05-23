@@ -195,7 +195,7 @@ Today we'll explore the question "How do stock prices of Apple and Microsoft rel
 
 At first, you might be tempted to minimize $\sum_i e_i$, the sum of all residuals, but this is problematic. Why? Can you come up with a better solution (other than the one listed below)?
 
-> -   Large positive and negative residuals might cancel out.
+> -   Large positive and negative residuals could cancel out.
 >
 > -   We could minimize the sum of absolute values.
 
