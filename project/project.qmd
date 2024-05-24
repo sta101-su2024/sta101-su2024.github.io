@@ -256,13 +256,13 @@ You can create your slides with any software you like (Keynote, PowerPoint, Goog
 
 The grade breakdown is as follows:
 
-| Total                   | 100 pts |
-|-------------------------|---------|
-| **Project proposal**    | 10 pts  |
-| **Intro + EDA update**  | 10 pts  |
-| **Peer review**         | 10 pts  |
-| **Final report**        | 50 pts  |
-| **Presentation**        | 20 pts  |
+| Total                  | 100 pts |
+|------------------------|---------|
+| **Project proposal**   | 10 pts  |
+| **Intro + EDA update** | 10 pts  |
+| **Peer review**        | 10 pts  |
+| **Final report**       | 50 pts  |
+| **Presentation**       | 20 pts  |
 
 ## Grading summary
 
