@@ -134,7 +134,10 @@ window.Quarto = {
 
 <meta property="og:title" content="STA 101 - Summer 24 - Regression with multiple predictors">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
+<meta property="og:image" content="https://sta101-su2024.github.io/lectures/07/07-regression-multiple-predictors-filled-in_files/figure-html/plot-weight-volume-cover-1.png">
 <meta property="og:site_name" content="STA 101 - Summer 24">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
 </head>
 
 <body class="nav-sidebar docked">
@@ -379,14 +382,17 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#categorical-predictor-with-two-levels" id="toc-categorical-predictor-with-two-levels" class="nav-link" data-scroll-target="#categorical-predictor-with-two-levels">Categorical predictor with two levels</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#coefficients" id="toc-coefficients" class="nav-link" data-scroll-target="#coefficients">Coefficients</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
+  <li><a href="#more-levels-in-categorical-variable" id="toc-more-levels-in-categorical-variable" class="nav-link" data-scroll-target="#more-levels-in-categorical-variable">More levels in categorical variable</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/CopyOf07-regression-multiple-predictors-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/07-regression-multiple-predictors-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -511,7 +517,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="CopyOf07-regression-multiple-predictors-filled-in_files/figure-html/simple-example-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="07-regression-multiple-predictors-filled-in_files/figure-html/simple-example-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -528,7 +534,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="CopyOf07-regression-multiple-predictors-filled-in_files/figure-html/simple-example-plane-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="07-regression-multiple-predictors-filled-in_files/figure-html/simple-example-plane-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -598,89 +604,288 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Visualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(allbacks, <span class="fu">aes</span>(<span class="at">x =</span> volume, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volume (cubic centimeters)"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Weight (grams)"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<blockquote class="blockquote">
-<p>Add response here.</p>
-</blockquote>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-regression-multiple-predictors-filled-in_files/figure-html/plot-weight-volume-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Fit a model predicting weight from volume for these books and save it as <code>weight_fit</code>. Display a tidy output of the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weight_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(weight <span class="sc">~</span> volume, <span class="at">data =</span> allbacks)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(weight_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic    p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1 (Intercept)  108.      88.4         1.22 0.245     
+2 volume         0.709    0.0975      7.27 0.00000626</code></pre>
+</div>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Interpret the slope and the intercept in context of the data.</p>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<ul>
+<li><p>Intercept: when the book volume is 0, on average, the weight is approximately 107.68. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the <span class="math inline">\(y\)</span>-axis.</p></li>
+<li><p>Slope: For each additional cubic centimeter the book volume increases by, on average, we expect the weight to increase by 0.71 grams.</p></li>
+</ul>
 </blockquote>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <p>Calculate the <span class="math inline">\(R^2\)</span> of this model and interpret it in context of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(weight_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic    p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.803         0.787  124.      52.9 0.00000626     1  -92.5  191.  193.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
 </div>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<p>Volume explains approximately 80% of the variability in book weights.</p>
 </blockquote>
 </section>
 </section>
 <section id="multiple-predictors" class="level1">
 <h1>Multiple predictors</h1>
+<p>Suppose we now want to include the cover type of the book (hardback vs paperback) as a predictor.</p>
+<p>We have discussed how a model with two predictors can be written as</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon.
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What would it mean to add <span class="math inline">\(\beta_2 \cdot \text{hb}\)</span> or <span class="math inline">\(\beta_2\cdot \text{pb}\)</span> to receive <span class="math inline">\(y\)</span>?</p>
+</div>
+</div>
+<p>We will come back to this soon.</p>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <p>Visualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(allbacks, <span class="fu">aes</span>(<span class="at">x =</span> volume, <span class="at">y =</span> weight)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> cover, <span class="at">shape =</span> cover)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F, <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> cover), <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volume (cubic centimeters)"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Weight (grams)"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Cover"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Cover"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-regression-multiple-predictors-filled-in_files/figure-html/plot-weight-volume-cover-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The slopes of two lines seem fairly similar, however, their intercepts are different. Maybe we should have a model with different intercepts depending on the cover type.</p>
+</div>
 </div>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <p>Fit a model predicting weight from volume for these books and save it as <code>weight_cover_fit</code>. Display a tidy output of the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>weight_cover_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(weight <span class="sc">~</span> volume <span class="sc">+</span> cover, <span class="at">data =</span> allbacks) </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(weight_cover_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term        estimate std.error statistic      p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+1 (Intercept)  198.      59.2         3.34 0.00584     
+2 volume         0.718    0.0615     11.7  0.0000000660
+3 coverpb     -184.      40.5        -4.55 0.000672    </code></pre>
 </div>
+</div>
+</section>
+<section id="categorical-predictor-with-two-levels" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-predictor-with-two-levels">Categorical predictor with two levels</h2>
+<p>When using a predictor with two levels, we create a variable that takes on two values, 0 or 1 depending on the level of the categorical variable. In our example, <span class="math inline">\(x_2\)</span> (or <span class="math inline">\(\text{cover}_{pb}\)</span>) is the variable representing whether the book is paperback. In particular, <span class="math inline">\(x_2 = 1\)</span> is the book is paperback, and 0 otherwise. We can write this as:</p>
+<p><span class="math display">\[
+\widehat{\text{weight}} = \hat\beta_0 + \hat\beta_1\times\text{volume} +\hat \beta_2 \times \text{cover}_{\text{pb}}.
+\]</span> Thus, our model becomes <span class="math display">\[
+\widehat{\text{weight}} = 198 + 0.718\times\text{volume} -184 \times \text{cover}_{\text{pb}}.
+\]</span></p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <p>In the model output we have a variable <code>coverpb</code>. Why is only the <code>pb</code> (paperback) level of the <code>cover</code> variable shown? What happened to the <code>hb</code> (hardback) level?</p>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<p>Hardback is the reference level, therefore it does not show up in the model output.</p>
 </blockquote>
+<p>By default, <code>R</code> chooses reference level alphabetically. Thus, in our example, <code>hb</code> is the reference level.</p>
+</section>
+<section id="coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="coefficients">Coefficients</h2>
+<p>To better understand what the coefficients represent, lets write out the model for hardback and paperback books separately.</p>
+<ul>
+<li><p>Hardback: if the book is hardback, <span class="math inline">\(\text{cover}_{pb}\)</span> = 0, so our model becomes: <span class="math display">\[
+\widehat{\text{weight}} = \hat{\beta_0} + \hat\beta_1\times\text{volume} +\hat\beta_2 \times 0 = \hat\beta_0 + \hat\beta_1\times\text{volume}.
+\]</span></p></li>
+<li><p>Paperback: if the book is hardback, <span class="math inline">\(\text{cover}_{pb}\)</span> = 1, so our model becomes: <span class="math display">\[
+\widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 1 = (\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times\text{volume}.
+\]</span></p></li>
+</ul>
+<p>From the first case, <span class="math inline">\(\hat\beta_0\)</span> corresponds to the intercept in the case when the book is hardback., i.e.&nbsp;the average weight we expect for a hardback book with volume 0.</p>
+<p>From the second case, <span class="math inline">\(\hat\beta_0 + \hat\beta_2\)</span> corresponds to the intercept in the case when the book is paperback, i.e.&nbsp;the average weight we expect for a paperback book with volume 0.</p>
+<p>Fixing the volume to be <em>the same</em> (say <span class="math inline">\(v\)</span>) for two books, the difference in average weight between paperback and hardback book is <span class="math display">\[
+(\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times v - (\hat\beta_0 + \hat\beta_1\times v) = \hat\beta_2.
+\]</span> Thus, <span class="math inline">\(\hat\beta_2\)</span> is how much the model predicts the weight of paperback book to differ from the weight of hardback book (reference level) given both have the same volume.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <p>Interpret the slopes and the intercept in context of the data.</p>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<ul>
+<li>Intercept: Books with volume 0 that are hardback are expected, on average, to weight approximately 197.96 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the <span class="math inline">\(y\)</span>-axis.</li>
+<li>Slope - volume: all else held constant, for each additional cubic centimeter the book’s volume increases, we expect the weight to increase by 0.72 grams, on average.</li>
+<li>Slope - cover: controlling for volume, paperback books weigh, on average, 184.05 grams less than hardback books.</li>
+</ul>
 </blockquote>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <p>First, guess whether the <span class="math inline">\(R^2\)</span> of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the <span class="math inline">\(R^2\)</span> of this model to confirm your guess, and then interpret it in context of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(weight_cover_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic     p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.927         0.915  78.2      76.7 0.000000145     2  -85.0  178.  181.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
 </div>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<p><span class="math inline">\(R^2\)</span> of this model will be higher since it has an additional predictor.</p>
+<p>Volume and cover type explain approximately 93% of the variability on book weights.</p>
 </blockquote>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
 <p>Which model is preferred for predicting book weights and why?</p>
 <blockquote class="blockquote">
-<p>Add response here.</p>
+<p>The second model since it has higher adjusted <span class="math inline">\(R^2\)</span>.</p>
 </blockquote>
 </section>
 <section id="exercise-11" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
 <p>Using the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>new_book <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">cover =</span> <span class="st">"hb"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">volume =</span> <span class="dv">1000</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(weight_cover_fit, <span class="at">new_data =</span> new_book)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  .pred
+  &lt;dbl&gt;
+1  916.</code></pre>
+</div>
+</div>
+<p>Another way to do it is to use the output directly. Since we are looking at the hardback cover, we set <span class="math inline">\(\text{cover}_{pb} = 0\)</span>. We have:</p>
+<p><span class="math display">\[
+\begin{align*}
+\widehat{\text{weight}} &amp;= 198 + 0.718\times\text{volume} -184 \times \text{cover}\_{\text{pb}} \\
+&amp;= 198 + 0.718 \times 1000 - 0\\
+&amp;= 916
+\end{align*}
+\]</span></p>
+</section>
+<section id="more-levels-in-categorical-variable" class="level2">
+<h2 class="anchored" data-anchor-id="more-levels-in-categorical-variable">More levels in categorical variable</h2>
+<p>When we fit a model using a categorical variable with <span class="math inline">\(k \geq 2\)</span> levels, the output provides <span class="math inline">\(k-1\)</span> rows for the variable. Each row represents the relative difference for each level of the variable. However, one level will not get a row. The missing level is called the <strong>reference level</strong> and it represents the default level that other levels are measured against.</p>
+<p>In particular, <span class="math inline">\(k-1\)</span> <strong>dummy variables</strong> are created, corresponding to <span class="math inline">\(k-1\)</span> non-reference levels. Each of the variables take on a value of 1 if the observation belongs to the corresponding level, and 0 otherwise.</p>
+<p>Going back to our example, suppose, in addition, we had a board book (bb) cover type. By default, <code>R</code> chooses reference level alphabetically. Thus, the reference level for cover type would be board book. Since there would now be 3 levels (bb, hb, pb), we would have 2 dummy variables and software would provide 2 coefficients. Our model would be:</p>
+<p><span class="math display">\[
+\begin{align*}
+\widehat{\text{weight}} = \hat\beta_0 + \hat\beta_1\times\text{volume} +\hat \beta_2 \times \text{cover}_{\text{hb}} + \hat\beta_3\times \text{cover}_{\text{pb}}.
+\end{align*}
+\]</span> where <span class="math inline">\(\text{cover}_{hb}\)</span> is 1 if the book is hardback and 0 otherwise, and <span class="math inline">\(\text{cover}_{pb}\)</span> is 1 if the book is hardback and 0 otherwise.</p>
+<p>We now have:</p>
+<ul>
+<li><p>Board book: if the book is board book, <span class="math inline">\(\text{cover}_{hb} = 0\)</span>, <span class="math inline">\(\text{cover}_{pb}\)</span> = 0, so our model becomes: <span class="math display">\[
+\widehat{\text{weight}} = \hat{\beta_0} + \hat\beta_1\times\text{volume} +\hat\beta_2 \times 0 + \hat\beta_3\times 0= \hat\beta_0 + \hat\beta_1\times\text{volume}.
+\]</span></p></li>
+<li><p>Hardback: if the book is hardback, <span class="math inline">\(\text{cover}_{hb} = 1\)</span>, <span class="math inline">\(\text{cover}_{pb}\)</span> = 0, so our model becomes: <span class="math display">\[
+\widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 1 + \hat{\beta_3}\times 0 = (\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times\text{volume}.
+  \]</span></p></li>
+<li><p>Paperback: if the book is paperback, <span class="math inline">\(\text{cover}_{hb} = 0\)</span>, <span class="math inline">\(\text{cover}_{pb}\)</span> = 1, so our model becomes: <span class="math display">\[
+    \widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 0 + \hat{\beta_3}\times 1 = (\hat{\beta_0} + \hat{\beta_3}) + \hat{\beta_1}\times\text{volume}.
+  \]</span></p></li>
+</ul>
+<p>From the first case, <span class="math inline">\(\hat\beta_0\)</span> corresponds to the intercept in the case when the book is board book, i.e.&nbsp;the average weight we expect for a board book with volume 0.</p>
+<p>From the second case, <span class="math inline">\(\hat\beta_0 + \hat\beta_2\)</span> corresponds to the intercept in the case when the book is hardback., i.e.&nbsp;the average weight we expect for a hardback book with volume 0.</p>
+<p>From the third case, <span class="math inline">\(\hat\beta_0 + \hat\beta_3\)</span> corresponds to the intercept in the case when the book is paperback., i.e.&nbsp;the average weight we expect for a hardback book with volume 0.</p>
+<p>Fixing the volume to be the <strong>same</strong> (say <span class="math inline">\(v\)</span>), the difference in average weight between hardback and board book is <span class="math display">\[
+(\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times v - (\hat\beta_0 + \hat\beta_1\times v) = \hat\beta_2.
+\]</span> Thus, <span class="math inline">\(\hat\beta_2\)</span> is how much the model predicts the weight of hardback book to differ from the weight of board book (reference level) given both have the same volume.</p>
+<p>Fixing the volume to be the <strong>same</strong> (say <span class="math inline">\(v\)</span>) , the difference in average weight between paperback and board book is <span class="math display">\[
+(\hat{\beta_0} + \hat{\beta_3}) + \hat{\beta_1}\times v - (\hat\beta_0 + \hat\beta_1\times v) = \hat\beta_3.
+\]</span> Thus, <span class="math inline">\(\hat\beta_3\)</span> is how much the model predicts the weight of paperback book to differ from the weight of board book (reference level) given both have the same volume.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The coefficients tell us how the levels compare to the <strong>reference</strong> level! Thus, <span class="math inline">\(\hat\beta_2\)</span> compares board books and hardback books, and <span class="math inline">\(\hat\beta_3\)</span> compares board books and paperback books.</p>
+</div>
 </div>
 
 
@@ -1249,7 +1454,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/CopyOf07-regression-multiple-predictors-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/07/07-regression-multiple-predictors-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>

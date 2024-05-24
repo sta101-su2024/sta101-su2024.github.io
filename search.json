@@ -351,172 +351,193 @@
     "text": "Exercise 8\nVisualize and describe the distribution of seniors (50 and up) based on (a.k.a. conditional on) vaccination status. Hint: Your description will benefit from calculating proportions of seniors in each of the vaccination groups and working those values into your narrative.\nAdd your answer here.\n\n# add your code here"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html",
     "title": "Regression with multiple predictors",
     "section": "",
     "text": "No lab or class on Monday, May 27th.\nProject proposal due Tuesday, May 28th.\nLab 3 due Wednesday, May 29th.\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(scatterplot3d)"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#announcements",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#announcements",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#announcements",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#announcements",
     "title": "Regression with multiple predictors",
     "section": "",
     "text": "No lab or class on Monday, May 27th.\nProject proposal due Tuesday, May 28th.\nLab 3 due Wednesday, May 29th."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#load-packages-and-data",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#load-packages-and-data",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#load-packages-and-data",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#load-packages-and-data",
     "title": "Regression with multiple predictors",
     "section": "",
     "text": "library(tidyverse)\nlibrary(tidymodels)\nlibrary(scatterplot3d)"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2",
     "title": "Regression with multiple predictors",
     "section": "\\(R^2\\)",
     "text": "\\(R^2\\)\n\\(R^2\\), aka “the coefficient of determination” or “correlation squared” is a way to see how well a given model fits the data.\n\\[\nR^2 = r^2\n\\]"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#sum-of-squares-total-sst",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#sum-of-squares-total-sst",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#sum-of-squares-total-sst",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#sum-of-squares-total-sst",
     "title": "Regression with multiple predictors",
     "section": "Sum of squares total, SST",
     "text": "Sum of squares total, SST\nThe sum of squares total is a measure of the total variability in the outcome variable:\n\\[\nSST = (y_1 - \\bar{y})^2 + (y_2 - \\bar{y})^2 + \\cdots + (y_n - \\bar{y})^2\n\\]"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#sum-of-squares-residuals-sse",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#sum-of-squares-residuals-sse",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#sum-of-squares-residuals-sse",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#sum-of-squares-residuals-sse",
     "title": "Regression with multiple predictors",
     "section": "Sum of squares residuals, SSE",
     "text": "Sum of squares residuals, SSE\nThe sum of squares residuals (error) is a measure of the variability in the residuals, i.e., variability left unexplained in the outcome variable after the model is fit:\n\\[\nSSE = (y_1 - \\hat{y}_1)^2 + (y_2 - \\hat{y}_2)^2 + \\cdots + (y_n - \\hat{y}_n)^2\n\\]"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2-another-look",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2-another-look",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2-another-look",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2-another-look",
     "title": "Regression with multiple predictors",
     "section": "\\(R^2\\), another look",
     "text": "\\(R^2\\), another look\n\\[\nR^2 = \\frac{SST - SSE}{SST} = 1 - \\frac{SSE}{SST}\n\\]\n. . .\n\nThis can be summarized as “\\(R^2\\) is 1 minus the sum of squared residuals divided by the sum of squared total”.\n\n. . .\n\nIn other words, \\(R^2\\) is the proportion of variability in the outcome that is explained by the model."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2-1",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#r2-1",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2-1",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#r2-1",
     "title": "Regression with multiple predictors",
     "section": "\\(R^2\\)",
     "text": "\\(R^2\\)\n\n\nIf the sum of squared residuals is 0, then the model explains all variability and \\(R^2 = 1 - 0 = 1\\).\nIf the sum of squared residuals is the same as all the variability in the data, then model does not explain any variability and \\(R^2 = 1 - 1 = 0\\).\n\\(R^2\\) is a measure of the proportion of variability the model explains. An \\(R^2\\) of 0 is a poor fit and \\(R^2\\) of 1 is a perfect fit."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#finding-r2",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#finding-r2",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#finding-r2",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#finding-r2",
     "title": "Regression with multiple predictors",
     "section": "Finding \\(R^2\\)",
     "text": "Finding \\(R^2\\)\nTo find \\(R^2\\) simply call the function glance() on your model_fit, e.g.\n\nmodel_fit &lt;- linear_reg() |&gt;\n  fit(outcome ~ predictor, data = data_set)\n  \nglance(model_fit)"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#two-predictors",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#two-predictors",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#two-predictors",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#two-predictors",
     "title": "Regression with multiple predictors",
     "section": "Two predictors",
     "text": "Two predictors\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\epsilon\n\\]\n\n\n\\(y\\): the outcome variable. Also called the “response” or “dependent variable”. In prediction problems, this is what we are interested in predicting.\n\\(x_i\\): the \\(i^{th}\\) predictor. Also commonly referred to as “regressor”, “independent variable”, “covariate”, “feature”, “the data”.\n\\(\\beta_i\\): “constants” or coefficients i.e. fixed numbers. These are population parameters. \\(\\beta_0\\) has another special name, “the intercept”.\n\\(\\epsilon\\): the error. This quantity represents observational error, i.e. the difference between our observation and the true population-level expected value: \\(\\beta_0 + \\beta_1 x\\).\nEffectively this model says our data \\(y\\) is linearly related to the \\(x_1\\) and \\(x_2\\) but is not perfectly observed due to unexplained errors."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#a-simple-example",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#a-simple-example",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#a-simple-example",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#a-simple-example",
     "title": "Regression with multiple predictors",
     "section": "A simple example",
     "text": "A simple example\nLet’s examine the first quarter of 2020 high prices of Microsoft, IBM, and Apple stocks to illustrate some ideas.\n\n\n\n\n\n\n\n\n\n\nIf we have three measurements (variables) then each observation is a point in three-dimensional space. In this example, we can choose one of our measurements to be the outcome variable (e.g. Apple stock price) and use our other two measurements (MSFT and IBM price) as predictors.\nIn general, the total number of measurements, i.e. variables (columns) in our linear model represents the spatial dimension of our model."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#predictors-1-outcome-3-dimensions",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#predictors-1-outcome-3-dimensions",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#predictors-1-outcome-3-dimensions",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#predictors-1-outcome-3-dimensions",
     "title": "Regression with multiple predictors",
     "section": "2 predictors + 1 outcome = 3 dimensions",
     "text": "2 predictors + 1 outcome = 3 dimensions\nThe fitted linear model no longer looks like a line, but instead looks like a plane. It shows our prediction of AAPL price (\\(y\\)) given both MSFT price (\\(x_1\\)) and IBM price (\\(x_2\\))."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#fitting-a-multiple-regression-model-in-r",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#fitting-a-multiple-regression-model-in-r",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#fitting-a-multiple-regression-model-in-r",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#fitting-a-multiple-regression-model-in-r",
     "title": "Regression with multiple predictors",
     "section": "Fitting a multiple regression model in R",
     "text": "Fitting a multiple regression model in R\nFind the equation of the plane by adding in new predictors:\n\nmy_model_fit &lt;- linear_reg() |&gt;\n  fit(outcome ~ predictor1 + predictor2 + predictor3 + ..., data = data_frame)\n\n. . .\n\nThis code template will fit the model according to the ordinary least squares (OLS) objective function, i.e., we are finding the equation of the hyperplane that minimizes the sum of squared residuals\n\n. . .\n\nYou can then display a tidy output of the model with the tidy() function on your fitted model: tidy(my_model_fit)\n\nToday we’ll explore the question “How do volume and weights books relate?” and “How, if at all, does that change when we take whether the book is hardback or paperback into consideration?”"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-1",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-1",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-1",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-1",
     "title": "Regression with multiple predictors",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 1\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis). Overlay the line of best fit. Describe the relationship between these variables.\n\nggplot(allbacks, aes(x = volume, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = F) +\n  labs(\n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-2",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-2",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-2",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-2",
     "title": "Regression with multiple predictors",
     "section": "Exercise 2",
-    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\n# add code here"
+    "text": "Exercise 2\nFit a model predicting weight from volume for these books and save it as weight_fit. Display a tidy output of the model.\n\nweight_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume, data = allbacks)\n\ntidy(weight_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic    p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 (Intercept)  108.      88.4         1.22 0.245     \n2 volume         0.709    0.0975      7.27 0.00000626"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-3",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-3",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-3",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-3",
     "title": "Regression with multiple predictors",
     "section": "Exercise 3",
-    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\nAdd response here."
+    "text": "Exercise 3\nInterpret the slope and the intercept in context of the data.\n\n\nIntercept: when the book volume is 0, on average, the weight is approximately 107.68. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the \\(y\\)-axis.\nSlope: For each additional cubic centimeter the book volume increases by, on average, we expect the weight to increase by 0.71 grams."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-4",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-4",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-4",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-4",
     "title": "Regression with multiple predictors",
     "section": "Exercise 4",
-    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 4\nCalculate the \\(R^2\\) of this model and interpret it in context of the data.\n\nglance(weight_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic    p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.803         0.787  124.      52.9 0.00000626     1  -92.5  191.  193.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\nVolume explains approximately 80% of the variability in book weights."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-5",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-5",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-5",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-5",
     "title": "Regression with multiple predictors",
     "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\n# add code here"
+    "text": "Exercise 5\nVisualize the relationship between volume (on the x-axis) and weight (on the y-axis), taking into consideration the cover type of the book. Use different colors and shapes for hardback and paperback books. Also use different colors for lines of best fit for the two types of books. In addition, add the overall line of best fit (from Exercise 1) as a gray dashed line so that you can see the difference between the lines when considering and not considering cover type.\n\nggplot(allbacks, aes(x = volume, y = weight)) + \n  geom_point(aes(color = cover, shape = cover)) + \n  geom_smooth(method = \"lm\", se = F, color = \"gray\", linetype = \"dashed\") +\n  geom_smooth(aes(color = cover), method = \"lm\", se = F) +\n  labs( \n    x = \"Volume (cubic centimeters)\",\n    y = \"Weight (grams)\",\n    shape = \"Cover\",\n    color = \"Cover\"\n      )\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThe slopes of two lines seem fairly similar, however, their intercepts are different. Maybe we should have a model with different intercepts depending on the cover type."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-6",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-6",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-6",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-6",
     "title": "Regression with multiple predictors",
     "section": "Exercise 6",
-    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\n# add code here"
+    "text": "Exercise 6\nFit a model predicting weight from volume for these books and save it as weight_cover_fit. Display a tidy output of the model.\n\nweight_cover_fit &lt;- linear_reg() |&gt;\n  fit(weight ~ volume + cover, data = allbacks) \n\ntidy(weight_cover_fit)\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic      p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 (Intercept)  198.      59.2         3.34 0.00584     \n2 volume         0.718    0.0615     11.7  0.0000000660\n3 coverpb     -184.      40.5        -4.55 0.000672"
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-7",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-7",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#categorical-predictor-with-two-levels",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#categorical-predictor-with-two-levels",
+    "title": "Regression with multiple predictors",
+    "section": "Categorical predictor with two levels",
+    "text": "Categorical predictor with two levels\nWhen using a predictor with two levels, we create a variable that takes on two values, 0 or 1 depending on the level of the categorical variable. In our example, \\(x_2\\) (or \\(\\text{cover}_{pb}\\)) is the variable representing whether the book is paperback. In particular, \\(x_2 = 1\\) is the book is paperback, and 0 otherwise. We can write this as:\n\\[\n\\widehat{\\text{weight}} = \\hat\\beta_0 + \\hat\\beta_1\\times\\text{volume} +\\hat \\beta_2 \\times \\text{cover}_{\\text{pb}}.\n\\] Thus, our model becomes \\[\n\\widehat{\\text{weight}} = 198 + 0.718\\times\\text{volume} -184 \\times \\text{cover}_{\\text{pb}}.\n\\]"
+  },
+  {
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-7",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-7",
     "title": "Regression with multiple predictors",
     "section": "Exercise 7",
-    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nAdd response here."
+    "text": "Exercise 7\nIn the model output we have a variable coverpb. Why is only the pb (paperback) level of the cover variable shown? What happened to the hb (hardback) level?\n\nHardback is the reference level, therefore it does not show up in the model output.\n\nBy default, R chooses reference level alphabetically. Thus, in our example, hb is the reference level."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-8",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-8",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#coefficients",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#coefficients",
+    "title": "Regression with multiple predictors",
+    "section": "Coefficients",
+    "text": "Coefficients\nTo better understand what the coefficients represent, lets write out the model for hardback and paperback books separately.\n\nHardback: if the book is hardback, \\(\\text{cover}_{pb}\\) = 0, so our model becomes: \\[\n\\widehat{\\text{weight}} = \\hat{\\beta_0} + \\hat\\beta_1\\times\\text{volume} +\\hat\\beta_2 \\times 0 = \\hat\\beta_0 + \\hat\\beta_1\\times\\text{volume}.\n\\]\nPaperback: if the book is hardback, \\(\\text{cover}_{pb}\\) = 1, so our model becomes: \\[\n\\widehat{\\text{weight}} = \\hat{\\beta_0} + \\hat{\\beta_1}\\times\\text{volume} +\\hat{\\beta_2}\\times 1 = (\\hat{\\beta_0} + \\hat{\\beta_2}) + \\hat{\\beta_1}\\times\\text{volume}.\n\\]\n\nFrom the first case, \\(\\hat\\beta_0\\) corresponds to the intercept in the case when the book is hardback., i.e. the average weight we expect for a hardback book with volume 0.\nFrom the second case, \\(\\hat\\beta_0 + \\hat\\beta_2\\) corresponds to the intercept in the case when the book is paperback, i.e. the average weight we expect for a paperback book with volume 0.\nFixing the volume to be the same (say \\(v\\)) for two books, the difference in average weight between paperback and hardback book is \\[\n(\\hat{\\beta_0} + \\hat{\\beta_2}) + \\hat{\\beta_1}\\times v - (\\hat\\beta_0 + \\hat\\beta_1\\times v) = \\hat\\beta_2.\n\\] Thus, \\(\\hat\\beta_2\\) is how much the model predicts the weight of paperback book to differ from the weight of hardback book (reference level) given both have the same volume."
+  },
+  {
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-8",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-8",
     "title": "Regression with multiple predictors",
     "section": "Exercise 8",
-    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\nAdd response here."
+    "text": "Exercise 8\nInterpret the slopes and the intercept in context of the data.\n\n\nIntercept: Books with volume 0 that are hardback are expected, on average, to weight approximately 197.96 grams. This doesn’t make sense in the context of the data, and the intercept is only there to adjust the height of the line on the \\(y\\)-axis.\nSlope - volume: all else held constant, for each additional cubic centimeter the book’s volume increases, we expect the weight to increase by 0.72 grams, on average.\nSlope - cover: controlling for volume, paperback books weigh, on average, 184.05 grams less than hardback books."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-9",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-9",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-9",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-9",
     "title": "Regression with multiple predictors",
     "section": "Exercise 9",
-    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\n# add code here\n\n\nAdd response here."
+    "text": "Exercise 9\nFirst, guess whether the \\(R^2\\) of this model will be greater than, less than, or the same as the previous model, or whether we can’t tell. Then, calculate the \\(R^2\\) of this model to confirm your guess, and then interpret it in context of the data.\n\nglance(weight_cover_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic     p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.927         0.915  78.2      76.7 0.000000145     2  -85.0  178.  181.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\\(R^2\\) of this model will be higher since it has an additional predictor.\nVolume and cover type explain approximately 93% of the variability on book weights."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-10",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-10",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-10",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-10",
     "title": "Regression with multiple predictors",
     "section": "Exercise 10",
-    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nAdd response here."
+    "text": "Exercise 10\nWhich model is preferred for predicting book weights and why?\n\nThe second model since it has higher adjusted \\(R^2\\)."
   },
   {
-    "objectID": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-11",
-    "href": "lectures/07/CopyOf07-regression-multiple-predictors-filled-in.html#exercise-11",
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-11",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#exercise-11",
     "title": "Regression with multiple predictors",
     "section": "Exercise 11",
-    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\n# add code here"
+    "text": "Exercise 11\nUsing the model you chose, predict the weight of a hardcover book that is 1000 cubic centimeters (that is, roughly 25 centimeters in length, 20 centimeters in width, and 2 centimeters in height/thickness).\n\nnew_book &lt;- tibble(\n  cover = \"hb\",\n  volume = 1000\n)\n\npredict(weight_cover_fit, new_data = new_book)\n\n# A tibble: 1 × 1\n  .pred\n  &lt;dbl&gt;\n1  916.\n\n\nAnother way to do it is to use the output directly. Since we are looking at the hardback cover, we set \\(\\text{cover}_{pb} = 0\\). We have:\n\\[\n\\begin{align*}\n\\widehat{\\text{weight}} &= 198 + 0.718\\times\\text{volume} -184 \\times \\text{cover}\\_{\\text{pb}} \\\\\n&= 198 + 0.718 \\times 1000 - 0\\\\\n&= 916\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "lectures/07/07-regression-multiple-predictors-filled-in.html#more-levels-in-categorical-variable",
+    "href": "lectures/07/07-regression-multiple-predictors-filled-in.html#more-levels-in-categorical-variable",
+    "title": "Regression with multiple predictors",
+    "section": "More levels in categorical variable",
+    "text": "More levels in categorical variable\nWhen we fit a model using a categorical variable with \\(k \\geq 2\\) levels, the output provides \\(k-1\\) rows for the variable. Each row represents the relative difference for each level of the variable. However, one level will not get a row. The missing level is called the reference level and it represents the default level that other levels are measured against.\nIn particular, \\(k-1\\) dummy variables are created, corresponding to \\(k-1\\) non-reference levels. Each of the variables take on a value of 1 if the observation belongs to the corresponding level, and 0 otherwise.\nGoing back to our example, suppose, in addition, we had a board book (bb) cover type. By default, R chooses reference level alphabetically. Thus, the reference level for cover type would be board book. Since there would now be 3 levels (bb, hb, pb), we would have 2 dummy variables and software would provide 2 coefficients. Our model would be:\n\\[\n\\begin{align*}\n\\widehat{\\text{weight}} = \\hat\\beta_0 + \\hat\\beta_1\\times\\text{volume} +\\hat \\beta_2 \\times \\text{cover}_{\\text{hb}} + \\hat\\beta_3\\times \\text{cover}_{\\text{pb}}.\n\\end{align*}\n\\] where \\(\\text{cover}_{hb}\\) is 1 if the book is hardback and 0 otherwise, and \\(\\text{cover}_{pb}\\) is 1 if the book is hardback and 0 otherwise.\nWe now have:\n\nBoard book: if the book is board book, \\(\\text{cover}_{hb} = 0\\), \\(\\text{cover}_{pb}\\) = 0, so our model becomes: \\[\n\\widehat{\\text{weight}} = \\hat{\\beta_0} + \\hat\\beta_1\\times\\text{volume} +\\hat\\beta_2 \\times 0 + \\hat\\beta_3\\times 0= \\hat\\beta_0 + \\hat\\beta_1\\times\\text{volume}.\n\\]\nHardback: if the book is hardback, \\(\\text{cover}_{hb} = 1\\), \\(\\text{cover}_{pb}\\) = 0, so our model becomes: \\[\n\\widehat{\\text{weight}} = \\hat{\\beta_0} + \\hat{\\beta_1}\\times\\text{volume} +\\hat{\\beta_2}\\times 1 + \\hat{\\beta_3}\\times 0 = (\\hat{\\beta_0} + \\hat{\\beta_2}) + \\hat{\\beta_1}\\times\\text{volume}.\n  \\]\nPaperback: if the book is paperback, \\(\\text{cover}_{hb} = 0\\), \\(\\text{cover}_{pb}\\) = 1, so our model becomes: \\[\n    \\widehat{\\text{weight}} = \\hat{\\beta_0} + \\hat{\\beta_1}\\times\\text{volume} +\\hat{\\beta_2}\\times 0 + \\hat{\\beta_3}\\times 1 = (\\hat{\\beta_0} + \\hat{\\beta_3}) + \\hat{\\beta_1}\\times\\text{volume}.\n  \\]\n\nFrom the first case, \\(\\hat\\beta_0\\) corresponds to the intercept in the case when the book is board book, i.e. the average weight we expect for a board book with volume 0.\nFrom the second case, \\(\\hat\\beta_0 + \\hat\\beta_2\\) corresponds to the intercept in the case when the book is hardback., i.e. the average weight we expect for a hardback book with volume 0.\nFrom the third case, \\(\\hat\\beta_0 + \\hat\\beta_3\\) corresponds to the intercept in the case when the book is paperback., i.e. the average weight we expect for a hardback book with volume 0.\nFixing the volume to be the same (say \\(v\\)), the difference in average weight between hardback and board book is \\[\n(\\hat{\\beta_0} + \\hat{\\beta_2}) + \\hat{\\beta_1}\\times v - (\\hat\\beta_0 + \\hat\\beta_1\\times v) = \\hat\\beta_2.\n\\] Thus, \\(\\hat\\beta_2\\) is how much the model predicts the weight of hardback book to differ from the weight of board book (reference level) given both have the same volume.\nFixing the volume to be the same (say \\(v\\)) , the difference in average weight between paperback and board book is \\[\n(\\hat{\\beta_0} + \\hat{\\beta_3}) + \\hat{\\beta_1}\\times v - (\\hat\\beta_0 + \\hat\\beta_1\\times v) = \\hat\\beta_3.\n\\] Thus, \\(\\hat\\beta_3\\) is how much the model predicts the weight of paperback book to differ from the weight of board book (reference level) given both have the same volume.\n\n\n\n\n\n\nImportant\n\n\n\nThe coefficients tell us how the levels compare to the reference level! Thus, \\(\\hat\\beta_2\\) compares board books and hardback books, and \\(\\hat\\beta_3\\) compares board books and paperback books."
   },
   {
     "objectID": "lectures/04/04-explore-categorical_filled_in.html",
@@ -1661,7 +1682,7 @@
     "href": "index.html",
     "title": "STA 101: Data Analysis and Statistical Inference",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n⌨️ lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nLogistic regression I\n\n\n📖 ims: Chp 9.1 - 9.2\n\n\n📓notes\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n⌨️ lab-4\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression II\n\n\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n⌨️ lab-5\n\n\n\n\n\n\n\nMon, Jun 3\n\nConfidence intervals with bootstrapping\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n\n\n📓notes\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 5\n\nEthics\n\n\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n⌨️ lab-6\n📄 Intro + EDA\n\n\n\n\n\n\n\nTue, Jun 11\n\nDecision errors\n\n\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓notes\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer review partner\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n⌨️ lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n⌨️ lab-8\n\n\n\n\n\n\n\nMon, Jun 17\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for comparing two independent means\n\n\n📖 ims: Chp 20\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nThu, Jun 20\n\nInference for comparing two paired + more means\n\n\n📖 ims: Chp 21\n\n\n📓 notes\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means\n\n\n\n\n⌨️ lab-9\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n⌨️ lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nLogistic regression I\n\n\n📖 ims: Chp 9.1 - 9.2\n\n\n📓notes\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n⌨️ lab-4\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression II\n\n\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n⌨️ lab-5\n\n\n\n\n\n\n\nMon, Jun 3\n\nConfidence intervals with bootstrapping\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n\n\n📓notes\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 5\n\nEthics\n\n\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n⌨️ lab-6\n📄 Intro + EDA\n\n\n\n\n\n\n\nTue, Jun 11\n\nDecision errors\n\n\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓notes\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer review partner\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n⌨️ lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n⌨️ lab-8\n\n\n\n\n\n\n\nMon, Jun 17\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for comparing two independent means\n\n\n📖 ims: Chp 20\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nThu, Jun 20\n\nInference for comparing two paired + more means\n\n\n📖 ims: Chp 21\n\n\n📓 notes\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means\n\n\n\n\n⌨️ lab-9\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
     "crumbs": [
       "Course information",
       "Schedule"
