@@ -544,70 +544,77 @@
     "href": "lectures/09/09-logistic-regression.html",
     "title": "Logistic regression",
     "section": "",
-    "text": "Lab 3 due tonight.\nOffice Hours today: 3:00 - 4:00 pm instead. # Logistic regression\n\n\n\n\n\nOutcome: Numerical, Predictor: One numerical or one categorical with only two levels \\(\\rightarrow\\) Simple linear regression\nOutcome: Numerical, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Multiple linear regression\nOutcome: Categorical with only two levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Logistic regression\nOutcome: Categorical with any number of levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Generalized linear models – Not covered in STA 101\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\n\nhp_spam &lt;- read_csv(\"hp-spam.csv\")\n\n\n4601 emails collected at Hewlett-Packard labs and contains 58 variables\nOutcome: type\n\ntype = 1 is spam\ntype = 0 is non-spam\n\nPredictors of interest:\n\ncapitalTotal: Number of capital letters in email\nPercentages are calculated as (100 * number of times the WORD appears in the e-mail) / total number of words in email\n\ngeorge: Percentage of “george”s in email (these were George’s emails)\nyou: Percentage of “you”s in email\n\n\n\n\n\n\n\nWhat type of data is type? What type should it be in order to use logistic regression?\n\n\nhp_spam |&gt;\n  select(type, george, capitalTotal, you)\n\n# A tibble: 4,601 × 4\n    type george capitalTotal   you\n   &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;\n 1     1      0          278  1.93\n 2     1      0         1028  3.47\n 3     1      0         2259  1.36\n 4     1      0          191  3.18\n 5     1      0          191  3.18\n 6     1      0           54  0   \n 7     1      0          112  3.85\n 8     1      0           49  0   \n 9     1      0         1257  1.23\n10     1      0          749  1.67\n# ℹ 4,591 more rows\n\n\n\n\n\n\nhp_spam |&gt;\n  count(type) |&gt;\n  mutate(p = n / sum(n))\n\n# A tibble: 2 × 3\n   type     n     p\n  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n1     0  2788 0.606\n2     1  1813 0.394\n\n\n\n\n\n\nggplot(hp_spam, aes(x = capitalTotal)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(hp_spam, aes(x = george)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nggplot(hp_spam, aes(x = you)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic regression takes in a number of predictors and outputs the probability of a “success” (an outcome of 1) in a binary outcome variable.\nThe probability is related to the predictors via a sigmoid link function, \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum \\beta_i x_i })},\n\\]whose output is in \\((0,1)\\) (a probability).\nIn this modeling scheme, one typically finds \\(\\hat{\\beta}\\) by maximizing the likelihood function, another objective function, different than our previous “least squares” objective.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTo proceed with building our email classifier, we will, as usual, use our data (outcome \\(y_i\\) and predictor \\(x_i\\) pairs), to estimate \\(\\beta\\) (find \\(\\hat{\\beta}\\)) and obtain the model: \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum  \\hat{\\beta}_i x_i})},\n\\]\nIn this lecture, we’ll build a spam filter. Or, at least, learn a bit about how spam filters are built by building a very simple (likely not very effective) one."
+    "text": "Lab 3 due tonight.\nOffice Hours today: 3:00 - 4:00 pm instead."
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#check-in",
     "href": "lectures/09/09-logistic-regression.html#check-in",
     "title": "Logistic regression",
     "section": "",
-    "text": "Lab 3 due tonight.\nOffice Hours today: 3:00 - 4:00 pm instead. # Logistic regression"
+    "text": "Lab 3 due tonight.\nOffice Hours today: 3:00 - 4:00 pm instead."
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#so-far-in-regression",
     "href": "lectures/09/09-logistic-regression.html#so-far-in-regression",
     "title": "Logistic regression",
-    "section": "",
-    "text": "Outcome: Numerical, Predictor: One numerical or one categorical with only two levels \\(\\rightarrow\\) Simple linear regression\nOutcome: Numerical, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Multiple linear regression\nOutcome: Categorical with only two levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Logistic regression\nOutcome: Categorical with any number of levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Generalized linear models – Not covered in STA 101"
+    "section": "So far in regression",
+    "text": "So far in regression\n\nOutcome: Numerical, Predictor: One numerical or one categorical with only two levels \\(\\rightarrow\\) Simple linear regression\nOutcome: Numerical, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Multiple linear regression\nOutcome: Categorical with only two levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Logistic regression\nOutcome: Categorical with any number of levels, Predictors: Any number of numerical or categorical variables with any number of levels \\(\\rightarrow\\) Generalized linear models – Not covered in STA 101"
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#data-packages",
     "href": "lectures/09/09-logistic-regression.html#data-packages",
     "title": "Logistic regression",
-    "section": "",
-    "text": "library(tidyverse)\nlibrary(tidymodels)\n\nhp_spam &lt;- read_csv(\"hp-spam.csv\")\n\n\n4601 emails collected at Hewlett-Packard labs and contains 58 variables\nOutcome: type\n\ntype = 1 is spam\ntype = 0 is non-spam\n\nPredictors of interest:\n\ncapitalTotal: Number of capital letters in email\nPercentages are calculated as (100 * number of times the WORD appears in the e-mail) / total number of words in email\n\ngeorge: Percentage of “george”s in email (these were George’s emails)\nyou: Percentage of “you”s in email"
+    "section": "Data + packages",
+    "text": "Data + packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\n\nhp_spam &lt;- read_csv(\"hp-spam.csv\")\n\n\n4601 emails collected at Hewlett-Packard labs and contains 58 variables\nOutcome: type\n\ntype = 1 is spam\ntype = 0 is non-spam\n\nPredictors of interest:\n\ncapitalTotal: Number of capital letters in email\nPercentages are calculated as (100 * number of times the WORD appears in the e-mail) / total number of words in email\n\ngeorge: Percentage of “george”s in email (these were George’s emails)\nyou: Percentage of “you”s in email"
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#glimpse-at-data",
     "href": "lectures/09/09-logistic-regression.html#glimpse-at-data",
     "title": "Logistic regression",
-    "section": "",
-    "text": "What type of data is type? What type should it be in order to use logistic regression?\n\n\nhp_spam |&gt;\n  select(type, george, capitalTotal, you)\n\n# A tibble: 4,601 × 4\n    type george capitalTotal   you\n   &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;\n 1     1      0          278  1.93\n 2     1      0         1028  3.47\n 3     1      0         2259  1.36\n 4     1      0          191  3.18\n 5     1      0          191  3.18\n 6     1      0           54  0   \n 7     1      0          112  3.85\n 8     1      0           49  0   \n 9     1      0         1257  1.23\n10     1      0          749  1.67\n# ℹ 4,591 more rows"
+    "section": "Glimpse at data",
+    "text": "Glimpse at data\n\nWhat type of data is type? What type should it be in order to use logistic regression?\n\n\nhp_spam |&gt;\n  select(type, george, capitalTotal, you)\n\n# A tibble: 4,601 × 4\n    type george capitalTotal   you\n   &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;\n 1     1      0          278  1.93\n 2     1      0         1028  3.47\n 3     1      0         2259  1.36\n 4     1      0          191  3.18\n 5     1      0          191  3.18\n 6     1      0           54  0   \n 7     1      0          112  3.85\n 8     1      0           49  0   \n 9     1      0         1257  1.23\n10     1      0          749  1.67\n# ℹ 4,591 more rows"
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#eda-how-much-spam",
     "href": "lectures/09/09-logistic-regression.html#eda-how-much-spam",
     "title": "Logistic regression",
-    "section": "",
-    "text": "hp_spam |&gt;\n  count(type) |&gt;\n  mutate(p = n / sum(n))\n\n# A tibble: 2 × 3\n   type     n     p\n  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n1     0  2788 0.606\n2     1  1813 0.394"
+    "section": "EDA: How much spam?",
+    "text": "EDA: How much spam?\n\nhp_spam |&gt;\n  count(type) |&gt;\n  mutate(p = n / sum(n))\n\n# A tibble: 2 × 3\n   type     n     p\n  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n1     0  2788 0.606\n2     1  1813 0.394"
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#eda-am-i-screaming-capitaltotal",
     "href": "lectures/09/09-logistic-regression.html#eda-am-i-screaming-capitaltotal",
     "title": "Logistic regression",
-    "section": "",
-    "text": "ggplot(hp_spam, aes(x = capitalTotal)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "section": "EDA: AM I SCREAMING? capitalTotal",
+    "text": "EDA: AM I SCREAMING? capitalTotal\n\nggplot(hp_spam, aes(x = capitalTotal)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#eda-george-is-that-you",
     "href": "lectures/09/09-logistic-regression.html#eda-george-is-that-you",
     "title": "Logistic regression",
-    "section": "",
-    "text": "ggplot(hp_spam, aes(x = george)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nggplot(hp_spam, aes(x = you)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "section": "EDA: george, is that you?",
+    "text": "EDA: george, is that you?\nggplot(hp_spam, aes(x = george)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nggplot(hp_spam, aes(x = you)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
   },
   {
-    "objectID": "lectures/09/09-logistic-regression.html#logistic-regression",
-    "href": "lectures/09/09-logistic-regression.html#logistic-regression",
+    "objectID": "lectures/09/09-logistic-regression.html#logistic-regression-1",
+    "href": "lectures/09/09-logistic-regression.html#logistic-regression-1",
     "title": "Logistic regression",
-    "section": "",
-    "text": "Logistic regression takes in a number of predictors and outputs the probability of a “success” (an outcome of 1) in a binary outcome variable.\nThe probability is related to the predictors via a sigmoid link function, \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum \\beta_i x_i })},\n\\]whose output is in \\((0,1)\\) (a probability).\nIn this modeling scheme, one typically finds \\(\\hat{\\beta}\\) by maximizing the likelihood function, another objective function, different than our previous “least squares” objective."
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nLogistic regression takes in a number of predictors and outputs the probability of a “success” (an outcome of 1) in a binary outcome variable.\nThe probability is related to the predictors via a sigmoid link function, \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum \\beta_i x_i })},\n\\]whose output is in \\((0,1)\\) (a probability).\nIn this modeling scheme, one typically finds \\(\\hat{\\beta}\\) by maximizing the likelihood function, another objective function, different than our previous “least squares” objective."
+  },
+  {
+    "objectID": "lectures/09/09-logistic-regression.html#logistic-regression-visualized",
+    "href": "lectures/09/09-logistic-regression.html#logistic-regression-visualized",
+    "title": "Logistic regression",
+    "section": "Logistic regression, visualized",
+    "text": "Logistic regression, visualized"
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#using-data-to-estimate-beta_i",
     "href": "lectures/09/09-logistic-regression.html#using-data-to-estimate-beta_i",
     "title": "Logistic regression",
-    "section": "",
-    "text": "To proceed with building our email classifier, we will, as usual, use our data (outcome \\(y_i\\) and predictor \\(x_i\\) pairs), to estimate \\(\\beta\\) (find \\(\\hat{\\beta}\\)) and obtain the model: \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum  \\hat{\\beta}_i x_i})},\n\\]\nIn this lecture, we’ll build a spam filter. Or, at least, learn a bit about how spam filters are built by building a very simple (likely not very effective) one."
+    "section": "Using data to estimate \\(\\beta_i\\)",
+    "text": "Using data to estimate \\(\\beta_i\\)\nTo proceed with building our email classifier, we will, as usual, use our data (outcome \\(y_i\\) and predictor \\(x_i\\) pairs), to estimate \\(\\beta\\) (find \\(\\hat{\\beta}\\)) and obtain the model: \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum  \\hat{\\beta}_i x_i})},\n\\]\nIn this lecture, we’ll build a spam filter. Or, at least, learn a bit about how spam filters are built by building a very simple (likely not very effective) one."
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#exercise-1",
