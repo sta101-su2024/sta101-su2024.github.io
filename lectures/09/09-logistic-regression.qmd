@@ -1,10 +1,7 @@
 ---
 title: "Logistic regression"
-categories: 
-  - Application exercise
 editor: visual
 ---
-
 
 # Warm up
 
@@ -24,7 +21,6 @@ editor: visual
 -   Outcome: Categorical with only two levels, Predictors: Any number of numerical or categorical variables with any number of levels $\rightarrow$ Logistic regression
 
 -   Outcome: Categorical with any number of levels, Predictors: Any number of numerical or categorical variables with any number of levels $\rightarrow$ Generalized linear models -- Not covered in STA 101
-
 
 ## Data + packages {.smaller}
 
@@ -106,6 +102,20 @@ ggplot(hp_spam, aes(x = you)) +
     p(y_i = 1) = \frac{1}{1+\text{exp}({- \sum \beta_i x_i })},
     $$whose output is in $(0,1)$ (a probability).
 
+-   Can also be written as
+
+$$
+p(y_i = 1) = \frac{\text{exp}({\sum \beta_ix_i})}{1 + \text{exp}({\sum \beta_ix_i})}
+$$
+
+or in **Logit** form
+
+$$
+\text{logit}(p) = \log(\frac{p}{1 - p}) = \sum\beta_ix_i
+$$
+
+where $p = p(y_i = 1)$.
+
 -   In this modeling scheme, one typically finds $\hat{\beta}$ by maximizing the **likelihood function**, another objective function, different than our previous "least squares" objective.
 
 ## Logistic regression, visualized
@@ -120,12 +130,9 @@ box()
 
 ## Using data to estimate $\beta_i$
 
-To proceed with building our email classifier, we will, as usual, use our data (outcome $y_i$ and predictor $x_i$ pairs), to estimate $\beta$ (find $\hat{\beta}$) and obtain the model:
-$$
+To proceed with building our email classifier, we will, as usual, use our data (outcome $y_i$ and predictor $x_i$ pairs), to estimate $\beta$ (find $\hat{\beta}$) and obtain the model: $$
 p(y_i = 1) = \frac{1}{1+\text{exp}({- \sum  \hat{\beta}_i x_i})},
 $$
-
-
 
 In this lecture, we'll build a spam filter. Or, at least, learn a bit about how spam filters are built by building a very simple (likely not very effective) one.
 
@@ -134,7 +141,6 @@ In this lecture, we'll build a spam filter. Or, at least, learn a bit about how 
 -   Understand logistic regression as a linear model of binary outcomes
 
 -   Fit and interpret logistic regression models in R
-
 
 To illustrate logistic regression, we will build a spam filter from email data. Today's data consists of `r nrow(hp_spam)` emails that are classified as spam or non-spam.
 
