@@ -393,10 +393,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Logistic regression</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Application exercise</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -547,7 +544,18 @@ window.Quarto = {
 <li><p>The probability is related to the predictors via a <strong>sigmoid link function</strong>, <span class="math display">\[
 p(y_i = 1) = \frac{1}{1+\text{exp}({- \sum \beta_i x_i })},
 \]</span>whose output is in <span class="math inline">\((0,1)\)</span> (a probability).</p></li>
-<li><p>In this modeling scheme, one typically finds <span class="math inline">\(\hat{\beta}\)</span> by maximizing the <strong>likelihood function</strong>, another objective function, different than our previous “least squares” objective.</p></li>
+<li><p>Can also be written as</p></li>
+</ul>
+<p><span class="math display">\[
+p(y_i = 1) = \frac{\text{exp}({\sum \beta_ix_i})}{1 + \text{exp}({\sum \beta_ix_i})}
+\]</span></p>
+<p>or in <strong>Logit</strong> form</p>
+<p><span class="math display">\[
+\text{logit}(p) = \log(\frac{p}{1 - p}) = \sum\beta_ix_i
+\]</span></p>
+<p>where <span class="math inline">\(p = p(y_i = 1)\)</span>.</p>
+<ul>
+<li>In this modeling scheme, one typically finds <span class="math inline">\(\hat{\beta}\)</span> by maximizing the <strong>likelihood function</strong>, another objective function, different than our previous “least squares” objective.</li>
 </ul>
 </section>
 <section id="logistic-regression-visualized" class="level2">

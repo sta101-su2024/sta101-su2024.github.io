@@ -600,7 +600,7 @@
     "href": "lectures/09/09-logistic-regression.html#logistic-regression-1",
     "title": "Logistic regression",
     "section": "Logistic regression",
-    "text": "Logistic regression\n\nLogistic regression takes in a number of predictors and outputs the probability of a “success” (an outcome of 1) in a binary outcome variable.\nThe probability is related to the predictors via a sigmoid link function, \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum \\beta_i x_i })},\n\\]whose output is in \\((0,1)\\) (a probability).\nIn this modeling scheme, one typically finds \\(\\hat{\\beta}\\) by maximizing the likelihood function, another objective function, different than our previous “least squares” objective."
+    "text": "Logistic regression\n\nLogistic regression takes in a number of predictors and outputs the probability of a “success” (an outcome of 1) in a binary outcome variable.\nThe probability is related to the predictors via a sigmoid link function, \\[\np(y_i = 1) = \\frac{1}{1+\\text{exp}({- \\sum \\beta_i x_i })},\n\\]whose output is in \\((0,1)\\) (a probability).\nCan also be written as\n\n\\[\np(y_i = 1) = \\frac{\\text{exp}({\\sum \\beta_ix_i})}{1 + \\text{exp}({\\sum \\beta_ix_i})}\n\\]\nor in Logit form\n\\[\n\\text{logit}(p) = \\log(\\frac{p}{1 - p}) = \\sum\\beta_ix_i\n\\]\nwhere \\(p = p(y_i = 1)\\).\n\nIn this modeling scheme, one typically finds \\(\\hat{\\beta}\\) by maximizing the likelihood function, another objective function, different than our previous “least squares” objective."
   },
   {
     "objectID": "lectures/09/09-logistic-regression.html#logistic-regression-visualized",
