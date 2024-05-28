@@ -8,7 +8,7 @@ editor: visual
 ## Check-in
 
 -   Lab 3 due tonight.
--   Office Hours today: 3:00 - 4:00 pm instead.
+-   Office Hours today: 3:00 - 4:00 pm instead of 3:30 - 4:30 pm.
 
 # Logistic regression
 
