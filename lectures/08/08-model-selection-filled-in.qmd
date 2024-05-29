@@ -32,7 +32,6 @@ editor: visual
 
 -   Evaluate predictive performance of models
 
-![](upload.png)
 
 # Packages
 
