@@ -119,7 +119,7 @@ $$
 
 where $p = p(y_i = 1)$.
 
--   In this modeling scheme, one typically finds $\hat{\beta}$ by maximizing the **likelihood function**, another objective function, different than our previous "least squares" objective.
+-   In this modeling scheme, one typically finds $\hat{\beta}$ by maximizing the **likelihood function**, another objective function, different than our previous "least squares" objective (we do not need to worry about these details in this class).
 
 ## Logistic regression, visualized
 
