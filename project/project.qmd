@@ -62,7 +62,7 @@ The data sets should meet the following criteria:
     -   Identifier variables such as "name", "social security number", etc. are not useful explanatory variables.
     -   If you have multiple columns with the same information (e.g. "state abbreviation" and "state name"), then they are not unique explanatory variables.
 
--   You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials (this or previous semesters of STA101).
+-   You may not use data that has previously been used in course, or any derivation of data that has been used in course materials (this or previous semesters of STA101).
 
 ::: callout-tip
 Please ask a member of the teaching team if you're unsure whether your data set meets the criteria.
