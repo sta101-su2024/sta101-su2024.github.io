@@ -329,7 +329,6 @@ Let's get real! Redo the test with 15,000 simulations. Note: This can take some 
 ```
 
 
-
 # Case study 2: Yawners
 
 ## Is yawning contagious?
