@@ -17,6 +17,7 @@ library(tidyverse)
 library(tidymodels)
 library(openintro)
 library(scales)
+# uncomment the line above if needed
 # install.packages("ggmosaic")
 library(ggmosaic)
 ```
