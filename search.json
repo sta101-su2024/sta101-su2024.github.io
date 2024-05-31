@@ -1,5 +1,145 @@
 [
   {
+    "objectID": "exam review/exam-review.html",
+    "href": "exam review/exam-review.html",
+    "title": "Exam 1 Review",
+    "section": "",
+    "text": "In 2020, employees of Blizzard Entertainment circulated a spreadsheet to anonymously share salaries and recent pay increases amidst rising tension in the video game industry over wage disparities and executive compensation. (Source: Blizzard Workers Share Salaries in Revolt Over Pay)\nThe name of the data frame used for this analysis is blizzard_salary and the relevant variables are:\nThe top six rows of blizzard_salary are shown below:\n# A tibble: 409 × 4\n   percent_incr salary_type annual_salary performance_rating\n          &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;             \n 1          1   Salaried               1  High              \n 2          1   Salaried               1  Successful        \n 3          1   Salaried               1  High              \n 4          1   Hourly             33987. Successful        \n 5         NA   Hourly             34798. High              \n 6         NA   Hourly             35360  &lt;NA&gt;              \n 7         NA   Hourly             37440  &lt;NA&gt;              \n 8          0   Hourly             37814. &lt;NA&gt;              \n 9          4   Hourly             41101. Top               \n10          1.2 Hourly             42328  &lt;NA&gt;              \n# ℹ 399 more rows"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-1",
+    "href": "exam review/exam-review.html#question-1",
+    "title": "Exam 1 Review",
+    "section": "Question 1",
+    "text": "Question 1\nHow rows observations are there in the blizzard_salary dataset and what does each row represent?"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-2",
+    "href": "exam review/exam-review.html#question-2",
+    "title": "Exam 1 Review",
+    "section": "Question 2",
+    "text": "Question 2\nFigure 1 (a) and Figure 1 (b) show the distributions of annual salaries of hourly and salaried workers. The two figures show the same data, with the facets organized across rows and across columns. Which of the two figures is better for comparing the median annual salaries of hourly and salaried workers. Explain your reasoning.\n\n\n\n\n\n\n\n\n\n\n\n(a) Option 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Option 2\n\n\n\n\n\n\n\nFigure 1: Distribution of annual salaries of Blizzard employees"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-3",
+    "href": "exam review/exam-review.html#question-3",
+    "title": "Exam 1 Review",
+    "section": "Question 3",
+    "text": "Question 3\nSuppose your teammate wrote the following code as part of their analysis of the data.\nThey then printed out the results shown below. Unfortunately one of the number got erased from the printout, it’s indicated with _____ below.\n# A tibble: 2 × 3\n  salary_type mean_annual_salary median_annual_salary\n  &lt;chr&gt;                    &lt;dbl&gt;                &lt;dbl&gt;\n1 Hourly                  63003.               54246.\n2 Salaried                90183.               _____\nWhich of the following is the best estimate for that erased value?\n\n30,000\n50,000\n80,000\n100,000"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-4",
+    "href": "exam review/exam-review.html#question-4",
+    "title": "Exam 1 Review",
+    "section": "Question 4",
+    "text": "Question 4\nWhich distribution has a higher standard deviation?\n\nHourly workers\nSalaried workers\nRoughly the same"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-5",
+    "href": "exam review/exam-review.html#question-5",
+    "title": "Exam 1 Review",
+    "section": "Question 5",
+    "text": "Question 5\nWhich of the following alternate plots would also be useful for visualizing the distributions of annual salaries of hourly and salaried workers?\nI.  Box plot\nII. Density plot\nIII. Pie chart\n\nI\nI and II\nI, II, and III\nII and III"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-6",
+    "href": "exam review/exam-review.html#question-6",
+    "title": "Exam 1 Review",
+    "section": "Question 6",
+    "text": "Question 6\nNext, you fit a model for predicting raises (percent_incr) from salaries (annual_salary). We’ll call this model raise_1_fit. A tidy output of the model is shown below.\n\n\n# A tibble: 2 × 5\n  term           estimate  std.error statistic   p.value\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)   1.87      0.432           4.33 0.0000194\n2 annual_salary 0.0000155 0.00000452      3.43 0.000669 \n\n\nWhich of the following is the best interpretation of the slope coefficient?\n\nFor every additional $1,000 of annual salary, the model predicts the raise to be higher, on average, by 1.55%.\nFor every additional $1,000 of annual salary, the raise goes up by 0.0155%.\nFor every additional $1,000 of annual salary, the model predicts the raise to be higher, on average, by 0.0155%.\nFor every additional $1,000 of annual salary, the model predicts the raise to be higher, on average, by 1.87%."
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-7",
+    "href": "exam review/exam-review.html#question-7",
+    "title": "Exam 1 Review",
+    "section": "Question 7",
+    "text": "Question 7\nYou then fit a model for predicting raises (percent_incr) from salaries (annual_salary) and performance ratings (performance_rating). We’ll call this model raise_2_fit. Which of the following is definitely true based on the information you have so far?\n\nIntercept of raise_2_fit is higher than intercept of raise_1_fit.\nRMSE of raise_2_fit is higher than RMSE of raise_1_fit.\nAdjusted \\(R^2\\) of raise_2_fit is higher than adjusted \\(R^2\\) of raise_1_fit.\n\\(R^2\\) of raise_2_fit is higher \\(R^2\\) of raise_1_fit."
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-8",
+    "href": "exam review/exam-review.html#question-8",
+    "title": "Exam 1 Review",
+    "section": "Question 8",
+    "text": "Question 8\nThe tidy model output for the raise_2_fit model you fit is shown below.\n\n\n# A tibble: 5 × 5\n  term                            estimate  std.error statistic  p.value\n  &lt;chr&gt;                              &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                   3.55       0.508           6.99 1.99e-11\n2 annual_salary                 0.00000989 0.00000436      2.27 2.42e- 2\n3 performance_ratingPoor       -4.06       1.42           -2.86 4.58e- 3\n4 performance_ratingSuccessful -2.40       0.397          -6.05 4.68e- 9\n5 performance_ratingTop         2.99       0.715           4.18 3.92e- 5\n\n\nWhen your teammate sees this model output, they remark “The coefficient for performance_ratingSuccessful is negative, that’s weird. I guess it means that people who get successful performance ratings get lower raises.” How would you respond to your teammate?"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-9",
+    "href": "exam review/exam-review.html#question-9",
+    "title": "Exam 1 Review",
+    "section": "Question 9",
+    "text": "Question 9\nUltimately, your teammate decides they don’t like the negative slope coefficients in the model output you created (not that there’s anything wrong with negative slope coefficients!), does something else, and comes up with the following model output.\n\n\n# A tibble: 5 × 5\n  term                            estimate  std.error statistic    p.value\n  &lt;chr&gt;                              &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 (Intercept)                  -0.511      1.47          -0.347 0.729     \n2 annual_salary                 0.00000989 0.00000436     2.27  0.0242    \n3 performance_ratingSuccessful  1.66       1.42           1.17  0.242     \n4 performance_ratingHigh        4.06       1.42           2.86  0.00458   \n5 performance_ratingTop         7.05       1.53           4.60  0.00000644\n\n\nUnfortunately they didn’t write their code in a Quarto document, instead just wrote some code in the Console and then lost track of their work. They remember using the fct_relevel() function and doing something like the following:\nWhat should they put in the blanks to get the same model output as above?\n\n“Poor”, “Successful”, “High”, “Top”\n“Successful”, “High”, “Top”\n“Top”, “High”, “Successful”, “Poor”\nPoor, Successful, High, Top"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-10",
+    "href": "exam review/exam-review.html#question-10",
+    "title": "Exam 1 Review",
+    "section": "Question 10",
+    "text": "Question 10\nFinally, your teammate creates the following two plots and ask you for help deciding which one to use in the final report for visualizing the relationship between performance rating and salary type. In 1-3 sentences, can you help them make a decision, justify your choice, and write the narrative that should go with the plot?\n\n\n\n\n\n\n\n\n\n\n\n(a) Option 1\n\n\n\n\n\n\n\n\n\n\n\n(b) Option 2\n\n\n\n\n\n\n\nFigure 2: Distribution of salary type by performance rating"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-11",
+    "href": "exam review/exam-review.html#question-11",
+    "title": "Exam 1 Review",
+    "section": "Question 11",
+    "text": "Question 11\nA friend with a keen eye points out that the number of observations in Figure 2 (a) seems lower than the total number of observations in blizzard_salary. What might be going on here? Explain your reasoning."
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-12",
+    "href": "exam review/exam-review.html#question-12",
+    "title": "Exam 1 Review",
+    "section": "Question 12",
+    "text": "Question 12\nShow the proportions of performance ratings for hourly and salaried workers in a table and ask students to place those numbers on the segments of Figure 2 (b).\n\n\n# A tibble: 4 × 3\n  performance_rating Hourly Salaried\n  &lt;fct&gt;               &lt;dbl&gt;    &lt;dbl&gt;\n1 Successful          0.686   0.521 \n2 High                0.2     0.384 \n3 Top                 0.114   0.0760\n4 Poor                0       0.0190"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-13",
+    "href": "exam review/exam-review.html#question-13",
+    "title": "Exam 1 Review",
+    "section": "Question 13",
+    "text": "Question 13\nSuppose we fit a model to predict percent_incr from annual_salary and salary_type. A tidy output of the model is shown below.\n\n\n# A tibble: 3 × 5\n  term                 estimate  std.error statistic p.value\n  &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 (Intercept)         1.24      0.570           2.18 0.0300 \n2 annual_salary       0.0000137 0.00000464      2.96 0.00329\n3 salary_typeSalaried 0.913     0.544           1.68 0.0938 \n\n\nWhich of the following visualizations represent this model? Explain your reasoning.\n\n\n\n\n\n\n\n\n\n\n\n(a) Option 1\n\n\n\n\n\n\n\n\n\n\n\n(b) Option 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Option 3\n\n\n\n\n\n\n\n\n\n\n\n(d) Option 4\n\n\n\n\n\n\n\nFigure 3: Visualizations of the relationship between percent increase, annual salary, and salary type"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-14",
+    "href": "exam review/exam-review.html#question-14",
+    "title": "Exam 1 Review",
+    "section": "Question 14",
+    "text": "Question 14\nA professor gives a test to 100 students and determines the median score. After grading the test, they realize that the 10 students with the highest scores did exceptionally well. They decide to award these 10 students a bonus of 5 more points. The median of the new score distribution will be ____ the original median.\n\n, depending on skewness, higher or lower than\nequal to\nlower than\nhigher than"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-15",
+    "href": "exam review/exam-review.html#question-15",
+    "title": "Exam 1 Review",
+    "section": "Question 15",
+    "text": "Question 15\nSuppose we want to modify the release_country variable such that the levels are “United States” and “not United States”. Fill in the blanks in the code chunk below to accomplish this.\n\nmovies____________movies |&gt;\n      ____________(\n        release_country = if_else(\n        release_country____________\"United States\", \n        \"____________\",\n        \"____________\"\n        )\n)"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-17",
+    "href": "exam review/exam-review.html#question-17",
+    "title": "Exam 1 Review",
+    "section": "Question 17",
+    "text": "Question 17\nA researcher wants to build a multiple linear regression model to predict the score of a movie in from runtime for the movies in different types of genre.\nThe total sum of squares for the model \\(SS_{Total}\\) is found to be 0. You know that:\n\nevery runtime in every genre had the same amount\nevery movie had the same score\nthe model perfectly predicts score in every movie\nthe mean score must be 0"
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-17-1",
+    "href": "exam review/exam-review.html#question-17-1",
+    "title": "Exam 1 Review",
+    "section": "Question 17",
+    "text": "Question 17\nChoose the best answer.\nA survey based on a random sample of 2,045 American teenagers found that a 95% confidence interval for the mean number of texts sent per month was (1450, 1550). A valid interpretation of this interval is\n\n95% of all teens who text send between 1450 and 1550 text messages per month.\nIf a new survey with the same sample size were to be taken, there is a 95% chance that the mean number of texts in the sample would be between 1450 and 1550.\nWe are 95% confident that the mean number of texts per month of all American teens is between 1450 and 1550.\nWe are 95% confident that, were we to repeat this survey, the mean number of texts per month of those taking part in the survey would be between 1450 and 1550."
+  },
+  {
+    "objectID": "exam review/exam-review.html#question-18",
+    "href": "exam review/exam-review.html#question-18",
+    "title": "Exam 1 Review",
+    "section": "Question 18",
+    "text": "Question 18\nWrite the theoretical model that regresses weight on m_age, weeks, and premature. Be sure to define each term (i.e., \\(y= -----\\)).\nThen, using the output below, write the fitted model.\n\n\n# A tibble: 4 × 5\n  term            estimate std.error statistic     p.value\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 (Intercept)      -4.35      2.10       -2.07 0.0404     \n2 m_age             0.0270    0.0142      1.90 0.0594     \n3 weeks             0.281     0.0509      5.52 0.000000153\n4 prematurepremie  -1.01      0.398      -2.54 0.0121"
+  },
+  {
+    "objectID": "exam review/exam-review.html#bonus",
+    "href": "exam review/exam-review.html#bonus",
+    "title": "Exam 1 Review",
+    "section": "Bonus",
+    "text": "Bonus\nPick a concept we introduced in class so far that you’ve been struggling with and explain it in your own words."
+  },
+  {
     "objectID": "computing/computing-cheatsheets.html",
     "href": "computing/computing-cheatsheets.html",
     "title": "R cheatsheets",
@@ -3582,7 +3722,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#hypothesis-testing-1",
@@ -3603,7 +3743,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#organ-donors",
