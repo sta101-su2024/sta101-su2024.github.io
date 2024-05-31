@@ -717,6 +717,13 @@ log(\frac{\hat p}{1 - \hat p}) = -1.50 + 0.362 \times you + 0.00173\times capita
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(spam_aug_1, <span class="fu">aes</span>(<span class="at">x =</span> .pred_1, <span class="at">y =</span> type)) <span class="sc">+</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkgray"</span>) <span class="sc">+</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> decision_boundary, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-logistic-regression-filled-in_files/figure-html/decision-boundary-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 <p>In other words we get to select a number <span class="math inline">\(p^*\)</span> such that</p>
 <p>if <span class="math inline">\(p &gt; p^*\)</span>, then label the email as spam.</p>
