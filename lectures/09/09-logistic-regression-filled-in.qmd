@@ -248,7 +248,6 @@ Just because there's greater than 50% probability an email is spam doesn't mean 
 
 ```{r}
 #| label: decision-boundary
-#| eval: false
 
 spam_aug_1 <- augment(spam_fit, new_data = hp_spam)
 decision_boundary <- 0.25
