@@ -74,7 +74,6 @@ $\hat{p}~$: rate of complication in the sample = $\frac{3}{62}$ = `r round(3/62,
 Is it possible to assess the consultant's claim using the data?
 :::
 
-
 No. The claim is that there is a causal connection, but the data are observational. For example, maybe patients who can afford a medical consultant can afford better medical care, which can also lead to a lower complication rate.
 
 While it is not possible to assess the causal claim, it is still possible to test for an *association* using these data. For this question we ask, could the low complication rate of $\hat{p}$ = `r round(3/62, 3)` be due to chance?
@@ -84,7 +83,6 @@ While it is not possible to assess the causal claim, it is still possible to tes
 -   **Null hypothesis:** "There is nothing going on"
 
 Complication rate for this consultant is no different than the US average of 10%
-
 
 -   **Alternative hypothesis:** "There is something going on"
 
@@ -100,8 +98,8 @@ Complication rate for this consultant is **different** than the US average of 10
 
 -   **Present the evidence:** Collect data
 
-
 -   **Judge the evidence:** "Could these data plausibly have happened by chance if the null hypothesis were true?"
+
     -   Yes: Fail to reject $H_0$
     -   No: Reject $H_0$
 
@@ -128,11 +126,9 @@ d.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} \ne 0.10$
 e.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} > 0.10$
 f.  $H_0: \hat{p} = 0.10$; $H_A: \hat{p} < 0.10$
 
-
 ## Simulating the null distribution
 
 Since $H_0: p = 0.10$, we need to simulate a null distribution where the probability of success (complication) for each trial (patient) is 0.10.
-
 
 <br>
 
@@ -182,7 +178,6 @@ ggplot(sim_dist, aes(x = p_hat_sim)) +
   xlim(0, 0.26) + ylim(0, 10)
 ```
 
-
 ## Simulation #2
 
 ```{r}
@@ -230,7 +225,6 @@ ggplot(sim_dist, aes(x = p_hat_sim)) +
 ## This is getting boring...
 
 We need a way to automate this process!
-
 
 The first dataset we'll use is `organ_donors`:
 
@@ -327,7 +321,6 @@ Let's get real! Redo the test with 15,000 simulations. Note: This can take some 
 
 # add code here
 ```
-
 
 # Case study 2: Yawners
 
@@ -460,18 +453,16 @@ Using the `yawn` dataset in the **openintro** package, conduct a hypothesis test
 # add code here
 ```
 
-
 # Recap
 
 ## Types of alternative hypotheses
 
 -   One-sided (one-tailed) alternatives: The parameter is hypothesized to be less than or greater than the null value, \< or \>
 
-
 -   Two-sided (two-tailed) alternatives: The parameter is hypothesized to be not equal to the null value, $\ne$
+
     -   Calculated as two times the tail area beyond the observed sample statistic
     -   More objective, and hence more widely preferred
-
 
 ::: task
 Average systolic blood pressure of people with Stage 1 Hypertension is 150 mm Hg. Suppose we want to use a hypothesis test to evaluate whether a new blood pressure medication has <b>an effect</b> on the average blood pressure of heart patients. What are the hypotheses?
