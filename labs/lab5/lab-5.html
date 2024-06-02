@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Lab 4</title>
+<title>STA 101 - Summer 24 - Lab 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../labs/lab5/lab-5.html" rel="next">
-<link href="../../labs/lab3/lab-3.html" rel="prev">
+<link href="../../labs/lab6/lab-6.qmd" rel="next">
+<link href="../../labs/lab4/lab-4.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,7 +135,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../labs.css">
-<meta property="og:title" content="STA 101 - Summer 24 - Lab 4">
+<meta property="og:title" content="STA 101 - Summer 24 - Lab 5">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab4/lab-4.html">Lab 4</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab5/lab-5.html">Lab 5</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -261,13 +261,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab4/lab-4.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../labs/lab4/lab-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab5/lab-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/lab5/lab-5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 5</span></a>
   </div>
 </li>
@@ -347,20 +347,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#part-1-do-you-even-lift" id="toc-part-1-do-you-even-lift" class="nav-link" data-scroll-target="#part-1-do-you-even-lift">Part 1: Do you even lift?</a>
+  <li><a href="#part-1-ims-exercises" id="toc-part-1-ims-exercises" class="nav-link active" data-scroll-target="#part-1-ims-exercises">Part 1: IMS Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  </ul></li>
+  <li><a href="#part-2-heart-transplants---outcome" id="toc-part-2-heart-transplants---outcome" class="nav-link" data-scroll-target="#part-2-heart-transplants---outcome">Part 2: Heart transplants - <code>outcome</code></a>
+  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   </ul></li>
-  <li><a href="#part-2-ims-exercises" id="toc-part-2-ims-exercises" class="nav-link" data-scroll-target="#part-2-ims-exercises">Part 2: IMS Exercises</a>
+  <li><a href="#part-3-heart-transplants---survtime" id="toc-part-3-heart-transplants---survtime" class="nav-link" data-scroll-target="#part-3-heart-transplants---survtime">Part 3: Heart transplants - <code>survtime</code></a>
   <ul class="collapse">
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
@@ -371,14 +372,14 @@ window.Quarto = {
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab4/lab-4.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab5/lab-5.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab4/lab-4.html">Lab 4</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab5/lab-5.html">Lab 5</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 4</h1>
+<h1 class="title">Lab 5</h1>
 </div>
 
 
@@ -395,173 +396,112 @@ window.Quarto = {
 </header>
 
 
-<p>By the end of this lab you will create and fit regression models with a single predictor and visualize a simple regression model.</p>
-<p>For all visualizations you create, b sure to include informative titles for the plot, axes, and legend!</p>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
+<p>By the end of this lab you will create formulate and conduct hypothesis tests using randomization.</p>
+<p>For all visualizations you create, be sure to include informative titles for the plot, axes, and legend! # Getting started</p>
 <ol type="1">
-<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled <strong>lab-4 - Regression with a single predictor</strong>.</p></li>
-<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/thu-may-30-logistic-regression-ii">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
+<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled <strong>lab-5 - Hypothesis testing</strong>.</p></li>
+<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/mon-jun-02-hypothesis-testing-with-randomization-+-confidence-intervals-with-bootstrapping">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
 <li><p>Complete the exercises in this document.</p></li>
 </ol>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>In this lab we will work with the tidyverse packages, which is a collection of packages for doing data analysis in a “tidy” way.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="part-1-do-you-even-lift" class="level1">
-<h1>Part 1: Do you even lift?</h1>
-<p>Today, we will be working with data from <a href="https://www.openpowerlifting.org/">www.openpowerlifting.org</a>. This data was sourced from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-08">Tidy Tuesday</a> and contains international powerlifting records at various meets. At each meet, each lifter gets three attempts at lifting max weight on three lifts: the bench press, squat and deadlift.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ipf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"ipf.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The data dictionary for this dataset from TidyTuesday is reproduced below:</p>
-<table class="table">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 92%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;">Individual lifter name</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>sex</code></td>
-<td style="text-align: left;">Binary gender (M/F)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>event</code></td>
-<td style="text-align: left;"><p>The type of competition that the lifter entered. Values are as follows:</p>
-<ul>
-<li><p>SBD: Squat-Bench-Deadlift, also commonly called “Full Power”</p></li>
-<li><p>BD: Bench-Deadlift, also commonly called “Ironman” or “Push-Pull”</p></li>
-<li><p>SD: Squat-Deadlift, very uncommon</p></li>
-<li><p>SB: Squat-Bench, very uncommon</p></li>
-<li><p>S: Squat-only</p></li>
-<li><p>B: Bench-only</p></li>
-<li><p>D: Deadlift-only</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>equipment</code></td>
-<td style="text-align: left;"><p>The equipment category under which the lifts were performed. Values are as follows:</p>
-<ul>
-<li><p>Raw: Bare knees or knee sleeves</p></li>
-<li><p>Wraps: Knee wraps were allowed</p></li>
-<li><p>Single-ply: Equipped, single-ply suits</p></li>
-<li><p>Multi-ply: Equipped, multi-ply suits (includes Double-ply)</p></li>
-<li><p>Straps: Allowed straps on the deadlift (used mostly for exhibitions, not real meets)</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>age</code></td>
-<td style="text-align: left;">The age of the lifter on the start date of the meet, if known.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>age_class</code></td>
-<td style="text-align: left;">The age class in which the filter falls, for example <code>40-45</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>division</code></td>
-<td style="text-align: left;">Free-form UTF-8 text describing the division of competition, like <code>Open</code> or <code>Juniors 20-23</code> or <code>Professional</code>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>bodyweight_kg</code></td>
-<td style="text-align: left;">The recorded bodyweight of the lifter at the time of competition, to two decimal places.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>weight_class_kg</code></td>
-<td style="text-align: left;"><p>The weight class in which the lifter competed, to two decimal places.</p>
-<p>Weight classes can be specified as a maximum or as a minimum. Maximums are specified by just the number, for example <code>90</code> means “up to (and including) 90kg.” minimums are specified by a <code>+</code> to the right of the number, for example <code>90+</code> means “above (and excluding) 90kg.”</p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>best3squat_kg</code></td>
-<td style="text-align: left;"><p>Maximum of the first three successful attempts for the lift.</p>
-<p>Rarely may be negative: that is used by some federations to report the lowest weight the lifter attempted and failed.</p></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>best3bench_kg</code></td>
-<td style="text-align: left;"><p>Maximum of the first three successful attempts for the lift.</p>
-<p>Rarely may be negative: that is used by some federations to report the lowest weight the lifter attempted and failed.</p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>best3deadlift_kg</code></td>
-<td style="text-align: left;"><p>Maximum of the first three successful attempts for the lift.</p>
-<p>Rarely may be negative: that is used by some federations to report the lowest weight the lifter attempted and failed.</p></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>place</code></td>
-<td style="text-align: left;"><p>The recorded place of the lifter in the given division at the end of the meet. Values are as follows:</p>
-<ul>
-<li><p>Positive number: the place the lifter came in.</p></li>
-<li><p>G: Guest lifter. The lifter succeeded, but wasn’t eligible for awards.</p></li>
-<li><p>DQ: Disqualified. Note that DQ could be for procedural reasons, not just failed attempts.</p></li>
-<li><p>DD: Doping Disqualification. The lifter failed a drug test.</p></li>
-<li><p>NS: No-Show. The lifter did not show up on the meet day.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>date</code></td>
-<td style="text-align: left;">ISO 8601 Date of the event</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>federation</code></td>
-<td style="text-align: left;">The federation that hosted the meet. (limited to IPF for this data subset)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>meet_name</code></td>
-<td style="text-align: left;">The name of the meet. The name is defined to never include the year or the federation. For example, the meet officially called <code>2019 USAPL Raw National Championships</code> would have the MeetName <code>Raw National Championshps</code>.</td>
-</tr>
-</tbody>
-</table>
-<p>For all of the following exercises, you should include units on axes labels, e.g.&nbsp;“Bench press (lbs)” or “Bench press (kg)”. “Age (years)” etc. This is good practice.</p>
+<section id="part-1-ims-exercises" class="level1">
+<h1>Part 1: IMS Exercises</h1>
+<p>The exercises in this section do not require code. Make sure to answer the questions in full sentences.</p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <div class="exercise">
-<p>Let’s begin by taking a look at the <strong>squat lifting</strong> records.</p>
-<p>To begin, remove any observations that are negative for squat. Next, create a new column called <code>best3_squat_lbs</code> that converts the record from kg to lbs (you may have to google the conversion). Save your data frame as <code>ipf_squat</code>. Report the number of rows and columns of this new data frame using inline code.</p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>First, you’re taking a dataset and <code>filter</code>ing it for certain records, and then you’re <code>mutate</code>-ing that dataset to gain a new column, and you’re assigning the resulting dataset to a new object called <code>ipf_squat</code>.</p>
-</div>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/11-foundations-randomization#chp11-exercises">Chapter 11 exercises</a>, #2: Identify the parameter, II.</p>
 </div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <div class="exercise">
-<p>Using <code>ipf_squat</code> from the previous exercise, create a scatter plot to investigate the relationship between squat (in lbs) and age. Age should be on the x-axis. Adjust the <code>alpha</code> level of your points to get a better sense of the density of the data. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.</p>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/11-foundations-randomization#chp11-exercises">Chapter 11 exercises</a>, #6: Identify hypotheses, II.</p>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <div class="exercise">
-<p>Write down the linear model to predict lift squat lbs from age in <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(\beta\)</span> notation. What is <span class="math inline">\(x\)</span>? What is <span class="math inline">\(y\)</span>? Next, fit the linear model, and save it as <code>age_fit</code>. Re-write your previous equation replacing <span class="math inline">\(\beta\)</span> with the numeric estimates. This is called the “fitted” linear model. Interpret each estimate of <span class="math inline">\(\beta\)</span>. Are the interpretations sensible?</p>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/11-foundations-randomization#chp11-exercises">Chapter 11 exercises</a>, #8: Heart transplants.</p>
 </div>
 </section>
+</section>
+<section id="part-2-heart-transplants---outcome" class="level1">
+<h1>Part 2: Heart transplants - <code>outcome</code></h1>
+<p>Today, we will be working with data from The Stanford University Heart Transplant Study<span class="citation" data-cites="turnbull1974">[@turnbull1974]</span>.</p>
+<p>We’ll use the tidyverse and tidymodels packages for our analysis, so let’s load those first.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then, let’s read the data and take a peak at it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>heart_transplant <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"heart-transplant.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(heart_transplant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 103
+Columns: 8
+$ id         &lt;dbl&gt; 15, 43, 61, 75, 6, 42, 54, 38, 85, 2, 103, 12, 48, 102, 35,…
+$ outcome    &lt;chr&gt; "deceased", "deceased", "deceased", "deceased", "deceased",…
+$ transplant &lt;chr&gt; "control", "control", "control", "control", "control", "con…
+$ age        &lt;dbl&gt; 53, 43, 52, 52, 54, 36, 47, 41, 47, 51, 39, 53, 56, 40, 43,…
+$ survtime   &lt;dbl&gt; 1, 2, 2, 2, 3, 3, 3, 5, 5, 6, 6, 8, 9, 11, 12, 16, 16, 16, …
+$ acceptyear &lt;dbl&gt; 68, 70, 71, 72, 68, 70, 71, 70, 73, 68, 67, 68, 71, 74, 70,…
+$ prior      &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", "no", "no",…
+$ wait       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 5, NA, NA, NA, NA, NA, NA, NA, …</code></pre>
+</div>
+</div>
+<p>The data dictionary is as follows:</p>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>ID number of the patient</td>
+</tr>
+<tr class="even">
+<td>outcome</td>
+<td>Survival status with levels <code>alive</code> and <code>deceased</code></td>
+</tr>
+<tr class="odd">
+<td>transplant</td>
+<td>Transplant group with levels <code>control</code> (did not receive a transplant) and <code>treatment</code> (received a transplant)</td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>Age of the patient at the beginning of the study</td>
+</tr>
+<tr class="odd">
+<td>survtime</td>
+<td>Number of days patients were alive after the date they were determined to be a candidate for a heart transplant until the termination date of the study</td>
+</tr>
+<tr class="even">
+<td>acceptyear</td>
+<td>Year of acceptance as a heart transplant candidate</td>
+</tr>
+<tr class="odd">
+<td>prior</td>
+<td>Whether or not the patient had prior surgery with levels <code>yes</code> and <code>no</code></td>
+</tr>
+<tr class="even">
+<td>wait</td>
+<td>Waiting time for transplant</td>
+</tr>
+</tbody>
+</table>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <div class="exercise">
-<p>Building on your <code>ipf_squat</code> data frame, create a new column called <code>age2</code> that takes the age of each lifter and squares it. Save it to your data frame <code>ipf_squat</code>. Next, plot squat in lbs vs <code>age2</code> and add a linear best fit line. Does this model look like it fits the data better?</p>
+<p>Recreate the stacked bar plot in Exercise 3.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -573,40 +513,61 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To raise a value to a power, use <code>^</code> in R, e.g.: <code>2 ^ 2</code> gives you 4, <code>2 ^ 3</code> gives you 8, etc.</p>
+<p>The colors are <code>#569BBD</code> and <code>#114B5F</code>. Use <code>scale_fill_manual()</code> to indicate these are the colors you want to use.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pause and render
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.</p>
 </div>
 </div>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <div class="exercise">
-<p>One metric to assess the fit of a model is the correlation squared, also known as <span class="math inline">\(R^2\)</span>. Fit the age<span class="math inline">\(^2\)</span> model and save the object as <code>age2_fit</code>. Subsequently run</p>
+<p>Calculate the point estimate for the difference in proportions of patients who died between the treatment and control groups: <span class="math inline">\(\hat{p}_{treatment} - \hat{p}_{control}\)</span>, where <span class="math inline">\(\hat{p}\)</span> is the observed probability of dying in each group. Do this in two ways:</p>
+<ol type="1">
+<li>Construct a frequency table of <code>survived</code> by <code>transplant</code> and calculate the difference in proportions “by hand”.</li>
+<li>Use <code>specify()</code> and <code>calculate()</code> to calculate the difference in proportions as shown below.</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(age2_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>obs_diff_outcome <span class="ot">&lt;-</span> heart_transplant <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> outcome, <span class="at">explanatory =</span> transplant, <span class="at">success =</span> <span class="st">"deceased"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"control"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>to examine the <span class="math inline">\(R^2\)</span>. Compare <span class="math inline">\(R^2\)</span> of the age<span class="math inline">\(^2\)</span> model to the <span class="math inline">\(R^2\)</span> of the model from Exercise 3. Which has a higher <span class="math inline">\(R^2\)</span>?</p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math inline">\(R^2\)</span> values range from 0 to 1. Values close to 0 means weak correlation between the variables whereas <span class="math inline">\(R^2 = 1\)</span> implies perfect correlation. You can (optionally) read more about <span class="math inline">\(R^2\)</span> in section <a href="https://openintro-ims2.netlify.app/model-slr.html#r-squared">7.2.5 of the book</a>. We’ll pick up here in the next class.</p>
-</div>
+<p>Then, confirm that you obtained the same results with the two methods.</p>
 </div>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <div class="exercise">
-<p>Next, let’s turn our attention to <strong>dead lifting</strong> records.</p>
-<p>Recreate the plot below. Make sure axes and title labels are exactly matching, including spelling, capitalization, etc. Based on the plot below, which impacts deadlift weight more, age category or sex?</p>
+<p>Using the code below, generate a null distribution for the hypothesis test for the hypothesis you formulated in Exercise 3. Use 100 resamples (<code>reps</code>). However, change the seed to use a different seed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>null_dist_outcome <span class="ot">&lt;-</span> heart_transplant <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> outcome, <span class="at">explanatory =</span> transplant, <span class="at">success =</span> <span class="st">"deceased"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"control"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Then, inspect the object <code>null_dist_outcome</code> using either <code>glimpse()</code> or just printing it to screen. How many rows and how many columns does it have? What does each row represent? What does each variable represent?</p>
+</div>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<div class="exercise">
+<p>Visualize the distribution of simulated differences in proportions of deceased between treatment and control groups. What is the shape of this distribution? What is the center of this distribution? Are these results expected? Explain your reasoning.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -616,47 +577,52 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You will need to create a couple of new columns. One to classify age appropriately and one to convert <code>best3deadlift_kg</code> to the plotted units (lbs). Notice that there are no negative deadlift values on the x-axis.</p>
+<p>These simulated values are in the <code>stat</code> column of <code>null_dist_outcome</code>.</p>
 </div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab-4_files/figure-html/deadlift-age-sex-plot-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<div class="exercise">
-<p>Finally, let’s turn our attention to <strong>bench press</strong> records.</p>
-<p>To begin, remove any observations that are negative for bench press, create two new columns: <code>best3bench_lbs</code> and <code>bodyweight_lbs</code>. Save the result in a new data frame called <code>ipf_bench</code>.</p>
-<p>Then, create a scatter plot to investigate the relationship between best bench press (in lbs) and the lifter’s bodyweight (in lbs). Bodyweight should be on the x-axis. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.</p>
 </div>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <div class="exercise">
-<p>Fit the linear model displayed in the previous exercise and write down the <strong>fitted model equation</strong> only, replacing <span class="math inline">\(\hat{\beta}\)</span>s with their fitted estimates. Interpret the <span class="math inline">\(\hat{\beta}\)</span>s (intercept and slope). Report <span class="math inline">\(R^2\)</span>. Is body weight an important predictor of bench press ability? Why or why not?</p>
+<p>Calculate the p-value. Do this in two ways:</p>
+<ol type="1">
+<li>Filter <code>null_dist_outcome</code> for <code>stat</code> values that are at least as far away from the null value as the observed value you calculated in Exercise 4. Make sure you’re considering both directions! Note how many such values there are, and calculate the proportion out of the total number of resamples.</li>
+<li>Use <code>get_p_value()</code>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p_value_outcome <span class="ot">&lt;-</span> null_dist_outcome <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> obs_diff_outcome, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, confirm that you obtained the same results with the <strong>two</strong> methods. Finally, interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pause and render
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.</p>
+</div>
 </div>
 </section>
 </section>
-<section id="part-2-ims-exercises" class="level1">
-<h1>Part 2: IMS Exercises</h1>
-<p>The exercises in this section do not require code. Make sure to answer the questions in full sentences.</p>
+<section id="part-3-heart-transplants---survtime" class="level1">
+<h1>Part 3: Heart transplants - <code>survtime</code></h1>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/07-model-slr#chp7-exercises">Chapter 7 exercises</a>, #18: Over-under, II.</p>
+<p>Recreate the side-by–side box plots in Exercise 3. The variable of interest is <code>survtime</code>, which is the number of days patients were alive after the date they were determined to be a candidate for a heart transplant until the termination date of the study.</p>
 </div>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
 <div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/07-model-slr#chp7-exercises">Chapter 7 exercises</a>, #24: Cats weights.</p>
+<p>Do these data provide convincing evidence of a difference between average survival times of patient who did and did not get a heart transplant?</p>
+<p>Write the hypotheses for answering this question and conduct the hypothesis test using randomization. Use 1,000 resamples. In order to avoid name collision, use object names like <code>obs_diff_survtime</code>, <code>null_dist_survtime</code>, and <code>p_value_survtime</code>. Find and interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.</p>
 </div>
 </section>
 </section>
@@ -679,7 +645,7 @@ Important
 </div>
 <p>To submit your assignment to Gradescope:</p>
 <ul>
-<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-3.pdf</code>).</p></li>
+<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-5.pdf</code>).</p></li>
 <li><p>Then, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.</p></li>
 <li><p>Go to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.</p></li>
 <li><p>Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
@@ -710,43 +676,43 @@ Warning
 <tbody>
 <tr class="odd">
 <td>Exercise 1</td>
-<td>3</td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td>Exercise 2</td>
-<td>5</td>
+<td>4</td>
 </tr>
 <tr class="odd">
 <td>Exercise 3</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Exercise 4</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Exercise 5</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Exercise 6</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>Exercise 7</td>
 <td>6</td>
 </tr>
 <tr class="even">
-<td>Exercise 8</td>
-<td>7</td>
+<td>Exercise 4</td>
+<td>4</td>
 </tr>
 <tr class="odd">
-<td>Exercise 9</td>
+<td>Exercise 5</td>
 <td>4</td>
 </tr>
 <tr class="even">
+<td>Exercise 6</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Exercise 7</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Exercise 8</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Exercise 9</td>
+<td>5</td>
+</tr>
+<tr class="even">
 <td>Exercise 10</td>
-<td>2</td>
+<td>7</td>
 </tr>
 <tr class="odd">
 <td><strong>Total</strong></td>
@@ -1315,13 +1281,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../labs/lab3/lab-3.html" class="pagination-link" aria-label="Lab 3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 3</span>
+      <a href="../../labs/lab4/lab-4.html" class="pagination-link" aria-label="Lab 4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 4</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../labs/lab5/lab-5.html" class="pagination-link" aria-label="Lab 5">
-        <span class="nav-page-text">Lab 5</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../labs/lab6/lab-6.qmd" class="pagination-link" aria-label="Lab 6">
+        <span class="nav-page-text">Lab 6</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1333,7 +1299,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab4/lab-4.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab5/lab-5.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
