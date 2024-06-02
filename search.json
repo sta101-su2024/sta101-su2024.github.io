@@ -124,7 +124,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-clean.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-clean.html#hypothesis-testing-1",
@@ -145,7 +145,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-clean.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-clean.html#organ-donors",
@@ -1275,120 +1275,120 @@
     "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
     "text": "Exam review key will be posted today\nExam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#announcements",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#announcements",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#announcements",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#announcements",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
     "text": "Exam review key will be posted today\nExam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#packages",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#packages",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#packages",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#packages",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
     "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#case-study-3-airbnb-in-asheville-nc",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#case-study-3-airbnb-in-asheville-nc",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#case-study-3-airbnb-in-asheville-nc",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#case-study-3-airbnb-in-asheville-nc",
     "title": "Confidence intervals with bootstrapping",
     "section": "Case study 3: Airbnb in Asheville, NC",
     "text": "Case study 3: Airbnb in Asheville, NC\nWe have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020.\n\nabb &lt;- read_csv(\"asheville.csv\")\n\nglimpse(abb)\n\nRows: 50\nColumns: 1\n$ ppg &lt;dbl&gt; 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#terminology",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#terminology",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#terminology",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#terminology",
     "title": "Confidence intervals with bootstrapping",
     "section": "Terminology",
     "text": "Terminology\n\nPopulation parameter - What we are interested in. Statistical measure that describes an entire population.\nSample statistic (point estimate) - describes a sample. A piece of information you get from a fraction of the population.\n\n\nabb |&gt; \n  summarize(ppg.mean = mean(ppg))\n\n# A tibble: 1 × 1\n  ppg.mean\n     &lt;dbl&gt;\n1     76.6"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#catching-a-fish",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#catching-a-fish",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#catching-a-fish",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#catching-a-fish",
     "title": "Confidence intervals with bootstrapping",
     "section": "Catching a fish",
     "text": "Catching a fish\n\nSuppose you’re fishing in a murky lake. Are you more likely to catch a fish using a spear or a net?\n\n\nSpear \\(\\rightarrow\\) point estimate\nNet \\(\\rightarrow\\) interval estimate"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#constructing-confidence-intervals",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#constructing-confidence-intervals",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#constructing-confidence-intervals",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#constructing-confidence-intervals",
     "title": "Confidence intervals with bootstrapping",
     "section": "Constructing confidence intervals",
     "text": "Constructing confidence intervals\nQuantifying the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest:\n\nVia simulation \\(\\rightarrow\\) using bootstrapping – using a statistical procedure that re samples a single data set to create many simulated samples.\nVia mathematical formulas \\(\\rightarrow\\) using the Central Limit Theorem"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-what",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-what",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-what",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-what",
     "title": "Confidence intervals with bootstrapping",
     "section": "Bootstrapping, what?",
     "text": "Bootstrapping, what?\n\nThe term bootstrapping comes from the phrase “pulling oneself up by one’s bootstraps”, which is a metaphor for accomplishing an impossible task without any outside help.\nImpossible task: estimating a population parameter using data from only the given sample.\n\n\n\n\n\n\n\nNote\n\n\n\nNote: This notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping."
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-how",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-how",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-how",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-how",
     "title": "Confidence intervals with bootstrapping",
     "section": "Bootstrapping, how?",
     "text": "Bootstrapping, how?\n\nResample with replacement from our data \\(n\\) times, where \\(n\\) is the sample size\nCalculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value\nDo this entire process many many times to build the bootstrap distribution"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-airbnb-rentals",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#bootstrapping-airbnb-rentals",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-airbnb-rentals",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#bootstrapping-airbnb-rentals",
     "title": "Confidence intervals with bootstrapping",
     "section": "Bootstrapping Airbnb rentals",
     "text": "Bootstrapping Airbnb rentals\n\nset.seed(25) \n\nboot_dist_abb &lt;- abb |&gt;\n  specify(response = ppg) |&gt;\n  generate(reps = 100, type = \"bootstrap\") |&gt;\n  calculate(stat = \"mean\")"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#the-bootstrap-distribution",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#the-bootstrap-distribution",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#the-bootstrap-distribution",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#the-bootstrap-distribution",
     "title": "Confidence intervals with bootstrapping",
     "section": "The bootstrap distribution",
     "text": "The bootstrap distribution\n\nglimpse(boot_dist_abb)\n\nRows: 100\nColumns: 2\n$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…\n$ stat      &lt;dbl&gt; 73.11500, 78.78333, 80.19333, 83.42000, 70.15000, 73.03667, …"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#visualzing-the-bootstrap-distribution",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#visualzing-the-bootstrap-distribution",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#visualzing-the-bootstrap-distribution",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#visualzing-the-bootstrap-distribution",
     "title": "Confidence intervals with bootstrapping",
     "section": "Visualzing the bootstrap distribution",
     "text": "Visualzing the bootstrap distribution\n\nWhat do you expect the center of the bootstrap distribution to be? Why? Check your guess by visualizing the distribution.\n\n\nggplot(boot_dist_abb, aes(x = stat)) + \n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#calculating-the-bootstrap-distribution",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#calculating-the-bootstrap-distribution",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#calculating-the-bootstrap-distribution",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#calculating-the-bootstrap-distribution",
     "title": "Confidence intervals with bootstrapping",
     "section": "Calculating the bootstrap distribution",
     "text": "Calculating the bootstrap distribution\n\nboot_dist_abb |&gt;\n  summarize(\n    lower = quantile(stat, 0.025),\n    upper = quantile(stat, 0.975)\n  )\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1  64.7  89.6"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#interpretation",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#interpretation",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#interpretation",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#interpretation",
     "title": "Confidence intervals with bootstrapping",
     "section": "Interpretation",
     "text": "Interpretation\n\nWhich of the following is the correct interpretation of the bootstrap interval?\n\n\nThere is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.\nThere is a 95% probability the price per night for an Airbnb in Asheville is between $64.7 and $89.6.\nWe are 95% confident the true mean price per night for Airbnbs in Asheville is between $64.7 and $89.6.\nWe are 95% confident the price per night for an Airbnb in Asheville is between $64.7 and $89.6."
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further",
     "title": "Confidence intervals with bootstrapping",
     "section": "Leveraging tidymodels tools further",
     "text": "Leveraging tidymodels tools further\nCalculating the observed sample statistic:\n\nobs_stat_abb &lt;- abb |&gt;\n  specify(response = ppg) |&gt;\n  calculate(stat = \"mean\")  \n\nobs_stat_abb\n\nResponse: ppg (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  76.6"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further-1",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further-1",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further-1",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further-1",
     "title": "Confidence intervals with bootstrapping",
     "section": "Leveraging tidymodels tools further",
     "text": "Leveraging tidymodels tools further\nCalculating the interval:\n\nci_95_abb &lt;- boot_dist_abb |&gt;\n  get_confidence_interval(\n    point_estimate = obs_stat_abb, \n    level = 0.95\n  )\n\nci_95_abb\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     64.7     89.6"
   },
   {
-    "objectID": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further-2",
-    "href": "lectures/11/11-confidence-intervals-boostrapping.html#leveraging-tidymodels-tools-further-2",
+    "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further-2",
+    "href": "lectures/11/11-confidence-intervals-bootstrapping.html#leveraging-tidymodels-tools-further-2",
     "title": "Confidence intervals with bootstrapping",
     "section": "Leveraging tidymodels tools further",
     "text": "Leveraging tidymodels tools further\nVisualizing the interval:\n\nvisualize(boot_dist_abb) +\n  shade_confidence_interval(ci_95_abb)"
@@ -3844,7 +3844,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#hypothesis-testing-1",
@@ -3865,7 +3865,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#organ-donors",
