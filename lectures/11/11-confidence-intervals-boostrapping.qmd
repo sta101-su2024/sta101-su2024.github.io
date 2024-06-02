@@ -2,8 +2,6 @@
 title: "Confidence intervals with bootstrapping"
 editor: visual
 ---
-
-
 # Warm up
 
 ## Announcements
