@@ -1,6 +1,5 @@
 ---
 title: "Lab 5"
-bibliography: references.bib
 ---
 
 By the end of this lab you will create formulate and conduct hypothesis tests using randomization.
