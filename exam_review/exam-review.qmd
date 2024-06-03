@@ -406,7 +406,7 @@ ggplot(blizzard_salary, aes(x = annual_salary, y = percent_incr, color = salary_
 {{< pagebreak >}}
 :::
 
-## Question 14 
+## Question 14
 
 A professor gives a test to 100 students and determines the median score. After grading the test, they realize that the 10 students with the highest scores did exceptionally well. They decide to award these 10 students a bonus of 5 more points. The median of the new score distribution will be \_\_\_\_ the original median.
 
@@ -478,16 +478,13 @@ movies____________movies |>
 )
 ```
 
-
 ::: {.content-visible when-format="pdf"}
 $\vspace{5cm}$
 :::
 
+## Question 16
 
-## Question 17 
-
-A  researcher wants to build a multiple linear regression model to predict the `score` of a movie in from `runtime` for the movies in  different types of `genre`.
-
+A researcher wants to build a multiple linear regression model to predict the `score` of a movie in from `runtime` for the movies in different types of `genre`.
 
 The total sum of squares for the model $SS_{Total}$ is found to be 0. You know that:
 
@@ -515,8 +512,8 @@ d.  We are 95% confident that, were we to repeat this survey, the mean number of
 $\vspace{2cm}$
 :::
 
-
 # Premature babies
+
 Suppose you are given a dataset with the following variables:
 
 **Codebook:**
@@ -541,11 +538,9 @@ Suppose you are given a dataset with the following variables:
 
 :   Whether or not the mother was a smoker.
 
-
-
 ## Question 18
 
-Write the theoretical model that regresses `weight` on `m_age`, `weeks`, and `premature`. Be sure to define each term (i.e., $y= -----$).
+a.  Write the theoretical model that regresses `weight` on `m_age`, `weeks`, and `premature`. Be sure to define each term (i.e., $y= -----$).
 
 Then, using the output below, write the fitted model.
 
@@ -560,6 +555,17 @@ tidy(MLRmod)
 $\vspace{2cm}$
 :::
 
+b.  Interpret the intercept, in 1 sentence. 
+
+::: {.content-visible when-format="pdf"} 
+$\vspace{2cm}$ 
+:::
+
+c.  Interpret the slope for premie, in 1 sentence. 
+
+::: {.content-visible when-format="pdf"} 
+$\vspace{2cm}$ 
+:::
 
 ## Bonus
 
