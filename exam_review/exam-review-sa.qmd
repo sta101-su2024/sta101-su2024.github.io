@@ -459,17 +459,17 @@ movies____________movies |>
 )
 ```
 
-> ```{r}
->    #| echo: true
->    movies <- movies |>
->      mutate(
->        release_country = if_else(
->          release_country == "United States", 
->          "United States", 
->          "not United States"
->        )
->      )
-> ```
+```{r}
+#| echo: true
+    movies <- movies |>
+      mutate(
+        release_country = if_else(
+          release_country == "United States", 
+          "United States", 
+          "not United States"
+        )
+     ) 
+```
 
 ## Question 16
 
