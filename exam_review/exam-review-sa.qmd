@@ -446,23 +446,17 @@ Suppose we want to modify the `release_country` variable such that the levels ar
 ```
 
 ```{r}
-    #| echo: true
-    #| eval: false
+#| echo: true
+#| eval: false
 
-    movies ____________________ movies |>
-
-      ____________________(
-      
+movies____________movies |>
+      ____________(
         release_country = if_else(
-        
-          release_country ____________________ United States", 
-          
-          "____________________", 
-          
-          "____________________"
-        
+        release_country____________"United States", 
+        "____________",
+        "____________"
         )
-      )
+)
 ```
 
 > ```{r}
