@@ -5,8 +5,6 @@ editor: visual
 # Warm up
 
 ## Announcements
-
--   Exam review key will be posted today
 -   Exam:
     -   In class: Fri, June 7th (1 sheet of notes allowed)
     -   Take home due Sun, June 9th
