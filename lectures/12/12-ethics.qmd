@@ -1,6 +1,6 @@
 ---
 title: "Ethics"
-subtitle: Lecture 23
+subtitle: Lecture 12
 format: revealjs
 auto-stretch: false
 ---
@@ -17,7 +17,7 @@ auto-stretch: false
 
 ![](images/cost-of-gas.png){fig-align="center" width="501"}
 
-## Cost of gas 
+## Cost of gas
 
 ::: columns
 ::: {.column width="70%"}
