@@ -5,8 +5,6 @@ format: revealjs
 auto-stretch: false
 ---
 
-# Warm up
-
 ## Announcements
 
 -   Exam review tomorrow! Come with questions.
