@@ -64,7 +64,7 @@ glimpse(heart_transplant)
 The data dictionary is as follows:
 
 | Variable   | Description                                                                                                                                             |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | id         | ID number of the patient                                                                                                                                |
 | outcome    | Survival status with levels `alive` and `deceased`                                                                                                      |
 | transplant | Transplant group with levels `control` (did not receive a transplant) and `treatment` (received a transplant)                                           |
@@ -196,7 +196,7 @@ To submit your assignment to Gradescope:
 -   Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be "checked").
 
 ::: callout-warning
-If you fail to mark the pages associated with an exercise, that exercise won't be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can't mark your pages for you, and for them to be able to grade, you must mark them.
+If you fail to mark the pages associated with an exercise, that exercise won't be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TA can't mark your pages for you, and for them to be able to grade, you must mark them.
 :::
 
 ## Grading
