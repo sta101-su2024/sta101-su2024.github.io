@@ -1,5 +1,5 @@
 ---
-title: "Syllabus"
+title: "Syllabus: STA101 Summer 2024"
 format: 
   html: default
   pdf: default
