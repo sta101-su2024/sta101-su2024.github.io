@@ -127,7 +127,13 @@ You will only be working with one of the data sets for your project. I ask you t
 
 # Intro + EDA (10 pts) {#intro_eda}
 
-There are three reasons behind this project check-in: - To ensure you have incorporated suggestions given to you during project proposal stage. - To get a head-start on the project and receive advice on how to improve before final submission. - To prepare an introduction file for a peer review.
+There are three reasons behind this project check-in:
+
+-    To ensure you have incorporated suggestions given to you during project proposal stage.
+
+-    To get a head-start on the project and receive advice on how to improve before final submission.
+
+-   To prepare an introduction file for a peer review.
 
 You will begin writing the first part of you report. Your report must be written using Quarto. The template will be provided.
 
