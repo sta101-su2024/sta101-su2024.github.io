@@ -151,7 +151,13 @@ Example research question and hypotheses (if we were predicting penguin weights 
 
 ### EDA
 
-Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows: - Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables). - Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables. - Describe which variable(s) in your data set have missing data, if any.
+Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows:
+
+-    Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables).
+
+-    Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables.
+
+-   Describe which variable(s) in your data set have missing data, if any.
 
 ::: callout-tip
 If you are not sure if your plots/tables are satisfactory, or if you think you need more than 3 plots/tables, come talk to me.
