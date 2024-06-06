@@ -15,6 +15,24 @@ In addition, students are presented with novel data sets and application example
 
 For the lab component of this course students prepare lab reports twice a week presenting statistical analysis of real data. In addition, students complete an independent data analysis projects where they answer significant research questions via the analysis of real data using statistical inference and modeling tools.
 
+## Class meetings
+
+| Meeting  | Location                       | Time                      |
+|----------|--------------------------------|---------------------------|
+| Lectures | Perkins LINK 087 (Classroom 3) | Mon- Fri 11:00 - 12:15 pm |
+| Lab      | Perkins LINK 087 (Classroom 3) | Mon, Thu 9:30 - 10:45 am  |
+
+<br>
+
+## Office Hours
+
+|             | Office hours                    | Location                                  |
+|-------------|---------------------------------|-------------------------------------------|
+| Kat Husar   | Mon, Wed, & Fri: 3:30 - 4:30 pm | Old Chem 203B                             |
+| John Gillen | Sun: 10 - 11 am                 | [Zoom](https://duke.zoom.us/j/2814677671) |
+
+<br>
+
 ## Learning objectives
 
 The course learning objectives are as follows:
