@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Confidence intervals with bootstrapping</title>
+<title>STA 101 - Summer 24 - Inference with mathematical models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="STA 101 - Summer 24 - Confidence intervals with bootstrapping">
+<meta property="og:title" content="STA 101 - Summer 24 - Inference with mathematical models">
+<meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
 
@@ -145,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Confidence intervals with bootstrapping</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inference with mathematical models</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -346,34 +347,45 @@ window.Quarto = {
   <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
   <ul class="collapse">
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   </ul></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a>
+  <li><a href="#inference-with-mathematical-models" id="toc-inference-with-mathematical-models" class="nav-link" data-scroll-target="#inference-with-mathematical-models"><strong>Inference with mathematical models</strong></a>
   <ul class="collapse">
-  <li><a href="#case-study-3-airbnb-in-asheville-nc" id="toc-case-study-3-airbnb-in-asheville-nc" class="nav-link" data-scroll-target="#case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</a></li>
-  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a></li>
-  <li><a href="#catching-a-fish" id="toc-catching-a-fish" class="nav-link" data-scroll-target="#catching-a-fish">Catching a fish</a></li>
-  <li><a href="#constructing-confidence-intervals" id="toc-constructing-confidence-intervals" class="nav-link" data-scroll-target="#constructing-confidence-intervals">Constructing confidence intervals</a></li>
-  <li><a href="#bootstrapping-what" id="toc-bootstrapping-what" class="nav-link" data-scroll-target="#bootstrapping-what">Bootstrapping, what?</a></li>
-  <li><a href="#bootstrapping-how" id="toc-bootstrapping-how" class="nav-link" data-scroll-target="#bootstrapping-how">Bootstrapping, how?</a></li>
-  <li><a href="#bootstrapping-airbnb-rentals" id="toc-bootstrapping-airbnb-rentals" class="nav-link" data-scroll-target="#bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</a></li>
-  <li><a href="#the-bootstrap-distribution" id="toc-the-bootstrap-distribution" class="nav-link" data-scroll-target="#the-bootstrap-distribution">The bootstrap distribution</a></li>
-  <li><a href="#visualzing-the-bootstrap-distribution" id="toc-visualzing-the-bootstrap-distribution" class="nav-link" data-scroll-target="#visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</a></li>
-  <li><a href="#calculating-the-bootstrap-distribution" id="toc-calculating-the-bootstrap-distribution" class="nav-link" data-scroll-target="#calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further" id="toc-leveraging-tidymodels-tools-further" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-1" id="toc-leveraging-tidymodels-tools-further-1" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-2" id="toc-leveraging-tidymodels-tools-further-2" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</a></li>
+  <li><a href="#the-distribution-of-the-sample-statistic" id="toc-the-distribution-of-the-sample-statistic" class="nav-link" data-scroll-target="#the-distribution-of-the-sample-statistic">The distribution of the sample statistic</a></li>
+  <li><a href="#the-technical-conditions" id="toc-the-technical-conditions" class="nav-link" data-scroll-target="#the-technical-conditions">The (technical) conditions</a></li>
+  <li><a href="#more-to-the-clt" id="toc-more-to-the-clt" class="nav-link" data-scroll-target="#more-to-the-clt">More to the CLT</a></li>
+  </ul></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#the-68-95-99.7-rule" id="toc-the-68-95-99.7-rule" class="nav-link" data-scroll-target="#the-68-95-99.7-rule"><strong>The 68-95-99.7 rule</strong></a></li>
+  <li><a href="#using-the-normal-distribution" id="toc-using-the-normal-distribution" class="nav-link" data-scroll-target="#using-the-normal-distribution">Using the normal distribution…</a></li>
+  </ul></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#packages-and-data" id="toc-packages-and-data" class="nav-link" data-scroll-target="#packages-and-data">Packages and data</a></li>
+  <li><a href="#bone-density---population" id="toc-bone-density---population" class="nav-link" data-scroll-target="#bone-density---population">Bone density - population</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  </ul></li>
+  <li><a href="#bone-density---sampling" id="toc-bone-density---sampling" class="nav-link" data-scroll-target="#bone-density---sampling">Bone density - sampling</a>
+  <ul class="collapse">
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/13/13-inference-mathematical-models_clean.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Confidence intervals with bootstrapping</h1>
+<h1 class="title">Inference with mathematical models</h1>
 </div>
 
 
@@ -395,264 +407,176 @@ window.Quarto = {
 <section id="announcements" class="level2">
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li>Exam:
+<li>Last day to drop with a W is tomorrow!</li>
+</ul>
+</section>
+</section>
+<section id="inference-with-mathematical-models" class="level1">
+<h1><strong>Inference with mathematical models</strong></h1>
+<p>The <strong>Central Limit Theorem</strong> says that the distribution of the sample statistic is normal, if certain conditions are met.</p>
+<div class="task">
+<p>Two questions:</p>
+<ol type="1">
+<li>What do we mean by the distribution of the sample statistic?</li>
+<li>What conditions need to be met?</li>
+</ol>
+</div>
+<section id="the-distribution-of-the-sample-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="the-distribution-of-the-sample-statistic">The distribution of the sample statistic</h2>
+<p>::: incremental - You can build the distribution of the sample statistic by repeatedly taking samples of size n (original sample size) from the population and calculating and recording the sample statistic for each of these samples.</p>
 <ul>
-<li>In class: Fri, June 7th (1 sheet of notes allowed)</li>
-<li>Take home due Sun, June 9th</li>
+<li><p>But, you would never do this in reality!</p></li>
+<li><p>You’d either use simulation (randomization, bootstrapping, stuff we’ve done so far!) or you would leverage mathematical theory to know what to expect if we <em>had</em> taken repeated samples.</p></li>
+</ul>
+</section>
+<section id="the-technical-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="the-technical-conditions">The (technical) conditions</h2>
+<ol type="1">
+<li><p><strong>Independent observations:</strong> Observations in the sample are independent. Independence is guaranteed when we take a random sample from a population. Independence can also be guaranteed if we randomly divide individuals into treatment and control groups.</p></li>
+<li><p><strong>Large enough sample:</strong> The sample size cannot be too small. What qualifies as “small” differs from one context (i.e., from sample statistic to sample statistic).</p></li>
+</ol>
+</section>
+<section id="more-to-the-clt" class="level2">
+<h2 class="anchored" data-anchor-id="more-to-the-clt">More to the CLT</h2>
+<ul>
+<li><p>There is more to the CLT than just the <strong>shape</strong> of the distribution – normal.</p></li>
+<li><p>The CLT says that the <strong>center</strong> of the sampling distribution will be at the true population parameter.</p></li>
+<li><p>The CLT also says something about the <strong>spread</strong> of the sampling distribution, measured by the <strong>standard error</strong>. For each sample statistic (<span class="math inline">\(\bar{x}\)</span> – the sample mean, <span class="math inline">\(\hat{p}\)</span> – the sample proportion, <span class="math inline">\(\bar{x}_1 - \bar{x}_2\)</span> – the difference in sample means, etc.) the CLT provides a formula for its standard error.</p>
+<ul>
+<li><p>You won’t be asked to memorize these formulas.</p></li>
+<li><p>In fact, you’ll rarely use the CLT to calculate the variability of sample statistics, you’ll simulate their distributions directly.</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ purrr::%||%()   masks base::%||%()
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
-✔ broom        1.0.5          ✔ rsample      1.2.0     
-✔ dials        1.2.0          ✔ tune         1.1.2     
-✔ infer        1.0.5.9000     ✔ workflows    1.1.3     
-✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     
-✔ parsnip      1.1.1          ✔ yardstick    1.2.0     
-✔ recipes      1.0.8          
-── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-✖ purrr::%||%()     masks base::%||%()
-✖ scales::discard() masks purrr::discard()
-✖ dplyr::filter()   masks stats::filter()
-✖ recipes::fixed()  masks stringr::fixed()
-✖ dplyr::lag()      masks stats::lag()
-✖ yardstick::spec() masks readr::spec()
-✖ recipes::step()   masks stats::step()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: airports
-Loading required package: cherryblossom
-Loading required package: usdata
-
-Attaching package: 'openintro'
-
-The following object is masked from 'package:modeldata':
-
-    ames</code></pre>
-</div>
-</div>
 </section>
+<section id="normal-distribution" class="level1">
+<h1>Normal distribution</h1>
+<section id="the-68-95-99.7-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-68-95-99.7-rule"><strong>The 68-95-99.7 rule</strong></h2>
+<p>The normal distribution is not just <em>any</em> unimodal and symmetric distribution, it follows the <strong>68-95-99.7 rule</strong>.</p>
 </section>
-<section id="confidence-intervals" class="level1">
-<h1>Confidence intervals</h1>
-<section id="case-study-3-airbnb-in-asheville-nc" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</h2>
-<p>We have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>abb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"asheville.csv"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 50
-Columns: 1
-$ ppg &lt;dbl&gt; 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…</code></pre>
-</div>
-</div>
-</section>
-<section id="terminology" class="level2">
-<h2 class="anchored" data-anchor-id="terminology">Terminology</h2>
+<section id="using-the-normal-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-normal-distribution">Using the normal distribution…</h2>
 <ul>
-<li><p><strong>Population parameter</strong> - What we are interested in. Statistical measure that describes an entire population.</p></li>
-<li><p><strong>Sample statistic (point estimate)</strong> - describes a sample. A piece of information you get from a fraction of the population.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>abb <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ppg.mean =</span> <span class="fu">mean</span>(ppg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  ppg.mean
-     &lt;dbl&gt;
-1     76.6</code></pre>
-</div>
-</div>
-</section>
-<section id="catching-a-fish" class="level2">
-<h2 class="anchored" data-anchor-id="catching-a-fish">Catching a fish</h2>
-<div class="task">
-<p>Suppose you’re fishing in a murky lake. Are you more likely to catch a fish using a spear or a net?</p>
-</div>
+<li><p>To make decisions <span class="math inline">\(\rightarrow\)</span> hypothesis testing</p>
 <ul>
-<li>Spear <span class="math inline">\(\rightarrow\)</span> point estimate</li>
-<li>Net <span class="math inline">\(\rightarrow\)</span> interval estimate</li>
+<li>Use properties of the normal distribution to determine the probability of the observed sample statistic (or something more extreme, in the direction of the alternative hypothesis), i.e.&nbsp;the p-value</li>
+</ul></li>
+<li><p>To make estimations <span class="math inline">\(\rightarrow\)</span> confidence intervals</p>
+<ul>
+<li>Use properties of the normal distribution to calculate the bounds of the confidence interval, adding and subtracting a margin of error to the observed sample statistic</li>
+</ul></li>
 </ul>
 </section>
-<section id="constructing-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="constructing-confidence-intervals">Constructing confidence intervals</h2>
-<p>Quantifying the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest:</p>
+</section>
+<section id="goals" class="level1">
+<h1>Goals</h1>
 <ul>
-<li><p>Via simulation <span class="math inline">\(\rightarrow\)</span> using bootstrapping – using a statistical procedure that re samples a single data set to create many simulated samples.</p></li>
-<li><p>Via mathematical formulas <span class="math inline">\(\rightarrow\)</span> using the Central Limit Theorem</p></li>
+<li><p>Calculate probabilities under the normal curve</p></li>
+<li><p>Understand Z scores</p></li>
+<li><p>Build intuition for hypothesis testing and confidence interval building with the normal distribution</p></li>
 </ul>
 </section>
-<section id="bootstrapping-what" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-what">Bootstrapping, what?</h2>
+<section id="packages-and-data" class="level1">
+<h1>Packages and data</h1>
+<p>We’ll use the <strong>tidyverse</strong> and <strong>openintro</strong> packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bone-density---population" class="level1">
+<h1>Bone density - population</h1>
+<p>Suppose the bone density for 65-year-old women is normally distributed with mean 809 <span class="math inline">\(mg/cm^3\)</span> and standard deviation of 140 <span class="math inline">\(mg/cm^3\)</span>.</p>
+<p>Let <span class="math inline">\(x\)</span> be the bone density of 65-year-old women. We can write this distribution of <span class="math inline">\(x\)</span> in mathematical notation as</p>
+<p><span class="math display">\[
+x \sim N(\mu = 809, \sigma = 140)
+\]</span></p>
+<p>Let’s set the parameters of this distribution as objects you can use later.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bone_density_mean <span class="ot">&lt;-</span> <span class="dv">809</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bone_density_sd <span class="ot">&lt;-</span> <span class="dv">140</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Visualize the distribution of bone density of 65-year-old women.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Before typing any code, based on what you know about the normal distribution, what do you expect the median bone density to be?</p>
+<p><em>Add response here.</em></p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>What bone densities correspond to Q1 (25th percentile), Q2 (50th percentile), and Q3 (the 75th percentile) of this distribution? Use the <code>qnorm()</code> function to calculate these values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>The densities of three woods are below:</p>
 <ul>
-<li><p>The term bootstrapping comes from the phrase “pulling oneself up by one’s bootstraps”, which is a metaphor for accomplishing an impossible task without any outside help.</p></li>
-<li><p>Impossible task: estimating a population parameter using data from only the given sample.</p></li>
+<li><p>Plywood: 540 <span class="math inline">\(mg/cm^3\)</span></p></li>
+<li><p>Pine: 600 <span class="math inline">\(mg/cm^3\)</span></p></li>
+<li><p>Mahogany: 710 <span class="math inline">\(mg/cm^3\)</span></p></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note: This notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping.</p>
-</div>
-</div>
-</section>
-<section id="bootstrapping-how" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-how">Bootstrapping, how?</h2>
-<ul>
-<li>Resample with replacement from our data <span class="math inline">\(n\)</span> times, where <span class="math inline">\(n\)</span> is the sample size</li>
-<li>Calculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value</li>
-<li>Do this entire process many many times to build the <strong>bootstrap distribution</strong></li>
-</ul>
-</section>
-<section id="bootstrapping-airbnb-rentals" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</h2>
+<p>Let’s set these as variables we can use later:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">25</span>) </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plywood <span class="ot">&lt;-</span> <span class="dv">540</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pine <span class="ot">&lt;-</span> <span class="dv">600</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mahogany <span class="ot">&lt;-</span> <span class="dv">710</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-bootstrap-distribution">The bootstrap distribution</h2>
+<p>What is the probability that a randomly selected 65-year-old woman has bones less dense than Pine?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(boot_dist_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 100
-Columns: 2
-$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
-$ stat      &lt;dbl&gt; 73.11500, 78.78333, 80.19333, 83.42000, 70.15000, 73.03667, …</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="visualzing-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</h2>
-<div class="task">
-<p>What do you expect the center of the bootstrap distribution to be? Why? Check your guess by visualizing the distribution.</p>
-</div>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Would you be surprised if a randomly selected 65-year-old woman had bone density less than Mahogany? What if she had bone density less than Plywood? Use the respective probabilities to support your response.</p>
+<p><em>Add response here.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(boot_dist_abb, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/boot-dist-abb-plot-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="calculating-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</h2>
+</section>
+<section id="bone-density---sampling" class="level1">
+<h1>Bone density - sampling</h1>
+<p>Suppose you want to analyze the mean bone density for a group of 10 randomly selected 65-year-old women.</p>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Are the conditions for the Central Limit Theorem met?</p>
+<p><em>Add response here.</em></p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>What is the shape, center, and spread of the distribution of the mean bone density for a group of 10 randomly selected 65-year-old women?</p>
+<p><em>Add response here.</em></p>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>What is the probability that the mean bone density for the group of 10 randomly-selected 65-year-old women is less dense than Pine?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  lower upper
-  &lt;dbl&gt; &lt;dbl&gt;
-1  64.7  89.6</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="interpretation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpretation">Interpretation</h2>
-<div class="task">
-<p>Which of the following is the correct interpretation of the bootstrap interval?</p>
-</div>
-<ol type="a">
-<li><p>There is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>There is a 95% probability the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the true mean price per night for Airbnbs in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-</ol>
-</section>
-<section id="leveraging-tidymodels-tools-further" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</h2>
-<p>Calculating the observed sample statistic:</p>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Would you be surprised if a group of 10 randomly-selected 65-year old women had a mean bone density less than Mahogany? What the group had a mean bone density less than Plywood? Use the respective probabilities to support your response.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>obs_stat_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)  </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>obs_stat_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Response: ppg (numeric)
-# A tibble: 1 × 1
-   stat
-  &lt;dbl&gt;
-1  76.6</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="leveraging-tidymodels-tools-further-1" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</h2>
-<p>Calculating the interval:</p>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Explain how your answers differ in similar sounding earlier vs.&nbsp;later exercises.</p>
+<p><em>Add response here.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ci_95_abb <span class="ot">&lt;-</span> boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">point_estimate =</span> obs_stat_abb, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">level =</span> <span class="fl">0.95</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ci_95_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  lower_ci upper_ci
-     &lt;dbl&gt;    &lt;dbl&gt;
-1     64.7     89.6</code></pre>
-</div>
-</div>
-</section>
-<section id="leveraging-tidymodels-tools-further-2" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</h2>
-<p>Visualizing the interval:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist_abb) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(ci_95_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/ci-95-abb-viz-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -1221,7 +1145,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/13/13-inference-mathematical-models_clean.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
