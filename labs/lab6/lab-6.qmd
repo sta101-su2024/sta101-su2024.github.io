@@ -74,9 +74,9 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 ## Grading
 | Exercise    | Points |
 |-------------|--------|
-| Exercise 1  | 15     |
+| Exercise 1  | 10     |
 | Exercise 2  | 5      |
 | Exercise 3  | 5      |
-| Exercise 4  | 15     |
-| **Total**   | 40     |
+| Exercise 4  | 10     |
+| **Total**   | 30     |
 
