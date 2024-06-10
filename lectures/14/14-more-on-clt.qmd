@@ -8,7 +8,7 @@ editor: visual
 ## Announcements
 
 -   Last day to drop with a W is today!
--   Lab 6 and Intro+EDA due tomorrow.
+-   Lab 6 and Intro + EDA due tomorrow.
 
 # Packages and data
 
