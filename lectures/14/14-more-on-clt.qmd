@@ -18,7 +18,6 @@ editor: visual
 
 library(tidyverse)
 library(openintro)
-library(FamilyRank)
 ```
 
 # CLT recap and more examples
@@ -161,7 +160,7 @@ ggplot(mean_dist, aes(x = mean_sim)) +
 
 ## Normal population, sample size 50
 
-Now let's increase our **sample size** ($n$). Imagine that we each survey 50 students.
+Now let's increase our **sample size** ($n$). Imagine that you each survey 50 students.
 
 ```{r}
 #| echo: false
@@ -336,7 +335,7 @@ Finally, take a sample of size 150. Calculate the sample mean and enter it in th
 set.seed(101)
 
 
-#draw 500 random samples of size 50 
+#draw 500 random samples of size 150 
 samples_150 <- matrix(rgamma(150*500,shape = 10,rate = 1/5) , nrow = 500) 
 
 # create an empty data frame
@@ -355,12 +354,17 @@ ggplot(mean_dist_150, aes(x = mean_sim)) +
 Now imagine the population distribution is bimodal:
 
 ```{r, echo=FALSE}
-plot(density(rbinorm(1000,35,62,5,5,0.3)),
-     main="Population Distribution - bimodal",
+rand_coin = rbinom(1000, size = 1, prob = 0.3)
+data = rand_coin*rnorm(n = 1000, mean = 22, sd = 5) + 
+  (1-rand_coin)*rnorm(n = 1000, mean = 62, sd = 5)
+
+
+plot(density(data), main="Population Distribution - bimodal",
      xlab="x",ylab="Density")
 ```
 
-> Note: the mean of this distribution is about 53.9.
+> Note: the mean of this distribution is about 50.
+
 
 ## Bimodal population distribution, sample size 10
 
@@ -377,7 +381,10 @@ We collect a random sample of 10 and calculate the sample mean.
 set.seed(101)
 
 # draw a sample of size 10 from the skewed distribution
-samp <-  rbinorm(10,35,62,5,5,0.3)
+rand_coin = rbinom(1, size = 1, prob = 0.3)
+samp = rand_coin*rnorm(n = 1, mean = 22, sd = 5) + 
+  (1-rand_coin)*rnorm(n = 1, mean = 62, sd = 5)
+
 
 # view the sample
 table(samp)
@@ -399,7 +406,10 @@ Let's repeat this 500 times:
 set.seed(101)
 
 #draw 500 random samples of size 10 
-samples <- matrix(rbinorm(10*500,35,62,5,5,0.3) , nrow = 500) 
+rand_coin = rbinom(10*500, size = 1, prob = 0.3)
+samples <- matrix(rand_coin*rnorm(n = 10*500, mean = 22, sd = 5) + 
+  (1-rand_coin)*rnorm(n = 10*500, mean = 62, sd = 5) , 
+  nrow = 500) 
 
 # create an empty data frame
 mean_dist <- data.frame(mean_sim = rep(NA, 500))
@@ -428,8 +438,10 @@ set.seed(101)
 
 
 #draw 500 random samples of size 50 
-samples_50 <- matrix(rbinorm(50*500,35,62,5,5,0.3) , nrow = 500) 
-
+rand_coin = rbinom(50*500, size = 1, prob = 0.3)
+samples <- matrix(rand_coin*rnorm(n = 50*500, mean = 22, sd = 5) + 
+  (1-rand_coin)*rnorm(n = 50*500, mean = 62, sd = 5) , 
+  nrow = 500) 
 # create an empty data frame
 mean_dist_50 <- data.frame(mean_sim = rep(NA, 500))
 
@@ -456,9 +468,11 @@ Finally, take a sample of size 150. Calculate the sample mean and enter it in th
 set.seed(101)
 
 
-#draw 500 random samples of size 50 
-samples_150 <- matrix(rbinorm(150*500,35,62,5,5,0.3) , nrow = 500) 
-
+#draw 500 random samples of size 150 
+rand_coin = rbinom(150*500, size = 1, prob = 0.3)
+samples <- matrix(rand_coin*rnorm(n = 150*500, mean = 22, sd = 5) + 
+  (1-rand_coin)*rnorm(n = 150*500, mean = 62, sd = 5) , 
+  nrow = 500) 
 # create an empty data frame
 mean_dist_150 <- data.frame(mean_sim = rep(NA, 500))
 
