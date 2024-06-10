@@ -408,10 +408,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Create a data frame that can be used to re-construct this visualization. You may need to guess some of the numbers, that’s ok. You should first think about how many rows and columns you’ll need and what you want to call your variables. Then, you can use the tribble() function for this. For example, if you wanted to construct the following data frame</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>date, <span class="sc">~</span>count,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1/1/2020"</span>, <span class="dv">15</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2/1/2020"</span>, <span class="dv">20</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3/1/2020"</span>, <span class="dv">22</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>date, <span class="sc">~</span><span class="st">"mask"</span>, <span class="sc">~</span><span class="st">"no mask"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1/1/2020"</span>, <span class="dv">15</span>, <span class="dv">20</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2/1/2020"</span>, <span class="dv">20</span>, <span class="dv">18</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3/1/2020"</span>, <span class="dv">22</span>, <span class="dv">23</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can create the data frame below. Print the first 5 rows of the data frame after creating it. You may name the data frame what you like. We often try and keep data frame names small and informative.</p>
