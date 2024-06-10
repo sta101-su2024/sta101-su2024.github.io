@@ -355,6 +355,8 @@ window.Quarto = {
   <li><a href="#the-distribution-of-the-sample-statistic" id="toc-the-distribution-of-the-sample-statistic" class="nav-link" data-scroll-target="#the-distribution-of-the-sample-statistic">The distribution of the sample statistic</a></li>
   <li><a href="#the-technical-conditions" id="toc-the-technical-conditions" class="nav-link" data-scroll-target="#the-technical-conditions">The (technical) conditions</a></li>
   <li><a href="#more-to-the-clt" id="toc-more-to-the-clt" class="nav-link" data-scroll-target="#more-to-the-clt">More to the CLT</a></li>
+  <li><a href="#clt-for-proportions" id="toc-clt-for-proportions" class="nav-link" data-scroll-target="#clt-for-proportions">CLT for proportions</a></li>
+  <li><a href="#clt-for-means" id="toc-clt-for-means" class="nav-link" data-scroll-target="#clt-for-means">CLT for means</a></li>
   </ul></li>
   <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a>
   <ul class="collapse">
@@ -429,7 +431,7 @@ window.Quarto = {
 </section>
 <section id="its-not-happenstance" class="level2">
 <h2 class="anchored" data-anchor-id="its-not-happenstance">It’s not happenstance!</h2>
-<p>It’s the <strong>Central Limit Theorem</strong>, which says that the distribution of the sample statistic is normal, if certain conditions are met.</p>
+<p>It’s the <strong>Central Limit Theorem</strong> (or CLT), which says that the distribution of the sample statistic is normal, if certain conditions are met.</p>
 <div class="task">
 <p>Two questions:</p>
 <ol type="1">
@@ -441,7 +443,7 @@ window.Quarto = {
 <section id="the-distribution-of-the-sample-statistic" class="level2">
 <h2 class="anchored" data-anchor-id="the-distribution-of-the-sample-statistic">The distribution of the sample statistic</h2>
 <ul>
-<li><p>You can build the distribution of the sample statistic by repeatedly taking samples of size n (original sample size) from the population and calculating and recording the sample statistic for each of these samples.</p></li>
+<li><p>You can build the distribution of the sample statistic by repeatedly taking samples of size <span class="math inline">\(n\)</span> (original sample size) from the population and calculating and recording the sample statistic for each of these samples.</p></li>
 <li><p>But, you would never do this in reality!</p></li>
 <li><p>You’d either use simulation (randomization, bootstrapping, stuff we’ve done so far!) or you would leverage mathematical theory to know what to expect if we <em>had</em> taken repeated samples.</p></li>
 </ul>
@@ -452,6 +454,19 @@ window.Quarto = {
 <li><p><strong>Independent observations:</strong> Observations in the sample are independent. Independence is guaranteed when we take a random sample from a population. Independence can also be guaranteed if we randomly divide individuals into treatment and control groups.</p></li>
 <li><p><strong>Large enough sample:</strong> The sample size cannot be too small. What qualifies as “small” differs from one context (i.e., from sample statistic to sample statistic).</p></li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>NOTE:</strong> if the <strong>population distribution is normal</strong>, the sampling distribution will be normal (can use CLT even if the sample size is small).</p>
+</div>
+</div>
 </section>
 <section id="more-to-the-clt" class="level2">
 <h2 class="anchored" data-anchor-id="more-to-the-clt">More to the CLT</h2>
@@ -464,6 +479,18 @@ window.Quarto = {
 <li><p>In fact, you’ll rarely use the CLT to calculate the variability of sample statistics, you’ll simulate their distributions directly.</p></li>
 </ul></li>
 </ul>
+</section>
+<section id="clt-for-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="clt-for-proportions">CLT for proportions</h2>
+<blockquote class="blockquote">
+<p>If we look at a proportion (or difference in proportions) and the scenario satisfies certain conditions, then the sample proportion (or difference in proportions) will appear to follow a bell-shaped curve called the normal distribution.</p>
+</blockquote>
+</section>
+<section id="clt-for-means" class="level2">
+<h2 class="anchored" data-anchor-id="clt-for-means">CLT for means</h2>
+<blockquote class="blockquote">
+<p>Let <span class="math inline">\(x\)</span> be the variable of interest. Suppose <span class="math inline">\(x\)</span> follows a distribution with mean <span class="math inline">\(\mu\)</span> and standard deviation is <span class="math inline">\(\sigma\)</span>. When certain criteria are satisfied, the sample mean <span class="math inline">\(\bar x\)</span> of sample of size <span class="math inline">\(n\)</span> is normally distributed. Specifically <span class="math display">\[\bar x \sim N(\mu, \sigma/\sqrt{n}),\]</span> i.e.&nbsp;<span class="math inline">\(\bar x\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>. The standard deviation of the sampling distribution is called the standard error.</p>
+</blockquote>
 </section>
 </section>
 <section id="normal-distribution" class="level1">
