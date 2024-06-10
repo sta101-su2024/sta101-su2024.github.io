@@ -8,7 +8,7 @@ editor: visual
 ## Announcements
 
 -   Last day to drop with a W is today!
--   Lab 6 and Intro + EDA due tomorrow.
+-   Lab 6 and Intro+EDA due tomorrow.
 
 # Packages and data
 
@@ -235,12 +235,13 @@ Say the population distribution of dining hall meals looks more like this:
 #| fig-width: 8
 #| fig-asp: 0.5
 
-plot(dsn((50-15*2):(50+15*4),50,15,alpha=8),
+plot(dgamma((50-15*3):(50+15*3),shape = 10,rate = 1/5),
      main="Population Distribution - skewed",
      xlab="x",type="l",ylab="Density")
+
 ```
 
-> Note, the mean of this distribution is around 61.87.
+> Note, the mean of this distribution is around 50.
 
 ## Skewed population distribution, sample size 10
 
@@ -257,7 +258,7 @@ We collect a random sample of 10 and calculate the sample mean.
 set.seed(101)
 
 # draw a sample of size 10 from the skewed distribution
-samp <-  rsn(10,50,15,alpha=8)
+samp <-  rgamma(10,shape = 10,rate = 1/5)
 
 # view the sample
 table(samp)
@@ -279,7 +280,7 @@ Let's repeat this 500 times:
 set.seed(101)
 
 #draw 500 random samples of size 10 
-samples <- matrix(rsn(10*500,50,15,alpha=8) , nrow = 500) 
+samples <- matrix(rgamma(10*500,shape = 10,rate = 1/5) , nrow = 500) 
 
 # create an empty data frame
 mean_dist <- data.frame(mean_sim = rep(NA, 500))
@@ -308,7 +309,7 @@ set.seed(101)
 
 
 #draw 500 random samples of size 50 
-samples_50 <- matrix(rsn(50*500,50,15,alpha=8) , nrow = 500) 
+samples_50 <- matrix(rgamma(50*500,shape = 10,rate = 1/5) , nrow = 500) 
 
 # create an empty data frame
 mean_dist_50 <- data.frame(mean_sim = rep(NA, 500))
@@ -337,7 +338,7 @@ set.seed(101)
 
 
 #draw 500 random samples of size 50 
-samples_150 <- matrix(rsn(150*500,50,15,alpha=8) , nrow = 500) 
+samples_150 <- matrix(rgamma(150*500,shape = 10,rate = 1/5) , nrow = 500) 
 
 # create an empty data frame
 mean_dist_150 <- data.frame(mean_sim = rep(NA, 500))
@@ -491,7 +492,9 @@ While we of course want to know if any one study is showing us something real or
 
 ### Discernibility level
 
-The discernibility level provides the cutoff for the p-value which will lead to a decision of “reject the null hypothesis.” Choosing a discernibility level for a test is important in many contexts, and the traditional level is 0.05. - If making a Type I error is dangerous or especially costly, we should choose a small discernibility level (e.g., 0.01 or 0.001). - If a Type II error is relatively more dangerous or much more costly than a Type I error, then we should choose a higher discernibility level (e.g., 0.10).
+The discernibility level provides the cutoff for the p-value which will lead to a decision of “reject the null hypothesis.” Choosing a discernibility level for a test is important in many contexts, and the traditional level is 0.05. 
+- If making a Type I error is dangerous or especially costly, we should choose a small discernibility level (e.g., 0.01 or 0.001). 
+- If a Type II error is relatively more dangerous or much more costly than a Type I error, then we should choose a higher discernibility level (e.g., 0.10).
 
 The risk of committing Type I error is equal to $\alpha$ - pre-defined discernibility level.
 
