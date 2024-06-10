@@ -1,0 +1,504 @@
+---
+title: "More on CLT"
+editor: visual
+---
+
+# Warm up
+
+## Announcements
+
+-   Last day to drop with a W is today!
+-   Lab 6 and Intro+EDA due tomorrow.
+
+# Packages and data
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(openintro)
+library(sn)
+library(FamilyRank)
+```
+
+# CLT recap and more examples
+
+The **Central Limit Theorem** says that the distribution of the sample statistic is normal, if certain conditions are met.
+
+# Illustration
+
+To see how the central limit theorem works, we will "collect data" from different distributions. We will then calculate a sample mean and we will visualize our the distribution of sample means.
+
+# Normal population
+
+## Normal population, sample size 10
+
+Let's start with a normal distribution. Say we are interested in the number of times first year students eat at the dining hall per month. Let's suppose that we know that the **true population distribution** of dining hall meals is $N(\mu= 50,\sigma = 15)$.
+
+Now imagine that each of you conduct your own study in which you randomly select 10 first years and ask them how many times they ate at the dining hall last month. You then calculate the **sample mean** of the 10 students that you selected.
+
+```{r, echo=FALSE}
+normTail(m = 50, s = 15)
+```
+
+Function `rnorm()` draws a random sample from a normal distribution.
+
+### Sample 1
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+# draw the first sample of size 10 from the normal distribution
+sim1 <- rnorm(10,50,15)
+
+# view the sample
+table(sim1)
+
+# calculate the sample mean
+(mean_sim1 = mean(sim1))
+
+# create an empty data frame
+mean_dist <- data.frame(mean_sim = rep(NA, 3))
+
+# record the sample mean as the first observation
+mean_dist$mean_sim[1] <- mean_sim1
+
+# plot
+ggplot(mean_dist, aes(x = mean_sim)) + 
+  geom_dotplot() +
+  xlim(50-15*3, 50+15*3) + ylim(0, 10)
+
+
+```
+
+### Sample 2
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+
+# draw the second sample of size 10 from the normal distribution
+sim2 <- rnorm(10,50,15)
+
+# view the sample
+table(sim2)
+
+# calculate the sample mean
+(mean_sim2 = mean(sim2))
+
+mean_dist$mean_sim[2] <- mean_sim2
+
+
+ggplot(mean_dist, aes(x =mean_sim)) + 
+  geom_dotplot() + 
+  xlim(50-15*3, 50+15*3) + ylim(0, 10)
+```
+
+### Sample 3
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+
+# draw the third sample of size 10 from the normal distribution
+sim3 <- rnorm(10,50,15)
+
+# view the sample
+table(sim3)
+
+# calculate the sample mean
+(mean_sim3 = mean(sim3))
+
+mean_dist$mean_sim[3] <- mean_sim3
+
+
+ggplot(mean_dist, aes(x =mean_sim)) + 
+  geom_dotplot() + 
+  xlim(50-15*3, 50+15*3) + ylim(0, 10)
+```
+
+### More samples
+
+Let's repeat this 500 times:
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+#draw 500 random samples of size 10 
+samples <- matrix(rnorm(10*500,50,15) , nrow = 500) 
+
+# create an empty data frame
+mean_dist <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist$mean_sim = apply(samples, 1, mean)
+
+# plot
+ggplot(mean_dist, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Normal population, sample size 50
+
+Now let's increase our **sample size** ($n$). Imagine that you each survey 50 students.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_50 <- matrix(rnorm(50*500,50,15) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_50 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_50$mean_sim = apply(samples_50, 1, mean)
+
+# plot
+ggplot(mean_dist_50, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Normal population, sample size 150
+
+Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_150 <- matrix(rnorm(150*500,50,15) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_150 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_150$mean_sim = apply(samples_150, 1, mean)
+
+# plot
+ggplot(mean_dist_150, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+```
+
+::: callout-important
+As the sample size increases, the standard deviation of the **distribution of the sample mean** decreases!
+:::
+
+Now let's compare different population distributions.
+
+# Skewed population distribution
+
+Say the population distribution of dining hall meals looks more like this:
+
+```{r, echo=FALSE}
+
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+plot(dsn((50-15*2):(50+15*4),50,15,alpha=8),
+     main="Population Distribution - skewed",
+     xlab="x",type="l",ylab="Density")
+```
+
+> Note, the mean of this distribution is around 61.87.
+
+## Skewed population distribution, sample size 10
+
+We collect a random sample of 10 and calculate the sample mean.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+
+set.seed(101)
+
+# draw a sample of size 10 from the skewed distribution
+samp <-  rsn(10,50,15,alpha=8)
+
+# view the sample
+table(samp)
+
+# calculate the sample mean
+(mean_samp = mean(samp))
+
+```
+
+Let's repeat this 500 times:
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+#draw 500 random samples of size 10 
+samples <- matrix(rsn(10*500,50,15,alpha=8) , nrow = 500) 
+
+# create an empty data frame
+mean_dist <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist$mean_sim = apply(samples, 1, mean)
+
+# plot
+ggplot(mean_dist, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Skewed population, sample size 50
+
+Now let's increase our **sample size** ($n$). Imagine that you each survey 50 students.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_50 <- matrix(rsn(50*500,50,15,alpha=8) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_50 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_50$mean_sim = apply(samples_50, 1, mean)
+
+# plot
+ggplot(mean_dist_50, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Skewed population, sample size 150
+
+Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_150 <- matrix(rsn(150*500,50,15,alpha=8) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_150 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_150$mean_sim = apply(samples_150, 1, mean)
+
+# plot
+ggplot(mean_dist_150, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 0.5)
+```
+
+# Bimodal population distribution
+
+Now imagine the population distribution is bimodal:
+
+```{r, echo=FALSE}
+plot(density(rbinorm(1000,35,62,5,5,0.3)),
+     main="Population Distribution - bimodal",
+     xlab="x",ylab="Density")
+```
+
+> Note: the mean of this distribution is about 53.9.
+
+## Bimodal population distribution, sample size 10
+
+We collect a random sample of 10 and calculate the sample mean.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+
+set.seed(101)
+
+# draw a sample of size 10 from the skewed distribution
+samp <-  rbinorm(10,35,62,5,5,0.3)
+
+# view the sample
+table(samp)
+
+# calculate the sample mean
+(mean_samp = mean(samp))
+
+```
+
+Let's repeat this 500 times:
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+#draw 500 random samples of size 10 
+samples <- matrix(rbinorm(10*500,35,62,5,5,0.3) , nrow = 500) 
+
+# create an empty data frame
+mean_dist <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist$mean_sim = apply(samples, 1, mean)
+
+# plot
+ggplot(mean_dist, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Bimodal population, sample size 50
+
+Now let's increase our **sample size** ($n$). Imagine that you each survey 50 students.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_50 <- matrix(rbinorm(50*500,35,62,5,5,0.3) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_50 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_50$mean_sim = apply(samples_50, 1, mean)
+
+# plot
+ggplot(mean_dist_50, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 1)
+
+```
+
+## Bimodal population, sample size 150
+
+Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-asp: 0.5
+
+set.seed(101)
+
+
+#draw 500 random samples of size 50 
+samples_150 <- matrix(rbinorm(150*500,35,62,5,5,0.3) , nrow = 500) 
+
+# create an empty data frame
+mean_dist_150 <- data.frame(mean_sim = rep(NA, 500))
+
+# store the means of samples
+mean_dist_150$mean_sim = apply(samples_150, 1, mean)
+
+# plot
+ggplot(mean_dist_150, aes(x = mean_sim)) + 
+  geom_histogram(binwidth = 0.5)
+```
+
+# Decision Errors
+
+In the next two weeks we will learn about how we can use CLT for inference (hypothesis testing and building confidence intervals). Let's take a step back and talk about hypothesis testing overall.
+
+## What could go wrong?
+
+Suppose we test the null hypothesis $H_0 : \mu = \mu_0$. We could potentially make two types of errors:
+
+| Truth                | $\mu = \mu_0$    | $\mu \neq \mu_0$  |
+|----------------------|------------------|-------------------|
+| Fail to reject $H_0$ | Correct decision | **Type II Error** |
+| Reject $H_0$         | **Type I Error** | Correct decision  |
+
+-   **Type I Error**: rejecting $H_0$ when it is actually true (falsely rejection the null hypothesis)
+
+-   **Type II Error**: not rejecting $H_0$ when it is false (falsely failing to reject the null hypothesis)
+
+While we of course want to know if any one study is showing us something real or a Type I or Type II error, hypothesis testing does NOT give us the tools to determine this.
+
+### Discernibility level
+
+The discernibility level provides the cutoff for the p-value which will lead to a decision of “reject the null hypothesis.” Choosing a discernibility level for a test is important in many contexts, and the traditional level is 0.05. - If making a Type I error is dangerous or especially costly, we should choose a small discernibility level (e.g., 0.01 or 0.001). - If a Type II error is relatively more dangerous or much more costly than a Type I error, then we should choose a higher discernibility level (e.g., 0.10).
+
+The risk of committing Type I error is equal to $\alpha$ - pre-defined discernibility level.
+
+### Power
+
+**Power** is the probability of rejecting the null hypothesis when it is false (i.e., of avoiding a Type II error). Power can be also thought of as the likelihood a planned study will detect a deviation from the null hypothesis if one really exists.
+
+## Acknowledgements
+
+These notes were adapted from notes by [Andrea Lane](https://datascience.duke.edu/people/andrea-lane/) and [Yue Jiang](https://scholars.duke.edu/person/yue.jiang).
