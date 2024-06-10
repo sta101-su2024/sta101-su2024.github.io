@@ -161,7 +161,7 @@ ggplot(mean_dist, aes(x = mean_sim)) +
 
 ## Normal population, sample size 50
 
-Now let's increase our **sample size** ($n$). Imagine that you each survey 50 students.
+Now let's increase our **sample size** ($n$). Imagine that we each survey 50 students.
 
 ```{r}
 #| echo: false
