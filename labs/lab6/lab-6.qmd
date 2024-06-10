@@ -68,6 +68,7 @@ You can create the data frame below. Print the first 5 rows of the data frame af
 
 ::: exercise
 Make a visualization that more accurately (and honestly) tells the story.
+(Hint: use `pivot_longer()` function to change the shape of your dataset so that it has three colums: `date`, `count`, and `county_type`).
 :::
 
 ## Exercise 4
