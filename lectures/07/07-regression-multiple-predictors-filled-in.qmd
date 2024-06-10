@@ -392,7 +392,7 @@ $$
 &= 198 + 0.718 \times 1000 - 0\\
 &= 916
 \end{align*}
-$$ 
+$$
 
 ## More levels in categorical variable
 
@@ -414,20 +414,17 @@ We now have:
     \widehat{\text{weight}} = \hat{\beta_0} + \hat\beta_1\times\text{volume} +\hat\beta_2 \times 0 + \hat\beta_3\times 0= \hat\beta_0 + \hat\beta_1\times\text{volume}.
     $$
 
--   Hardback: if the book is hardback, $\text{cover}_{hb} = 1$,  $\text{cover}_{pb}$ = 0, so our model becomes: 
-$$
+-   Hardback: if the book is hardback, $\text{cover}_{hb} = 1$, $\text{cover}_{pb}$ = 0, so our model becomes: $$
     \widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 1 + \hat{\beta_3}\times 0 = (\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times\text{volume}.
-  $$
-  
-  -   Paperback: if the book is paperback, $\text{cover}_{hb} = 0$,  $\text{cover}_{pb}$ = 1, so our model becomes: 
-$$
-    \widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 0 + \hat{\beta_3}\times 1 = (\hat{\beta_0} + \hat{\beta_3}) + \hat{\beta_1}\times\text{volume}.
-  $$
+      $$
+
+-   Paperback: if the book is paperback, $\text{cover}_{hb} = 0$, $\text{cover}_{pb}$ = 1, so our model becomes: $$
+        \widehat{\text{weight}} = \hat{\beta_0} + \hat{\beta_1}\times\text{volume} +\hat{\beta_2}\times 0 + \hat{\beta_3}\times 1 = (\hat{\beta_0} + \hat{\beta_3}) + \hat{\beta_1}\times\text{volume}.
+      $$
 
 From the first case, $\hat\beta_0$ corresponds to the intercept in the case when the book is board book, i.e. the average weight we expect for a board book with volume 0.
 
 From the second case, $\hat\beta_0 + \hat\beta_2$ corresponds to the intercept in the case when the book is hardback., i.e. the average weight we expect for a hardback book with volume 0.
-
 
 From the third case, $\hat\beta_0 + \hat\beta_3$ corresponds to the intercept in the case when the book is paperback., i.e. the average weight we expect for a hardback book with volume 0.
 
@@ -435,11 +432,10 @@ Fixing the volume to be the **same** (say $v$), the difference in average weight
 (\hat{\beta_0} + \hat{\beta_2}) + \hat{\beta_1}\times v - (\hat\beta_0 + \hat\beta_1\times v) = \hat\beta_2.
 $$ Thus, $\hat\beta_2$ is how much the model predicts the weight of hardback book to differ from the weight of board book (reference level) given both have the same volume.
 
-
 Fixing the volume to be the **same** (say $v$) , the difference in average weight between paperback and board book is $$
 (\hat{\beta_0} + \hat{\beta_3}) + \hat{\beta_1}\times v - (\hat\beta_0 + \hat\beta_1\times v) = \hat\beta_3.
 $$ Thus, $\hat\beta_3$ is how much the model predicts the weight of paperback book to differ from the weight of board book (reference level) given both have the same volume.
 
 ::: callout-important
-The coefficients tell us how the levels compare to the **reference** level! Thus, $\hat\beta_2$ compares board books and hardback books, and  $\hat\beta_3$ compares board books and paperback books.
+The coefficients tell us how the levels compare to the **reference** level! Thus, $\hat\beta_2$ compares board books and hardback books, and $\hat\beta_3$ compares board books and paperback books.
 :::
