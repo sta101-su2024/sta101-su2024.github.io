@@ -19,7 +19,6 @@ editor: visual
 If the parameter of interest is a single population proportion, what type of and how many variables are being studied?
 :::
 
-
 # Packages
 
 We'll use the **tidyverse** and **tidymodels** packages.
@@ -31,7 +30,6 @@ We'll use the **tidyverse** and **tidymodels** packages.
 library(tidyverse)
 library(tidymodels)
 ```
-
 
 # Data
 
@@ -45,7 +43,6 @@ The data from this survey: `voting-survey.csv`.
 #| label: load-data
 voting_survey <- read_csv("voting-survey.csv")
 ```
-
 
 ## Exercise 1
 
