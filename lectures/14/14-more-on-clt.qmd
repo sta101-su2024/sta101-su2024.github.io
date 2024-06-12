@@ -189,7 +189,7 @@ ggplot(mean_dist_50, aes(x = mean_sim)) +
 
 ## Normal population, sample size 150
 
-Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+Finally, take a sample of size 150. Calculate the sample mean.
 
 ```{r}
 #| echo: false
@@ -324,7 +324,7 @@ ggplot(mean_dist_50, aes(x = mean_sim)) +
 
 ## Skewed population, sample size 150
 
-Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+Finally, take a sample of size 150. Calculate the sample mean.
 
 ```{r}
 #| echo: false
@@ -458,7 +458,7 @@ ggplot(mean_dist_50, aes(x = mean_sim)) +
 
 ## Bimodal population, sample size 150
 
-Finally, take a sample of size 150. Calculate the sample mean and enter it in the Google sheet.
+Finally, take a sample of size 150. Calculate the sample mean.
 
 ```{r}
 #| echo: false
