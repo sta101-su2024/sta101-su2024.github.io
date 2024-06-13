@@ -17,7 +17,7 @@ editor: visual
 -   Single proportion: 1 categorical variable with 2 levels ("success" vs "failure").
 -   Difference in proportions: 2 categorical variables with 2 levels each ("success" vs "failure" and group 1 vs group 2).
 
-::: task
+::: callout-note
 Suppose we have a categorical variable with 3 response levels. How do we define "success"?
 
 What is a difference in proportions in this setting?
@@ -137,7 +137,6 @@ Which do you think should be the explanatory variable and which the response var
 
 You should also be asking yourself: could we see these results due to chance alone if there really is no difference in the party affiliation, or is this in fact evidence that parties find different issues to be of interest?
 
-
 # Hypotheses
 
 ## Exercise 4
@@ -146,31 +145,25 @@ State the hypotheses for evaluating whether the issue of choice is independent o
 
 *Add response here.*
 
-
 # Expected counts in two way tables
 
 While we would not expect the number of votes for each issue to be exactly the same across the parties, the proportion of responses seems substantially different across the three groups. In order to investigate whether the differences in rates is due to natural variability in people's interest in issues or due to a treatment effect (i.e., party affiliation), we need to compute estimated counts for each cell in a two-way table.
 
 From the data, we can compute the proportion of all survey participants who chose `Economy` as their number 1 issue to be 325/801 = 0.4057.
 
-::: task
+::: callout-note
 If there is really no difference among the parties and 40.57% of voters were going to choose economy as the number 1 issue to discuss, how many of the 286 people in the `Democrat` group would we have expected to choose economy as the number 1 issue?
-::: 
+:::
 
 We would repeat this calculation for each party and for each issue.
 
 In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 40.57% of each row should be in the `Economy`.
 
-The expected value of a cell of column issue i row party p is: 
-$$\left(\frac{\text{column i total}}{\text{table total}}\right) (\text{row p total}).$$
+The expected value of a cell of column issue i row party p is: $$\left(\frac{\text{column i total}}{\text{table total}}\right) (\text{row p total}).$$
 
 # The observed chi-squared statistic
 
-The chi-squared test statistic for a two-way table is found by finding the ratio of how far the observed counts are from the expected counts, as compared to the expected counts, for every cell in the table. For each table count, compute:
-$$\frac{(\text{observed count - expected count})^2}{\text{expected count}}.$$
-For example, for democrat/economy cell, we would get $\frac{(94 - 116.04)^2}{116.04} = 4.19$.
-Then, to find the chi-squared test statistic $X^2$, we would add the values each cell gives us.
-
+The chi-squared test statistic for a two-way table is found by finding the ratio of how far the observed counts are from the expected counts, as compared to the expected counts, for every cell in the table. For each table count, compute: $$\frac{(\text{observed count - expected count})^2}{\text{expected count}}.$$ For example, for democrat/economy cell, we would get $\frac{(94 - 116.04)^2}{116.04} = 4.19$. Then, to find the chi-squared test statistic $X^2$, we would add the values each cell gives us.
 
 # Testing
 
@@ -183,7 +176,6 @@ Calculate the observed sample statistic.
 
 # add code here
 ```
-
 
 ## Exercise 6
 
@@ -201,12 +193,9 @@ What is the conclusion of the hypothesis test?
 
 *Add response here.*
 
-
 # Mathematical model
 
-Turns out, the chi-squared test statistic follows a Chi-squared distribution when the null hypothesis is true and 2 conditions are satisfied:
--  Independent observations;
--  Large samples (5 expected counts in each cell). 
+Turns out, the chi-squared test statistic follows a Chi-squared distribution when the null hypothesis is true and 2 conditions are satisfied: - Independent observations; - Large samples (5 expected counts in each cell).
 
 For the two-way tables, the degrees of freedom is equal to $df = (\text{number of rows}-1)\times(\text{number of columns}-1)$. In our example, the degrees of freedom parameter is $df = (4-1)\times(7-1) = 18$.
 
@@ -220,4 +209,3 @@ Let's find the p-value using mathematical model.
 1 - pchisq(*sample stat*, df = *df*)
 
 ```
-

@@ -2,13 +2,14 @@
 title: "Confidence intervals with bootstrapping"
 editor: visual
 ---
+
 # Warm up
 
 ## Announcements
+
 -   Exam:
     -   In class: Fri, June 7th (1 sheet of notes allowed)
     -   Take home due Sun, June 9th
-
 
 ## Packages
 
@@ -19,7 +20,6 @@ library(tidyverse)
 library(tidymodels)
 library(openintro)
 ```
-
 
 # Confidence intervals
 
@@ -56,22 +56,22 @@ abb |>
 Suppose you're fishing in a murky lake. Are you more likely to catch a fish using a spear or a net?
 :::
 
-- Spear $\rightarrow$ point estimate
-- Net $\rightarrow$ interval estimate
+-   Spear $\rightarrow$ point estimate
+-   Net $\rightarrow$ interval estimate
 
 ## Constructing confidence intervals
 
 Quantifying the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest:
 
-- Via simulation $\rightarrow$ using bootstrapping -- using a statistical procedure that re samples a single data set to create many simulated samples.
+-   Via simulation $\rightarrow$ using bootstrapping -- using a statistical procedure that re samples a single data set to create many simulated samples.
 
-- Via mathematical formulas $\rightarrow$ using the Central Limit Theorem
+-   Via mathematical formulas $\rightarrow$ using the Central Limit Theorem
 
 ## Bootstrapping, what?
 
-- The term bootstrapping comes from the phrase "pulling oneself up by one's bootstraps", which is a metaphor for accomplishing an impossible task without any outside help.
+-   The term bootstrapping comes from the phrase "pulling oneself up by one's bootstraps", which is a metaphor for accomplishing an impossible task without any outside help.
 
-- Impossible task: estimating a population parameter using data from only the given sample.
+-   Impossible task: estimating a population parameter using data from only the given sample.
 
 ::: callout-note
 Note: This notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping.
@@ -79,9 +79,9 @@ Note: This notion of saying something about a population parameter using only in
 
 ## Bootstrapping, how?
 
-- Resample with replacement from our data $n$ times, where $n$ is the sample size
-- Calculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value
-- Do this entire process many many times to build the **bootstrap distribution**
+-   Resample with replacement from our data $n$ times, where $n$ is the sample size
+-   Calculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value
+-   Do this entire process many many times to build the **bootstrap distribution**
 
 ## Bootstrapping Airbnb rentals
 
@@ -137,13 +137,13 @@ boot_dist_abb |>
 Which of the following is the correct interpretation of the bootstrap interval?
 :::
 
-a. There is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.
+a.  There is a 95% probability the true mean price per night for an Airbnb in Asheville is between \$64.7 and \$89.6.
 
-b. There is a 95% probability the price per night for an Airbnb in Asheville is between $64.7 and $89.6.
+b.  There is a 95% probability the price per night for an Airbnb in Asheville is between \$64.7 and \$89.6.
 
-c. We are 95% confident the true mean price per night for Airbnbs in Asheville is between $64.7 and $89.6.
+c.  We are 95% confident the true mean price per night for Airbnbs in Asheville is between \$64.7 and \$89.6.
 
-d. We are 95% confident the price per night for an Airbnb in Asheville is between $64.7 and $89.6.
+d.  We are 95% confident the price per night for an Airbnb in Asheville is between \$64.7 and \$89.6.
 
 ## Leveraging tidymodels tools further
 
