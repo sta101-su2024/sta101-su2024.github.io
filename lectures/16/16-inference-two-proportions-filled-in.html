@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Confidence intervals with bootstrapping</title>
+<title>STA 101 - Summer 24 - Inference for two proportions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="STA 101 - Summer 24 - Confidence intervals with bootstrapping">
+<meta property="og:title" content="STA 101 - Summer 24 - Inference for two proportions">
+<meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
 
@@ -145,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Confidence intervals with bootstrapping</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inference for two proportions</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -346,34 +347,53 @@ window.Quarto = {
   <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
   <ul class="collapse">
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   </ul></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a>
+  <li><a href="#inference-for-two-proportions" id="toc-inference-for-two-proportions" class="nav-link" data-scroll-target="#inference-for-two-proportions">Inference for two proportions</a>
   <ul class="collapse">
-  <li><a href="#case-study-3-airbnb-in-asheville-nc" id="toc-case-study-3-airbnb-in-asheville-nc" class="nav-link" data-scroll-target="#case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</a></li>
-  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a></li>
-  <li><a href="#catching-a-fish" id="toc-catching-a-fish" class="nav-link" data-scroll-target="#catching-a-fish">Catching a fish</a></li>
-  <li><a href="#constructing-confidence-intervals" id="toc-constructing-confidence-intervals" class="nav-link" data-scroll-target="#constructing-confidence-intervals">Constructing confidence intervals</a></li>
-  <li><a href="#bootstrapping-what" id="toc-bootstrapping-what" class="nav-link" data-scroll-target="#bootstrapping-what">Bootstrapping, what?</a></li>
-  <li><a href="#bootstrapping-how" id="toc-bootstrapping-how" class="nav-link" data-scroll-target="#bootstrapping-how">Bootstrapping, how?</a></li>
-  <li><a href="#bootstrapping-airbnb-rentals" id="toc-bootstrapping-airbnb-rentals" class="nav-link" data-scroll-target="#bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</a></li>
-  <li><a href="#the-bootstrap-distribution" id="toc-the-bootstrap-distribution" class="nav-link" data-scroll-target="#the-bootstrap-distribution">The bootstrap distribution</a></li>
-  <li><a href="#visualzing-the-bootstrap-distribution" id="toc-visualzing-the-bootstrap-distribution" class="nav-link" data-scroll-target="#visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</a></li>
-  <li><a href="#calculating-the-bootstrap-distribution" id="toc-calculating-the-bootstrap-distribution" class="nav-link" data-scroll-target="#calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further" id="toc-leveraging-tidymodels-tools-further" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-1" id="toc-leveraging-tidymodels-tools-further-1" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-2" id="toc-leveraging-tidymodels-tools-further-2" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</a></li>
+  <li><a href="#nc-poll-on-equality" id="toc-nc-poll-on-equality" class="nav-link" data-scroll-target="#nc-poll-on-equality">NC poll on equality</a></li>
+  <li><a href="#sta-101-vs.-nc" id="toc-sta-101-vs.-nc" class="nav-link" data-scroll-target="#sta-101-vs.-nc">STA 101 vs.&nbsp;NC</a></li>
+  </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link" data-scroll-target="#hypotheses">Hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  </ul></li>
+  <li><a href="#sample-statistics" id="toc-sample-statistics" class="nav-link" data-scroll-target="#sample-statistics">Sample statistics</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  </ul></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
+  <ul class="collapse">
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a>
+  <ul class="collapse">
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
+  <li><a href="#exercise-12" id="toc-exercise-12" class="nav-link" data-scroll-target="#exercise-12">Exercise 12</a></li>
+  <li><a href="#exercise-13" id="toc-exercise-13" class="nav-link" data-scroll-target="#exercise-13">Exercise 13</a></li>
+  </ul></li>
+  <li><a href="#conceptual" id="toc-conceptual" class="nav-link" data-scroll-target="#conceptual">Conceptual</a>
+  <ul class="collapse">
+  <li><a href="#exercise-14" id="toc-exercise-14" class="nav-link" data-scroll-target="#exercise-14">Exercise 14</a></li>
+  <li><a href="#exercise-15" id="toc-exercise-15" class="nav-link" data-scroll-target="#exercise-15">Exercise 15</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/16/16-inference-two-proportions-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Confidence intervals with bootstrapping</h1>
+<h1 class="title">Inference for two proportions</h1>
 </div>
 
 
@@ -395,265 +415,283 @@ window.Quarto = {
 <section id="announcements" class="level2">
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li>Exam:
-<ul>
-<li>In class: Fri, June 7th (1 sheet of notes allowed)</li>
-<li>Take home due Sun, June 9th</li>
-</ul></li>
+<li>Peer review due Sunday at 11:59 pm</li>
+<li>If you have not emailed your reviewe yet, do so (and cc me)!</li>
 </ul>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ purrr::%||%()   masks base::%||%()
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
-✔ broom        1.0.5          ✔ rsample      1.2.0     
-✔ dials        1.2.0          ✔ tune         1.1.2     
-✔ infer        1.0.5.9000     ✔ workflows    1.1.3     
-✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     
-✔ parsnip      1.1.1          ✔ yardstick    1.2.0     
-✔ recipes      1.0.8          
-── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-✖ purrr::%||%()     masks base::%||%()
-✖ scales::discard() masks purrr::discard()
-✖ dplyr::filter()   masks stats::filter()
-✖ recipes::fixed()  masks stringr::fixed()
-✖ dplyr::lag()      masks stats::lag()
-✖ yardstick::spec() masks readr::spec()
-✖ recipes::step()   masks stats::step()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: airports
-Loading required package: cherryblossom
-Loading required package: usdata
-
-Attaching package: 'openintro'
-
-The following object is masked from 'package:modeldata':
-
-    ames</code></pre>
-</div>
-</div>
 </section>
-</section>
-<section id="confidence-intervals" class="level1">
-<h1>Confidence intervals</h1>
-<section id="case-study-3-airbnb-in-asheville-nc" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</h2>
-<p>We have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>abb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"asheville.csv"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 50
-Columns: 1
-$ ppg &lt;dbl&gt; 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…</code></pre>
-</div>
-</div>
-</section>
-<section id="terminology" class="level2">
-<h2 class="anchored" data-anchor-id="terminology">Terminology</h2>
+<section id="inference-for-two-proportions" class="level1">
+<h1>Inference for two proportions</h1>
+<section id="nc-poll-on-equality" class="level2">
+<h2 class="anchored" data-anchor-id="nc-poll-on-equality">NC poll on equality</h2>
+<p>A September 16-19, 2023, asked North Carolina voters, among other issues, about issues of equality and women’s progress. Specifically, one of the questions asked:</p>
+<blockquote class="blockquote">
+<p>Which of these two statements come closest to your own views—even if neither is exactly right?</p>
 <ul>
-<li><p><strong>Population parameter</strong> - What we are interested in. Statistical measure that describes an entire population.</p></li>
-<li><p><strong>Sample statistic (point estimate)</strong> - describes a sample. A piece of information you get from a fraction of the population.</p></li>
+<li><p>The country has made most of the changes needed to give women equal rights with men.</p></li>
+<li><p>The country needs to continue to make changes to give women equal rights to men.</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>abb <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ppg.mean =</span> <span class="fu">mean</span>(ppg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  ppg.mean
-     &lt;dbl&gt;
-1     76.6</code></pre>
-</div>
-</div>
+</blockquote>
 </section>
-<section id="catching-a-fish" class="level2">
-<h2 class="anchored" data-anchor-id="catching-a-fish">Catching a fish</h2>
+<section id="sta-101-vs.-nc" class="level2">
+<h2 class="anchored" data-anchor-id="sta-101-vs.-nc">STA 101 vs.&nbsp;NC</h2>
 <div class="task">
-<p>Suppose you’re fishing in a murky lake. Are you more likely to catch a fish using a spear or a net?</p>
-</div>
-<ul>
-<li>Spear <span class="math inline">\(\rightarrow\)</span> point estimate</li>
-<li>Net <span class="math inline">\(\rightarrow\)</span> interval estimate</li>
-</ul>
-</section>
-<section id="constructing-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="constructing-confidence-intervals">Constructing confidence intervals</h2>
-<p>Quantifying the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest:</p>
-<ul>
-<li><p>Via simulation <span class="math inline">\(\rightarrow\)</span> using bootstrapping – using a statistical procedure that re samples a single data set to create many simulated samples.</p></li>
-<li><p>Via mathematical formulas <span class="math inline">\(\rightarrow\)</span> using the Central Limit Theorem</p></li>
-</ul>
-</section>
-<section id="bootstrapping-what" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-what">Bootstrapping, what?</h2>
-<ul>
-<li><p>The term bootstrapping comes from the phrase “pulling oneself up by one’s bootstraps”, which is a metaphor for accomplishing an impossible task without any outside help.</p></li>
-<li><p>Impossible task: estimating a population parameter using data from only the given sample.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note: This notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping.</p>
-</div>
+<p>How do you think the distribution of responses from this class would compare to the NC polling results?</p>
+<p>a. Similar distribution of answers between the two polls.</p>
+<p>b. Higher percentage of “The country has made most of the changes needed to give women equal rights with men” in STA 101 compared to NC poll.</p>
+<p>c. Lower percentage of “The country has made most of the changes needed to give women equal rights with men” in STA 101 compared to NC poll.</p>
 </div>
 </section>
-<section id="bootstrapping-how" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-how">Bootstrapping, how?</h2>
-<ul>
-<li>Resample with replacement from our data <span class="math inline">\(n\)</span> times, where <span class="math inline">\(n\)</span> is the sample size</li>
-<li>Calculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value</li>
-<li>Do this entire process many many times to build the <strong>bootstrap distribution</strong></li>
-</ul>
 </section>
-<section id="bootstrapping-airbnb-rentals" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</h2>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>We’ll use the <strong>tidyverse</strong> and <strong>tidymodels</strong> packages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">25</span>) </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-bootstrap-distribution">The bootstrap distribution</h2>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>A September 16-19, 2023, asked North Carolina voters, among other issues, about issues of equality and women’s progress. Specifically, one of the questions asked:</p>
+<blockquote class="blockquote">
+<p>Which of these two statements come closest to your own views—even if neither is exactly right?</p>
+<ul>
+<li><p>The country has made most of the changes needed to give women equal rights with men.</p></li>
+<li><p>The country needs to continue to make changes to give women equal rights to men.</p></li>
+</ul>
+</blockquote>
+<p>The data from this survey can be found in your <code>data</code> folder: <code>equality.csv</code>.</p>
+</section>
+<section id="hypotheses" class="level1">
+<h1>Hypotheses</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>The two populations of interest in this survey are 18-24 year olds and 25+ year olds. State the hypotheses for evaluating whether there is a discernible difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men.” (<code>need more changes</code>) in the two age groups.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_0\)</span>: There is no difference in how the two groups think about “The country needs to continue to make changes to give women equal rights to men.”</p>
+<p>Let <span class="math inline">\(p\)</span> true population proportion of those who think more changes need to be made.</p>
+<p><span class="math inline">\(H_0: p_{18-24} = p_{25+}\)</span></p>
+<p><span class="math inline">\(H_A: p_{18-24} \neq p_{25+}\)</span></p>
+</blockquote>
+</section>
+</section>
+<section id="sample-statistics" class="level1">
+<h1>Sample statistics</h1>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Load the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(boot_dist_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>equality <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"equality.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Create a 2x2 table of the responses across the two age groups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>equality_table <span class="ot">&lt;-</span> equality <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(age, response) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"response"</span>, <span class="at">values_from =</span> <span class="st">"n"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>equality_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 100
-Columns: 2
-$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
-$ stat      &lt;dbl&gt; 73.11500, 78.78333, 80.19333, 83.42000, 70.15000, 73.03667, …</code></pre>
+<pre><code># A tibble: 2 × 3
+  age   `Most changes done` `Need more changes`
+  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt;
+1 18-24                  32                  35
+2 25+                   211                 450</code></pre>
 </div>
 </div>
 </section>
-<section id="visualzing-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</h2>
-<div class="task">
-<p>What do you expect the center of the bootstrap distribution to be? Why? Check your guess by visualizing the distribution.</p>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>What proportion of 18-24 year olds think “The country needs to continue to make changes to give women equal rights to men”? What proportion of 25+ year olds? Calculate and visualize these proportions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>equality_table <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">phat =</span> <span class="fu">round</span>(<span class="st">`</span><span class="at">Need more changes</span><span class="st">`</span> <span class="sc">/</span>(<span class="st">`</span><span class="at">Most changes done</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">Need more changes</span><span class="st">`</span>),<span class="dv">3</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  age   `Most changes done` `Need more changes`  phat
+  &lt;chr&gt;               &lt;int&gt;               &lt;int&gt; &lt;dbl&gt;
+1 18-24                  32                  35 0.522
+2 25+                   211                 450 0.681</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(boot_dist_abb, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(equality, <span class="fu">aes</span>(<span class="at">y =</span> age, <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/boot-dist-abb-plot-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="16-inference-two-proportions-filled-in_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="calculating-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</h2>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Calculate the observed sample statistic, i.e., the difference between the proportions of respondents who think “The country needs to continue to make changes to give women equal rights to men” between the two age groups.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>obs_stat <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  equality <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> response, <span class="at">explanatory =</span> age, <span class="at">success =</span> <span class="st">"Need more changes"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"18-24"</span>, <span class="st">"25+"</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>obs_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  lower upper
-  &lt;dbl&gt; &lt;dbl&gt;
-1  64.7  89.6</code></pre>
-</div>
-</div>
-</section>
-<section id="interpretation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpretation">Interpretation</h2>
-<div class="task">
-<p>Which of the following is the correct interpretation of the bootstrap interval?</p>
-</div>
-<ol type="a">
-<li><p>There is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>There is a 95% probability the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the true mean price per night for Airbnbs in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-</ol>
-</section>
-<section id="leveraging-tidymodels-tools-further" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</h2>
-<p>Calculating the observed sample statistic:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>obs_stat_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)  </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>obs_stat_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Response: ppg (numeric)
+<pre><code>Response: response (factor)
+Explanatory: age (factor)
 # A tibble: 1 × 1
-   stat
-  &lt;dbl&gt;
-1  76.6</code></pre>
+    stat
+   &lt;dbl&gt;
+1 -0.158</code></pre>
 </div>
 </div>
 </section>
-<section id="leveraging-tidymodels-tools-further-1" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</h2>
-<p>Calculating the interval:</p>
+</section>
+<section id="testing" class="level1">
+<h1>Testing</h1>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>What is the parameter of interest?</p>
+<blockquote class="blockquote">
+<p>Difference between the proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between 18-24 and 25+ year old NC voters.</p>
+</blockquote>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Explain how you can set up a simulation for this hypothesis test.</p>
+<blockquote class="blockquote">
+<p>Refer to <a href="https://openintro-ims2.netlify.app/foundations-randomization">Chapter 11</a>. Take 485 (35 + 450) white cards and 243 (32 + 211) red cards. Shuffle them. Deal 67 cards into one pile and 661 cards into the second pile. Calculate the proportion of white cards in the first pile minus the proportion of the white cards in the second pile. Repeat many times.</p>
+</blockquote>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Conduct the hypothesis test using randomization and visualize and report the p-value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ci_95_abb <span class="ot">&lt;-</span> boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">point_estimate =</span> obs_stat_abb, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">level =</span> <span class="fl">0.95</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ci_95_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> equality <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> response, <span class="at">explanatory =</span> age, <span class="at">success =</span> <span class="st">"Need more changes"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"18-24"</span>, <span class="st">"25+"</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> obs_stat, <span class="at">direction =</span> <span class="st">"two sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  p_value
+    &lt;dbl&gt;
+1   0.012</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> obs_stat, <span class="at">direction =</span> <span class="st">"two sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-inference-two-proportions-filled-in_files/figure-html/null-dist-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>What is the conclusion of the hypothesis test?</p>
+<blockquote class="blockquote">
+<p>With the p-value of 0.012, which is smaller than 0.05 discernability level, we reject the null hypothesis.</p>
+<p>The data provides evidence that there is a difference between the proportion of those who think “The country needs to continue to make changes” in the 18-24 and 25+ groups.</p>
+</blockquote>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Interpret the p-value in the context of the data and the hypotheses.</p>
+<blockquote class="blockquote">
+<p>The probability of observing a difference in sample proportions of those who think “The country needs to continue to make changes to give women equal rights to men” between a sample of 67 18-24 year olds and 661 25+ year olds of 0.158 or more (in either direction) is 0.012 if in fact the two population proportions are equal.</p>
+</blockquote>
+</section>
+</section>
+<section id="estimation" class="level1">
+<h1>Estimation</h1>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
+<p>Estimate the difference in population proportions of 18-24 year old NC voters and 25+ year old NC voters using a 95% bootstrap interval.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> equality <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> response, <span class="at">explanatory =</span> age, <span class="at">success =</span> <span class="st">"Need more changes"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"18-24"</span>, <span class="st">"25+"</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> boot_dist <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_ci</span>()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1     64.7     89.6</code></pre>
+1   -0.288  -0.0279</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  `quantile(stat, 0.025)` `quantile(stat, 0.975)`
+                    &lt;dbl&gt;                   &lt;dbl&gt;
+1                  -0.288                 -0.0279</code></pre>
 </div>
-</section>
-<section id="leveraging-tidymodels-tools-further-2" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</h2>
-<p>Visualizing the interval:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist_abb) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(ci_95_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualise</span>(boot_dist) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_ci</span>(ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/ci-95-abb-viz-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="16-inference-two-proportions-filled-in_files/figure-html/bootstrap-ci-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="exercise-12" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
+<p>Interpret the confidence interval in context of the data.</p>
+<blockquote class="blockquote">
+<p>We are 95% confident that the proportion of 18-24 year old NC voters who think “The country needs to continue to make changes to give women equal rights to men” is 28.8% to 2.9% lower than 25+ year old NC voters who share this opinion.</p>
+</blockquote>
+</section>
+<section id="exercise-13" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
+<p>Describe how the simulation scheme for bootstrapping is different than that for the hypothesis test.</p>
+<blockquote class="blockquote">
+<p>For bootstrap, we sample with replacement from our sample under the assumption that our sample is representative of population.</p>
+<p>For hypothesis test, we sample under the assumption that the null is true.</p>
+</blockquote>
+</section>
+</section>
+<section id="conceptual" class="level1">
+<h1>Conceptual</h1>
+<section id="exercise-14" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-14">Exercise 14</h2>
+<p>What is <span class="math inline">\(p\)</span> vs.&nbsp;<span class="math inline">\(\hat{p}\)</span> vs.&nbsp;p-value. Explain generically as well as in the context of these data and research question.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(p\)</span> - population proportion</p>
+<p><span class="math inline">\(\hat p\)</span> - sample proportion</p>
+<p><span class="math inline">\(p\)</span>-value - probability of observing our observed sample statistic or something more extreme if null is true.</p>
+</blockquote>
+</section>
+<section id="exercise-15" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-15">Exercise 15</h2>
+<p>What is sampling distribution vs.&nbsp;bootstrap distribution vs.&nbsp;null distribution? Explain generically as well as in the context of these data and research question.</p>
+<blockquote class="blockquote">
+<p>Suppose we have a sample of size <span class="math inline">\(n\)</span>.</p>
+<p>Sampling distribution: if we were to collect many samples of size <span class="math inline">\(n\)</span> from the population and calculate sample statistic for each, how would they be distributed?</p>
+<p>Bootstrap distribution: “collect” a sample of size <span class="math inline">\(n\)</span> by performing sampling with replacement from our sample. Calculate sample statistic on each sample and look at how they are distributed.</p>
+<p>Null distribution: assume null is true. Then, we have a “population” to sample from. Generate a sample of size <span class="math inline">\(n\)</span> under the null assumption and calculate sample statistic for each, how would they be distributed?</p>
+</blockquote>
 
 
 </section>
@@ -1221,7 +1259,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/16/16-inference-two-proportions-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
