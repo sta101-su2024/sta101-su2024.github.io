@@ -2,12 +2,13 @@
 title: "Inference for two proportions"
 editor: visual
 ---
+
 # Warm up
 
 ## Announcements
 
--  Peer review due Sunday at 11:59 pm
--  If you have not emailed your reviewe yet, do so (and cc me)!
+-   Peer review due Sunday at 11:59 pm
+-   If you have not emailed your reviewer yet, do so (and cc me)!
 
 # Inference for two proportions
 
@@ -24,7 +25,6 @@ A September 16-19, 2023, asked North Carolina voters, among other issues, about 
 ## STA 101 vs. NC
 
 ::: task
-
 How do you think the distribution of responses from this class would compare to the NC polling results?
 
 a\. Similar distribution of answers between the two polls.
@@ -33,8 +33,6 @@ b\. Higher percentage of "The country has made most of the changes needed to giv
 
 c\. Lower percentage of "The country has made most of the changes needed to give women equal rights with men" in STA 101 compared to NC poll.
 :::
-
-
 
 # Packages
 
@@ -183,6 +181,5 @@ What is $p$ vs. $\hat{p}$ vs. p-value. Explain generically as well as in the con
 ## Exercise 15
 
 What is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.
-
 
 *Add response here.*
