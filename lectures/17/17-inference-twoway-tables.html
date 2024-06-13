@@ -416,9 +416,19 @@ window.Quarto = {
 <li>Single proportion: 1 categorical variable with 2 levels (“success” vs “failure”).</li>
 <li>Difference in proportions: 2 categorical variables with 2 levels each (“success” vs “failure” and group 1 vs group 2).</li>
 </ul>
-<div class="task">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Suppose we have a categorical variable with 3 response levels. How do we define “success”?</p>
 <p>What is a difference in proportions in this setting?</p>
+</div>
 </div>
 <p>In such setting, a difference across two groups is not sufficient, and the proportion of “success” is not well defined if there are 3 or 4 or more possible response levels. The primary way to summarize categorical data where the explanatory and response variables both have 2 or more levels is through a two-way table.</p>
 <p>Note that with two-way tables, there is not an obvious single parameter of interest. Instead, research questions usually focus on how the proportions of the response variable changes (or not) across the different levels of the explanatory variable.</p>
@@ -497,8 +507,18 @@ window.Quarto = {
 <h1>Expected counts in two way tables</h1>
 <p>While we would not expect the number of votes for each issue to be exactly the same across the parties, the proportion of responses seems substantially different across the three groups. In order to investigate whether the differences in rates is due to natural variability in people’s interest in issues or due to a treatment effect (i.e., party affiliation), we need to compute estimated counts for each cell in a two-way table.</p>
 <p>From the data, we can compute the proportion of all survey participants who chose <code>Economy</code> as their number 1 issue to be 325/801 = 0.4057.</p>
-<div class="task">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If there is really no difference among the parties and 40.57% of voters were going to choose economy as the number 1 issue to discuss, how many of the 286 people in the <code>Democrat</code> group would we have expected to choose economy as the number 1 issue?</p>
+</div>
 </div>
 <p>We would repeat this calculation for each party and for each issue.</p>
 <p>In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 40.57% of each row should be in the <code>Economy</code>.</p>
