@@ -129,9 +129,9 @@ You will only be working with one of the data sets for your project. I ask you t
 
 There are three reasons behind this project check-in:
 
--    To ensure you have incorporated suggestions given to you during project proposal stage.
+-   To ensure you have incorporated suggestions given to you during project proposal stage.
 
--    To get a head-start on the project and receive advice on how to improve before final submission.
+-   To get a head-start on the project and receive advice on how to improve before final submission.
 
 -   To prepare an introduction file for a peer review.
 
@@ -153,9 +153,9 @@ Example research question and hypotheses (if we were predicting penguin weights 
 
 Include any preliminary summary statistics or figures you use to explore the data. Present plots and tables that give a clear idea of the main variables of interest in your data set. If you have many variables, focus on the ones that are most relevant to your research question. Tables and figures should be well formatted with clear labels and descriptions (axes should be labeled with units, and variable names should not be used (e.g., “Height (in)” not “ht_in”). You should organize this section as follows:
 
--    Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables).
+-   Primary relationship of interest: Present descriptive statistics or exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (outcome variable and primary independent variable). Describe your findings (no more than 3 plots/tables).
 
--    Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables.
+-   Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”). You do not need to provide plots for these variables.
 
 -   Describe which variable(s) in your data set have missing data, if any.
 
@@ -190,7 +190,7 @@ Only introduction and EDA sections will likely be completed. Your review should 
 
 # Report (50 pts) {#project-report}
 
-Your report must be written using Quarto. Your written report should not exceed six pages inclusive of all tables and figures.
+Your report must be written using Quarto. Your written report should not exceed six pages inclusive of all tables and figures. If you have additional tables you would like to provide (ex. data dictionary table), you can include it in the appendix. However, your report should be clear and easy to understand even without looking at the appendix. If you choose to include a data dictionary table in the appendix, make sure you describe the variables you are using in the main text too.
 
 Before you finalize your report, make sure the printing of code chunks is turned off by setting `echo` to `false` in your document YAML.
 
@@ -200,9 +200,9 @@ You should include, at a minimum, the following sections in your report.
 
 ### Introduction (10 pts)
 
-The introduction provides motivation and context for your research.
+The introduction provides motivation and context for your research. Write 1-2 paragraphs of background information to motivate your research question. Your writing should answer the question: “Why is this work important? What might the broader implications be?” You must cite at least two additional references to adequately support your motivation.
 
-To begin, introduce the data set in a few short sentences. Next, create a code book (aka a "data dictionary") of the variables in the data set. Although a code book is provided above, you should include one in your report as well so that your report is self-contained. Specifically, only include in your report a code book of the variables that you use.
+Then introduce the data set in a few short sentences. What is the source of the data, how were the data collected, and what general information is contained in the data set? How many observations and variables do you have? Next, create a code book (aka a "data dictionary") of the variables in the data set. Specifically, only include in your report a code book of the variables that you use.
 
 Complete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.
 
@@ -212,7 +212,7 @@ Example research question and hypotheses (if we were predicting penguin weights 
 
 ### Methodology (15 pts)
 
-Here you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. You might also include any preliminary summary statistics or figures you use to explore the data.
+Here you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. This is where you might want to include any preliminary summary statistics or figures you use to explore the data. Your EDA should be supporting your choice of statistical methods (ex. if you don't observe linear trend, you should not be fitting a linear model).
 
 ### Results (15 pts)
 
@@ -248,7 +248,7 @@ Your presentation must be no longer than 15 minutes (aim for around 10-12 minute
 
 For your presentation, you must create presentation slides that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality.
 
-Here is a suggested outline as you think through the slides; you do not have to use this exact format for the slide deck.
+Here is a **suggested** outline as you think through the slides; you do not have to use this exact format for the slide deck.
 
 -   Title Slide
 
