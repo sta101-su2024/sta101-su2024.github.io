@@ -9,6 +9,7 @@ editor: visual
 
 -   Peer review due Sunday at 11:59 pm
 -   Monday lab: I will talk to each of you individually for about 15 minutes about the project.
+-   Make sure to read chapters 16 and 17 in the text book (specifically mathematical model section)
 
 # Inference for two-way tables
 
