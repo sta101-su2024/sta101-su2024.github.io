@@ -108,7 +108,8 @@ candidate_talk_table <- candidate_talk |>
 candidate_talk_table|>
   bind_rows(summarise(candidate_talk_table,
                       across(where(is.numeric), sum),
-                      across(where(is.factor), ~"Total")))
+                      across(where(is.factor), ~"Total")))|>
+  knitr::kable(digits = 3)
 
 
 ```
