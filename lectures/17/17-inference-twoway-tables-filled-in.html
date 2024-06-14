@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Confidence intervals with bootstrapping</title>
+<title>STA 101 - Summer 24 - Inference for two-way tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="STA 101 - Summer 24 - Confidence intervals with bootstrapping">
+<meta property="og:title" content="STA 101 - Summer 24 - Inference for two-way tables">
+<meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
 
@@ -145,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Confidence intervals with bootstrapping</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inference for two-way tables</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -346,34 +347,41 @@ window.Quarto = {
   <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
   <ul class="collapse">
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   </ul></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a>
+  <li><a href="#inference-for-two-way-tables" id="toc-inference-for-two-way-tables" class="nav-link" data-scroll-target="#inference-for-two-way-tables">Inference for two-way tables</a>
   <ul class="collapse">
-  <li><a href="#case-study-3-airbnb-in-asheville-nc" id="toc-case-study-3-airbnb-in-asheville-nc" class="nav-link" data-scroll-target="#case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</a></li>
-  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a></li>
-  <li><a href="#catching-a-fish" id="toc-catching-a-fish" class="nav-link" data-scroll-target="#catching-a-fish">Catching a fish</a></li>
-  <li><a href="#constructing-confidence-intervals" id="toc-constructing-confidence-intervals" class="nav-link" data-scroll-target="#constructing-confidence-intervals">Constructing confidence intervals</a></li>
-  <li><a href="#bootstrapping-what" id="toc-bootstrapping-what" class="nav-link" data-scroll-target="#bootstrapping-what">Bootstrapping, what?</a></li>
-  <li><a href="#bootstrapping-how" id="toc-bootstrapping-how" class="nav-link" data-scroll-target="#bootstrapping-how">Bootstrapping, how?</a></li>
-  <li><a href="#bootstrapping-airbnb-rentals" id="toc-bootstrapping-airbnb-rentals" class="nav-link" data-scroll-target="#bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</a></li>
-  <li><a href="#the-bootstrap-distribution" id="toc-the-bootstrap-distribution" class="nav-link" data-scroll-target="#the-bootstrap-distribution">The bootstrap distribution</a></li>
-  <li><a href="#visualzing-the-bootstrap-distribution" id="toc-visualzing-the-bootstrap-distribution" class="nav-link" data-scroll-target="#visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</a></li>
-  <li><a href="#calculating-the-bootstrap-distribution" id="toc-calculating-the-bootstrap-distribution" class="nav-link" data-scroll-target="#calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further" id="toc-leveraging-tidymodels-tools-further" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-1" id="toc-leveraging-tidymodels-tools-further-1" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</a></li>
-  <li><a href="#leveraging-tidymodels-tools-further-2" id="toc-leveraging-tidymodels-tools-further-2" class="nav-link" data-scroll-target="#leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</a></li>
+  <li><a href="#so-far" id="toc-so-far" class="nav-link" data-scroll-target="#so-far">So far:</a></li>
   </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  </ul></li>
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link" data-scroll-target="#hypotheses">Hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  </ul></li>
+  <li><a href="#expected-counts-in-two-way-tables" id="toc-expected-counts-in-two-way-tables" class="nav-link" data-scroll-target="#expected-counts-in-two-way-tables">Expected counts in two way tables</a></li>
+  <li><a href="#the-observed-chi-squared-statistic" id="toc-the-observed-chi-squared-statistic" class="nav-link" data-scroll-target="#the-observed-chi-squared-statistic">The observed chi-squared statistic</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
+  <ul class="collapse">
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  </ul></li>
+  <li><a href="#mathematical-model" id="toc-mathematical-model" class="nav-link" data-scroll-target="#mathematical-model">Mathematical model</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/17/17-inference-twoway-tables-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Confidence intervals with bootstrapping</h1>
+<h1 class="title">Inference for two-way tables</h1>
 </div>
 
 
@@ -395,268 +403,268 @@ window.Quarto = {
 <section id="announcements" class="level2">
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li>Exam:
-<ul>
-<li>In class: Fri, June 7th (1 sheet of notes allowed)</li>
-<li>Take home due Sun, June 9th</li>
-</ul></li>
+<li>Peer review due Sunday at 11:59 pm</li>
+<li>Monday lab: I will talk to each of you individually for about 15 minutes about the project.</li>
 </ul>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ purrr::%||%()   masks base::%||%()
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
-✔ broom        1.0.5          ✔ rsample      1.2.0     
-✔ dials        1.2.0          ✔ tune         1.1.2     
-✔ infer        1.0.5.9000     ✔ workflows    1.1.3     
-✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     
-✔ parsnip      1.1.1          ✔ yardstick    1.2.0     
-✔ recipes      1.0.8          
-── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-✖ purrr::%||%()     masks base::%||%()
-✖ scales::discard() masks purrr::discard()
-✖ dplyr::filter()   masks stats::filter()
-✖ recipes::fixed()  masks stringr::fixed()
-✖ dplyr::lag()      masks stats::lag()
-✖ yardstick::spec() masks readr::spec()
-✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: airports
-Loading required package: cherryblossom
-Loading required package: usdata
-
-Attaching package: 'openintro'
-
-The following object is masked from 'package:modeldata':
-
-    ames</code></pre>
-</div>
-</div>
 </section>
-</section>
-<section id="confidence-intervals" class="level1">
-<h1>Confidence intervals</h1>
-<section id="case-study-3-airbnb-in-asheville-nc" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-3-airbnb-in-asheville-nc">Case study 3: Airbnb in Asheville, NC</h2>
-<p>We have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>abb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"asheville.csv"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 50
-Columns: 1
-$ ppg &lt;dbl&gt; 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…</code></pre>
-</div>
-</div>
-</section>
-<section id="terminology" class="level2">
-<h2 class="anchored" data-anchor-id="terminology">Terminology</h2>
+<section id="inference-for-two-way-tables" class="level1">
+<h1>Inference for two-way tables</h1>
+<section id="so-far" class="level2">
+<h2 class="anchored" data-anchor-id="so-far">So far:</h2>
 <ul>
-<li><p><strong>Population parameter</strong> - What we are interested in. Statistical measure that describes an entire population.</p></li>
-<li><p><strong>Sample statistic (point estimate)</strong> - describes a sample. A piece of information you get from a fraction of the population.</p></li>
+<li>Single proportion: 1 categorical variable with 2 levels (“success” vs “failure”).</li>
+<li>Difference in proportions: 2 categorical variables with 2 levels each (“success” vs “failure” and group 1 vs group 2).</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>abb <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ppg.mean =</span> <span class="fu">mean</span>(ppg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  ppg.mean
-     &lt;dbl&gt;
-1     76.6</code></pre>
-</div>
-</div>
-</section>
-<section id="catching-a-fish" class="level2">
-<h2 class="anchored" data-anchor-id="catching-a-fish">Catching a fish</h2>
 <div class="task">
-<p>Suppose you’re fishing in a murky lake. Are you more likely to catch a fish using a spear or a net?</p>
+<p>Suppose we have a categorical variable with 3 response levels. How do we define “success”?</p>
+<p>What is a difference in proportions in this setting?</p>
 </div>
-<ul>
-<li>Spear <span class="math inline">\(\rightarrow\)</span> point estimate</li>
-<li>Net <span class="math inline">\(\rightarrow\)</span> interval estimate</li>
-</ul>
+<p>In such setting, a difference across two groups is not sufficient, and the proportion of “success” is not well defined if there are 3 or 4 or more possible response levels. The primary way to summarize categorical data where the explanatory and response variables both have 2 or more levels is through a two-way table.</p>
+<p>Note that with two-way tables, there is not an obvious single parameter of interest. Instead, research questions usually focus on how the proportions of the response variable changes (or not) across the different levels of the explanatory variable.</p>
 </section>
-<section id="constructing-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="constructing-confidence-intervals">Constructing confidence intervals</h2>
-<p>Quantifying the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest:</p>
-<ul>
-<li><p>Via simulation <span class="math inline">\(\rightarrow\)</span> using bootstrapping – using a statistical procedure that re samples a single data set to create many simulated samples.</p></li>
-<li><p>Via mathematical formulas <span class="math inline">\(\rightarrow\)</span> using the Central Limit Theorem</p></li>
-</ul>
 </section>
-<section id="bootstrapping-what" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-what">Bootstrapping, what?</h2>
-<ul>
-<li><p>The term bootstrapping comes from the phrase “pulling oneself up by one’s bootstraps”, which is a metaphor for accomplishing an impossible task without any outside help.</p></li>
-<li><p>Impossible task: estimating a population parameter using data from only the given sample.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note: This notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping.</p>
-</div>
-</div>
-</section>
-<section id="bootstrapping-how" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-how">Bootstrapping, how?</h2>
-<ul>
-<li>Resample with replacement from our data <span class="math inline">\(n\)</span> times, where <span class="math inline">\(n\)</span> is the sample size</li>
-<li>Calculate the sample statistic of interest of the new, resampled (bootstrapped) sample and record the value</li>
-<li>Do this entire process many many times to build the <strong>bootstrap distribution</strong></li>
-</ul>
-</section>
-<section id="bootstrapping-airbnb-rentals" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrapping-airbnb-rentals">Bootstrapping Airbnb rentals</h2>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>We’ll use the <strong>tidyverse</strong> and <strong>tidymodels</strong> packages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">25</span>) </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-bootstrap-distribution">The bootstrap distribution</h2>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>A September 16-19, 2023, asked North Carolina voters, among other issues, about issues of equality and women’s progress. Specifically, one of the questions asked:</p>
+<blockquote class="blockquote">
+<p>If you had to choose just one issue that you would like candidates to talk more about in the 2024 campaigns, what would that issue be?</p>
+<ul>
+<li><p>Economy</p></li>
+<li><p>Abortion/Reproductive rights</p></li>
+<li><p>Immigration</p></li>
+<li><p>Crime</p></li>
+<li><p>Gun rights/restrictions</p></li>
+<li><p>Something else</p></li>
+<li><p>Don’t know</p></li>
+</ul>
+</blockquote>
+<p>The survey also asked respondents’ party affiliation:</p>
+<blockquote class="blockquote">
+<p>What political party do you most identify with?</p>
+<ul>
+<li><p>Democrat</p></li>
+<li><p>Republican</p></li>
+<li><p>Unaffiliated</p></li>
+<li><p>Other</p></li>
+</ul>
+</blockquote>
+<p>The results of this survey are summarized <a href="https://www.meredith.edu/meredith-poll/n-c-voter-opinions-on-abortion-law-women-leaders-and-other-current-issues/">in this report</a> and the data is called <code>candidate-talk.csv</code>.</p>
+</section>
+<section id="data-1" class="level1">
+<h1>Data</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Load the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(boot_dist_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>candidate_talk <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"candidate-talk.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Create a two-way table of the issues across parties and visualize the frequency distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>candidate_talk <span class="ot">&lt;-</span> candidate_talk <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">party =</span> <span class="fu">fct_relevel</span>(party, <span class="st">"Democrat"</span>, <span class="st">"Republican"</span>, <span class="st">"Unaffiliated"</span>, <span class="st">"Other"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">issue =</span> <span class="fu">fct_relevel</span>(issue, <span class="st">"Abortion/Reproductive rights"</span>, <span class="st">"Crime"</span>, <span class="st">"Economy"</span>, <span class="st">"Gun rights/restrictions"</span>, <span class="st">"Immigration"</span>, <span class="st">"Something else"</span>, <span class="st">"Don't know"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>candidate_talk_table <span class="ot">&lt;-</span> candidate_talk <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(party, issue) <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"issue"</span>, <span class="at">values_from =</span> <span class="st">"n"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total =</span> <span class="fu">count</span>(candidate_talk, party)<span class="sc">$</span>n)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>candidate_talk_table<span class="sc">|&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">summarise</span>(candidate_talk_table,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), sum),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">across</span>(<span class="fu">where</span>(is.factor), <span class="sc">~</span><span class="st">"Total"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 100
-Columns: 2
-$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
-$ stat      &lt;dbl&gt; 73.11500, 78.78333, 80.19333, 83.42000, 70.15000, 73.03667, …</code></pre>
+<pre><code># A tibble: 5 × 9
+  party  Abortion/Reproductiv…¹ Crime Economy Gun rights/restricti…² Immigration
+  &lt;chr&gt;                   &lt;int&gt; &lt;int&gt;   &lt;int&gt;                  &lt;int&gt;       &lt;int&gt;
+1 Democ…                     70    22      94                     59          10
+2 Repub…                     21    35     138                     14          76
+3 Unaff…                     20    10      79                     16          20
+4 Other                       4     4      14                      4           5
+5 Total                     115    71     325                     93         111
+# ℹ abbreviated names: ¹​`Abortion/Reproductive rights`,
+#   ²​`Gun rights/restrictions`
+# ℹ 3 more variables: `Something else` &lt;int&gt;, `Don't know` &lt;int&gt;, Total &lt;int&gt;</code></pre>
 </div>
-</div>
-</section>
-<section id="visualzing-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="visualzing-the-bootstrap-distribution">Visualzing the bootstrap distribution</h2>
-<div class="task">
-<p>What do you expect the center of the bootstrap distribution to be? Why? Check your guess by visualizing the distribution.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(boot_dist_abb, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(candidate_talk, <span class="fu">aes</span>(<span class="at">x =</span> party, <span class="at">fill =</span> issue)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_colorblind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/boot-dist-abb-plot-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="17-inference-twoway-tables-filled-in_files/figure-html/freq-plot-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="calculating-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-the-bootstrap-distribution">Calculating the bootstrap distribution</h2>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Which do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  lower upper
-  &lt;dbl&gt; &lt;dbl&gt;
-1  64.7  89.6</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(candidate_talk, <span class="fu">aes</span>(<span class="at">x =</span> party, <span class="at">fill =</span> issue)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_colorblind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="17-inference-twoway-tables-filled-in_files/figure-html/prop-plot-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>You should also be asking yourself: could we see these results due to chance alone if there really is no difference in the party affiliation, or is this in fact evidence that parties find different issues to be of interest?</p>
 </section>
-<section id="interpretation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="interpretation">Interpretation</h2>
+</section>
+<section id="hypotheses" class="level1">
+<h1>Hypotheses</h1>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>State the hypotheses for evaluating whether the issue of choice is independent of party affiliation.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_0\)</span> Issue of choice and party affiliation are independent</p>
+<p><span class="math inline">\(H_A\)</span> Issue of choice and party affiliation are not independent</p>
+</blockquote>
+</section>
+</section>
+<section id="expected-counts-in-two-way-tables" class="level1">
+<h1>Expected counts in two way tables</h1>
+<p>While we would not expect the number of votes for each issue to be exactly the same across the parties, the proportion of responses seems substantially different across the three groups. In order to investigate whether the differences in rates is due to natural variability in people’s interest in issues or due to a treatment effect (i.e., party affiliation), we need to compute estimated counts for each cell in a two-way table.</p>
+<p>From the data, we can compute the proportion of all survey participants who chose <code>Economy</code> as their number 1 issue to be 325/801 = 0.4057.</p>
 <div class="task">
-<p>Which of the following is the correct interpretation of the bootstrap interval?</p>
+<p>If there is really no difference among the parties and 40.57% of voters were going to choose economy as the number 1 issue to discuss, how many of the 286 people in the <code>Democrat</code> group would we have expected to choose economy as the number 1 issue?</p>
 </div>
-<ol type="a">
-<li><p>There is a 95% probability the true mean price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>There is a 95% probability the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the true mean price per night for Airbnbs in Asheville is between $64.7 and $89.6.</p></li>
-<li><p>We are 95% confident the price per night for an Airbnb in Asheville is between $64.7 and $89.6.</p></li>
-</ol>
-</section>
-<section id="leveraging-tidymodels-tools-further" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further">Leveraging tidymodels tools further</h2>
-<p>Calculating the observed sample statistic:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>obs_stat_abb <span class="ot">&lt;-</span> abb <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> ppg) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)  </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>obs_stat_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">325</span><span class="sc">/</span><span class="dv">801</span> <span class="sc">*</span> <span class="dv">286</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Response: ppg (numeric)
+<pre><code>[1] 116.0424</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">325</span><span class="sc">/</span><span class="dv">801</span> <span class="sc">*</span> <span class="dv">303</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 122.9401</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">325</span><span class="sc">/</span><span class="dv">801</span> <span class="sc">*</span> <span class="dv">79</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32.05368</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">325</span><span class="sc">/</span><span class="dv">801</span> <span class="sc">*</span> <span class="dv">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.6804</code></pre>
+</div>
+</div>
+<p>We would repeat this calculation for each party and for each issue.</p>
+<p>In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 40.57% of each row should be in the <code>Economy</code>.</p>
+<p>The expected value of a cell of column issue i row party p is: <span class="math display">\[\left(\frac{\text{column i total}}{\text{table total}}\right) (\text{row p total}).\]</span></p>
+</section>
+<section id="the-observed-chi-squared-statistic" class="level1">
+<h1>The observed chi-squared statistic</h1>
+<p>The chi-squared test statistic for a two-way table is found by finding the ratio of how far the observed counts are from the expected counts, as compared to the expected counts, for every cell in the table. For each table count, compute: <span class="math display">\[\frac{(\text{observed count - expected count})^2}{\text{expected count}}.\]</span> For example, for democrat/economy cell, we would get <span class="math inline">\(\frac{(94 - 116.04)^2}{116.04} = 4.19\)</span>. Then, to find the chi-squared test statistic <span class="math inline">\(X^2\)</span>, we would add the values each cell gives us.</p>
+</section>
+<section id="testing" class="level1">
+<h1>Testing</h1>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Calculate the observed sample statistic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>obs_stat <span class="ot">&lt;-</span> candidate_talk <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> issue, <span class="at">explanatory =</span> party) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>obs_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: issue (factor)
+Explanatory: party (factor)
+Null Hypothesis: independence
 # A tibble: 1 × 1
    stat
   &lt;dbl&gt;
-1  76.6</code></pre>
+1  144.</code></pre>
 </div>
 </div>
 </section>
-<section id="leveraging-tidymodels-tools-further-1" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-1">Leveraging tidymodels tools further</h2>
-<p>Calculating the interval:</p>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Conduct the hypothesis test using randomization and visualize and report the p-value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ci_95_abb <span class="ot">&lt;-</span> boot_dist_abb <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">point_estimate =</span> obs_stat_abb, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">level =</span> <span class="fl">0.95</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ci_95_abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> candidate_talk <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> issue, <span class="at">explanatory =</span> party)<span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> obs_stat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Please be cautious in reporting a p-value of 0. This result is an approximation
+based on the number of `reps` chosen in the `generate()` step.
+ℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  lower_ci upper_ci
-     &lt;dbl&gt;    &lt;dbl&gt;
-1     64.7     89.6</code></pre>
+<pre><code># A tibble: 1 × 1
+  p_value
+    &lt;dbl&gt;
+1       0</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(null_dist<span class="sc">$</span>stat <span class="sc">&gt;=</span> obs_stat)<span class="sc">/</span><span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
 </div>
-</section>
-<section id="leveraging-tidymodels-tools-further-2" class="level2">
-<h2 class="anchored" data-anchor-id="leveraging-tidymodels-tools-further-2">Leveraging tidymodels tools further</h2>
-<p>Visualizing the interval:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist_abb) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(ci_95_abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> obs_stat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in min(diff(unique_loc)): no non-missing arguments to min; returning
+Inf</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-confidence-intervals-bootstrapping_files/figure-html/ci-95-abb-viz-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="17-inference-twoway-tables-filled-in_files/figure-html/hyp-test-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-
-
 </section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>What is the conclusion of the hypothesis test?</p>
+<p>With a p-value close to 0, which is smaller than 0.05 discernability level, we reject the null. The data provides evidence that there is a relationship between party affiliation and issues voters want candidates to discuss.</p>
+</section>
+</section>
+<section id="mathematical-model" class="level1">
+<h1>Mathematical model</h1>
+<p>Turns out, the chi-squared test statistic follows a Chi-squared distribution when the null hypothesis is true and 2 conditions are satisfied: - Independent observations; - Large samples (5 expected counts in each cell).</p>
+<p>For the two-way tables, the degrees of freedom is equal to <span class="math inline">\(df = (\text{number of rows}-1)\times(\text{number of columns}-1)\)</span>. In our example, the degrees of freedom parameter is <span class="math inline">\(df = (4-1)\times(7-1) = 18\)</span>.</p>
+<p>Let’s find the p-value using mathematical model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(obs_stat<span class="sc">|&gt;</span> <span class="fu">pull</span>(stat), <span class="at">df =</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>X-squared 
+        0 </code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1221,7 +1229,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/11/11-confidence-intervals-bootstrapping.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/17/17-inference-twoway-tables-filled-in.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
