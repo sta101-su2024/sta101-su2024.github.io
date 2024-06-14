@@ -1,0 +1,241 @@
+---
+title: "Inference for two-way tables"
+editor: visual
+---
+
+# Warm up
+
+## Announcements
+
+-   Peer review due Sunday at 11:59 pm
+-   Monday lab: I will talk to each of you individually for about 15 minutes about the project.
+
+# Inference for two-way tables
+
+## So far:
+
+-   Single proportion: 1 categorical variable with 2 levels ("success" vs "failure").
+-   Difference in proportions: 2 categorical variables with 2 levels each ("success" vs "failure" and group 1 vs group 2).
+
+::: task
+Suppose we have a categorical variable with 3 response levels. How do we define "success"?
+
+What is a difference in proportions in this setting?
+:::
+
+In such setting, a difference across two groups is not sufficient, and the proportion of "success" is not well defined if there are 3 or 4 or more possible response levels. The primary way to summarize categorical data where the explanatory and response variables both have 2 or more levels is through a two-way table.
+
+Note that with two-way tables, there is not an obvious single parameter of interest. Instead, research questions usually focus on how the proportions of the response variable changes (or not) across the different levels of the explanatory variable.
+
+# Packages
+
+We'll use the **tidyverse** and **tidymodels** packages.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(tidymodels)
+library(ggthemes)
+```
+
+# Data
+
+A September 16-19, 2023, asked North Carolina voters, among other issues, about issues of equality and women's progress. Specifically, one of the questions asked:
+
+> If you had to choose just one issue that you would like candidates to talk more about in the 2024 campaigns, what would that issue be?
+>
+> -   Economy
+>
+> -   Abortion/Reproductive rights
+>
+> -   Immigration
+>
+> -   Crime
+>
+> -   Gun rights/restrictions
+>
+> -   Something else
+>
+> -   Don't know
+
+The survey also asked respondents' party affiliation:
+
+> What political party do you most identify with?
+>
+> -   Democrat
+>
+> -   Republican
+>
+> -   Unaffiliated
+>
+> -   Other
+
+The results of this survey are summarized [in this report](https://www.meredith.edu/meredith-poll/n-c-voter-opinions-on-abortion-law-women-leaders-and-other-current-issues/) and the data is called `candidate-talk.csv`.
+
+# Data
+
+## Exercise 1
+
+Load the data.
+
+```{r}
+#| label: load-data
+#| message: false
+candidate_talk = read_csv("candidate-talk.csv")
+```
+
+## Exercise 2
+
+Create a two-way table of the issues across parties and visualize the frequency distribution.
+
+```{r}
+#| label: freq-table
+ 
+
+candidate_talk <- candidate_talk |>
+  mutate(
+    party = fct_relevel(party, "Democrat", "Republican", "Unaffiliated", "Other"),
+    issue = fct_relevel(issue, "Abortion/Reproductive rights", "Crime", "Economy", "Gun rights/restrictions", "Immigration", "Something else", "Don't know")
+  )
+
+candidate_talk_table <- candidate_talk |>
+  count(party, issue) |>
+  pivot_wider(names_from = "issue", values_from = "n") |> 
+  mutate(Total = count(candidate_talk, party)$n)
+
+candidate_talk_table|>
+  bind_rows(summarise(candidate_talk_table,
+                      across(where(is.numeric), sum),
+                      across(where(is.factor), ~"Total")))
+
+
+```
+
+```{r}
+#| label: freq-plot
+#| fig-width: 10
+#| fig-asp: 0.4
+
+ggplot(candidate_talk, aes(x = party, fill = issue)) + 
+  geom_bar() + 
+  scale_fill_colorblind()
+```
+
+## Exercise 3
+
+Which do you think should be the explanatory variable and which the response variable? Accordingly, create a visualization that shows the correct conditional probabilities.
+
+```{r}
+#| label: prop-plot
+#| fig-width: 10
+#| fig-asp: 0.4
+
+ggplot(candidate_talk, aes(x = party, fill = issue)) + 
+  geom_bar(position = "fill") + 
+  scale_fill_colorblind()
+```
+
+You should also be asking yourself: could we see these results due to chance alone if there really is no difference in the party affiliation, or is this in fact evidence that parties find different issues to be of interest?
+
+# Hypotheses
+
+## Exercise 4
+
+State the hypotheses for evaluating whether the issue of choice is independent of party affiliation.
+
+> $H_0$ Issue of choice and party affiliation are independent
+>
+> $H_A$ Issue of choice and party affiliation are not independent
+
+# Expected counts in two way tables
+
+While we would not expect the number of votes for each issue to be exactly the same across the parties, the proportion of responses seems substantially different across the three groups. In order to investigate whether the differences in rates is due to natural variability in people's interest in issues or due to a treatment effect (i.e., party affiliation), we need to compute estimated counts for each cell in a two-way table.
+
+From the data, we can compute the proportion of all survey participants who chose `Economy` as their number 1 issue to be 325/801 = 0.4057.
+
+::: task
+If there is really no difference among the parties and 40.57% of voters were going to choose economy as the number 1 issue to discuss, how many of the 286 people in the `Democrat` group would we have expected to choose economy as the number 1 issue?
+:::
+
+```{r}
+325/801 * 286
+325/801 * 303
+325/801 * 79
+325/801 * 14
+```
+
+We would repeat this calculation for each party and for each issue.
+
+In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 40.57% of each row should be in the `Economy`.
+
+The expected value of a cell of column issue i row party p is: $$\left(\frac{\text{column i total}}{\text{table total}}\right) (\text{row p total}).$$
+
+# The observed chi-squared statistic
+
+The chi-squared test statistic for a two-way table is found by finding the ratio of how far the observed counts are from the expected counts, as compared to the expected counts, for every cell in the table. For each table count, compute: $$\frac{(\text{observed count - expected count})^2}{\text{expected count}}.$$ For example, for democrat/economy cell, we would get $\frac{(94 - 116.04)^2}{116.04} = 4.19$. Then, to find the chi-squared test statistic $X^2$, we would add the values each cell gives us.
+
+# Testing
+
+## Exercise 5
+
+Calculate the observed sample statistic.
+
+```{r}
+#| label: obs-stat
+
+obs_stat <- candidate_talk |>
+  specify(response = issue, explanatory = party) |>
+  hypothesise(null = "independence")|>
+  calculate(stat = "Chisq")
+
+obs_stat
+```
+
+## Exercise 6
+
+Conduct the hypothesis test using randomization and visualize and report the p-value.
+
+```{r}
+#| label: hyp-test
+
+set.seed(1234)
+
+null_dist <- candidate_talk |>
+  specify(response = issue, explanatory = party)|>
+  hypothesise(null = "independence")|>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "Chisq")
+  
+null_dist |>
+  get_p_value(obs_stat = obs_stat, direction = "greater")
+  
+sum(null_dist$stat >= obs_stat)/1000
+
+null_dist |>
+  visualise() +
+  shade_p_value(obs_stat = obs_stat, direction = "greater")
+```
+
+## Exercise 7
+
+What is the conclusion of the hypothesis test?
+
+With a p-value close to 0, which is smaller than 0.05 discernability level, we reject the null. The data provides evidence that there is a relationship between party affiliation and issues voters want candidates to discuss.
+
+# Mathematical model
+
+Turns out, the chi-squared test statistic follows a Chi-squared distribution when the null hypothesis is true and 2 conditions are satisfied: - Independent observations; - Large samples (5 expected counts in each cell).
+
+For the two-way tables, the degrees of freedom is equal to $df = (\text{number of rows}-1)\times(\text{number of columns}-1)$. In our example, the degrees of freedom parameter is $df = (4-1)\times(7-1) = 18$.
+
+Let's find the p-value using mathematical model.
+
+```{r}
+#| label: math_model
+
+1 - pchisq(obs_stat|> pull(stat), df = 18)
+
+```
+
