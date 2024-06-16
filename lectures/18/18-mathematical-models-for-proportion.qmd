@@ -1,0 +1,201 @@
+---
+title: "Mathematical models for proportions"
+editor: visual
+---
+
+# Warm up
+
+## Announcements
+
+-   No classes on Wednesday
+-   Lab 8 due Thursday
+-   Lab 9 optional
+
+# Packages and data
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(openintro)
+```
+
+# Single proportion hypothesis testing
+
+According to [Duke Facts](https://facts.duke.edu/), 16% of Duke students are North Carolina residents.Suppose we take a random sample of 500 Duke students and find that 100 are NC residents. Can we conclude that the proportion is greater than 16%?
+
+::: task
+How would you perform a hypothesis test to test whether the true proportion of Duke students that are NC residents is truly smaller than 16%?
+:::
+
+## Exercise 1
+
+What are the hypotheses?
+
+## No dataset
+
+We have explored how to use a data set to simulate sampling distribution under null and perform randomization test.
+
+```{r}
+#| label: randomization-test-if-data
+#| eval: false
+
+set.seed(1234)
+
+null_dist <- duke_nc |>
+  specify(response = resident, success = "NC") |>
+  hypothesise(null = "point", p = 0.12) |>
+  generate(reps = 1000, type = "draw") |>
+  calculate(stat = "prop")
+
+
+null_dist |>
+  get_p_value(obs_stat, direction = "greater")
+
+
+visualize(null_dist) +
+  shade_p_value(obs_stat, direction = "greater")
+
+```
+
+We don't have a data set to run this code!
+
+## Exercise 2
+
+What is the observed statistic?
+
+```{r}
+#| label: obs_stat
+
+
+```
+
+## Null distribution
+
+We want to simulate null distribution, i.e., we want to randomly sample 500 observations (students) from a population (all Duke students) where the probability of being a NC resident is 0.16.
+
+The **binomial distribution** is a special discrete distribution where there are two distinct complementary outcomes, a "success" and a "failure" ("NC" and "not NC" in our example). Binomial distributions takes in two parameters: $n$ - number of trials/sample size, and $p$ - probability of success. The $n$ trials/observations are independent. That is, the outcome of any trial does not affect the outcome of the others. Think of it as flipping a coin that has probability $p$ of landing on heads $n$ times and recording the number of heads observed.
+
+::: task
+In our example, what is $n$ and what is $p$?
+:::
+
+## Simulate null distribution
+
+We will draw samples of size 500 each observation having a 0.16 probability of being from NC and will record the proportion that came from NC. We will do this 1000 times.
+
+```{r}
+#| label: null-dist
+
+set.seed(1234)
+
+nc_count <- tibble(stat = rbinom(n = 1000, size = 500, p = 0.16))
+null_dist_nc = tibble(stat = nc_count$stat/500)
+
+#show first 5 results
+nc_count[1:5,]
+null_dist_nc[1:5,]
+```
+
+We can visualize null distribution:
+
+```{r}
+#| label: null-dist-plot
+#| eval: false
+
+ggplot(null_dist_nc, aes(x = stat)) +
+  geom_histogram(bins = 15, color = "white") + 
+  geom_vline(xintercept = 0.2, color = "red" )
+
+```
+
+## Calculate p-value
+
+How do we calculate p-value?
+
+```{r}
+#| label: p-value
+
+```
+
+## Exercise 3
+
+Use the simulated data to perform randomization test using count instead of proportion. Define your new hypotheses, observed statistic, visualize null distribution, and calculate the p-value.
+
+```{r}
+#| label: count-test
+```
+
+::: task
+Why are we using proportion and not count for null distribution?
+:::
+
+# Mathematical models
+
+In CLT lecture, we introduced the normal distribution and showed how it can be used as a mathematical model to describe the variability of a statistic.There are conditions under which a sample proportion $\hat p$ is well modeled with a normal distribution.
+
+::: callout-important
+The sampling distribution for $\hat p$ (the sample proportion) based on a sample of size $n$ from a population with true proportion $p$ is nearly normal when:
+
+1.  The sample's observations are independent, e.g., are from a simple random sample.
+2.  We expected to see at least 10 successes and 10 failures in the sample, i.e., $np \geq 10$ and $n(1-p)\geq 10$. This is called the **success-failure condition**.
+
+When these conditions are met, them the sampling distribution of $\hat p$ is nearly normal with mean $p$ and standard error of $\hat p$ as $SE = \sqrt{\frac{p(1-p)}{n}}$.
+:::
+
+Typically we do not know the true proportion $p$ so we substitute some value to check conditions and estimate the standard error. For confidence intervals, the sample proportion $\hat p$ is used to check the success-failure condition and compute the standard error. For hypothesis tests, typically the null value – that is, the proportion claimed in the null hypothesis – is used in place of $p$.
+
+## Exercise 4
+
+Is the success-failure condition satisfied in our example of Duke students from NC?
+
+# Confidence interval for a proportion
+
+When $\hat p$ can be modeled using a normal distribution, the confidence interval for $p$ takes the form $\hat p \pm z^* \times SE$. The distance given by $z^* \times SE$ is called the margin of error. Since $p$ is unknown, we use $\hat p$ to approximate the standard error: $SE \approx \sqrt{\frac{\hat p(1-\hat p)}{n}}$.
+
+## $z^*$
+
+The value $z^*$ determines the confidence level. In particular, if you are interested in $(1-\alpha)\times 100$% confidence interval, $z^*$ describes how many standard deviations away the bounds of $(1-\alpha)\times 100$% on standard normal (mean 0 and standard deviation 1) are. For example, common value of $z^*$ is 1.96 (often approximated to be 2) indicating that the margin of error describes the variability associated with 95% of the sampled statistics.
+
+The value of $z^*$ can be found using `qnorm()` function in R.
+
+```{r}
+#| label: z_stars
+
+# 99.7% CI
+qnorm(0.0015)
+# 95% CI
+qnorm(0.025)
+# 68% CI:
+qnorm(0.16)
+
+```
+
+::: task
+How do these relate to 68-95-99.7 rule?
+:::
+
+## Exercise 5
+
+Construct a 95% confidence interval for $p$, the proportion of Duke students who are residents of North Carolina.
+
+# Hypothesis test for proportion
+
+Suppose we have $H_0: p = p_0$ vs $H_A: p\neq p_0$ where $p_0$ is the null value we are testing (0.16 in our example).
+
+To apply the normal distribution framework in the context of a hypothesis test for a proportion, the independence and success-failure conditions must be satisfied. In a hypothesis test, the success-failure condition is checked using the null proportion: we verify $np_0$ and $n(1-p_0)$ are at least 10, where $p_0$ is the null value.
+
+Once conditions for using normal distribution for sample proportion under $H_0$ are verified, we calculate standard error using $p_0$. Thus, we assume, under null, sample proportions is distributed normally with mean $p_0$ and standard error $\sqrt{\frac{p_0(1-p_0)}{n}}$ (if $H_0$ is true, this is just CLT).
+
+## Exercise 6
+
+Perform the hypothesis test testing whether the true proportion of Duke students that are NC residents is truly smaller than 16%?
+
+```{r}
+#| label: math-test
+#| eval: false
+null_mean = 
+null_se = 
+pnorm(q = obs_stat,mean = null_mean, sd = null_se )
+```
