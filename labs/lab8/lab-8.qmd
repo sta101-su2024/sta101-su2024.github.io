@@ -165,8 +165,8 @@ The lab will be graded out of 50 total points.
 
 The lab will be graded out of 50 total points.
 
-```{=html}
-<!--
+
+
 | Exercise    | Points |
 |-------------|--------|
 | Exercise 1  | 2      |
@@ -180,5 +180,5 @@ The lab will be graded out of 50 total points.
 | Exercise 9  | 4      |
 | Exercise 10 | 8      |
 | **Total**   | 50     |
--->
-```
+
+
