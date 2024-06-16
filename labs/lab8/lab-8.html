@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Lab 7</title>
+<title>STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../labs/lab8/lab-8.html" rel="next">
-<link href="../../labs/lab6/lab-6.html" rel="prev">
+<link href="../../labs/lab9/lab-9.qmd" rel="next">
+<link href="../../labs/lab7/lab-7.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,7 +135,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../labs.css">
-<meta property="og:title" content="STA 101 - Summer 24 - Lab 7">
+<meta property="og:title" content="STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution">
 <meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab7/lab-7.html">Lab 7</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -279,13 +279,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab7/lab-7.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../labs/lab7/lab-7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 8</span></a>
   </div>
 </li>
@@ -348,18 +348,22 @@ window.Quarto = {
    
   <ul>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#part-1-lemurs" id="toc-part-1-lemurs" class="nav-link" data-scroll-target="#part-1-lemurs">Part 1: Lemurs</a>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#part-1-general-social-survey" id="toc-part-1-general-social-survey" class="nav-link" data-scroll-target="#part-1-general-social-survey">Part 1: General Social Survey</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  </ul></li>
+  <li><a href="#part-2-course-scores" id="toc-part-2-course-scores" class="nav-link" data-scroll-target="#part-2-course-scores">Part 2: Course scores</a>
+  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  </ul></li>
+  <li><a href="#part-3-ims-exercises" id="toc-part-3-ims-exercises" class="nav-link" data-scroll-target="#part-3-ims-exercises">Part 3: IMS exercises</a>
+  <ul class="collapse">
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  </ul></li>
-  <li><a href="#part-2-ims-exercises" id="toc-part-2-ims-exercises" class="nav-link" data-scroll-target="#part-2-ims-exercises">Part 2: IMS Exercises</a>
-  <ul class="collapse">
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
@@ -370,14 +374,14 @@ window.Quarto = {
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab7/lab-7.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab7/lab-7.html">Lab 7</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 7</h1>
+<h1 class="title">Lab 8 - Inference for proportions and normal distribution</h1>
 </div>
 
 
@@ -394,125 +398,98 @@ window.Quarto = {
 </header>
 
 
-<p>By the end of this lab you will construct and interpret confidence intervals via bootstrapping.</p>
+<p>By the end of this lab you will</p>
+<ul>
+<li><p>calculate probabilities under the normal distribution</p></li>
+<li><p>construct and interpret confidence intervals via bootstrapping</p></li>
+</ul>
 <p>For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!</p>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ol type="1">
-<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled <strong>lab-7 - Hypothesis testing</strong>.</p></li>
-<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/thu-jun-13-inference-for-two-proportions">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
+<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled **lab-8 - Inference for proportions*.</p></li>
+<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/mon-jun-17-mathematical-models-for-proportion">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
 <li><p>Complete the exercises in this document.</p></li>
 </ol>
 </section>
-<section id="part-1-lemurs" class="level1">
-<h1>Part 1: Lemurs</h1>
-<p>This week we’ll be working with data from the <a href="https://lemur.duke.edu/">Duke Lemur Center</a>, which houses over 200 lemurs across 14 species – the most diverse population of lemurs on Earth, outside their native Madagascar.</p>
-<blockquote class="blockquote">
-<p>Lemurs are the most threatened group of mammals on the planet, and 95% of lemur species are at risk of extinction. Our mission is to learn everything we can about lemurs – because the more we learn, the better we can work to save them from extinction. They are endemic only to Madagascar, so it’s essentially a one-shot deal: once lemurs are gone from Madagascar, they are gone from the wild.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>By studying the variables that most affect their health, reproduction, and social dynamics, the Duke Lemur Center learns how to most effectively focus <a href="https://lemur.duke.edu/protect/overview-madagascar-conservation-programs/">their conservation efforts</a>. And the more we learn about lemurs, the better we can educate the public around the world about just how amazing these animals are, why they need to be protected, and how each and every one of us can make a difference in their survival.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Source: <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md">TidyTuesday</a></p>
-</blockquote>
-<p>The codebook for the deataset can be found <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md#lemur_datacsv">here</a>. While the TidyTuesday project used the full dataset, we’ll be working with a subset.</p>
-<p>First let’s load the packages.</p>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>We’ll use the following packages in this lab:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ purrr::%||%()   masks base::%||%()
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
+✔ broom        1.0.5          ✔ rsample      1.2.0     
+✔ dials        1.2.0          ✔ tune         1.1.2     
+✔ infer        1.0.5.9000     ✔ workflows    1.1.3     
+✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     
+✔ parsnip      1.1.1          ✔ yardstick    1.2.0     
+✔ recipes      1.0.8          
+── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::%||%()     masks base::%||%()
+✖ scales::discard() masks purrr::discard()
+✖ dplyr::filter()   masks stats::filter()
+✖ recipes::fixed()  masks stringr::fixed()
+✖ dplyr::lag()      masks stats::lag()
+✖ yardstick::spec() masks readr::spec()
+✖ recipes::step()   masks stats::step()
+• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dsbox'
+
+The following object is masked from 'package:infer':
+
+    gss</code></pre>
+</div>
+</div>
+</section>
+<section id="part-1-general-social-survey" class="level1">
+<h1>Part 1: General Social Survey</h1>
+<p>The <a href="https://gss.norc.org/">General Social Survey (GSS)</a> is a sociological survey used to collect data on demographic characteristics and attitudes of residents of the United States. The GSS has been conducted each year since 1972 by the National Opinion Research Center at the University of Chicago. The GSS collects data on demographic characteristics and attitudes of residents of the United States. The GSS sample is designed as a multistage stratified sample.</p>
+<p>For the exercises in this part, we’ll use the <code>gss16</code> data set from the <code>dsbox</code> package. You can find out more about the dataset by inspecting its documentation, which you can access by running <code>?gss16</code> in the Console or using the Help menu in RStudio to search for <code>gss16</code>. You can also find this information <a href="https://tidyverse.github.io/dsbox/reference/gss16.html">here</a>.</p>
+<p>In 2016, the GSS added a new question on harassment at work. The question is phrased as the following.</p>
+<blockquote class="blockquote">
+<p>Over the past five years, have you been harassed by your superiors or co-workers at your job, for example, have you experienced any bullying, physical or psychological abuse?</p>
+</blockquote>
+<p>Answers to this question are stored in the <code>harass5</code> variable in <code>gss16</code> set.</p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <div class="exercise">
-<p>Load the <code>lemurs</code> data save it as <code>lemurs</code>. Then, report which “types” of lemurs are represented in the sample and how many of each. Note that this information is in the <code>taxon</code> variable. You should refer back to the linked data dictionary to understand what the different values of <code>taxon</code> mean.</p>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pause and render
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Now that you’ve completed your first exercise, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
-</div>
+<p>Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?</p>
 </div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <div class="exercise">
-<p>What is the <strong>mean</strong> weight of <strong>ring-tailed lemurs</strong>? Calculate, visualize, and interpret a 95% bootstrap confidence interval together with your point estimate. Use <code>set.seed(123)</code> and <code>reps = 1000</code> to create your bootstrap confidence interval.</p>
-</div>
-<p><strong>Hints:</strong></p>
-<p>Below is a step-by-step recipe for constructing and visualizing a confidence interval. The code snippets shown are not “complete”, they’re intended to guide you in the right direction.</p>
-<ul>
-<li><p>Step 1: Create a dataset of ring-tailed lemurs, and call it <code>lemurs_rt</code>. Note, these are <code>taxon == "LCAT"</code>.</p></li>
-<li><p>Step 2: Calculate the mean weight of ring-tailed lemurs.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>obs_stat_mean_rt <span class="ot">&lt;-</span> lemurs_rt <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> weight_g) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Step 3: Construct a bootstrap distribution. Note: There is a <code>generate()</code> step, so you also need to set a seed before running the following.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>boot_dist_mean_rt <span class="ot">&lt;-</span> lemurs_rt <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> weight_g) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Step 4: Calculate the bounds of the confidence interval. Don’t forget to interpret it as well!</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ci_95_mean_rt <span class="ot">&lt;-</span> boot_dist_mean_rt <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">point_estimate =</span> obs_stat_mean_rt, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">level =</span> <span class="fl">0.95</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Step 5: Visualize the confidence interval, overlaying it on the bootstrap distribution.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist_mean_rt) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_95_mean_rt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.</p>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <div class="exercise">
-<p>What is the <strong>median</strong> weight of ring-tailed lemurs? What is the <strong>median</strong> weight of mongoose lemurs? Report a 95% bootstrap confidence interval together with your point estimates. Use <code>set.seed(123)</code> and <code>reps = 10000</code> to create your bootstrap confidence intervals.</p>
-</div>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<div class="exercise">
-<p>Your friend has never taken a statistics course. Describe to your friend the process of “bootstrap sampling” in the previous exercise to create a bootstrap confidence interval in your own words. Walk your friend through the process of collecting a bootstrap sample, computing a statistic and then repeating). You may find it helpful to describe it as drawing pieces of paper from a bag like we did in class.</p>
-</div>
-<p><strong>Hint:</strong> What would you write on the slips of paper? How many pieces of paper would be in the bag(s)? How many bag(s) would you need for the above exercise?</p>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<div class="exercise">
-<p>Do female lemurs differ in weight from male lemurs? Report the difference in mean weights between groups. Next, construct a 99% bootstrap distribution for the difference in means between groups and interpret it. If the interval covers 0, you might think there is no difference between groups. Does the interval cover 0? Use <code>set.seed(123)</code> and <code>reps = 10000.</code></p>
-</div>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<div class="exercise">
-<p>Create a new column that tells you whether or not a lemur was born in the first or second half of the year (January through June vs July through December). Create a meaningful plot to illustrate the weights of each group of lemurs. Use <code>theme_bw()</code> to replace the default gray plot background. Based on your figure, which group of lemurs weighs more? Is the distribution of one or both groups skewed or symmetric? See <a href="https://openintro-ims2.netlify.app/05-explore-numerical#sec-histograms">here</a> for more information about skew vs symmetric distributions.</p>
-</div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<div class="exercise">
-<p>Is there more variability in weight for lemurs born in the first half or second half of the year? Report the estimated standard deviation of each group. Report a 90% bootstrap confidence interval of s.d. for each group. Interpret the confidence intervals in context. Use <code>set.seed(123)</code> and remember to set <code>reps = 10000</code>.</p>
+<ol type="a">
+<li>Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to <code>1234</code>. Interpret this interval in context of the data. Make sure to visualize this interval as well.</li>
+<li>Where was your 95% confidence interval centered? Why does this make sense?</li>
+<li>Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Interpret this interval in context of the data. Is it wider or more narrow than the 95% confidence interval? Additionally, visualize the interval by layering it on the visualization (for the 95% confidence interval) from part (a). You can do this simply by adding another shading layer where the endpoints now come from the new 90% confidence interval. Use a <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">different pair of colors</a> for the <code>color</code> and <code>fill</code> arguments, e.g., <code>darkorange4</code> and <code>darkorange1</code>.</li>
+<li>Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulation, just conceptually think about it.</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -524,30 +501,81 @@ Pause and render
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Now that you’ve completed a few more exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
+<p>Now that you’ve completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
 </div>
 </div>
 </section>
 </section>
-<section id="part-2-ims-exercises" class="level1">
-<h1>Part 2: IMS Exercises</h1>
+<section id="part-2-course-scores" class="level1">
+<h1>Part 2: Course scores</h1>
+<p>Students in large university course that is offered each semester average 32 (out of 50) on the midterm, with a standard deviation of 4. The scores are distributed normally.</p>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<div class="exercise">
+<ol type="a">
+<li><p>What is the probability a randomly selected student scored less than 28?</p></li>
+<li><p>What is the probability a randomly selected student scored higher than than 35?</p></li>
+<li><p>What score did only 20 percent of the class exceed?</p></li>
+</ol>
+</div>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<div class="execise">
+<p>I pick 10 students at random from the class.</p>
+<ol type="a">
+<li><p>[Without looking at the next question] How does the standard error of their average score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.</p></li>
+<li><p>The standard error of the mean can be calculated as <span class="math inline">\(SE = \frac{\sigma}{\sqrt{n}}\)</span>. What is the probability the average midterm score of these 10 students is less than 28?</p></li>
+<li><p>What is the probability the average midterm score of these 10 students is higher than 35?</p></li>
+<li><p>How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 4? Why?</p></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pause and render
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now that you’ve completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-ims-exercises" class="level1">
+<h1>Part 3: IMS exercises</h1>
 <p>The exercises in this section do not require code. Make sure to answer the questions in full sentences.</p>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<div class="exercise">
+<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #2: Married at 25.</p>
+</div>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<div class="exercise">
+<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #5: If I fits, I sits, bootstrap test.</p>
+</div>
+</section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises">Chapter 12 exercises</a>, #2: Chronic illness.</p>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #6: Legalization of marijuana, bootstrap test.</p>
 </div>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises">Chapter 12 exercises</a>, #6: Bootstrap distributions of <span class="math inline">\(\hat{p}\)</span>, III.</p>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #8: Legalization of marijuana, standard errors.</p>
 </div>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
 <div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/12-foundations-bootstrapping#chp12-exercises">Chapter 12 exercises</a>, #8: Waiting at an ER.</p>
+<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #22: Legalization of marijuana, mathematical interval.</p>
 </div>
 </section>
 </section>
@@ -570,7 +598,7 @@ Important
 </div>
 <p>To submit your assignment to Gradescope:</p>
 <ul>
-<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-7.pdf</code>).</p></li>
+<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-8.pdf</code>).</p></li>
 <li><p>Then, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.</p></li>
 <li><p>Go to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.</p></li>
 <li><p>Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
@@ -591,60 +619,23 @@ Warning
 </section>
 <section id="grading" class="level2">
 <h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Exercise</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Exercise 1</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Exercise 2</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Exercise 3</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td>Exercise 4</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Exercise 5</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Exercise 6</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Exercise 7</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Exercise 8</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Exercise 9</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Exercise 10</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
+<p>The lab will be graded out of 50 total points.</p>
+<p>The lab will be graded out of 50 total points.</p>
+<!--
+| Exercise    | Points |
+|-------------|--------|
+| Exercise 1  | 2      |
+| Exercise 2  | 6      |
+| Exercise 3  | 10     |
+| Exercise 4  | 3      |
+| Exercise 5  | 4      |
+| Exercise 6  | 4      |
+| Exercise 7  | 4      |
+| Exercise 8  | 5      |
+| Exercise 9  | 4      |
+| Exercise 10 | 8      |
+| **Total**   | 50     |
+-->
 
 
 </section>
@@ -1206,13 +1197,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../labs/lab6/lab-6.html" class="pagination-link" aria-label="Lab 6">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 6</span>
+      <a href="../../labs/lab7/lab-7.html" class="pagination-link" aria-label="Lab 7">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../labs/lab8/lab-8.html" class="pagination-link" aria-label="Lab 8">
-        <span class="nav-page-text">Lab 8</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../labs/lab9/lab-9.qmd" class="pagination-link" aria-label="Lab 9">
+        <span class="nav-page-text">Lab 9</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1224,7 +1215,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab7/lab-7.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>

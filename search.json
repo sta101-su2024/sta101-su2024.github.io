@@ -124,7 +124,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-filled-in.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#hypothesis-testing-1",
@@ -145,7 +145,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#organ-donors",
@@ -1832,7 +1832,7 @@
     "href": "lectures/11/11-confidence-intervals-bootstrapping.html",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
-    "text": "Exam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "Exam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#announcements",
@@ -1846,7 +1846,7 @@
     "href": "lectures/11/11-confidence-intervals-bootstrapping.html#packages",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#case-study-3-airbnb-in-asheville-nc",
@@ -2256,7 +2256,7 @@
     "href": "index.html",
     "title": "STA 101: Data Analysis and Statistical Inference",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n💻 lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n⬇️ Canvas\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nModel selection (cont.)\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n💻 lab-4\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression\n\n\n📖 ims: Chp 9.1 - 9.2\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nHypothesis testing with randomization\n\n\n\n\n📓notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n💻 lab-5\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n📓notes (hyp. test)\n📓filled-in notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 5\n\nConfidence intervals with bootstrapping + Ethics\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes CI\n📓 notes Ethics\n⬇️ Canvas\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n📝 exam review\n🗝️ exam review key\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n⬇️ Canvas (takehome)\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n💻 lab-6\n📄 Intro + EDA\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 11\n\nMore on CLT + Decision errors\n\n\n📖 ims: Chp 13\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer reviewer\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n💻 lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n💻 lab-8\n\n\n\n\n\n\n\nTue, Jun 18\n\nMathematical models for proportions\n\n\n\n\n📓 notes\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for comparing two means\n\n\n📖 ims: Chp 20\n📖 ims: Chp 21\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means (Optional)\n\n\n\n\n💻 lab-9\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day / Project work day\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 (Optional) at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n💻 lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n⬇️ Canvas\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nModel selection (cont.)\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n💻 lab-4\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression\n\n\n📖 ims: Chp 9.1 - 9.2\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nHypothesis testing with randomization\n\n\n\n\n📓notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n💻 lab-5\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n📓notes (hyp. test)\n📓filled-in notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 5\n\nConfidence intervals with bootstrapping + Ethics\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes CI\n📓 notes Ethics\n⬇️ Canvas\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n📝 exam review\n🗝️ exam review key\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n⬇️ Canvas (takehome)\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n💻 lab-6\n📄 Intro + EDA\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 11\n\nMore on CLT + Decision errors\n\n\n📖 ims: Chp 13\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer reviewer\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n💻 lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n💻 lab-8\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 18\n\nMathematical models for proportions\n\n\n\n\n📓 notes\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for comparing two means\n\n\n📖 ims: Chp 20\n📖 ims: Chp 21\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means (Optional)\n\n\n\n\n💻 lab-9\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day / Project work day\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 (Optional) at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -2417,146 +2417,674 @@
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html",
-    "href": "labs/lab5/lab-5.html",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html",
+    "href": "labs/lab8/lab-8.html",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "",
-    "text": "By the end of this lab you will create formulate and conduct hypothesis tests using randomization.\nFor all visualizations you create, be sure to include informative titles for the plot, axes, and legend!",
+    "text": "By the end of this lab you will\nFor all visualizations you create, be sure to include informative titles for the plot, axes, and legend!",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-1",
-    "href": "labs/lab5/lab-5.html#exercise-1",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-1",
+    "href": "labs/lab8/lab-8.html#exercise-1",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\nIMS - Chapter 11 exercises, #2: Identify the parameter, II.",
+    "text": "Exercise 1\n\nCreate a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-2",
-    "href": "labs/lab5/lab-5.html#exercise-2",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-2",
+    "href": "labs/lab8/lab-8.html#exercise-2",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nIMS - Chapter 11 exercises, #6: Identify hypotheses, II.",
+    "text": "Exercise 2\n\nDescribe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-3",
-    "href": "labs/lab5/lab-5.html#exercise-3",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-3",
+    "href": "labs/lab8/lab-8.html#exercise-3",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nIMS - Chapter 11 exercises, #8: Heart transplants.",
+    "text": "Exercise 3\n\n\nCalculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to 1234. Interpret this interval in context of the data. Make sure to visualize this interval as well.\nWhere was your 95% confidence interval centered? Why does this make sense?\nNow, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Interpret this interval in context of the data. Is it wider or more narrow than the 95% confidence interval? Additionally, visualize the interval by layering it on the visualization (for the 95% confidence interval) from part (a). You can do this simply by adding another shading layer where the endpoints now come from the new 90% confidence interval. Use a different pair of colors for the color and fill arguments, e.g., darkorange4 and darkorange1.\nNow, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulation, just conceptually think about it.\n\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-4",
-    "href": "labs/lab5/lab-5.html#exercise-4",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-4",
+    "href": "labs/lab8/lab-8.html#exercise-4",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 4",
-    "text": "Exercise 4\n\nRecreate the stacked bar plot in Exercise 3.\n\n\n\n\n\n\n\nHint\n\n\n\nThe colors are #569BBD and #114B5F. Use scale_fill_manual() to indicate these are the colors you want to use.\n\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.",
+    "text": "Exercise 4\n\n\nWhat is the probability a randomly selected student scored less than 28?\nWhat is the probability a randomly selected student scored higher than than 35?\nWhat score did only 20 percent of the class exceed?",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-5",
-    "href": "labs/lab5/lab-5.html#exercise-5",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-5",
+    "href": "labs/lab8/lab-8.html#exercise-5",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 5",
-    "text": "Exercise 5\n\nCalculate the point estimate for the difference in proportions of patients who died between the treatment and control groups: \\(\\hat{p}_{treatment} - \\hat{p}_{control}\\), where \\(\\hat{p}\\) is the observed probability of dying in each group. Do this in two ways:\n\nConstruct a frequency table of survived by transplant and calculate the difference in proportions “by hand”.\nUse specify() and calculate() to calculate the difference in proportions as shown below.\n\n\nobs_diff_outcome &lt;- heart_transplant |&gt;\n  specify(response = outcome, explanatory = transplant, success = \"deceased\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"treatment\", \"control\"))\n\nThen, confirm that you obtained the same results with the two methods.",
+    "text": "Exercise 5\n\nI pick 10 students at random from the class.\n\n[Without looking at the next question] How does the standard error of their average score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.\nThe standard error of the mean can be calculated as \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\). What is the probability the average midterm score of these 10 students is less than 28?\nWhat is the probability the average midterm score of these 10 students is higher than 35?\nHow do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 4? Why?\n\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-6",
-    "href": "labs/lab5/lab-5.html#exercise-6",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-6",
+    "href": "labs/lab8/lab-8.html#exercise-6",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 6",
-    "text": "Exercise 6\n\nUsing the code below, generate a null distribution for the hypothesis test for the hypothesis you formulated in Exercise 3. Use 100 resamples (reps). However, change the seed to use a different seed.\n\nset.seed(1234)\n\nnull_dist_outcome &lt;- heart_transplant |&gt;\n  specify(response = outcome, explanatory = transplant, success = \"deceased\") |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 100, type = \"permute\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"treatment\", \"control\"))\n\nThen, inspect the object null_dist_outcome using either glimpse() or just printing it to screen. How many rows and how many columns does it have? What does each row represent? What does each variable represent?",
+    "text": "Exercise 6\n\nIMS - Chapter 16 exercises, #2: Married at 25.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-7",
-    "href": "labs/lab5/lab-5.html#exercise-7",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-7",
+    "href": "labs/lab8/lab-8.html#exercise-7",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 7",
-    "text": "Exercise 7\n\nVisualize the distribution of simulated differences in proportions of deceased between treatment and control groups. What is the shape of this distribution? What is the center of this distribution? Are these results expected? Explain your reasoning.\n\n\n\n\n\n\n\nHint\n\n\n\nThese simulated values are in the stat column of null_dist_outcome.",
+    "text": "Exercise 7\n\nIMS - Chapter 16 exercises, #5: If I fits, I sits, bootstrap test.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-8",
-    "href": "labs/lab5/lab-5.html#exercise-8",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-8",
+    "href": "labs/lab8/lab-8.html#exercise-8",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 8",
-    "text": "Exercise 8\n\nCalculate the p-value. Do this in two ways:\n\nFilter null_dist_outcome for stat values that are at least as far away from the null value as the observed value you calculated in Exercise 4. Make sure you’re considering both directions! Note how many such values there are, and calculate the proportion out of the total number of resamples.\nUse get_p_value():\n\n\np_value_outcome &lt;- null_dist_outcome |&gt;\n  get_p_value(obs_stat = obs_diff_outcome, direction = \"two-sided\")\n\nThen, confirm that you obtained the same results with the two methods. Finally, interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.",
+    "text": "Exercise 8\n\nIMS - Chapter 16 exercises, #6: Legalization of marijuana, bootstrap test.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-9",
-    "href": "labs/lab5/lab-5.html#exercise-9",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-9",
+    "href": "labs/lab8/lab-8.html#exercise-9",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 9",
-    "text": "Exercise 9\n\nRecreate the side-by–side box plots in Exercise 3. The variable of interest is survtime, which is the number of days patients were alive after the date they were determined to be a candidate for a heart transplant until the termination date of the study.",
+    "text": "Exercise 9\n\nIMS - Chapter 16 exercises, #8: Legalization of marijuana, standard errors.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#exercise-10",
-    "href": "labs/lab5/lab-5.html#exercise-10",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#exercise-10",
+    "href": "labs/lab8/lab-8.html#exercise-10",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Exercise 10",
-    "text": "Exercise 10\n\nDo these data provide convincing evidence of a difference between average survival times of patient who did and did not get a heart transplant?\nWrite the hypotheses for answering this question and conduct the hypothesis test using randomization. Use 1,000 resamples. In order to avoid name collision, use object names like obs_diff_survtime, null_dist_survtime, and p_value_survtime. Find and interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.",
+    "text": "Exercise 10\n\nIMS - Chapter 16 exercises, #22: Legalization of marijuana, mathematical interval.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#submitting",
-    "href": "labs/lab5/lab-5.html#submitting",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#submitting",
+    "href": "labs/lab8/lab-8.html#submitting",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Submitting",
-    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-5.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TA can’t mark your pages for you, and for them to be able to grade, you must mark them.",
+    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-8.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can’t mark your pages for you, and for them to be able to grade, you must mark them.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
     ]
   },
   {
-    "objectID": "labs/lab5/lab-5.html#grading",
-    "href": "labs/lab5/lab-5.html#grading",
-    "title": "Lab 5",
+    "objectID": "labs/lab8/lab-8.html#grading",
+    "href": "labs/lab8/lab-8.html#grading",
+    "title": "Lab 8 - Inference for proportions and normal distribution",
     "section": "Grading",
-    "text": "Grading\n\n\n\nExercise\nPoints\n\n\n\n\nExercise 1\n5\n\n\nExercise 2\n4\n\n\nExercise 3\n6\n\n\nExercise 4\n4\n\n\nExercise 5\n4\n\n\nExercise 6\n6\n\n\nExercise 7\n5\n\n\nExercise 8\n4\n\n\nExercise 9\n5\n\n\nExercise 10\n7\n\n\nTotal\n50",
+    "text": "Grading\nThe lab will be graded out of 50 total points.\nThe lab will be graded out of 50 total points.",
     "crumbs": [
       "Labs",
-      "Lab 5"
+      "Lab 8"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html",
+    "href": "labs/lab4/lab-4.html",
+    "title": "Lab 4",
+    "section": "",
+    "text": "By the end of this lab you will create and fit regression models with a single predictor and visualize a simple regression model.\nFor all visualizations you create, b sure to include informative titles for the plot, axes, and legend!",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-1",
+    "href": "labs/lab4/lab-4.html#exercise-1",
+    "title": "Lab 4",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nLet’s begin by taking a look at the squat lifting records.\nTo begin, remove any observations that are negative for squat. Next, create a new column called best3_squat_lbs that converts the record from kg to lbs (you may have to google the conversion). Save your data frame as ipf_squat. Report the number of rows and columns of this new data frame using inline code.\n\n\n\n\n\n\n\nHint\n\n\n\nFirst, you’re taking a dataset and filtering it for certain records, and then you’re mutate-ing that dataset to gain a new column, and you’re assigning the resulting dataset to a new object called ipf_squat.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-2",
+    "href": "labs/lab4/lab-4.html#exercise-2",
+    "title": "Lab 4",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nUsing ipf_squat from the previous exercise, create a scatter plot to investigate the relationship between squat (in lbs) and age. Age should be on the x-axis. Adjust the alpha level of your points to get a better sense of the density of the data. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-3",
+    "href": "labs/lab4/lab-4.html#exercise-3",
+    "title": "Lab 4",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nWrite down the linear model to predict lift squat lbs from age in \\(x\\), \\(y\\), \\(\\beta\\) notation. What is \\(x\\)? What is \\(y\\)? Next, fit the linear model, and save it as age_fit. Re-write your previous equation replacing \\(\\beta\\) with the numeric estimates. This is called the “fitted” linear model. Interpret each estimate of \\(\\beta\\). Are the interpretations sensible?",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-4",
+    "href": "labs/lab4/lab-4.html#exercise-4",
+    "title": "Lab 4",
+    "section": "Exercise 4",
+    "text": "Exercise 4\n\nBuilding on your ipf_squat data frame, create a new column called age2 that takes the age of each lifter and squares it. Save it to your data frame ipf_squat. Next, plot squat in lbs vs age2 and add a linear best fit line. Does this model look like it fits the data better?\n\n\n\n\n\n\n\nHint\n\n\n\nTo raise a value to a power, use ^ in R, e.g.: 2 ^ 2 gives you 4, 2 ^ 3 gives you 8, etc.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-5",
+    "href": "labs/lab4/lab-4.html#exercise-5",
+    "title": "Lab 4",
+    "section": "Exercise 5",
+    "text": "Exercise 5\n\nOne metric to assess the fit of a model is the correlation squared, also known as \\(R^2\\). Fit the age\\(^2\\) model and save the object as age2_fit. Subsequently run\n\nglance(age2_fit)$r.squared\n\nto examine the \\(R^2\\). Compare \\(R^2\\) of the age\\(^2\\) model to the \\(R^2\\) of the model from Exercise 3. Which has a higher \\(R^2\\)?\n\n\n\n\n\n\n\nNote\n\n\n\n\\(R^2\\) values range from 0 to 1. Values close to 0 means weak correlation between the variables whereas \\(R^2 = 1\\) implies perfect correlation. You can (optionally) read more about \\(R^2\\) in section 7.2.5 of the book. We’ll pick up here in the next class.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-6",
+    "href": "labs/lab4/lab-4.html#exercise-6",
+    "title": "Lab 4",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nNext, let’s turn our attention to dead lifting records.\nRecreate the plot below. Make sure axes and title labels are exactly matching, including spelling, capitalization, etc. Based on the plot below, which impacts deadlift weight more, age category or sex?\n\n\n\n\n\n\n\nHint\n\n\n\nYou will need to create a couple of new columns. One to classify age appropriately and one to convert best3deadlift_kg to the plotted units (lbs). Notice that there are no negative deadlift values on the x-axis.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-7",
+    "href": "labs/lab4/lab-4.html#exercise-7",
+    "title": "Lab 4",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nFinally, let’s turn our attention to bench press records.\nTo begin, remove any observations that are negative for bench press, create two new columns: best3bench_lbs and bodyweight_lbs. Save the result in a new data frame called ipf_bench.\nThen, create a scatter plot to investigate the relationship between best bench press (in lbs) and the lifter’s bodyweight (in lbs). Bodyweight should be on the x-axis. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-8",
+    "href": "labs/lab4/lab-4.html#exercise-8",
+    "title": "Lab 4",
+    "section": "Exercise 8",
+    "text": "Exercise 8\n\nFit the linear model displayed in the previous exercise and write down the fitted model equation only, replacing \\(\\hat{\\beta}\\)s with their fitted estimates. Interpret the \\(\\hat{\\beta}\\)s (intercept and slope). Report \\(R^2\\). Is body weight an important predictor of bench press ability? Why or why not?",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-9",
+    "href": "labs/lab4/lab-4.html#exercise-9",
+    "title": "Lab 4",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\nIMS - Chapter 7 exercises, #18: Over-under, II.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#exercise-10",
+    "href": "labs/lab4/lab-4.html#exercise-10",
+    "title": "Lab 4",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nIMS - Chapter 7 exercises, #24: Cats weights.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#submitting",
+    "href": "labs/lab4/lab-4.html#submitting",
+    "title": "Lab 4",
+    "section": "Submitting",
+    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-3.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can’t mark your pages for you, and for them to be able to grade, you must mark them.",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab4/lab-4.html#grading",
+    "href": "labs/lab4/lab-4.html#grading",
+    "title": "Lab 4",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nExercise\nPoints\n\n\n\n\nExercise 1\n3\n\n\nExercise 2\n5\n\n\nExercise 3\n5\n\n\nExercise 4\n5\n\n\nExercise 5\n5\n\n\nExercise 6\n8\n\n\nExercise 7\n6\n\n\nExercise 8\n7\n\n\nExercise 9\n4\n\n\nExercise 10\n2\n\n\nTotal\n50",
+    "crumbs": [
+      "Labs",
+      "Lab 4"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html",
+    "href": "labs/lab6/lab-6.html",
+    "title": "Lab 6",
+    "section": "",
+    "text": "Critiquing visualizations that misrepresent data\nImproving data visualizations to better convey the right message",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#packages",
+    "href": "labs/lab6/lab-6.html#packages",
+    "title": "Lab 6",
+    "section": "Packages",
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization.\n\nlibrary(tidyverse)",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#data",
+    "href": "labs/lab6/lab-6.html#data",
+    "title": "Lab 6",
+    "section": "Data",
+    "text": "Data\nIn this lab you’ll construct the data set!",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#exercise-1",
+    "href": "labs/lab6/lab-6.html#exercise-1",
+    "title": "Lab 6",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nWhat is misleading about this visualization and how you might go about fixing it?",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#exercise-2",
+    "href": "labs/lab6/lab-6.html#exercise-2",
+    "title": "Lab 6",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nCreate a data frame that can be used to re-construct this visualization. You may need to guess some of the numbers, that’s ok. You should first think about how many rows and columns you’ll need and what you want to call your variables. Then, you can use the tribble() function for this. For example, if you wanted to construct the following data frame\n\ndf &lt;- tribble(\n  ~date, ~\"mask\", ~\"no mask\",\n  \"1/1/2020\", 15, 20,\n  \"2/1/2020\", 20, 18,\n  \"3/1/2020\", 22, 23\n)\n\nYou can create the data frame below. Print the first 5 rows of the data frame after creating it. You may name the data frame what you like. We often try and keep data frame names small and informative.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#exercise-3",
+    "href": "labs/lab6/lab-6.html#exercise-3",
+    "title": "Lab 6",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nMake a visualization that more accurately (and honestly) tells the story. (Hint: use pivot_longer() function to change the shape of your dataset so that it has three colums: date, count, and county_type).",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#exercise-4",
+    "href": "labs/lab6/lab-6.html#exercise-4",
+    "title": "Lab 6",
+    "section": "Exercise 4",
+    "text": "Exercise 4\n\nWhat message is more clear in your visualization than it was in the original visualization?",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#exercise-5",
+    "href": "labs/lab6/lab-6.html#exercise-5",
+    "title": "Lab 6",
+    "section": "Exercise 5",
+    "text": "Exercise 5\n\n\nWhat, if any, useful information do these data and your visualization tell us about mask wearing and COVID? Answers should focus only on what the visualization tells.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#submitting",
+    "href": "labs/lab6/lab-6.html#submitting",
+    "title": "Lab 6",
+    "section": "Submitting",
+    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-6.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TA can’t mark your pages for you, and for them to be able to grade, you must mark them.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "labs/lab6/lab-6.html#grading",
+    "href": "labs/lab6/lab-6.html#grading",
+    "title": "Lab 6",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n15\n\n\nEx 4\n5\n\n\nEx 5\n5\n\n\nTotal\n35",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
+  },
+  {
+    "objectID": "course-faq.html",
+    "href": "course-faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "The short answer is, I’d rather you didn’t, to save yourself some headache. But, the long answer is, sure! But you will need to install a specific versions of R and RStudio for everything to work as expected. You will also need to install the R packages we’re using as well as have Git installed on your computer. These are not extremely challenging things to get right, but they are not trivial either, particularly on certain operating systems. Myself and the TAs are always happy to provide help with any computational questions when you’re working in the containers we have provided for you. If you’re working on your local setup, we can’t guarantee being able to resolve your issues, though we’re happy to try.\nIf you want to take this path, here is what you need to do:\n\nDownload and install R 4.3.1: https://cran.r-project.org\nDownload and install the preview build of RStudio: https://posit.co/download/rstudio-desktop\nInstall any necessary packages with install.packages(\"___\")\n\nAnd I’d like to reiterate again that successful installation of these software is not a learning goal of this course. So if any of this seems tedious or intimidating in any way, just use the computing environment we have set up for you. More on that here.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#can-i-use-a-local-install-of-posit-cloud",
+    "href": "course-faq.html#can-i-use-a-local-install-of-posit-cloud",
+    "title": "FAQ",
+    "section": "",
+    "text": "The short answer is, I’d rather you didn’t, to save yourself some headache. But, the long answer is, sure! But you will need to install a specific versions of R and RStudio for everything to work as expected. You will also need to install the R packages we’re using as well as have Git installed on your computer. These are not extremely challenging things to get right, but they are not trivial either, particularly on certain operating systems. Myself and the TAs are always happy to provide help with any computational questions when you’re working in the containers we have provided for you. If you’re working on your local setup, we can’t guarantee being able to resolve your issues, though we’re happy to try.\nIf you want to take this path, here is what you need to do:\n\nDownload and install R 4.3.1: https://cran.r-project.org\nDownload and install the preview build of RStudio: https://posit.co/download/rstudio-desktop\nInstall any necessary packages with install.packages(\"___\")\n\nAnd I’d like to reiterate again that successful installation of these software is not a learning goal of this course. So if any of this seems tedious or intimidating in any way, just use the computing environment we have set up for you. More on that here.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "project/project.html",
+    "href": "project/project.html",
+    "title": "Project",
+    "section": "",
+    "text": "The deliverable for this project (what you will turn in) is a written report and a presentation. See below for more details.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#criteria-for-datasets",
+    "href": "project/project.html#criteria-for-datasets",
+    "title": "Project",
+    "section": "Criteria for datasets",
+    "text": "Criteria for datasets\nThe data sets should meet the following criteria:\n\nAt least 100 observations\nAt least 5 columns\nAt least 4 of the columns must be useful and unique explanatory variables.\n\nIdentifier variables such as “name”, “social security number”, etc. are not useful explanatory variables.\nIf you have multiple columns with the same information (e.g. “state abbreviation” and “state name”), then they are not unique explanatory variables.\n\nYou may not use data that has previously been used in course, or any derivation of data that has been used in course materials (this or previous semesters of STA101).\n\n\n\n\n\n\n\nTip\n\n\n\nPlease ask a member of the teaching team if you’re unsure whether your data set meets the criteria.\n\n\nIf you set your hearts on a dataset that has fewer observations or variables than what’s suggested here, that might still be ok; use these numbers as guidance for a successful proposal, not as minimum requirements.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#resources",
+    "href": "project/project.html#resources",
+    "title": "Project",
+    "section": "Resources for datasets",
+    "text": "Resources for datasets\nYou can find data wherever you like, but here are some recommendations to get you started. You shouldn’t feel constrained to datasets that are already in a tidy format, you can start with data that needs cleaning and tidying, scrape data off the web, or collect your own data.\n\nAwesome public datasets\nBikeshare data portal\nCDC\nData.gov\nData is Plural\nDurham Open Data Portal\nEdinburgh Open Data\nElection Studies\nEuropean Statistics\nCORGIS: The Collection of Really Great, Interesting, Situated Datasets\nGeneral Social Survey\nGoogle Dataset Search\nHarvard Dataverse\nInternational Monetary Fund\nIPUMS survey data from around the world\nLos Angeles Open Data\nNational Crime Victimization Survey\nNHS Scotland Open Data\nNYC OpenData\nOpen access to Scotland’s official statistics\nPew Research\nPRISM Data Archive Project\nStatistics Canada\nThe National Bureau of Economic Research\nTidyTuesday\nUCI Machine Learning Repository\nUK Government Data\nUNICEF Data\nUnited Nations Data\nUnited Nations Statistics Division\nUS Census Data\nUS Government Data\nWorld Bank Data\nYouth Risk Behavior Surveillance System (YRBSS)",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#proposal-grading",
+    "href": "project/project.html#proposal-grading",
+    "title": "Project",
+    "section": "Proposal grading",
+    "text": "Proposal grading\nEach component will be graded as follows:\n\nMeets expectations (full credit): Two (or more) data sets and research questions are identified. There is a plan for completing the project as envisioned.\nClose to expectations (half credit): Only one data set and/or research question identified. The plan for completing the project as envisioned is not well designed.\nDoes not meet expectations (no credit): No dataset or research question identified. There is no plan for completing the project as envisioned.\n\nEven if you earn full credit, it may not mean that your proposal is perfect.\n\n\n\n\n\n\nImportant\n\n\n\nYou will only be working with one of the data sets for your project. I ask you to find two or more to have a back-up plan in case I don’t think the first data set will result in a successful project.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#intro-eda-grading",
+    "href": "project/project.html#intro-eda-grading",
+    "title": "Project",
+    "section": "Intro + EDA grading",
+    "text": "Intro + EDA grading\nYou will be graded on whether you incorporated the feedback from project proposal submission as well as whether the requirements listed above have been completed. Even if you earn full credit, it may not mean that your submission is perfect. I expect you to incorporate the feedback in the final report submission.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#components",
+    "href": "project/project.html#components",
+    "title": "Project",
+    "section": "Components",
+    "text": "Components\nYou should include, at a minimum, the following sections in your report.\n\nIntroduction (10 pts)\nThe introduction provides motivation and context for your research. Write 1-2 paragraphs of background information to motivate your research question. Your writing should answer the question: “Why is this work important? What might the broader implications be?” You must cite at least two additional references to adequately support your motivation.\nThen introduce the data set in a few short sentences. What is the source of the data, how were the data collected, and what general information is contained in the data set? How many observations and variables do you have? Next, create a code book (aka a “data dictionary”) of the variables in the data set. Specifically, only include in your report a code book of the variables that you use.\nComplete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.\nExample research question and hypotheses (if we were predicting penguin weights instead of baby weights):\nCan we predict body mass with bill depth? We hypothesize that penguins with deeper bills will also have more mass.\n\n\nMethodology (15 pts)\nHere you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. This is where you might want to include any preliminary summary statistics or figures you use to explore the data. Your EDA should be supporting your choice of statistical methods (ex. if you don’t observe linear trend, you should not be fitting a linear model).\n\n\nResults (15 pts)\nPlace figure(s) here to illustrate the main results from your analysis. 1 beautiful figure is worth more than several poorly formatted figures. You must have at least 1 figure.\nProvide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and create every possible model for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in writing about and interpreting results, and that you can accomplish these tasks using R. More is not better.\n\n\nDiscussion (5 pts)\nThis section is a conclusion and discussion. You should\n\nSummarize your main finding in a sentence or two.\nDiscuss your finding and why it is useful (put in the context of your motivation from the introduction).\nCritique your own analyses and include a brief paragraph on what you would do differently if you were able to start the project over.\n\n\n\nFormatting (5 pts)\nYour project should be professionally formatted. For example, this means labeling graphs and figures, turning off code chunks, using proper citations and cross-references, and following typical style guidelines.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#submission",
+    "href": "project/project.html#submission",
+    "title": "Project",
+    "section": "Submission",
+    "text": "Submission\n\nUpload the PDF submission to Gradescope.\nAssociate all pages with “Full report”.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#slides",
+    "href": "project/project.html#slides",
+    "title": "Project",
+    "section": "Slides",
+    "text": "Slides\nFor your presentation, you must create presentation slides that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality.\nHere is a suggested outline as you think through the slides; you do not have to use this exact format for the slide deck.\n\nTitle Slide\nSlide 1: Introduce the topic and motivation\nSlide 2: Introduce the data\nSlide 3 - 4: Highlights from exploratory data analysis\nSlide 4 - 5: Highlights from inference and/or modeling\nSlide 6: Conclusions + critique/shortcomings\n\nYou can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.).",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#grading-summary",
+    "href": "project/project.html#grading-summary",
+    "title": "Project",
+    "section": "Grading summary",
+    "text": "Grading summary\nGrading of the project will take into account the following:\n\nContent - What is the quality of research and/or policy question and relevancy of data to those questions?\nCorrectness - Are statistical procedures carried out and explained correctly?\nWriting and Presentation - What is the quality of the statistical presentation, writing, and explanations?\nCreativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?\n\nA general breakdown of scoring is as follows:\n\n90%-100%: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.\n80%-89%: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.\n70%-79%: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.\n60%-69%: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.\nBelow 60%: Student is not making a sufficient effort.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "project/project.html#late-work-policy",
+    "href": "project/project.html#late-work-policy",
+    "title": "Project",
+    "section": "Late work policy",
+    "text": "Late work policy\nBe sure to turn in your work early to avoid any technological mishaps.\n\n\n\n\n\n\nWarning\n\n\n\nThere is no late work accepted on the final report and presentation.",
+    "crumbs": [
+      "Project",
+      "Project"
+    ]
+  },
+  {
+    "objectID": "course-support.html",
+    "href": "course-support.html",
+    "title": "Course support",
+    "section": "",
+    "text": "Most of you will need help at some point and we want to make sure you can identify when that is without getting too frustrated and feel comfortable seeking help.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#lectures-and-labs",
+    "href": "course-support.html#lectures-and-labs",
+    "title": "Course support",
+    "section": "Lectures and labs",
+    "text": "Lectures and labs\nIf you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#office-hours",
+    "href": "course-support.html#office-hours",
+    "title": "Course support",
+    "section": "Office hours",
+    "text": "Office hours\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage each and every one of you to take advantage of this resource! Make a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself. You can find a list of everyone’s office hours here.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#discussion-board",
+    "href": "course-support.html#discussion-board",
+    "title": "Course support",
+    "section": "Discussion Board",
+    "text": "Discussion Board\nHave a question that can’t wait for office hours? Prefer to write out your question in detail rather than asking in person? The course Discussion Board on Canvas is the best venue for these! There is a chance another student has already asked a similar question, so please check the other posts before asking a new question. If you know the answer to a question that is posted, I encourage you to respond!",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#email",
+    "href": "course-support.html#email",
+    "title": "Course support",
+    "section": "Email",
+    "text": "Email\nPlease refrain from emailing any course content questions (those should go to discussion board), and only use email for questions about personal matters that may not be appropriate for the public course forum (e.g., illness, accommodations, etc.). For such matters, you may email Kat Husar at kat.husar@duke.edu.\nIf there is a question that’s not appropriate for the public forum, you are welcome to email me directly. If you email me, please include “STA 101” in the subject line. Barring extenuating circumstances, I will respond to STA 101 emails within 24 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#academic-support",
+    "href": "course-support.html#academic-support",
+    "title": "Course support",
+    "section": "Academic support",
+    "text": "Academic support\nThere are times may need help with the class that is beyond what can be provided by the teaching team. In those instances, I encourage you to visit the Academic Resource Center. The Academic Resource Center (ARC) offers free services to all students during their undergraduate careers at Duke. Services include Learning Consultations, Peer Tutoring and Study Groups, ADHD/LD Coaching, Outreach Workshops, and more. Because learning is a process unique to every individual, they work with each student to discover and develop their own academic strategy for success at Duke. Contact the ARC to schedule an appointment. Undergraduates in any year, studying any discipline can benefit! Contact ARC@duke.edu, 919-684-5917.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#mental-health-and-wellness",
+    "href": "course-support.html#mental-health-and-wellness",
+    "title": "Course support",
+    "section": "Mental health and wellness",
+    "text": "Mental health and wellness\nStudent mental health and wellness are of primary importance at Duke, and the university offers resources to support students in managing daily stress and self-care. Duke offers several resources for students to seek assistance on coursework and to nurture daily habits that support overall well-being, some of which are listed below.\n\nThe Academic Resource Center: (919) 684-5917, theARC@duke.edu, or arc.duke.edu.\nDuWell: (919) 681-8421, provides Moments of Mindfulness (stress management and resilience building) and meditation programming to assist students in developing a daily emotional well-being practice. To see schedules for programs please see https://studentaffairs.duke.edu/duwell. All are welcome and no experience necessary.\n\nIf your mental health concerns and/or stressful events negatively affect your daily emotional state, academic performance, or ability to participate in your daily activities, many resources are available to help you through difficult times. Duke encourages all students to access these resources.\n\nDukeReach: Provides comprehensive outreach services to identify and support students in managing all aspects of well-being. If you have concerns about a student’s behavior or health visit the website for resources and assistance: http://studentaffairs.duke.edu/dukereach.\nCounseling and Psychological Services (CAPS): CAPS services include individual and group counseling services, psychiatric services, and workshops. To initiate services, walk-in/call-in 9-4 M,W,Th,F and 9-6 Tuesdays. CAPS also provides referral to off-campus resources for specialized care. (919) 660-1000 or https://students.duke.edu/wellness/caps.\nTimelyCare: (formerly known as Blue Devils Care) An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling: https://bluedevilscare.duke.edu.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#course-costs",
+    "href": "course-support.html#course-costs",
+    "title": "Course support",
+    "section": "Course costs",
+    "text": "Course costs\n\nTextbooks: The textbooks for this course are freely available on the web.\nLaptops: Each student is expected to have a laptop they can bring to each lecture and lab.\n\nIf you are having difficulty with costs associated with this course, here are some resources:\n\nContact the financial aid office (whether or not you are on aid). They have loans and resources for connecting students with programs on campus that might be able to help alleviate these costs.\nDukeLIFE offers course materials assistance for eligible students. Please note that students who are eligible for DukeLIFE benefits are notified prior to the start of the semester; program resources are limited.\nDuke Libraries offers textbook rentals through the Top Textbook Program, where you can rent out a textbook for 3 hours at a time.\nFor course-specific technology needs such as Digital Voice Recorder, HD Video Camera, TI-84 Plus CE, DSLR camera kit, Tripod, Shotgun Mic, iPad Mini 4, a Handheld Projector, or a GoPro, you can reserve rental equipment from the Link.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#assistance-with-canvas-and-zoom",
+    "href": "course-support.html#assistance-with-canvas-and-zoom",
+    "title": "Course support",
+    "section": "Assistance with Canvas and Zoom",
+    "text": "Assistance with Canvas and Zoom\nFor technical help with Canvas or Zoom, contact the Duke OIT Service Desk at oit.duke.edu/help. You can also access the self-service help documentation for Zoom here and for Canvas here.\nZoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person.",
+    "crumbs": [
+      "Course information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-overview.html",
+    "href": "course-overview.html",
+    "title": "Course overview",
+    "section": "",
+    "text": "This is the homepage for STA 101 - Data Analysis and Statistical Inference taught by Kat Husar in Summer 2024 at Duke University. All course materials will be posted on this site.\nYou can find the course syllabus here and the course schedule here.",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-overview.html#class-meetings",
+    "href": "course-overview.html#class-meetings",
+    "title": "Course overview",
+    "section": "Class meetings",
+    "text": "Class meetings\n\n\n\n\n\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLectures\nPerkins LINK 087 (Classroom 3)\nMon- Fri 11:00 - 12:15 pm\n\n\nLab\nPerkins LINK 087 (Classroom 3)\nMon, Thu 9:30 - 10:45 am",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-overview.html#acknowledgement",
+    "href": "course-overview.html#acknowledgement",
+    "title": "Course overview",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-overview.html#license",
+    "href": "course-overview.html#license",
+    "title": "Course overview",
+    "section": "License",
+    "text": "License\n\nThis online work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International. Visit here for more information about the license.",
+    "crumbs": [
+      "Course information",
+      "Overview"
     ]
   },
   {
@@ -2736,531 +3264,146 @@
     ]
   },
   {
-    "objectID": "course-overview.html",
-    "href": "course-overview.html",
-    "title": "Course overview",
+    "objectID": "labs/lab5/lab-5.html",
+    "href": "labs/lab5/lab-5.html",
+    "title": "Lab 5",
     "section": "",
-    "text": "This is the homepage for STA 101 - Data Analysis and Statistical Inference taught by Kat Husar in Summer 2024 at Duke University. All course materials will be posted on this site.\nYou can find the course syllabus here and the course schedule here.",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "course-overview.html#class-meetings",
-    "href": "course-overview.html#class-meetings",
-    "title": "Course overview",
-    "section": "Class meetings",
-    "text": "Class meetings\n\n\n\n\n\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLectures\nPerkins LINK 087 (Classroom 3)\nMon- Fri 11:00 - 12:15 pm\n\n\nLab\nPerkins LINK 087 (Classroom 3)\nMon, Thu 9:30 - 10:45 am",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "course-overview.html#acknowledgement",
-    "href": "course-overview.html#acknowledgement",
-    "title": "Course overview",
-    "section": "Acknowledgement",
-    "text": "Acknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "course-overview.html#license",
-    "href": "course-overview.html#license",
-    "title": "Course overview",
-    "section": "License",
-    "text": "License\n\nThis online work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International. Visit here for more information about the license.",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "course-support.html",
-    "href": "course-support.html",
-    "title": "Course support",
-    "section": "",
-    "text": "Most of you will need help at some point and we want to make sure you can identify when that is without getting too frustrated and feel comfortable seeking help.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#lectures-and-labs",
-    "href": "course-support.html#lectures-and-labs",
-    "title": "Course support",
-    "section": "Lectures and labs",
-    "text": "Lectures and labs\nIf you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#office-hours",
-    "href": "course-support.html#office-hours",
-    "title": "Course support",
-    "section": "Office hours",
-    "text": "Office hours\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage each and every one of you to take advantage of this resource! Make a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself. You can find a list of everyone’s office hours here.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#discussion-board",
-    "href": "course-support.html#discussion-board",
-    "title": "Course support",
-    "section": "Discussion Board",
-    "text": "Discussion Board\nHave a question that can’t wait for office hours? Prefer to write out your question in detail rather than asking in person? The course Discussion Board on Canvas is the best venue for these! There is a chance another student has already asked a similar question, so please check the other posts before asking a new question. If you know the answer to a question that is posted, I encourage you to respond!",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#email",
-    "href": "course-support.html#email",
-    "title": "Course support",
-    "section": "Email",
-    "text": "Email\nPlease refrain from emailing any course content questions (those should go to discussion board), and only use email for questions about personal matters that may not be appropriate for the public course forum (e.g., illness, accommodations, etc.). For such matters, you may email Kat Husar at kat.husar@duke.edu.\nIf there is a question that’s not appropriate for the public forum, you are welcome to email me directly. If you email me, please include “STA 101” in the subject line. Barring extenuating circumstances, I will respond to STA 101 emails within 24 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#academic-support",
-    "href": "course-support.html#academic-support",
-    "title": "Course support",
-    "section": "Academic support",
-    "text": "Academic support\nThere are times may need help with the class that is beyond what can be provided by the teaching team. In those instances, I encourage you to visit the Academic Resource Center. The Academic Resource Center (ARC) offers free services to all students during their undergraduate careers at Duke. Services include Learning Consultations, Peer Tutoring and Study Groups, ADHD/LD Coaching, Outreach Workshops, and more. Because learning is a process unique to every individual, they work with each student to discover and develop their own academic strategy for success at Duke. Contact the ARC to schedule an appointment. Undergraduates in any year, studying any discipline can benefit! Contact ARC@duke.edu, 919-684-5917.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#mental-health-and-wellness",
-    "href": "course-support.html#mental-health-and-wellness",
-    "title": "Course support",
-    "section": "Mental health and wellness",
-    "text": "Mental health and wellness\nStudent mental health and wellness are of primary importance at Duke, and the university offers resources to support students in managing daily stress and self-care. Duke offers several resources for students to seek assistance on coursework and to nurture daily habits that support overall well-being, some of which are listed below.\n\nThe Academic Resource Center: (919) 684-5917, theARC@duke.edu, or arc.duke.edu.\nDuWell: (919) 681-8421, provides Moments of Mindfulness (stress management and resilience building) and meditation programming to assist students in developing a daily emotional well-being practice. To see schedules for programs please see https://studentaffairs.duke.edu/duwell. All are welcome and no experience necessary.\n\nIf your mental health concerns and/or stressful events negatively affect your daily emotional state, academic performance, or ability to participate in your daily activities, many resources are available to help you through difficult times. Duke encourages all students to access these resources.\n\nDukeReach: Provides comprehensive outreach services to identify and support students in managing all aspects of well-being. If you have concerns about a student’s behavior or health visit the website for resources and assistance: http://studentaffairs.duke.edu/dukereach.\nCounseling and Psychological Services (CAPS): CAPS services include individual and group counseling services, psychiatric services, and workshops. To initiate services, walk-in/call-in 9-4 M,W,Th,F and 9-6 Tuesdays. CAPS also provides referral to off-campus resources for specialized care. (919) 660-1000 or https://students.duke.edu/wellness/caps.\nTimelyCare: (formerly known as Blue Devils Care) An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling: https://bluedevilscare.duke.edu.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#course-costs",
-    "href": "course-support.html#course-costs",
-    "title": "Course support",
-    "section": "Course costs",
-    "text": "Course costs\n\nTextbooks: The textbooks for this course are freely available on the web.\nLaptops: Each student is expected to have a laptop they can bring to each lecture and lab.\n\nIf you are having difficulty with costs associated with this course, here are some resources:\n\nContact the financial aid office (whether or not you are on aid). They have loans and resources for connecting students with programs on campus that might be able to help alleviate these costs.\nDukeLIFE offers course materials assistance for eligible students. Please note that students who are eligible for DukeLIFE benefits are notified prior to the start of the semester; program resources are limited.\nDuke Libraries offers textbook rentals through the Top Textbook Program, where you can rent out a textbook for 3 hours at a time.\nFor course-specific technology needs such as Digital Voice Recorder, HD Video Camera, TI-84 Plus CE, DSLR camera kit, Tripod, Shotgun Mic, iPad Mini 4, a Handheld Projector, or a GoPro, you can reserve rental equipment from the Link.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "course-support.html#assistance-with-canvas-and-zoom",
-    "href": "course-support.html#assistance-with-canvas-and-zoom",
-    "title": "Course support",
-    "section": "Assistance with Canvas and Zoom",
-    "text": "Assistance with Canvas and Zoom\nFor technical help with Canvas or Zoom, contact the Duke OIT Service Desk at oit.duke.edu/help. You can also access the self-service help documentation for Zoom here and for Canvas here.\nZoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person.",
-    "crumbs": [
-      "Course information",
-      "Support"
-    ]
-  },
-  {
-    "objectID": "project/project.html",
-    "href": "project/project.html",
-    "title": "Project",
-    "section": "",
-    "text": "The deliverable for this project (what you will turn in) is a written report and a presentation. See below for more details.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#criteria-for-datasets",
-    "href": "project/project.html#criteria-for-datasets",
-    "title": "Project",
-    "section": "Criteria for datasets",
-    "text": "Criteria for datasets\nThe data sets should meet the following criteria:\n\nAt least 100 observations\nAt least 5 columns\nAt least 4 of the columns must be useful and unique explanatory variables.\n\nIdentifier variables such as “name”, “social security number”, etc. are not useful explanatory variables.\nIf you have multiple columns with the same information (e.g. “state abbreviation” and “state name”), then they are not unique explanatory variables.\n\nYou may not use data that has previously been used in course, or any derivation of data that has been used in course materials (this or previous semesters of STA101).\n\n\n\n\n\n\n\nTip\n\n\n\nPlease ask a member of the teaching team if you’re unsure whether your data set meets the criteria.\n\n\nIf you set your hearts on a dataset that has fewer observations or variables than what’s suggested here, that might still be ok; use these numbers as guidance for a successful proposal, not as minimum requirements.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#resources",
-    "href": "project/project.html#resources",
-    "title": "Project",
-    "section": "Resources for datasets",
-    "text": "Resources for datasets\nYou can find data wherever you like, but here are some recommendations to get you started. You shouldn’t feel constrained to datasets that are already in a tidy format, you can start with data that needs cleaning and tidying, scrape data off the web, or collect your own data.\n\nAwesome public datasets\nBikeshare data portal\nCDC\nData.gov\nData is Plural\nDurham Open Data Portal\nEdinburgh Open Data\nElection Studies\nEuropean Statistics\nCORGIS: The Collection of Really Great, Interesting, Situated Datasets\nGeneral Social Survey\nGoogle Dataset Search\nHarvard Dataverse\nInternational Monetary Fund\nIPUMS survey data from around the world\nLos Angeles Open Data\nNational Crime Victimization Survey\nNHS Scotland Open Data\nNYC OpenData\nOpen access to Scotland’s official statistics\nPew Research\nPRISM Data Archive Project\nStatistics Canada\nThe National Bureau of Economic Research\nTidyTuesday\nUCI Machine Learning Repository\nUK Government Data\nUNICEF Data\nUnited Nations Data\nUnited Nations Statistics Division\nUS Census Data\nUS Government Data\nWorld Bank Data\nYouth Risk Behavior Surveillance System (YRBSS)",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#proposal-grading",
-    "href": "project/project.html#proposal-grading",
-    "title": "Project",
-    "section": "Proposal grading",
-    "text": "Proposal grading\nEach component will be graded as follows:\n\nMeets expectations (full credit): Two (or more) data sets and research questions are identified. There is a plan for completing the project as envisioned.\nClose to expectations (half credit): Only one data set and/or research question identified. The plan for completing the project as envisioned is not well designed.\nDoes not meet expectations (no credit): No dataset or research question identified. There is no plan for completing the project as envisioned.\n\nEven if you earn full credit, it may not mean that your proposal is perfect.\n\n\n\n\n\n\nImportant\n\n\n\nYou will only be working with one of the data sets for your project. I ask you to find two or more to have a back-up plan in case I don’t think the first data set will result in a successful project.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#intro-eda-grading",
-    "href": "project/project.html#intro-eda-grading",
-    "title": "Project",
-    "section": "Intro + EDA grading",
-    "text": "Intro + EDA grading\nYou will be graded on whether you incorporated the feedback from project proposal submission as well as whether the requirements listed above have been completed. Even if you earn full credit, it may not mean that your submission is perfect. I expect you to incorporate the feedback in the final report submission.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#components",
-    "href": "project/project.html#components",
-    "title": "Project",
-    "section": "Components",
-    "text": "Components\nYou should include, at a minimum, the following sections in your report.\n\nIntroduction (10 pts)\nThe introduction provides motivation and context for your research. Write 1-2 paragraphs of background information to motivate your research question. Your writing should answer the question: “Why is this work important? What might the broader implications be?” You must cite at least two additional references to adequately support your motivation.\nThen introduce the data set in a few short sentences. What is the source of the data, how were the data collected, and what general information is contained in the data set? How many observations and variables do you have? Next, create a code book (aka a “data dictionary”) of the variables in the data set. Specifically, only include in your report a code book of the variables that you use.\nComplete the introduction by providing a concise, clear statement of your research question and hypotheses. Be sure to motivate why the research question is interesting/useful.\nExample research question and hypotheses (if we were predicting penguin weights instead of baby weights):\nCan we predict body mass with bill depth? We hypothesize that penguins with deeper bills will also have more mass.\n\n\nMethodology (15 pts)\nHere you should introduce any statistical methods you use and describe why you choose the methods you do to answer your question. This is where you might want to include any preliminary summary statistics or figures you use to explore the data. Your EDA should be supporting your choice of statistical methods (ex. if you don’t observe linear trend, you should not be fitting a linear model).\n\n\nResults (15 pts)\nPlace figure(s) here to illustrate the main results from your analysis. 1 beautiful figure is worth more than several poorly formatted figures. You must have at least 1 figure.\nProvide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and create every possible model for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in writing about and interpreting results, and that you can accomplish these tasks using R. More is not better.\n\n\nDiscussion (5 pts)\nThis section is a conclusion and discussion. You should\n\nSummarize your main finding in a sentence or two.\nDiscuss your finding and why it is useful (put in the context of your motivation from the introduction).\nCritique your own analyses and include a brief paragraph on what you would do differently if you were able to start the project over.\n\n\n\nFormatting (5 pts)\nYour project should be professionally formatted. For example, this means labeling graphs and figures, turning off code chunks, using proper citations and cross-references, and following typical style guidelines.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#submission",
-    "href": "project/project.html#submission",
-    "title": "Project",
-    "section": "Submission",
-    "text": "Submission\n\nUpload the PDF submission to Gradescope.\nAssociate all pages with “Full report”.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#slides",
-    "href": "project/project.html#slides",
-    "title": "Project",
-    "section": "Slides",
-    "text": "Slides\nFor your presentation, you must create presentation slides that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality.\nHere is a suggested outline as you think through the slides; you do not have to use this exact format for the slide deck.\n\nTitle Slide\nSlide 1: Introduce the topic and motivation\nSlide 2: Introduce the data\nSlide 3 - 4: Highlights from exploratory data analysis\nSlide 4 - 5: Highlights from inference and/or modeling\nSlide 6: Conclusions + critique/shortcomings\n\nYou can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.).",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#grading-summary",
-    "href": "project/project.html#grading-summary",
-    "title": "Project",
-    "section": "Grading summary",
-    "text": "Grading summary\nGrading of the project will take into account the following:\n\nContent - What is the quality of research and/or policy question and relevancy of data to those questions?\nCorrectness - Are statistical procedures carried out and explained correctly?\nWriting and Presentation - What is the quality of the statistical presentation, writing, and explanations?\nCreativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?\n\nA general breakdown of scoring is as follows:\n\n90%-100%: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.\n80%-89%: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.\n70%-79%: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.\n60%-69%: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.\nBelow 60%: Student is not making a sufficient effort.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "project/project.html#late-work-policy",
-    "href": "project/project.html#late-work-policy",
-    "title": "Project",
-    "section": "Late work policy",
-    "text": "Late work policy\nBe sure to turn in your work early to avoid any technological mishaps.\n\n\n\n\n\n\nWarning\n\n\n\nThere is no late work accepted on the final report and presentation.",
-    "crumbs": [
-      "Project",
-      "Project"
-    ]
-  },
-  {
-    "objectID": "course-faq.html",
-    "href": "course-faq.html",
-    "title": "FAQ",
-    "section": "",
-    "text": "The short answer is, I’d rather you didn’t, to save yourself some headache. But, the long answer is, sure! But you will need to install a specific versions of R and RStudio for everything to work as expected. You will also need to install the R packages we’re using as well as have Git installed on your computer. These are not extremely challenging things to get right, but they are not trivial either, particularly on certain operating systems. Myself and the TAs are always happy to provide help with any computational questions when you’re working in the containers we have provided for you. If you’re working on your local setup, we can’t guarantee being able to resolve your issues, though we’re happy to try.\nIf you want to take this path, here is what you need to do:\n\nDownload and install R 4.3.1: https://cran.r-project.org\nDownload and install the preview build of RStudio: https://posit.co/download/rstudio-desktop\nInstall any necessary packages with install.packages(\"___\")\n\nAnd I’d like to reiterate again that successful installation of these software is not a learning goal of this course. So if any of this seems tedious or intimidating in any way, just use the computing environment we have set up for you. More on that here.",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#can-i-use-a-local-install-of-posit-cloud",
-    "href": "course-faq.html#can-i-use-a-local-install-of-posit-cloud",
-    "title": "FAQ",
-    "section": "",
-    "text": "The short answer is, I’d rather you didn’t, to save yourself some headache. But, the long answer is, sure! But you will need to install a specific versions of R and RStudio for everything to work as expected. You will also need to install the R packages we’re using as well as have Git installed on your computer. These are not extremely challenging things to get right, but they are not trivial either, particularly on certain operating systems. Myself and the TAs are always happy to provide help with any computational questions when you’re working in the containers we have provided for you. If you’re working on your local setup, we can’t guarantee being able to resolve your issues, though we’re happy to try.\nIf you want to take this path, here is what you need to do:\n\nDownload and install R 4.3.1: https://cran.r-project.org\nDownload and install the preview build of RStudio: https://posit.co/download/rstudio-desktop\nInstall any necessary packages with install.packages(\"___\")\n\nAnd I’d like to reiterate again that successful installation of these software is not a learning goal of this course. So if any of this seems tedious or intimidating in any way, just use the computing environment we have set up for you. More on that here.",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "labs/lab6/lab-6.html",
-    "href": "labs/lab6/lab-6.html",
-    "title": "Lab 6",
-    "section": "",
-    "text": "Critiquing visualizations that misrepresent data\nImproving data visualizations to better convey the right message",
+    "text": "By the end of this lab you will create formulate and conduct hypothesis tests using randomization.\nFor all visualizations you create, be sure to include informative titles for the plot, axes, and legend!",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#packages",
-    "href": "labs/lab6/lab-6.html#packages",
-    "title": "Lab 6",
-    "section": "Packages",
-    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization.\n\nlibrary(tidyverse)",
-    "crumbs": [
-      "Labs",
-      "Lab 6"
-    ]
-  },
-  {
-    "objectID": "labs/lab6/lab-6.html#data",
-    "href": "labs/lab6/lab-6.html#data",
-    "title": "Lab 6",
-    "section": "Data",
-    "text": "Data\nIn this lab you’ll construct the data set!",
-    "crumbs": [
-      "Labs",
-      "Lab 6"
-    ]
-  },
-  {
-    "objectID": "labs/lab6/lab-6.html#exercise-1",
-    "href": "labs/lab6/lab-6.html#exercise-1",
-    "title": "Lab 6",
+    "objectID": "labs/lab5/lab-5.html#exercise-1",
+    "href": "labs/lab5/lab-5.html#exercise-1",
+    "title": "Lab 5",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\nWhat is misleading about this visualization and how you might go about fixing it?",
+    "text": "Exercise 1\n\nIMS - Chapter 11 exercises, #2: Identify the parameter, II.",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#exercise-2",
-    "href": "labs/lab6/lab-6.html#exercise-2",
-    "title": "Lab 6",
+    "objectID": "labs/lab5/lab-5.html#exercise-2",
+    "href": "labs/lab5/lab-5.html#exercise-2",
+    "title": "Lab 5",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nCreate a data frame that can be used to re-construct this visualization. You may need to guess some of the numbers, that’s ok. You should first think about how many rows and columns you’ll need and what you want to call your variables. Then, you can use the tribble() function for this. For example, if you wanted to construct the following data frame\n\ndf &lt;- tribble(\n  ~date, ~\"mask\", ~\"no mask\",\n  \"1/1/2020\", 15, 20,\n  \"2/1/2020\", 20, 18,\n  \"3/1/2020\", 22, 23\n)\n\nYou can create the data frame below. Print the first 5 rows of the data frame after creating it. You may name the data frame what you like. We often try and keep data frame names small and informative.",
+    "text": "Exercise 2\n\nIMS - Chapter 11 exercises, #6: Identify hypotheses, II.",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#exercise-3",
-    "href": "labs/lab6/lab-6.html#exercise-3",
-    "title": "Lab 6",
+    "objectID": "labs/lab5/lab-5.html#exercise-3",
+    "href": "labs/lab5/lab-5.html#exercise-3",
+    "title": "Lab 5",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nMake a visualization that more accurately (and honestly) tells the story. (Hint: use pivot_longer() function to change the shape of your dataset so that it has three colums: date, count, and county_type).",
+    "text": "Exercise 3\n\nIMS - Chapter 11 exercises, #8: Heart transplants.",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#exercise-4",
-    "href": "labs/lab6/lab-6.html#exercise-4",
-    "title": "Lab 6",
+    "objectID": "labs/lab5/lab-5.html#exercise-4",
+    "href": "labs/lab5/lab-5.html#exercise-4",
+    "title": "Lab 5",
     "section": "Exercise 4",
-    "text": "Exercise 4\n\nWhat message is more clear in your visualization than it was in the original visualization?",
+    "text": "Exercise 4\n\nRecreate the stacked bar plot in Exercise 3.\n\n\n\n\n\n\n\nHint\n\n\n\nThe colors are #569BBD and #114B5F. Use scale_fill_manual() to indicate these are the colors you want to use.\n\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#exercise-5",
-    "href": "labs/lab6/lab-6.html#exercise-5",
-    "title": "Lab 6",
+    "objectID": "labs/lab5/lab-5.html#exercise-5",
+    "href": "labs/lab5/lab-5.html#exercise-5",
+    "title": "Lab 5",
     "section": "Exercise 5",
-    "text": "Exercise 5\n\n\nWhat, if any, useful information do these data and your visualization tell us about mask wearing and COVID? Answers should focus only on what the visualization tells.",
+    "text": "Exercise 5\n\nCalculate the point estimate for the difference in proportions of patients who died between the treatment and control groups: \\(\\hat{p}_{treatment} - \\hat{p}_{control}\\), where \\(\\hat{p}\\) is the observed probability of dying in each group. Do this in two ways:\n\nConstruct a frequency table of survived by transplant and calculate the difference in proportions “by hand”.\nUse specify() and calculate() to calculate the difference in proportions as shown below.\n\n\nobs_diff_outcome &lt;- heart_transplant |&gt;\n  specify(response = outcome, explanatory = transplant, success = \"deceased\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"treatment\", \"control\"))\n\nThen, confirm that you obtained the same results with the two methods.",
     "crumbs": [
       "Labs",
-      "Lab 6"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab6/lab-6.html#submitting",
-    "href": "labs/lab6/lab-6.html#submitting",
-    "title": "Lab 6",
-    "section": "Submitting",
-    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-6.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TA can’t mark your pages for you, and for them to be able to grade, you must mark them.",
-    "crumbs": [
-      "Labs",
-      "Lab 6"
-    ]
-  },
-  {
-    "objectID": "labs/lab6/lab-6.html#grading",
-    "href": "labs/lab6/lab-6.html#grading",
-    "title": "Lab 6",
-    "section": "Grading",
-    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n15\n\n\nEx 4\n5\n\n\nEx 5\n5\n\n\nTotal\n35",
-    "crumbs": [
-      "Labs",
-      "Lab 6"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html",
-    "href": "labs/lab4/lab-4.html",
-    "title": "Lab 4",
-    "section": "",
-    "text": "By the end of this lab you will create and fit regression models with a single predictor and visualize a simple regression model.\nFor all visualizations you create, b sure to include informative titles for the plot, axes, and legend!",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-1",
-    "href": "labs/lab4/lab-4.html#exercise-1",
-    "title": "Lab 4",
-    "section": "Exercise 1",
-    "text": "Exercise 1\n\nLet’s begin by taking a look at the squat lifting records.\nTo begin, remove any observations that are negative for squat. Next, create a new column called best3_squat_lbs that converts the record from kg to lbs (you may have to google the conversion). Save your data frame as ipf_squat. Report the number of rows and columns of this new data frame using inline code.\n\n\n\n\n\n\n\nHint\n\n\n\nFirst, you’re taking a dataset and filtering it for certain records, and then you’re mutate-ing that dataset to gain a new column, and you’re assigning the resulting dataset to a new object called ipf_squat.",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-2",
-    "href": "labs/lab4/lab-4.html#exercise-2",
-    "title": "Lab 4",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\nUsing ipf_squat from the previous exercise, create a scatter plot to investigate the relationship between squat (in lbs) and age. Age should be on the x-axis. Adjust the alpha level of your points to get a better sense of the density of the data. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-3",
-    "href": "labs/lab4/lab-4.html#exercise-3",
-    "title": "Lab 4",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nWrite down the linear model to predict lift squat lbs from age in \\(x\\), \\(y\\), \\(\\beta\\) notation. What is \\(x\\)? What is \\(y\\)? Next, fit the linear model, and save it as age_fit. Re-write your previous equation replacing \\(\\beta\\) with the numeric estimates. This is called the “fitted” linear model. Interpret each estimate of \\(\\beta\\). Are the interpretations sensible?",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-4",
-    "href": "labs/lab4/lab-4.html#exercise-4",
-    "title": "Lab 4",
-    "section": "Exercise 4",
-    "text": "Exercise 4\n\nBuilding on your ipf_squat data frame, create a new column called age2 that takes the age of each lifter and squares it. Save it to your data frame ipf_squat. Next, plot squat in lbs vs age2 and add a linear best fit line. Does this model look like it fits the data better?\n\n\n\n\n\n\n\nHint\n\n\n\nTo raise a value to a power, use ^ in R, e.g.: 2 ^ 2 gives you 4, 2 ^ 3 gives you 8, etc.",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-5",
-    "href": "labs/lab4/lab-4.html#exercise-5",
-    "title": "Lab 4",
-    "section": "Exercise 5",
-    "text": "Exercise 5\n\nOne metric to assess the fit of a model is the correlation squared, also known as \\(R^2\\). Fit the age\\(^2\\) model and save the object as age2_fit. Subsequently run\n\nglance(age2_fit)$r.squared\n\nto examine the \\(R^2\\). Compare \\(R^2\\) of the age\\(^2\\) model to the \\(R^2\\) of the model from Exercise 3. Which has a higher \\(R^2\\)?\n\n\n\n\n\n\n\nNote\n\n\n\n\\(R^2\\) values range from 0 to 1. Values close to 0 means weak correlation between the variables whereas \\(R^2 = 1\\) implies perfect correlation. You can (optionally) read more about \\(R^2\\) in section 7.2.5 of the book. We’ll pick up here in the next class.",
-    "crumbs": [
-      "Labs",
-      "Lab 4"
-    ]
-  },
-  {
-    "objectID": "labs/lab4/lab-4.html#exercise-6",
-    "href": "labs/lab4/lab-4.html#exercise-6",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#exercise-6",
+    "href": "labs/lab5/lab-5.html#exercise-6",
+    "title": "Lab 5",
     "section": "Exercise 6",
-    "text": "Exercise 6\n\nNext, let’s turn our attention to dead lifting records.\nRecreate the plot below. Make sure axes and title labels are exactly matching, including spelling, capitalization, etc. Based on the plot below, which impacts deadlift weight more, age category or sex?\n\n\n\n\n\n\n\nHint\n\n\n\nYou will need to create a couple of new columns. One to classify age appropriately and one to convert best3deadlift_kg to the plotted units (lbs). Notice that there are no negative deadlift values on the x-axis.",
+    "text": "Exercise 6\n\nUsing the code below, generate a null distribution for the hypothesis test for the hypothesis you formulated in Exercise 3. Use 100 resamples (reps). However, change the seed to use a different seed.\n\nset.seed(1234)\n\nnull_dist_outcome &lt;- heart_transplant |&gt;\n  specify(response = outcome, explanatory = transplant, success = \"deceased\") |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 100, type = \"permute\") |&gt;\n  calculate(stat = \"diff in props\", order = c(\"treatment\", \"control\"))\n\nThen, inspect the object null_dist_outcome using either glimpse() or just printing it to screen. How many rows and how many columns does it have? What does each row represent? What does each variable represent?",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#exercise-7",
-    "href": "labs/lab4/lab-4.html#exercise-7",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#exercise-7",
+    "href": "labs/lab5/lab-5.html#exercise-7",
+    "title": "Lab 5",
     "section": "Exercise 7",
-    "text": "Exercise 7\n\nFinally, let’s turn our attention to bench press records.\nTo begin, remove any observations that are negative for bench press, create two new columns: best3bench_lbs and bodyweight_lbs. Save the result in a new data frame called ipf_bench.\nThen, create a scatter plot to investigate the relationship between best bench press (in lbs) and the lifter’s bodyweight (in lbs). Bodyweight should be on the x-axis. Add a linear trend-line. Be sure to label all axes and give the plot a title. Comment on what you observe.",
+    "text": "Exercise 7\n\nVisualize the distribution of simulated differences in proportions of deceased between treatment and control groups. What is the shape of this distribution? What is the center of this distribution? Are these results expected? Explain your reasoning.\n\n\n\n\n\n\n\nHint\n\n\n\nThese simulated values are in the stat column of null_dist_outcome.",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#exercise-8",
-    "href": "labs/lab4/lab-4.html#exercise-8",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#exercise-8",
+    "href": "labs/lab5/lab-5.html#exercise-8",
+    "title": "Lab 5",
     "section": "Exercise 8",
-    "text": "Exercise 8\n\nFit the linear model displayed in the previous exercise and write down the fitted model equation only, replacing \\(\\hat{\\beta}\\)s with their fitted estimates. Interpret the \\(\\hat{\\beta}\\)s (intercept and slope). Report \\(R^2\\). Is body weight an important predictor of bench press ability? Why or why not?",
+    "text": "Exercise 8\n\nCalculate the p-value. Do this in two ways:\n\nFilter null_dist_outcome for stat values that are at least as far away from the null value as the observed value you calculated in Exercise 4. Make sure you’re considering both directions! Note how many such values there are, and calculate the proportion out of the total number of resamples.\nUse get_p_value():\n\n\np_value_outcome &lt;- null_dist_outcome |&gt;\n  get_p_value(obs_stat = obs_diff_outcome, direction = \"two-sided\")\n\nThen, confirm that you obtained the same results with the two methods. Finally, interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.\n\n\n\n\n\n\n\nPause and render\n\n\n\nNow that you’ve completed a few exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help if you need. Do not proceed without rendering your document.",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#exercise-9",
-    "href": "labs/lab4/lab-4.html#exercise-9",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#exercise-9",
+    "href": "labs/lab5/lab-5.html#exercise-9",
+    "title": "Lab 5",
     "section": "Exercise 9",
-    "text": "Exercise 9\n\nIMS - Chapter 7 exercises, #18: Over-under, II.",
+    "text": "Exercise 9\n\nRecreate the side-by–side box plots in Exercise 3. The variable of interest is survtime, which is the number of days patients were alive after the date they were determined to be a candidate for a heart transplant until the termination date of the study.",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#exercise-10",
-    "href": "labs/lab4/lab-4.html#exercise-10",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#exercise-10",
+    "href": "labs/lab5/lab-5.html#exercise-10",
+    "title": "Lab 5",
     "section": "Exercise 10",
-    "text": "Exercise 10\n\nIMS - Chapter 7 exercises, #24: Cats weights.",
+    "text": "Exercise 10\n\nDo these data provide convincing evidence of a difference between average survival times of patient who did and did not get a heart transplant?\nWrite the hypotheses for answering this question and conduct the hypothesis test using randomization. Use 1,000 resamples. In order to avoid name collision, use object names like obs_diff_survtime, null_dist_survtime, and p_value_survtime. Find and interpret the p-value in context of the data and the research question and comment on the statistical discernability of this result using a discernability level of 5%.",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#submitting",
-    "href": "labs/lab4/lab-4.html#submitting",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#submitting",
+    "href": "labs/lab5/lab-5.html#submitting",
+    "title": "Lab 5",
     "section": "Submitting",
-    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-3.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can’t mark your pages for you, and for them to be able to grade, you must mark them.",
+    "text": "Submitting\n\n\n\n\n\n\nImportant\n\n\n\nBefore you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.\n\n\nTo submit your assignment to Gradescope:\n\nGo to your Files pane and check the box next to the PDF output of your document (lab-5.pdf).\nThen, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.\nGo to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TA can’t mark your pages for you, and for them to be able to grade, you must mark them.",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
-    "objectID": "labs/lab4/lab-4.html#grading",
-    "href": "labs/lab4/lab-4.html#grading",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab-5.html#grading",
+    "href": "labs/lab5/lab-5.html#grading",
+    "title": "Lab 5",
     "section": "Grading",
-    "text": "Grading\n\n\n\nExercise\nPoints\n\n\n\n\nExercise 1\n3\n\n\nExercise 2\n5\n\n\nExercise 3\n5\n\n\nExercise 4\n5\n\n\nExercise 5\n5\n\n\nExercise 6\n8\n\n\nExercise 7\n6\n\n\nExercise 8\n7\n\n\nExercise 9\n4\n\n\nExercise 10\n2\n\n\nTotal\n50",
+    "text": "Grading\n\n\n\nExercise\nPoints\n\n\n\n\nExercise 1\n5\n\n\nExercise 2\n4\n\n\nExercise 3\n6\n\n\nExercise 4\n4\n\n\nExercise 5\n4\n\n\nExercise 6\n6\n\n\nExercise 7\n5\n\n\nExercise 8\n4\n\n\nExercise 9\n5\n\n\nExercise 10\n7\n\n\nTotal\n50",
     "crumbs": [
       "Labs",
-      "Lab 4"
+      "Lab 5"
     ]
   },
   {
@@ -5778,7 +5921,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#hypothesis-testing-1",
@@ -5799,7 +5942,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#organ-donors",
