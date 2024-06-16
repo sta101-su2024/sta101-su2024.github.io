@@ -163,8 +163,6 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 The lab will be graded out of 50 total points.
 
-The lab will be graded out of 50 total points.
-
 
 
 | Exercise    | Points |
