@@ -198,5 +198,5 @@ Perform the hypothesis test testing whether the true proportion of Duke students
 #| eval: false
 null_mean = 
 null_se = 
-pnorm(q = obs_stat,mean = null_mean, sd = null_se )
+1 - pnorm(q = obs_stat,mean = null_mean, sd = null_se )
 ```
