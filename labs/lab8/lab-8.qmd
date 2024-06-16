@@ -163,20 +163,23 @@ If you fail to mark the pages associated with an exercise, that exercise won't b
 
 The lab will be graded out of 50 total points.
 
+The lab will be graded out of 50 total points.
+
 ```{=html}
 <!--
 | Exercise    | Points |
 |-------------|--------|
-| Exercise 1  | TBA    |
-| Exercise 2  | TBA    |
-| Exercise 3  | TBA    |
-| Exercise 4  | TBA    |
-| Exercise 5  | TBA    |
-| Exercise 6  | TBA    |
-| Exercise 7  | TBA    |
-| Exercise 8  | TBA    |
-| Exercise 9  | TBA    |
-| Exercise 10 | TBA    |
+| Exercise 1  | 2      |
+| Exercise 2  | 6      |
+| Exercise 3  | 10     |
+| Exercise 4  | 3      |
+| Exercise 5  | 4      |
+| Exercise 6  | 4      |
+| Exercise 7  | 4      |
+| Exercise 8  | 5      |
+| Exercise 9  | 4      |
+| Exercise 10 | 8      |
 | **Total**   | 50     |
 -->
 ```
+
