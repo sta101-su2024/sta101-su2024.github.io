@@ -10,6 +10,7 @@ editor: visual
 -   No classes on Wednesday
 -   Lab 8 due Thursday
 -   Lab 9 optional
+-   Friday we will talk about final report formatting
 
 # Packages and data
 
