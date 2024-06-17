@@ -35,6 +35,9 @@ editor: visual
 ## Setup
 
 ```{r}
+#| label: load-packages
+#| message: false
+#| 
 library(tidyverse)
 library(openintro)
 library(tidymodels)
