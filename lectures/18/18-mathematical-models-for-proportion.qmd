@@ -46,7 +46,7 @@ set.seed(1234)
 
 null_dist <- duke_nc |>
   specify(response = resident, success = "NC") |>
-  hypothesise(null = "point", p = 0.12) |>
+  hypothesise(null = "point", p = 0.16) |>
   generate(reps = 1000, type = "draw") |>
   calculate(stat = "prop")
 
