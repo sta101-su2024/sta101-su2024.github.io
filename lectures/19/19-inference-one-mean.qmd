@@ -144,7 +144,6 @@ boot_dist |>
 
 -   The interval:
 
-    > We are X% confident that the true population mean is within our confidence interval.
 
 -   The confidence level:
 
