@@ -152,7 +152,6 @@ What does 95% confidence interval mean?
 :::
 
 
-
 # Bootstrap confidence intervals
 
 ## Exercise 1
