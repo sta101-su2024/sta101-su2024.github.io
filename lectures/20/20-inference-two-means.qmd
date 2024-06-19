@@ -22,6 +22,9 @@ editor: visual
 
 -   And generally, **what in the world is a hypothesis test?!**
 
+-   Different than comparing two paired means:
+    - Two sets of observations are paired if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset.
+
 ## Setup
 
 ```{r}
