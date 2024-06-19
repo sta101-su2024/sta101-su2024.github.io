@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution</title>
+<title>STA 101 - Summer 24 - Inference for two independent means</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../labs/lab9/lab-9.qmd" rel="next">
-<link href="../../labs/lab7/lab-7.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,39 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../labs.css">
-<meta property="og:title" content="STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution">
-<meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
+<meta property="og:title" content="STA 101 - Summer 24 - Inference for two independent means">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
 
@@ -149,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inference for two independent means</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -234,13 +201,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../labs/lab1/lab-1.html" class="sidebar-item-text sidebar-link">
@@ -285,7 +252,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8</span></a>
   </div>
 </li>
@@ -347,41 +314,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#part-1-general-social-survey" id="toc-part-1-general-social-survey" class="nav-link" data-scroll-target="#part-1-general-social-survey">Part 1: General Social Survey</a>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
   </ul></li>
-  <li><a href="#part-2-course-scores" id="toc-part-2-course-scores" class="nav-link" data-scroll-target="#part-2-course-scores">Part 2: Course scores</a>
+  <li><a href="#inference-for-comparing-two-means" id="toc-inference-for-comparing-two-means" class="nav-link" data-scroll-target="#inference-for-comparing-two-means">Inference for comparing two means</a>
   <ul class="collapse">
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  </ul></li>
-  <li><a href="#part-3-ims-exercises" id="toc-part-3-ims-exercises" class="nav-link" data-scroll-target="#part-3-ims-exercises">Part 3: IMS exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  </ul></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a>
-  <ul class="collapse">
-  <li><a href="#submitting" id="toc-submitting" class="nav-link" data-scroll-target="#submitting">Submitting</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#todays-focus" id="toc-todays-focus" class="nav-link" data-scroll-target="#todays-focus">Today’s focus</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#randomization-test-for-comparing-two-means" id="toc-randomization-test-for-comparing-two-means" class="nav-link" data-scroll-target="#randomization-test-for-comparing-two-means">Randomization test for comparing two means</a></li>
+  <li><a href="#case-study-birth-weights-of-babies-and-smoking" id="toc-case-study-birth-weights-of-babies-and-smoking" class="nav-link" data-scroll-target="#case-study-birth-weights-of-babies-and-smoking">Case study: Birth weights of babies and smoking</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/20/20-inference-two-means.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 8 - Inference for proportions and normal distribution</h1>
+<h1 class="title">Inference for two independent means</h1>
 </div>
 
 
@@ -398,282 +350,65 @@ window.Quarto = {
 </header>
 
 
-<p>By the end of this lab you will</p>
+<section id="warm-up" class="level1">
+<h1>Warm up</h1>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li><p>calculate probabilities under the normal distribution</p></li>
-<li><p>construct and interpret confidence intervals via bootstrapping</p></li>
+<li>Tomorrow we will talk about final report formatting</li>
+<li>Monday: presentation day</li>
+<li>Wednesday: project report due</li>
 </ul>
-<p>For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!</p>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ol type="1">
-<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled **lab-8 - Inference for proportions*.</p></li>
-<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/mon-jun-17-mathematical-models-for-proportion">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
-<li><p>Complete the exercises in this document.</p></li>
-</ol>
 </section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>We’ll use the following packages in this lab:</p>
+</section>
+<section id="inference-for-comparing-two-means" class="level1">
+<h1>Inference for comparing two means</h1>
+<section id="todays-focus" class="level2">
+<h2 class="anchored" data-anchor-id="todays-focus">Today’s focus</h2>
+<ul>
+<li><p>Inference for comparing two population means</p></li>
+<li><p>Specifically, making decisions via hypothesis tests</p></li>
+<li><p>And generally, <strong>what in the world is a hypothesis test?!</strong></p></li>
+</ul>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ purrr::%||%()   masks base::%||%()
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
-✔ broom        1.0.5          ✔ rsample      1.2.0     
-✔ dials        1.2.0          ✔ tune         1.1.2     
-✔ infer        1.0.5.9000     ✔ workflows    1.1.3     
-✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     
-✔ parsnip      1.1.1          ✔ yardstick    1.2.0     
-✔ recipes      1.0.8          
-── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-✖ purrr::%||%()     masks base::%||%()
-✖ scales::discard() masks purrr::discard()
-✖ dplyr::filter()   masks stats::filter()
-✖ recipes::fixed()  masks stringr::fixed()
-✖ dplyr::lag()      masks stats::lag()
-✖ yardstick::spec() masks readr::spec()
-✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dsbox'
-
-The following object is masked from 'package:infer':
-
-    gss</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-1-general-social-survey" class="level1">
-<h1>Part 1: General Social Survey</h1>
-<p>The <a href="https://gss.norc.org/">General Social Survey (GSS)</a> is a sociological survey used to collect data on demographic characteristics and attitudes of residents of the United States. The GSS has been conducted each year since 1972 by the National Opinion Research Center at the University of Chicago. The GSS collects data on demographic characteristics and attitudes of residents of the United States. The GSS sample is designed as a multistage stratified sample.</p>
-<p>For the exercises in this part, we’ll use the <code>gss16</code> data set from the <code>dsbox</code> package. You can find out more about the dataset by inspecting its documentation, which you can access by running <code>?gss16</code> in the Console or using the Help menu in RStudio to search for <code>gss16</code>. You can also find this information <a href="https://tidyverse.github.io/dsbox/reference/gss16.html">here</a>.</p>
-<p>In 2016, the GSS added a new question on harassment at work. The question is phrased as the following.</p>
-<blockquote class="blockquote">
-<p>Over the past five years, have you been harassed by your superiors or co-workers at your job, for example, have you experienced any bullying, physical or psychological abuse?</p>
-</blockquote>
-<p>Answers to this question are stored in the <code>harass5</code> variable in <code>gss16</code> set.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<div class="exercise">
-<p>Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?</p>
-</div>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<div class="exercise">
-<p>Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.</p>
-</div>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<div class="exercise">
-<ol type="a">
-<li>Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to <code>1234</code>. Interpret this interval in context of the data. Make sure to visualize this interval as well.</li>
-<li>Where was your 95% confidence interval centered? Why does this make sense?</li>
-<li>Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Interpret this interval in context of the data. Is it wider or more narrow than the 95% confidence interval? Additionally, visualize the interval by layering it on the visualization (for the 95% confidence interval) from part (a). You can do this simply by adding another shading layer where the endpoints now come from the new 90% confidence interval. Use a <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">different pair of colors</a> for the <code>color</code> and <code>fill</code> arguments, e.g., <code>darkorange4</code> and <code>darkorange1</code>.</li>
-<li>Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulation, just conceptually think about it.</li>
-</ol>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pause and render
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Now that you’ve completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="part-2-course-scores" class="level1">
-<h1>Part 2: Course scores</h1>
-<p>Students in large university course that is offered each semester average 32 (out of 50) on the midterm, with a standard deviation of 4. The scores are distributed normally.</p>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<div class="exercise">
-<ol type="a">
-<li><p>What is the probability a randomly selected student scored less than 28?</p></li>
-<li><p>What is the probability a randomly selected student scored higher than than 35?</p></li>
-<li><p>What score did only 20 percent of the class exceed?</p></li>
+<section id="randomization-test-for-comparing-two-means" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="randomization-test-for-comparing-two-means">Randomization test for comparing two means</h2>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><p>Combine the data from the two groups and randomly shuffle them into two groups of sizes equal to the original group sample sizes</p></li>
+<li><p>Calculate the means of each group and record the different</p></li>
+<li><p>Repeat steps 1 and 2 many times to build the null distribution</p></li>
+<li><p>Find the p-value as the number of simulations with simulated differences at least as extreme (in the direction of the alternative hypothesis) as the observed difference</p></li>
 </ol>
 </div>
 </section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<div class="execise">
-<p>I pick 10 students at random from the class.</p>
-<ol type="a">
-<li><p>[Without looking at the next question] How does the standard error of their <strong>average</strong> score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.</p></li>
-<li><p>The standard error of the mean can be calculated as <span class="math inline">\(SE = \frac{\sigma}{\sqrt{n}}\)</span>. What is the probability the average midterm score of these 10 students is less than 28?</p></li>
-<li><p>What is the probability the average midterm score of these 10 students is higher than 35?</p></li>
-<li><p>How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 4? Why?</p></li>
-</ol>
+<section id="case-study-birth-weights-of-babies-and-smoking" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="case-study-birth-weights-of-babies-and-smoking">Case study: Birth weights of babies and smoking</h2>
+<div class="task">
+<p>Every year, the United States Department of Health and Human Services releases to the public a large dataset containing information on births recorded in the country. This dataset has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. In this case study we work with a random sample of 1,000 cases from the dataset released in 2014. The distributions of birth weights of babies, measured in pounds, by mother’s smoking habit are shown below.</p>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pause and render
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>openintro<span class="sc">::</span>births14 <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(habit) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">color =</span> habit, <span class="at">fill =</span> habit)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-inference-two-means_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Now that you’ve completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
 </div>
-</div>
-</section>
-</section>
-<section id="part-3-ims-exercises" class="level1">
-<h1>Part 3: IMS exercises</h1>
-<p>The exercises in this section do not require code. Make sure to answer the questions in full sentences.</p>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #2: Married at 25.</p>
-</div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #5: If I fits, I sits, bootstrap test.</p>
-</div>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #6: Legalization of marijuana, bootstrap test.</p>
-</div>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #8: Legalization of marijuana, standard errors.</p>
-</div>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #22: Legalization of marijuana, mathematical interval.</p>
-</div>
-</section>
-</section>
-<section id="wrap-up" class="level1">
-<h1>Wrap up</h1>
-<section id="submitting" class="level2">
-<h2 class="anchored" data-anchor-id="submitting">Submitting</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.</p>
-</div>
-</div>
-<p>To submit your assignment to Gradescope:</p>
-<ul>
-<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-8.pdf</code>).</p></li>
-<li><p>Then, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.</p></li>
-<li><p>Go to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can’t mark your pages for you, and for them to be able to grade, you must mark them.</p>
-</div>
-</div>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<p>The lab will be graded out of 50 total points.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Exercise</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Exercise 1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Exercise 2</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Exercise 3</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td>Exercise 4</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Exercise 5</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 6</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Exercise 7</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 8</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Exercise 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 10</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
@@ -1233,18 +968,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../labs/lab7/lab-7.html" class="pagination-link" aria-label="Lab 7">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../labs/lab9/lab-9.qmd" class="pagination-link" aria-label="Lab 9">
-        <span class="nav-page-text">Lab 9</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1253,7 +976,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/20/20-inference-two-means.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
