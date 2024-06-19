@@ -1,0 +1,62 @@
+---
+title: "Inference for two independent means"
+editor: visual
+---
+
+# Warm up
+
+## Announcements
+
+- Tomorrow we will talk about final report formatting
+- Monday: presentation day
+- Wednesday: project report due
+
+
+# Inference for comparing two means
+
+## Today's focus
+
+-   Inference for comparing two population means
+
+-   Specifically, making decisions via hypothesis tests
+
+-   And generally, **what in the world is a hypothesis test?!**
+
+## Setup
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(openintro)
+library(tidymodels)
+library(ggthemes)
+```
+
+## Randomization test for comparing two means {.smaller}
+
+::: incremental
+1.  Combine the data from the two groups and randomly shuffle them into two groups of sizes equal to the original group sample sizes
+
+2.  Calculate the means of each group and record the different
+
+3.  Repeat steps 1 and 2 many times to build the null distribution
+
+4.  Find the p-value as the number of simulations with simulated differences at least as extreme (in the direction of the alternative hypothesis) as the observed difference
+:::
+
+## Case study: Birth weights of babies and smoking {.smaller}
+
+::: task
+Every year, the United States Department of Health and Human Services releases to the public a large dataset containing information on births recorded in the country. This dataset has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. In this case study we work with a random sample of 1,000 cases from the dataset released in 2014. The distributions of birth weights of babies, measured in pounds, by mother's smoking habit are shown below.
+:::
+
+```{r}
+#| output-location: column
+
+openintro::births14 |>
+  drop_na(habit) |>
+  ggplot(aes(x = weight, color = habit, fill = habit)) +
+  geom_density(alpha = 0.5)
+```
