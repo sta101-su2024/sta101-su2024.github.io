@@ -1,0 +1,346 @@
+---
+title: "Project Report Tips"
+subtitle: "STA 101"
+execute:
+  echo: true
+  warning: true
+  message: true
+format: 
+  pdf:
+    fig-width: 7
+    fig-height: 5
+bibliography: references.bib
+---
+
+By the end of today you will practice a few quarto/markdown tricks to polish your report and simplify your presentation. Specifically we will discuss:
+
+-   code chunk settings
+-   citations
+-   `kable()` tables
+
+## Getting started
+
+## Code chunk settings
+
+Some options available for customizing output (see [quarto documenation](https://quarto.org/docs/computations/execution-options.html) for more detail).
+
+| Option    | Description                                                                                                                                 |
+|------------------|------------------------------------------------------|
+| `eval`    | Evaluate the code chunk (if `false`, just echos the code into the output)                                                                   |
+| `echo`    | Include the source code in output                                                                                                           |
+| `warning` | Include warnings in the output                                                                                                              |
+| `message` | Whether to preserve messages emitted by message() (similar to the option warning)                                                           |
+| `include` | Catch all for preventing any output (code or results) from being included (e.g. `include: false` suppresses all output from the code block) |
+
+These options can be applied globally (the whole document) or locally (a specific code chunk). Global settings are controlled in the YAML (see the top of the document) while local code chunk options can be applied with `#|` (see example below).
+
+#### Exercise 1
+
+In the code chunk below:
+
+-   set `warning` to false
+-   set `echo` to false
+
+and re-render.
+
+```{r load-packages}
+
+library(knitr)
+library(tidyverse)
+library(tidymodels)
+library(ggrepel)
+library(ggthemes)
+library(palmerpenguins)
+library(gridExtra)
+```
+
+In addition to code chunks, figures have settings as well.
+
+We can set captions and an `alt` attributes using `#| fig-cap:` and `#| fig-alt:` respectively. `alt` captions specify "alternate text" for an image. Alternative text appears if an image cannot be displayed and is also read by screen-readers.
+
+Additional figure options include
+
+| Option       | Description                                                                         |
+|------------------|------------------------------------------------------|
+| `fig-width`  | figure width in inches                                                              |
+| `fig-height` | figure height in inches                                                             |
+| `fig.align`  | e.g. `fig.align: center` centers figure alignment                                   |
+| `fig.asp`    | changes figure height based on aspect ratio with width                              |
+| `out.width`  | sets figure width relative to text (1000 = 100% text width), e.g. `out.width: 1000` |
+
+In all cases above, we can again set options locally or globally. Note: local options override global options.
+
+#### Exercise 2
+
+Add a figure caption to the figure below. Next, change the output width to be 50% of the text. Finally, align the figure with the center of the page.
+
+```{r}
+starwars |>
+  ggplot(aes(x = height)) +
+  geom_density() +
+  labs(x = "Height (cm)", y = "Density") +
+  theme_bw()
+```
+
+#### Project specific notes
+
+For the project, you will set the option `echo: FALSE` and `warning: FALSE` to hide all code and warnings in your final report.
+
+**Suggestion**: make your figures consistently themed, e.g. use similar figure size/aspect ratio and color scheme throughout your report. Change the default gray background, see [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+#### Exercise 3
+
+Change the global code chunk settings so the document is formatted as your final project will be. Render and take a look at the updated PDF.
+
+## Citations
+
+Your report will include citations, e.g. the data source, previous research, and other sources as needed. At a minimum, you should have a citation for the data source.
+
+All of your bibliography entries will be stored in a `.bib` file. The entries of the bibliography are stored using BibTex, i.e., a format to store citations in LaTeX. Let's take a look at `references.bib`.
+
+In addition to the .bib file:
+
+-   Include `bibliography: references.bib` in the YAML.
+-   At the end of the report, include `## References`. This will list all of the references at the end of the document.
+
+Learn more [here.](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+
+Convert website to citation: [here](https://www.getbibtex.com/).
+
+Or find on google scholar!
+
+### Citation examples
+
+1.  In @wickham2016package, the authors focus present the grammar of graphics package `ggplot2` for R.
+
+2.  Within the grammar of graphics, `ggplot()` is the first layer of any plot [@wickham2016package].
+
+## Links
+
+Add URLs to your document using the following syntax:
+
+[Class website](https://sta101-su2024.github.io/)
+
+## Use color to draw attention
+
+```{r}
+#| output-location: column
+
+d <- tribble(
+  ~category,                     ~value,
+  "Cutting tools"                , 0.03,
+  "Buildings and administration" , 0.22,
+  "Labor"                        , 0.31,
+  "Machinery"                    , 0.27,
+  "Workplace materials"          , 0.17
+)
+d
+```
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+#| fig-width: 4
+#| fig-asp: 0.5
+#| layout-ncol: 2
+
+ggplot(d, aes(x = category, y = value, fill = category)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = NULL) +
+  scale_x_discrete(labels = label_wrap_gen(width = 20))
+
+p <- ggplot(d, aes(y = fct_reorder(category, value), x = value, fill = category)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = NULL) +
+  scale_fill_manual(values = c("red", rep("gray", 4)))
+p
+```
+
+Note the orders in these plot!
+
+## Play with themes for a non-standard look {.smaller}
+
+```{r}
+#| out-width: "100%"
+#| fig-width: 4
+#| fig-asp: 0.5
+#| layout-ncol: 2
+#| echo: false
+
+p + theme_bw() + labs(title = "theme_bw()")
+p + theme_linedraw() + labs(title = "theme_linedraw()")
+p + theme_minimal() + labs(title = "theme_minimal()")
+p + theme_dark() + labs(title = "theme_dark()")
+```
+
+## Go beyond ggplot2 themes – ggthemes {.smaller}
+
+```{r}
+#| out-width: "100%"
+#| fig-width: 5
+#| fig-asp: 0.5
+#| layout-ncol: 2
+#| echo: false
+
+p + theme_economist() + labs(title = "theme_economist()")
+p + theme_fivethirtyeight() + labs(title = "theme_fivethirtyeight()")
+p + theme_solarized() + labs(title = "theme_solarized()")
+p + theme_tufte() + labs(title = "theme_tufte()")
+
+```
+
+How to save the image for the presentation:
+
+```{r}
+#| include: false
+
+
+p1 = p + theme_economist() + labs(title = "theme_economist()")  +
+  theme(text = element_text(size = 7))
+p2 = p + theme_fivethirtyeight() + labs(title = "theme_fivethirtyeight()") +
+  theme(text = element_text(size = 7))
+p3 = p + theme_solarized() + labs(title = "theme_solarized()") + 
+  theme(text = element_text(size = 10))
+p4 = p + theme_tufte() + labs(title = "theme_tufte()") + 
+  theme(text = element_text(size = 10))
+
+final_plot = grid.arrange(p1, p2, p3, p4, ncol = 2, nrow = 2)
+
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-asp: 0.5
+
+plot(final_plot)
+
+ggsave("plots1-4.png", final_plot)
+```
+
+# Plot sizing and layout
+
+## Sample plots
+
+```{r}
+#| fig-show: hide
+
+p_hist <- ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(binwidth = 2)
+
+p_text <- mtcars |>
+  rownames_to_column() |>
+  ggplot(aes(x = disp, y = mpg)) +
+  geom_text_repel(aes(label = rowname)) +
+  coord_cartesian(clip = "off")
+```
+
+## Small `fig-width`
+
+For a zoomed-in look
+
+```{r}
+#| echo: fenced
+#| fig-width: 3
+#| fig-asp: 0.618
+
+p_hist
+
+ggsave("hist.png")
+```
+
+## Large `fig-width`
+
+For a zoomed-out look
+
+```{r}
+#| echo: fenced
+#| fig-width: 6
+#| fig-asp: 0.618
+
+p_hist
+```
+
+## `fig-width` affects text size
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-asp: 0.618
+
+p_text +
+  labs(title = "fig.width = 5")
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-asp: 0.618
+
+p_text +
+  labs(title = "fig.width = 10")
+```
+
+## Multiple plots on a slide
+
+::: {.callout-warning appearance="minimal"}
+First, ask yourself, must you include multiple plots on a slide? For example, is your narrative about comparing results from two plots?
+:::
+
+-   If no, then don't! Move the second plot to to the next slide!
+
+-   If yes, use columns and sequential reveal.
+
+## Cross referencing figures {.smaller}
+
+As seen in @fig-penguins, there is a positive and relatively strong relationship between body mass and flipper length of penguins.
+
+```{r}
+#| label: fig-penguins
+#| fig-cap: The relationship between body mass and flipper length of penguins.
+#| fig-width: 5
+#| fig-asp: 0.618
+#| fig-align: left
+
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point()
+```
+
+## Cross referencing tables {.smaller}
+
+The regression output is shown in @tbl-penguins-lm.
+
+```{r}
+#| label: tbl-penguins-lm
+#| tbl-cap: The regression output for predicting body mass from flipper length of penguins.
+
+penguins_fit <- linear_reg() |>
+  fit(body_mass_g ~ flipper_length_mm, data = penguins)
+
+tidy(penguins_fit) |>
+  knitr::kable(digits = 3)
+```
+
+Similarly, looking at the dataset we created earlier:
+
+```{r}
+d |>  knitr::kable()
+```
+
+## Writing your project report with Quarto
+
+-   Figure sizing: `fig-width`, `fig-height`, etc. in code chunks.
+
+-   Figure layout: `layout-ncol` for placing multiple figures in a chunk.
+
+-   Further control over figure layout with the **patchwork** package.
+
+-   Chunk options around what makes it in your final report: `message`, `echo`, etc.
+
+-   Cross referencing figures and tables.
+
+-   Adding footnotes and citations.
+
+## References
