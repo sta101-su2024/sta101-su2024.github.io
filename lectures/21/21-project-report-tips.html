@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution</title>
+<title>STA 101 - Summer 24 - Project Report Tips</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -63,8 +83,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../labs/lab9/lab-9.html" rel="next">
-<link href="../../labs/lab7/lab-7.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,39 +122,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../labs.css">
-<meta property="og:title" content="STA 101 - Summer 24 - Lab 8 - Inference for proportions and normal distribution">
-<meta property="og:description" content="Homepage for STA 101 - Data Analysis and Statistical Inference at Duke University, Summer 2024.">
+<meta property="og:title" content="STA 101 - Summer 24 - Project Report Tips">
+<meta property="og:description" content="STA 101">
 <meta property="og:site_name" content="STA 101 - Summer 24">
 </head>
 
@@ -149,7 +137,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Project Report Tips</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -234,13 +222,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../labs/lab1/lab-1.html" class="sidebar-item-text sidebar-link">
@@ -285,7 +273,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../labs/lab8/lab-8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8</span></a>
   </div>
 </li>
@@ -348,40 +336,37 @@ window.Quarto = {
    
   <ul>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#part-1-general-social-survey" id="toc-part-1-general-social-survey" class="nav-link" data-scroll-target="#part-1-general-social-survey">Part 1: General Social Survey</a>
+  <li><a href="#code-chunk-settings" id="toc-code-chunk-settings" class="nav-link" data-scroll-target="#code-chunk-settings">Code chunk settings</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#citation-examples" id="toc-citation-examples" class="nav-link" data-scroll-target="#citation-examples">Citation examples</a></li>
   </ul></li>
-  <li><a href="#part-2-course-scores" id="toc-part-2-course-scores" class="nav-link" data-scroll-target="#part-2-course-scores">Part 2: Course scores</a>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#use-color-to-draw-attention" id="toc-use-color-to-draw-attention" class="nav-link" data-scroll-target="#use-color-to-draw-attention">Use color to draw attention</a></li>
+  <li><a href="#play-with-themes-for-a-non-standard-look" id="toc-play-with-themes-for-a-non-standard-look" class="nav-link" data-scroll-target="#play-with-themes-for-a-non-standard-look">Play with themes for a non-standard look</a></li>
+  <li><a href="#go-beyond-ggplot2-themes-ggthemes" id="toc-go-beyond-ggplot2-themes-ggthemes" class="nav-link" data-scroll-target="#go-beyond-ggplot2-themes-ggthemes">Go beyond ggplot2 themes – ggthemes</a></li>
+  <li><a href="#plot-sizing-and-layout" id="toc-plot-sizing-and-layout" class="nav-link" data-scroll-target="#plot-sizing-and-layout">Plot sizing and layout</a>
   <ul class="collapse">
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  </ul></li>
-  <li><a href="#part-3-ims-exercises" id="toc-part-3-ims-exercises" class="nav-link" data-scroll-target="#part-3-ims-exercises">Part 3: IMS exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  </ul></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a>
-  <ul class="collapse">
-  <li><a href="#submitting" id="toc-submitting" class="nav-link" data-scroll-target="#submitting">Submitting</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#sample-plots" id="toc-sample-plots" class="nav-link" data-scroll-target="#sample-plots">Sample plots</a></li>
+  <li><a href="#small-fig-width" id="toc-small-fig-width" class="nav-link" data-scroll-target="#small-fig-width">Small <code>fig-width</code></a></li>
+  <li><a href="#large-fig-width" id="toc-large-fig-width" class="nav-link" data-scroll-target="#large-fig-width">Large <code>fig-width</code></a></li>
+  <li><a href="#fig-width-affects-text-size" id="toc-fig-width-affects-text-size" class="nav-link" data-scroll-target="#fig-width-affects-text-size"><code>fig-width</code> affects text size</a></li>
+  <li><a href="#multiple-plots-on-a-slide" id="toc-multiple-plots-on-a-slide" class="nav-link" data-scroll-target="#multiple-plots-on-a-slide">Multiple plots on a slide</a></li>
+  <li><a href="#cross-referencing-figures" id="toc-cross-referencing-figures" class="nav-link" data-scroll-target="#cross-referencing-figures">Cross referencing figures</a></li>
+  <li><a href="#cross-referencing-tables" id="toc-cross-referencing-tables" class="nav-link" data-scroll-target="#cross-referencing-tables">Cross referencing tables</a></li>
+  <li><a href="#writing-your-project-report-with-quarto" id="toc-writing-your-project-report-with-quarto" class="nav-link" data-scroll-target="#writing-your-project-report-with-quarto">Writing your project report with Quarto</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/21/21-project-report-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/lab1/lab-1.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/lab8/lab-8.html">Lab 8</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 8 - Inference for proportions and normal distribution</h1>
+<h1 class="title">Project Report Tips</h1>
+<p class="subtitle lead">STA 101</p>
 </div>
 
 
@@ -398,25 +383,64 @@ window.Quarto = {
 </header>
 
 
-<p>By the end of this lab you will</p>
+<p>By the end of today you will practice a few quarto/markdown tricks to polish your report and simplify your presentation. Specifically we will discuss:</p>
 <ul>
-<li><p>calculate probabilities under the normal distribution</p></li>
-<li><p>construct and interpret confidence intervals via bootstrapping</p></li>
+<li>code chunk settings</li>
+<li>citations</li>
+<li><code>kable()</code> tables</li>
 </ul>
-<p>For all visualizations you create, be sure to include informative titles for the plot, axes, and legend!</p>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ol type="1">
-<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> and create a new folder titled **lab-8 - Inference for proportions*.</p></li>
-<li><p>Download the files from <a href="https://canvas.duke.edu/courses/32831/pages/mon-jun-17-mathematical-models-for-proportion">Canvas</a> and upload them into the new folder you created in step 1.</p></li>
-<li><p>Complete the exercises in this document.</p></li>
-</ol>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 </section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>We’ll use the following packages in this lab:</p>
+<section id="code-chunk-settings" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunk-settings">Code chunk settings</h2>
+<p>Some options available for customizing output (see <a href="https://quarto.org/docs/computations/execution-options.html">quarto documenation</a> for more detail).</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval</code></td>
+<td>Evaluate the code chunk (if <code>false</code>, just echos the code into the output)</td>
+</tr>
+<tr class="even">
+<td><code>echo</code></td>
+<td>Include the source code in output</td>
+</tr>
+<tr class="odd">
+<td><code>warning</code></td>
+<td>Include warnings in the output</td>
+</tr>
+<tr class="even">
+<td><code>message</code></td>
+<td>Whether to preserve messages emitted by message() (similar to the option warning)</td>
+</tr>
+<tr class="odd">
+<td><code>include</code></td>
+<td>Catch all for preventing any output (code or results) from being included (e.g.&nbsp;<code>include: false</code> suppresses all output from the code block)</td>
+</tr>
+</tbody>
+</table>
+<p>These options can be applied globally (the whole document) or locally (a specific code chunk). Global settings are controlled in the YAML (see the top of the document) while local code chunk options can be applied with <code>#|</code> (see example below).</p>
+<section id="exercise-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-1">Exercise 1</h4>
+<p>In the code chunk below:</p>
+<ul>
+<li>set <code>warning</code> to false</li>
+<li>set <code>echo</code> to false</li>
+</ul>
+<p>and re-render.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.4
@@ -449,237 +473,446 @@ window.Quarto = {
 ✖ recipes::step()   masks stats::step()
 • Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
-Attaching package: 'dsbox'
+Attaching package: 'palmerpenguins'
 
-The following object is masked from 'package:infer':
+The following object is masked from 'package:modeldata':
 
-    gss</code></pre>
+    penguins</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gridExtra'
+
+The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
 </div>
 </div>
-</section>
-<section id="part-1-general-social-survey" class="level1">
-<h1>Part 1: General Social Survey</h1>
-<p>The <a href="https://gss.norc.org/">General Social Survey (GSS)</a> is a sociological survey used to collect data on demographic characteristics and attitudes of residents of the United States. The GSS has been conducted each year since 1972 by the National Opinion Research Center at the University of Chicago. The GSS collects data on demographic characteristics and attitudes of residents of the United States. The GSS sample is designed as a multistage stratified sample.</p>
-<p>For the exercises in this part, we’ll use the <code>gss16</code> data set from the <code>dsbox</code> package. You can find out more about the dataset by inspecting its documentation, which you can access by running <code>?gss16</code> in the Console or using the Help menu in RStudio to search for <code>gss16</code>. You can also find this information <a href="https://tidyverse.github.io/dsbox/reference/gss16.html">here</a>.</p>
-<p>In 2016, the GSS added a new question on harassment at work. The question is phrased as the following.</p>
-<blockquote class="blockquote">
-<p>Over the past five years, have you been harassed by your superiors or co-workers at your job, for example, have you experienced any bullying, physical or psychological abuse?</p>
-</blockquote>
-<p>Answers to this question are stored in the <code>harass5</code> variable in <code>gss16</code> set.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<div class="exercise">
-<p>Create a subset of the data that only contains Yes and No answers for the harassment question. How many responses chose each of these answers?</p>
-</div>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<div class="exercise">
-<p>Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.</p>
-</div>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<div class="exercise">
-<ol type="a">
-<li>Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1,000 iterations when creating your bootstrap distribution. Set the seed to <code>1234</code>. Interpret this interval in context of the data. Make sure to visualize this interval as well.</li>
-<li>Where was your 95% confidence interval centered? Why does this make sense?</li>
-<li>Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Interpret this interval in context of the data. Is it wider or more narrow than the 95% confidence interval? Additionally, visualize the interval by layering it on the visualization (for the 95% confidence interval) from part (a). You can do this simply by adding another shading layer where the endpoints now come from the new 90% confidence interval. Use a <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">different pair of colors</a> for the <code>color</code> and <code>fill</code> arguments, e.g., <code>darkorange4</code> and <code>darkorange1</code>.</li>
-<li>Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)? Center of your confidence interval? Width of your confidence interval? Do not run this simulation, just conceptually think about it.</li>
-</ol>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pause and render
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Now that you’ve completed the second part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="part-2-course-scores" class="level1">
-<h1>Part 2: Course scores</h1>
-<p>Students in large university course that is offered each semester average 32 (out of 50) on the midterm, with a standard deviation of 4. The scores are distributed normally.</p>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<div class="exercise">
-<ol type="a">
-<li><p>What is the probability a randomly selected student scored less than 28?</p></li>
-<li><p>What is the probability a randomly selected student scored higher than than 35?</p></li>
-<li><p>What score did only 20 percent of the class exceed?</p></li>
-</ol>
-</div>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<div class="execise">
-<p>I pick 10 students at random from the class.</p>
-<ol type="a">
-<li><p>[Without looking at the next question] How does the standard error of their <strong>average</strong> score compare to the standard deviation of the population of all STA 101 students? Explain your reasoning.</p></li>
-<li><p>The standard error of the mean can be calculated as <span class="math inline">\(SE = \frac{\sigma}{\sqrt{n}}\)</span>. What is the probability the average midterm score of these 10 students is less than 28?</p></li>
-<li><p>What is the probability the average midterm score of these 10 students is higher than 35?</p></li>
-<li><p>How do the probabilities you calculated in the previous two questions (less than 28 and higher than 35) compare to the probabilities you calculated in Exercise 4? Why?</p></li>
-</ol>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pause and render
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Now that you’ve completed the first part of the exercises, pause and render your document. If it renders without any issues, great! Move on to the next exercise. If it does not, debug the issue before moving on. Ask for help from your TA if you need. Do not proceed without rendering your document.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="part-3-ims-exercises" class="level1">
-<h1>Part 3: IMS exercises</h1>
-<p>The exercises in this section do not require code. Make sure to answer the questions in full sentences.</p>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #2: Married at 25.</p>
-</div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #5: If I fits, I sits, bootstrap test.</p>
-</div>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #6: Legalization of marijuana, bootstrap test.</p>
-</div>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #8: Legalization of marijuana, standard errors.</p>
-</div>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<div class="exercise">
-<p>IMS - <a href="https://openintro-ims2.netlify.app/16-inference-one-prop#chp16-exercises">Chapter 16 exercises</a>, #22: Legalization of marijuana, mathematical interval.</p>
-</div>
-</section>
-</section>
-<section id="wrap-up" class="level1">
-<h1>Wrap up</h1>
-<section id="submitting" class="level2">
-<h2 class="anchored" data-anchor-id="submitting">Submitting</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you proceed, first, make sure that you have updated the document YAML with your name! Then, render your document one last time, for good measure.</p>
-</div>
-</div>
-<p>To submit your assignment to Gradescope:</p>
-<ul>
-<li><p>Go to your Files pane and check the box next to the PDF output of your document (<code>lab-8.pdf</code>).</p></li>
-<li><p>Then, in the Files pane, go to More &gt; Export. This will download the PDF file to your computer. Save it somewhere you can easily locate, e.g., your Downloads folder or your Desktop.</p></li>
-<li><p>Go to the course Canvas page and click on Gradescope and then click on the assignment. You’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the papers of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you fail to mark the pages associated with an exercise, that exercise won’t be graded. This means, if you fail to mark the pages for all exercises, you will receive a 0 on the assignment. The TAs can’t mark your pages for you, and for them to be able to grade, you must mark them.</p>
-</div>
-</div>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<p>The lab will be graded out of 50 total points.</p>
+<p>In addition to code chunks, figures have settings as well.</p>
+<p>We can set captions and an <code>alt</code> attributes using <code>#| fig-cap:</code> and <code>#| fig-alt:</code> respectively. <code>alt</code> captions specify “alternate text” for an image. Alternative text appears if an image cannot be displayed and is also read by screen-readers.</p>
+<p>Additional figure options include</p>
 <table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Exercise</th>
-<th>Points</th>
+<th>Option</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Exercise 1</td>
-<td>2</td>
+<td><code>fig-width</code></td>
+<td>figure width in inches</td>
 </tr>
 <tr class="even">
-<td>Exercise 2</td>
-<td>6</td>
+<td><code>fig-height</code></td>
+<td>figure height in inches</td>
 </tr>
 <tr class="odd">
-<td>Exercise 3</td>
-<td>10</td>
+<td><code>fig.align</code></td>
+<td>e.g.&nbsp;<code>fig.align: center</code> centers figure alignment</td>
 </tr>
 <tr class="even">
-<td>Exercise 4</td>
-<td>3</td>
+<td><code>fig.asp</code></td>
+<td>changes figure height based on aspect ratio with width</td>
 </tr>
 <tr class="odd">
-<td>Exercise 5</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 6</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Exercise 7</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 8</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Exercise 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Exercise 10</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td>50</td>
+<td><code>out.width</code></td>
+<td>sets figure width relative to text (1000 = 100% text width), e.g.&nbsp;<code>out.width: 1000</code></td>
 </tr>
 </tbody>
 </table>
+<p>In all cases above, we can again set options locally or globally. Note: local options override global options.</p>
+</section>
+<section id="exercise-2" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-2">Exercise 2</h4>
+<p>Add a figure caption to the figure below. Next, change the output width to be 50% of the text. Finally, align the figure with the center of the page.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> height)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Height (cm)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="project-specific-notes" class="level4">
+<h4 class="anchored" data-anchor-id="project-specific-notes">Project specific notes</h4>
+<p>For the project, you will set the option <code>echo: FALSE</code> and <code>warning: FALSE</code> to hide all code and warnings in your final report.</p>
+<p><strong>Suggestion</strong>: make your figures consistently themed, e.g.&nbsp;use similar figure size/aspect ratio and color scheme throughout your report. Change the default gray background, see <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">themes</a>.</p>
+</section>
+<section id="exercise-3" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3">Exercise 3</h4>
+<p>Change the global code chunk settings so the document is formatted as your final project will be. Render and take a look at the updated PDF.</p>
+</section>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p>Your report will include citations, e.g.&nbsp;the data source, previous research, and other sources as needed. At a minimum, you should have a citation for the data source.</p>
+<p>All of your bibliography entries will be stored in a <code>.bib</code> file. The entries of the bibliography are stored using BibTex, i.e., a format to store citations in LaTeX. Let’s take a look at <code>references.bib</code>.</p>
+<p>In addition to the .bib file:</p>
+<ul>
+<li>Include <code>bibliography: references.bib</code> in the YAML.</li>
+<li>At the end of the report, include <code>## References</code>. This will list all of the references at the end of the document.</li>
+</ul>
+<p>Learn more <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html">here.</a></p>
+<p>Convert website to citation: <a href="https://www.getbibtex.com/">here</a>.</p>
+<p>Or find on google scholar!</p>
+<section id="citation-examples" class="level3">
+<h3 class="anchored" data-anchor-id="citation-examples">Citation examples</h3>
+<ol type="1">
+<li><p>In <span class="citation" data-cites="wickham2016package">Wickham, Chang, and Wickham (<a href="#ref-wickham2016package" role="doc-biblioref">2016</a>)</span>, the authors focus present the grammar of graphics package <code>ggplot2</code> for R.</p></li>
+<li><p>Within the grammar of graphics, <code>ggplot()</code> is the first layer of any plot <span class="citation" data-cites="wickham2016package">(<a href="#ref-wickham2016package" role="doc-biblioref">Wickham, Chang, and Wickham 2016</a>)</span>.</p></li>
+</ol>
+</section>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<p>Add URLs to your document using the following syntax:</p>
+<p><a href="https://sta101-su2024.github.io/">Class website</a></p>
+</section>
+<section id="use-color-to-draw-attention" class="level2">
+<h2 class="anchored" data-anchor-id="use-color-to-draw-attention">Use color to draw attention</h2>
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>category,                     <span class="sc">~</span>value,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Cutting tools"</span>                , <span class="fl">0.03</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Buildings and administration"</span> , <span class="fl">0.22</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Labor"</span>                        , <span class="fl">0.31</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Machinery"</span>                    , <span class="fl">0.27</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Workplace materials"</span>          , <span class="fl">0.17</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  category                     value
+  &lt;chr&gt;                        &lt;dbl&gt;
+1 Cutting tools                 0.03
+2 Buildings and administration  0.22
+3 Labor                         0.31
+4 Machinery                     0.27
+5 Workplace materials           0.17</code></pre>
+</div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<p>Note the orders in these plot!</p>
+</section>
+<section id="play-with-themes-for-a-non-standard-look" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="play-with-themes-for-a-non-standard-look">Play with themes for a non-standard look</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="go-beyond-ggplot2-themes-ggthemes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="go-beyond-ggplot2-themes-ggthemes">Go beyond ggplot2 themes – ggthemes</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<p>How to save the image for the presentation:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-sizing-and-layout" class="level1">
+<h1>Plot sizing and layout</h1>
+<section id="sample-plots" class="level2">
+<h2 class="anchored" data-anchor-id="sample-plots">Sample plots</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>p_text <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> rowname)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="small-fig-width" class="level2">
+<h2 class="anchored" data-anchor-id="small-fig-width">Small <code>fig-width</code></h2>
+<p>For a zoomed-in look</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 3</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-asp: 0.618</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="in">p_hist</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="in">ggsave("hist.png")</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 3 x 1.85 in image</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="large-fig-width" class="level2">
+<h2 class="anchored" data-anchor-id="large-fig-width">Large <code>fig-width</code></h2>
+<p>For a zoomed-out look</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 6</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-asp: 0.618</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="in">p_hist</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fig-width-affects-text-size" class="level2">
+<h2 class="anchored" data-anchor-id="fig-width-affects-text-size"><code>fig-width</code> affects text size</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="21-project-report-tips_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-plots-on-a-slide" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-plots-on-a-slide">Multiple plots on a slide</h2>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>First, ask yourself, must you include multiple plots on a slide? For example, is your narrative about comparing results from two plots?</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>If no, then don’t! Move the second plot to to the next slide!</p></li>
+<li><p>If yes, use columns and sequential reveal.</p></li>
+</ul>
+</section>
+<section id="cross-referencing-figures" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="cross-referencing-figures">Cross referencing figures</h2>
+<p>As seen in <a href="#fig-penguins" class="quarto-xref">Figure&nbsp;1</a>, there is a positive and relatively strong relationship between body mass and flipper length of penguins.</p>
+<div class="cell" data-layout-align="left">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-penguins" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="21-project-report-tips_files/figure-html/fig-penguins-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The relationship between body mass and flipper length of penguins.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-referencing-tables" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="cross-referencing-tables">Cross referencing tables</h2>
+<p>The regression output is shown in <a href="#tbl-penguins-lm" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>penguins_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> penguins)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(penguins_fit) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-penguins-lm" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-penguins-lm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The regression output for predicting body mass from flipper length of penguins.
+</figcaption>
+<div aria-describedby="tbl-penguins-lm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5780.831</td>
+<td style="text-align: right;">305.815</td>
+<td style="text-align: right;">-18.903</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flipper_length_mm</td>
+<td style="text-align: right;">49.686</td>
+<td style="text-align: right;">1.518</td>
+<td style="text-align: right;">32.722</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Similarly, looking at the dataset we created earlier:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">category</th>
+<th style="text-align: right;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cutting tools</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Buildings and administration</td>
+<td style="text-align: right;">0.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Labor</td>
+<td style="text-align: right;">0.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Machinery</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Workplace materials</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="writing-your-project-report-with-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="writing-your-project-report-with-quarto">Writing your project report with Quarto</h2>
+<ul>
+<li><p>Figure sizing: <code>fig-width</code>, <code>fig-height</code>, etc. in code chunks.</p></li>
+<li><p>Figure layout: <code>layout-ncol</code> for placing multiple figures in a chunk.</p></li>
+<li><p>Further control over figure layout with the <strong>patchwork</strong> package.</p></li>
+<li><p>Chunk options around what makes it in your final report: <code>message</code>, <code>echo</code>, etc.</p></li>
+<li><p>Cross referencing figures and tables.</p></li>
+<li><p>Adding footnotes and citations.</p></li>
+</ul>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wickham2016package" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, and Maintainer Hadley Wickham. 2016. <span>“Package <span>‘Ggplot2’</span>.”</span> <em>Create Elegant Data Visualisations Using the Grammar of Graphics. Version</em> 2 (1): 1–189.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1233,18 +1466,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../labs/lab7/lab-7.html" class="pagination-link" aria-label="Lab 7">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../labs/lab9/lab-9.html" class="pagination-link" aria-label="Lab 9">
-        <span class="nav-page-text">Lab 9</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1253,7 +1474,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/labs/lab8/lab-8.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/edit/main/lectures/21/21-project-report-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta101-su2024/sta101-su2024.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 🤍 and <a href="https://quarto.org/">Quarto</a></p>
 </div>
