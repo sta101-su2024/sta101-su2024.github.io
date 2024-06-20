@@ -6,7 +6,7 @@ execute:
   warning: true
   message: true
 format: 
-  pdf:
+  html:
     fig-width: 7
     fig-height: 5
 bibliography: references.bib
