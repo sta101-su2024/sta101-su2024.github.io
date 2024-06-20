@@ -872,281 +872,414 @@
     "text": "Exercise 5\nConstruct and visualize a confidence interval using mathematical models for the average length of gestation.\n\n# add code here"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html",
+    "objectID": "lectures/20/20-inference-two-means.html",
+    "href": "lectures/20/20-inference-two-means.html",
+    "title": "Inference for two independent means",
+    "section": "",
+    "text": "Tomorrow we will talk about final report formatting\nMonday: presentation day\nWednesday: project report due"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#announcements",
+    "href": "lectures/20/20-inference-two-means.html#announcements",
+    "title": "Inference for two independent means",
+    "section": "",
+    "text": "Tomorrow we will talk about final report formatting\nMonday: presentation day\nWednesday: project report due"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#todays-focus",
+    "href": "lectures/20/20-inference-two-means.html#todays-focus",
+    "title": "Inference for two independent means",
+    "section": "Today’s focus",
+    "text": "Today’s focus\n\nInference for comparing two population means\nSpecifically, making decisions via hypothesis tests\nAnd generally, what in the world is a hypothesis test?!\nDifferent than comparing two paired means:\n\nTwo sets of observations are paired if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#setup",
+    "href": "lectures/20/20-inference-two-means.html#setup",
+    "title": "Inference for two independent means",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(openintro)\nlibrary(tidymodels)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#randomization-test-for-comparing-two-means",
+    "href": "lectures/20/20-inference-two-means.html#randomization-test-for-comparing-two-means",
+    "title": "Inference for two independent means",
+    "section": "Randomization test for comparing two means",
+    "text": "Randomization test for comparing two means\n\n\nCombine the data from the two groups and randomly shuffle them into two groups of sizes equal to the original group sample sizes\nCalculate the means of each group and record the different\nRepeat steps 1 and 2 many times to build the null distribution\nFind the p-value as the number of simulations with simulated differences at least as extreme (in the direction of the alternative hypothesis) as the observed difference"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#case-study-birth-weights-of-babies-and-smoking",
+    "href": "lectures/20/20-inference-two-means.html#case-study-birth-weights-of-babies-and-smoking",
+    "title": "Inference for two independent means",
+    "section": "Case study: Birth weights of babies and smoking",
+    "text": "Case study: Birth weights of babies and smoking\n\nEvery year, the United States Department of Health and Human Services releases to the public a large dataset containing information on births recorded in the country. This dataset has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. In this case study we work with a random sample of 1,000 cases from the dataset released in 2014. The distributions of birth weights of babies, measured in pounds, by mother’s smoking habit are shown below.\n\n\nglimpse(births14)\n\nRows: 1,000\nColumns: 13\n$ fage           &lt;int&gt; 34, 36, 37, NA, 32, 32, 37, 29, 30, 29, 30, 34, 28, 28,…\n$ mage           &lt;dbl&gt; 34, 31, 36, 16, 31, 26, 36, 24, 32, 26, 34, 27, 22, 31,…\n$ mature         &lt;chr&gt; \"younger mom\", \"younger mom\", \"mature mom\", \"younger mo…\n$ weeks          &lt;dbl&gt; 37, 41, 37, 38, 36, 39, 36, 40, 39, 39, 42, 40, 40, 39,…\n$ premie         &lt;chr&gt; \"full term\", \"full term\", \"full term\", \"full term\", \"pr…\n$ visits         &lt;dbl&gt; 14, 12, 10, NA, 12, 14, 10, 13, 15, 11, 14, 16, 20, 15,…\n$ gained         &lt;dbl&gt; 28, 41, 28, 29, 48, 45, 20, 65, 25, 22, 40, 30, 31, NA,…\n$ weight         &lt;dbl&gt; 6.96, 8.86, 7.51, 6.19, 6.75, 6.69, 6.13, 6.74, 8.94, 9…\n$ lowbirthweight &lt;chr&gt; \"not low\", \"not low\", \"not low\", \"not low\", \"not low\", …\n$ sex            &lt;chr&gt; \"male\", \"female\", \"female\", \"male\", \"female\", \"female\",…\n$ habit          &lt;chr&gt; \"nonsmoker\", \"nonsmoker\", \"nonsmoker\", \"nonsmoker\", \"no…\n$ marital        &lt;chr&gt; \"married\", \"married\", \"married\", \"not married\", \"marrie…\n$ whitemom       &lt;chr&gt; \"white\", \"white\", \"not white\", \"white\", \"white\", \"white…\n\n\nNote that there are some NAs in the habit variable.\n\nbirths14 |&gt;\n  count(habit)\n\n# A tibble: 3 × 2\n  habit         n\n  &lt;chr&gt;     &lt;int&gt;\n1 nonsmoker   867\n2 smoker      114\n3 &lt;NA&gt;         19\n\n\nLet’s drop those since we can’t use those observations in our analysis.\n\nbirths14 &lt;- births14 |&gt;\n  drop_na(habit)\n\n\nbirths14 |&gt;\n  ggplot(aes(x = weight, color = habit, fill = habit)) +\n  geom_density(alpha = 0.5)"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#sec-exercise-1",
+    "href": "lectures/20/20-inference-two-means.html#sec-exercise-1",
+    "title": "Inference for two independent means",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nSet the hypotheses for testing if there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers.\nAdd answer here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-2",
+    "href": "lectures/20/20-inference-two-means.html#exercise-2",
+    "title": "Inference for two independent means",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCalculate the observed difference between the mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers in this sample.\n\n# add code here"
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-3",
+    "href": "lectures/20/20-inference-two-means.html#exercise-3",
+    "title": "Inference for two independent means",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nSuppose the birth weights of the babies in this sample are written on pieces of paper. Explain how you would conduct the randomization test tactically.\nAdd answer here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-4",
+    "href": "lectures/20/20-inference-two-means.html#exercise-4",
+    "title": "Inference for two independent means",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nConstruct and visualize the null distribution. Based on your visualization, speculate on whether the p-value will be small or large.\n\n# add code here\n\nAdd answer here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-5",
+    "href": "lectures/20/20-inference-two-means.html#exercise-5",
+    "title": "Inference for two independent means",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nVisualize and calculate the p-value. At the 5% discernability level, what is the conclusion of the hypothesis test?\n\n# add code here\n\nAdd answer here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-6",
+    "href": "lectures/20/20-inference-two-means.html#exercise-6",
+    "title": "Inference for two independent means",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nConstruct and interpret confidence interval at the equivalent level as the previous hypothesis test for the difference between the mean weight of babies born to mothers who are not smokers and those who are born to mothers who are smokers.\n\n# add code here\n\nAdd response here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
+    "href": "lectures/20/20-inference-two-means.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
+    "title": "Inference for two independent means",
+    "section": "Mathematical model for estimating the difference in means using confidence intervals",
+    "text": "Mathematical model for estimating the difference in means using confidence intervals\nThe \\(t\\)-distribution can be used for inference when working with the standardized difference of two means if - The data are independent within and between the two groups - We check the outliers for each group separately.\nThen, the margin or error is \\(t^*_{df}\\times \\sqrt{\\frac{s_1^2}{n_1} - \\frac{s_2^2}{n_2}}\\)."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-7",
+    "href": "lectures/20/20-inference-two-means.html#exercise-7",
+    "title": "Inference for two independent means",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nCheck that the technical conditions for conducting inference using mathematical models for comparing two means are met for these data.\nAdd response here."
+  },
+  {
+    "objectID": "lectures/20/20-inference-two-means.html#exercise-8",
+    "href": "lectures/20/20-inference-two-means.html#exercise-8",
+    "title": "Inference for two independent means",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nConduct a hypothesis test using mathematical models for the hypotheses you set in Section 3.1.\n\n# add code here"
+  },
+  {
+    "objectID": "lectures/15/15-inference-one-proportion.html",
+    "href": "lectures/15/15-inference-one-proportion.html",
     "title": "Inference for a proportion",
     "section": "",
     "text": "Lab 6 due 11:59 pm\nIntro and EDA due 11:59 pm\nEmail your reviewer!"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#announcements",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#announcements",
+    "objectID": "lectures/15/15-inference-one-proportion.html#announcements",
+    "href": "lectures/15/15-inference-one-proportion.html#announcements",
     "title": "Inference for a proportion",
     "section": "",
     "text": "Lab 6 due 11:59 pm\nIntro and EDA due 11:59 pm\nEmail your reviewer!"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#proportions",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#proportions",
+    "objectID": "lectures/15/15-inference-one-proportion.html#proportions",
+    "href": "lectures/15/15-inference-one-proportion.html#proportions",
     "title": "Inference for a proportion",
     "section": "Proportions",
     "text": "Proportions\n\nIf the parameter of interest is a single population proportion, what type of and how many variables are being studied?"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-1",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-1",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-1",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-1",
     "title": "Inference for a proportion",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWhat, if anything, do you know about voter turnout in the US?\n\n~ 60% last presidential election."
+    "text": "Exercise 1\nWhat, if anything, do you know about voter turnout in the US?\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-2",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-2",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-2",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-2",
     "title": "Inference for a proportion",
     "section": "Exercise 2",
-    "text": "Exercise 2\nLoad the data and visualize the distribution of responses. Also calculate the proportion of respondents who are certain to vote in the next presidential election.\n\nggplot(voting_survey, aes(y = vote)) + \n  geom_bar()\n\n\n\n\n\n\n\nvoting_survey |&gt;\n  count(vote) |&gt;\n  mutate(p_hat = n/sum(n)) |&gt;\n  filter(vote == \"Certain to vote\")\n\n# A tibble: 1 × 3\n  vote                n p_hat\n  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;\n1 Certain to vote  1921 0.696"
+    "text": "Exercise 2\nLoad the data and visualize the distribution of responses. Also calculate the proportion of respondents who are certain to vote in the next presidential election.\n\n# add code here"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-3",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-3",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-3",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-3",
     "title": "Inference for a proportion",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWhat is the parameter of interest?\n\nProportion of registered voters who are certain to vote in the next presidential election."
+    "text": "Exercise 3\nWhat is the parameter of interest?\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-4",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-4",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-4",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-4",
     "title": "Inference for a proportion",
     "section": "Exercise 4",
-    "text": "Exercise 4\nEstimate using a 95% bootstrap interval.\n\nvoting_survey &lt;- voting_survey |&gt;\n  mutate(vote_certain = if_else(\n    vote == \"Certain to vote\", \n    \"Certain to vote\",\n    \"Not certain to vote\"\n  ))\n\nobs_stat &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  calculate(stat = \"prop\")\n\nset.seed(1234)\n\nboot_dist &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\")\n\nci &lt;- boot_dist |&gt;\n  get_ci()\n\nvisualise(boot_dist) +\n  shade_ci(ci)\n\n\n\n\n\n\n\nci\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.678    0.714"
+    "text": "Exercise 4\nEstimate using a 95% bootstrap interval.\n\n# add code here"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-5",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-5",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-5",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-5",
     "title": "Inference for a proportion",
     "section": "Exercise 5",
-    "text": "Exercise 5\nL = 0.6781443 ; U = 0.7140268\nSuppose the bounds of this interval are L = 0.678 and U = 0.714, your friend interprets the interval as\n\n95% of the time, the true proportion of proportion of registered US voters who are certain to vote in the next presidential election is between L and U.\n\nComment on this interpretation. Is it correct? If not, how would ix it?\nWe are 95% confident that 67.8% to 71.4% of all registered voters are certain to vote in the next presidential election."
+    "text": "Exercise 5\nSuppose the bounds of this interval are L and U, your friend interprets the interval as\n\n95% of the time, the true proportion of proportion of registered US voters who are certain to vote in the next presidential election is between L and U.\n\nComment on this interpretation. Is it correct? If not, how would ix it?\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-6",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-6",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-6",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-6",
     "title": "Inference for a proportion",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWhat are the hypotheses?\n\n\\(H_0\\) 60% of registered US voters are certain to vote ($p =0.6$)\n\\(H_A\\) More than 60% of registered US voters are certain to vote ($p &gt; 0.6$)."
+    "text": "Exercise 6\nWhat are the hypotheses?\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-7",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-7",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-7",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-7",
     "title": "Inference for a proportion",
     "section": "Exercise 7",
-    "text": "Exercise 7\nConduct a randomization test, at 5% discernability level, for this claim. What is the conclusion of the test?\n\nset.seed(1234)\n\nnull_dist &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  hypothesise(null = \"point\", p = 0.6) |&gt;\n  generate(reps = 1000, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\n\n\nnull_dist |&gt;\n  get_p_value(obs_stat, direction = \"greater\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1       0\n\nvisualize(null_dist) +\n  shade_p_value(obs_stat, direction = \"greater\")\n\nWarning in min(diff(unique_loc)): no non-missing arguments to min; returning\nInf\n\n\n\n\n\n\n\n\n\n\nThe p-value is smaller than 0.001, which is smaller than 0.05 (disernability level), so we reject the null hypothesis. The data provides evidence that the true proportion of US voters certain to vote is greater than 60%."
+    "text": "Exercise 7\nConduct a randomization test, at 5% discernability level, for this claim. What is the conclusion of the test?\n\n# add code here"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-8",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-8",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-8",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-8",
     "title": "Inference for a proportion",
     "section": "Exercise 8",
-    "text": "Exercise 8\nSuppose the p-value you found is approx 0, and your friends are in disagreement about the interpretation about this value. One friend claims:\n\nThe probability that 60% of all of registered US voters are certain to vote in the next presidential election is approx 0.\n\nAnother friend claims:\n\nThe probability that more than 60% of all of registered US voters are certain to vote in the next presidential election is approx 0.\n\nWho is right? Explain your reasoning.\n\nBoth are wrong. P-value does not give us a probability that \\(H_0\\) is true or the probability that \\(H_A\\) is true."
+    "text": "Exercise 8\nSuppose the p-value you found is P, and your friends are in disagreement about the interpretation about this value. One friend claims:\n\nThe probability that 60% of all of registered US voters are certain to vote in the next presidential election is P.\n\nAnother friend claims:\n\nThe probability that more than 60% of all of registered US voters are certain to vote in the next presidential election is P.\n\nWho is right? Explain your reasoning.\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-9",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-9",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-9",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-9",
     "title": "Inference for a proportion",
     "section": "Exercise 9",
     "text": "Exercise 9\nWhat is \\(p\\) vs. \\(\\hat{p}\\) vs. p-value. Explain generically as well as in the context of these data and research question.\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-10",
-    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-10",
+    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-10",
+    "href": "lectures/15/15-inference-one-proportion.html#exercise-10",
     "title": "Inference for a proportion",
     "section": "Exercise 10",
     "text": "Exercise 10\nWhat is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.\nAdd response here."
   },
   {
-    "objectID": "lectures/02/02-hello_data.html",
-    "href": "lectures/02/02-hello_data.html",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html",
+    "href": "lectures/02/02-hello_data_filled_in.html",
+    "title": "Hello data - filled in notes",
     "section": "",
     "text": "Office hours are updated with minor changes on the course website .\nIf you haven’t yet done so, please:\n\ncomplete the Getting to know you survey\nread through the syllabus"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#rstudio",
-    "href": "lectures/02/02-hello_data.html#rstudio",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#rstudio",
+    "href": "lectures/02/02-hello_data_filled_in.html#rstudio",
+    "title": "Hello data - filled in notes",
     "section": "RStudio",
     "text": "RStudio\n\nFiles, plots, viewer, environment, etc. panes\nConsole\nEditor"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#r",
-    "href": "lectures/02/02-hello_data.html#r",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#r",
+    "href": "lectures/02/02-hello_data_filled_in.html#r",
+    "title": "Hello data - filled in notes",
     "section": "R",
-    "text": "R\n\nWriting code in the console\nBasic math with R\nCreating variables in R, the assignment operator (&lt;-), and the Environment pane\nR functions and packages and the Packages pane\nGetting help with R and the Help pane"
+    "text": "R\n\nWriting code in the console\nBasic math with R\n\n1+2*(3+5)\n\n[1] 17\n\n\nCreating variables in R, the assignment operator (&lt;-), and the Environment pane\n\nage &lt;- 27\n\nage + 4\n\n[1] 31\n\nage + 9\n\n[1] 36\n\n\nR functions and packages and the Packages pane\nGetting help with R and the Help pane"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#quarto",
-    "href": "lectures/02/02-hello_data.html#quarto",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#quarto",
+    "href": "lectures/02/02-hello_data_filled_in.html#quarto",
+    "title": "Hello data - filled in notes",
     "section": "Quarto",
     "text": "Quarto\n\nYAML: Metadata\nNarrative: Edited with the visual editor (or the source editor)\nCode: In code chunks\n\nChunk options (following #|)\nComments (following #)\nCode\n\nRunning individual code chunks vs. rendering a document"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#load-packages",
-    "href": "lectures/02/02-hello_data.html#load-packages",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#load-packages",
+    "href": "lectures/02/02-hello_data_filled_in.html#load-packages",
+    "title": "Hello data - filled in notes",
     "section": "Load packages",
-    "text": "Load packages\nWe’ll use the tidyverse package for analysis, which offers functionality for data import, wrangling, visualization, and more.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nLoading this package prints out a message. What does this message mean? How can we suppress the message from the output?"
+    "text": "Load packages\nWe’ll use the tidyverse package for analysis, which offers functionality for data import, wrangling, visualization, and more.\n\n# load a package\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nLoading this package prints out a message. What does this message mean? How can we suppress the message from the output?"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#load-data",
-    "href": "lectures/02/02-hello_data.html#load-data",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#load-data",
+    "href": "lectures/02/02-hello_data_filled_in.html#load-data",
+    "title": "Hello data - filled in notes",
     "section": "Load data",
-    "text": "Load data\nThe read_csv() function can be used for reading CSV (comma separated values) files. The file we’re reading is called flint with the suffix (.csv) which indicates its file type.\n\nflint &lt;- read_csv(\"flint.csv\")\n\nRows: 813 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): draw\ndbl (4): id, zip, ward, lead\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nOne of two things may have happened:\n\nThe file was read successfully and you now see a dataset called flint in your Environment pane.\nThe file was not read successfully and you see an error Error in read_csv(\"data/flint.csv\") : could not find function \"read_csv\".\n\nIf (1) happened, great!\nIf (2) happened, let’s troubleshoot first before continuing."
+    "text": "Load data\nThe read_csv() function can be used for reading CSV (comma separated values) files. The file we’re reading is called flint with the suffix (.csv) which indicates its file type.\n\nflint &lt;- read_csv(\"flint.csv\")\n\nRows: 813 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): draw\ndbl (4): id, zip, ward, lead\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nview(flint)\n\nOne of two things may have happened:\n\nThe file was read successfully and you now see a dataset called flint in your Environment pane.\nThe file was not read successfully and you see an error Error in read_csv(\"flint.csv\") : could not find function \"read_csv\".\n\nIf (1) happened, great!\nIf (2) happened, let’s troubleshoot first before continuing."
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#data-dictionary",
-    "href": "lectures/02/02-hello_data.html#data-dictionary",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#data-dictionary",
+    "href": "lectures/02/02-hello_data_filled_in.html#data-dictionary",
+    "title": "Hello data - filled in notes",
     "section": "Data dictionary",
     "text": "Data dictionary\nThe following variables are in the flint data frame:\n\nid: sample ID number (identifies the home)\nzip: ZIP code in Flint of the sample’s location\nward: ward in Flint of the sample’s location\ndraw: which time point the water was sampled from\nlead: lead content in parts per billion (ppb)"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#populations-and-samples",
-    "href": "lectures/02/02-hello_data.html#populations-and-samples",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#populations-and-samples",
+    "href": "lectures/02/02-hello_data_filled_in.html#populations-and-samples",
+    "title": "Hello data - filled in notes",
     "section": "Populations and samples",
-    "text": "Populations and samples\nWe want to learn about the population using a sample.\nIn the case we want to learn about the lead content in all of Flint, MI homes but only have available water readings from a sample of homes (our data set).\nExercise 1: Look at the data, how many observations are there? How many variables?\n\n# add code here"
+    "text": "Populations and samples\nWe want to learn about the population using a sample.\nIn the case we want to learn about the lead content in all of Flint, MI homes but only have available water readings from a sample of homes (our data set).\nExercise 1: Look at the data, how many observations are there? How many variables?\n\nnrow(flint)\n\n[1] 813\n\nncol(flint)\n\n[1] 5\n\n\nThere are 813 observations and 5 variables."
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#frequencies",
-    "href": "lectures/02/02-hello_data.html#frequencies",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#frequencies",
+    "href": "lectures/02/02-hello_data_filled_in.html#frequencies",
+    "title": "Hello data - filled in notes",
     "section": "Frequencies",
-    "text": "Frequencies\nLet’s count() to find the number of different time points water was sampled with the count() function.\n\nThe first argument is flint: the data frame\nThe second argument is draw: the variable\n\n\ncount(flint, draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can achieve the same result with the following “piped” operation as well.\n\nThe first line is flint: the data frame\nThen the pipe operator, read as “and then”, which places what comes before it as the first argument of what comes after it\nThe second line is count(draw)\n\n\nflint |&gt;\n  count(draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can use a similar approach to fund out how many unique homes are in the data set:\n\nflint |&gt;\n  count(id)\n\n# A tibble: 269 × 2\n      id     n\n   &lt;dbl&gt; &lt;int&gt;\n 1     1     3\n 2     2     3\n 3     4     3\n 4     5     3\n 5     6     3\n 6     7     3\n 7     8     3\n 8     9     3\n 9    12     3\n10    13     3\n# ℹ 259 more rows\n\n\nExercise 2: How many samples were taken from each zip code?\n\n# add code here\n\nExercise 3: Which ZIP code had the most samples drawn? Hint: See the help for count.\n\n# add code here"
+    "text": "Frequencies\nLet’s count() to find the number of different time points water was sampled with the count() function.\n\nThe first argument is flint: the data frame\nThe second argument is draw: the variable\n\n\ncount(flint, draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can achieve the same result with the following “piped” operation as well.\n\nThe first line is flint: the data frame\nThen the pipe operator, read as “and then”, which places what comes before it as the first argument of what comes after it\nThe second line is count(draw)\n\n\nflint |&gt;\n  count(draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can use a similar approach to fund out how many unique homes are in the data set:\n\nflint |&gt;\n  count(id)\n\n# A tibble: 269 × 2\n      id     n\n   &lt;dbl&gt; &lt;int&gt;\n 1     1     3\n 2     2     3\n 3     4     3\n 4     5     3\n 5     6     3\n 6     7     3\n 7     8     3\n 8     9     3\n 9    12     3\n10    13     3\n# ℹ 259 more rows\n\n\nExercise 2: How many samples were taken from each zip code?\n\nflint |&gt;\n  count(zip)\n\n# A tibble: 8 × 2\n    zip     n\n  &lt;dbl&gt; &lt;int&gt;\n1 48502     3\n2 48503   207\n3 48504   165\n4 48505   144\n5 48506   132\n6 48507   153\n7 48529     3\n8 48532     6\n\n\nExercise 3: Which ZIP code had the most samples drawn? Hint: See the help for count.\n\nflint |&gt;\n  count(zip, sort = TRUE)\n\n# A tibble: 8 × 2\n    zip     n\n  &lt;dbl&gt; &lt;int&gt;\n1 48503   207\n2 48504   165\n3 48507   153\n4 48505   144\n5 48506   132\n6 48532     6\n7 48502     3\n8 48529     3"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#measures-of-central-tendency",
-    "href": "lectures/02/02-hello_data.html#measures-of-central-tendency",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#measures-of-central-tendency",
+    "href": "lectures/02/02-hello_data_filled_in.html#measures-of-central-tendency",
+    "title": "Hello data - filled in notes",
     "section": "Measures of central tendency",
     "text": "Measures of central tendency\n\nmean\nmedian\nmode"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#measures-of-spread",
-    "href": "lectures/02/02-hello_data.html#measures-of-spread",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#measures-of-spread",
+    "href": "lectures/02/02-hello_data_filled_in.html#measures-of-spread",
+    "title": "Hello data - filled in notes",
     "section": "Measures of spread",
     "text": "Measures of spread\n\nvariance\nstandard deviation\nrange\nquartiles\ninter-quartile range (IQR)"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#order-statistics",
-    "href": "lectures/02/02-hello_data.html#order-statistics",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#order-statistics",
+    "href": "lectures/02/02-hello_data_filled_in.html#order-statistics",
+    "title": "Hello data - filled in notes",
     "section": "Order statistics",
-    "text": "Order statistics\n\nquantiles\nminimum (0 percentile)\nmedian (50th percentile)\nmaximum (100 percentile)\n\n… and any other arbitrary function of the data you can come up with!\nExercise 4: Compute each of these statistics for lead ppb.\n\n# add code here"
+    "text": "Order statistics\n\nquantiles\nminimum (0 percentile)\nmedian (50th percentile)\nmaximum (100 percentile)\n\n… and any other arbitrary function of the data you can come up with!\nExercise 4: Compute each of these statistics for lead ppb.\n\nsummary_table &lt;- flint |&gt;\n  summarize(mean_lead = mean(lead),\n            median_lead = median(lead),\n            var_lead = var(lead),\n            sd_lead = sd(lead))\nsummary_table\n\n# A tibble: 1 × 4\n  mean_lead median_lead var_lead sd_lead\n      &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n1      8.20        1.85    1718.    41.5"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#histograms",
-    "href": "lectures/02/02-hello_data.html#histograms",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#histograms",
+    "href": "lectures/02/02-hello_data_filled_in.html#histograms",
+    "title": "Hello data - filled in notes",
     "section": "Histograms",
-    "text": "Histograms\nLet’s take a look at the distribution of lead content in homes in Flint, MI.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nWe can make this plot look nicer/more useful by adjusting the number of bins and zooming into the x-axis.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram(bins = 50) +\n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nLet’s visualize some of our summary statistics on the plot.\nExercise 5: Add a new layer, geom_vline(xintercept = __, color = \"red\"), to the histogram below, filling in the blank with the mean.\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nExercise 6: Add one more layer which overlays the median, in a different color.\n\n# add code here"
+    "text": "Histograms\nLet’s take a look at the distribution of lead content in homes in Flint, MI.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nWe can make this plot look nicer/more useful by adjusting the number of bins and zooming into the x-axis.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram(bins = 50) +\n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nLet’s visualize some of our summary statistics on the plot.\nExercise 5: Add a new layer, geom_vline(xintercept = __, color = \"red\"), to the histogram below, filling in the blank with the mean.\n\nmean_lead &lt;- mean(flint$lead)\n\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100)) +\n  geom_vline(xintercept = summary_table$mean_lead, color = \"red\")\n\n\n\n\n\n\n\n\nExercise 6: Add one more layer which overlays the median, in a different color.\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100)) +\n  geom_vline(xintercept = summary_table$mean_lead, color = \"red\") +\n  geom_vline(xintercept = summary_table$median_lead, color = \"blue\")\n\n\n\n\n\n\n\n# add code here"
   },
   {
-    "objectID": "lectures/02/02-hello_data.html#box-plots",
-    "href": "lectures/02/02-hello_data.html#box-plots",
-    "title": "Hello data",
+    "objectID": "lectures/02/02-hello_data_filled_in.html#box-plots",
+    "href": "lectures/02/02-hello_data_filled_in.html#box-plots",
+    "title": "Hello data - filled in notes",
     "section": "Box plots",
-    "text": "Box plots\nNext, let’s narrow our focus to the zip codes 48503, 48504, 48505, 48506, and 48507 and observations with lead values less than 1,000 ppb.\n\nflint_focus &lt;- flint |&gt;\n  filter(zip %in% 48503:48507 & lead &lt; 1000)\n\nExercise 7: Below are side-by-side box plots for the three flushing times in each of the five zip codes we considered. Add x and y labels; add a title by inserting title = \"title_name\" inside the labs() function.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) +\n  labs(x = \"___\", y = \"___\", fill = \"Flushing time\") +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  )\n\n\n\n\n\n\n\n\nExercise 8: Add labels for x, y, a title, and subtitle to the code below to update the corresponding plot.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) + \n  labs(\n    x = \"___\", y = \"___\", fill = \"Flushing time\",\n    title = \"___\",\n    subtitle = \"___\"\n    ) +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  ) +\n  coord_cartesian(xlim = c(0, 50)) +\n  theme_bw()\n\n\n\n\n\n\n\n\nExercise 9: What is the difference between the two plots? What are the advantages and disadvantages to each plot?\n[Add your answer here]"
+    "text": "Box plots\nNext, let’s narrow our focus to the zip codes 48503, 48504, 48505, 48506, and 48507 and observations with lead values less than 1,000 ppb.\n\nflint_focus &lt;- flint |&gt;\n  filter(zip %in% 48503:48507 & lead &lt; 1000)\n\nExercise 7: Below are side-by-side box plots for the three flushing times in each of the five zip codes we considered. Add x and y labels; add a title by inserting title = \"title_name\" inside the labs() function.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) +\n  labs(x = \"Lead (ppb)\", y = \"Zip code\", fill = \"Flushing time\") +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  )\n\n\n\n\n\n\n\n\nExercise 8: Add labels for x, y, a title, and subtitle to the code below to update the corresponding plot.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) + \n  labs(\n    x = \"Lead (ppb)\", y = \"Zip code\", fill = \"Flushing time\",\n    title = \"Lead amount by flushing time\",\n    subtitle = \"In five zip codes\"\n    ) +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  ) +\n  coord_cartesian(xlim = c(0, 50)) +\n  theme_bw()\n\n\n\n\n\n\n\n\nExercise 9: What is the difference between the two plots? What are the advantages and disadvantages to each plot?\nThe first plot shows extreme outliers, while the second plot makes it easier to see the bulk of the distribution."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html",
-    "href": "lectures/05/05-explore-numerical-filled-in.html",
+    "objectID": "lectures/05/05-explore-numerical.html",
+    "href": "lectures/05/05-explore-numerical.html",
+    "title": "Explore numerical data",
+    "section": "",
+    "text": "Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope\nPlease, come to class on time!\n\n\n\n\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
+  },
+  {
+    "objectID": "lectures/05/05-explore-numerical.html#announcements",
+    "href": "lectures/05/05-explore-numerical.html#announcements",
+    "title": "Explore numerical data",
+    "section": "",
+    "text": "Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope\nPlease, come to class on time!"
+  },
+  {
+    "objectID": "lectures/05/05-explore-numerical.html#recap-from-last-time",
+    "href": "lectures/05/05-explore-numerical.html#recap-from-last-time",
     "title": "Explore numerical data",
     "section": "",
     "text": "Suppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#recap-from-last-time",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#recap-from-last-time",
+    "objectID": "lectures/05/05-explore-numerical.html#durham-city-and-county-resident-survey",
+    "href": "lectures/05/05-explore-numerical.html#durham-city-and-county-resident-survey",
     "title": "Explore numerical data",
-    "section": "",
-    "text": "Suppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
+    "section": "2020 Durham City and County Resident Survey",
+    "text": "2020 Durham City and County Resident Survey\nWe’ll continue working with this dataset."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-1",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-1",
+    "objectID": "lectures/05/05-explore-numerical.html#services",
+    "href": "lectures/05/05-explore-numerical.html#services",
+    "title": "Explore numerical data",
+    "section": "Services",
+    "text": "Services"
+  },
+  {
+    "objectID": "lectures/05/05-explore-numerical.html#demographics",
+    "href": "lectures/05/05-explore-numerical.html#demographics",
+    "title": "Explore numerical data",
+    "section": "Demographics",
+    "text": "Demographics\n\n\n\n\n\nThe main questions we’ll explore today are:\n\n“What are the demographics and priorities of City of Durham residents?”\n“How do City of Durham residents feel about quality of services by the city and how, if at all, does that vary by income?”"
+  },
+  {
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-1",
+    "href": "lectures/05/05-explore-numerical.html#exercise-1",
     "title": "Explore numerical data",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  ggplot(aes(y = income, fill = own_rent)) +\n    geom_bar(position = \"fill\") +\n    scale_y_discrete(\n      labels = c(\n        \"1\" = \"&lt; $30,000\",\n        \"2\" = \"$30,000 - $59,999\",\n        \"3\" = \"$60,000 - $99,999\",\n        \"4\" = \"$100,000 + \"\n      )\n    ) +\n    scale_fill_manual(\n      values = c(\"1\" = \"cadetblue\", \"2\" = \"coral\"),\n      labels = c( \"1\" = \"Own\", \"2\" = \"Rent\")\n    ) + \n    labs(\n      x = \"Proportion\",\n      y = \"Would you say your total\\n annual household income is...\",\n      fill = \"Do you own\\n or rent\\n your current\\n residence?\",\n      title = \"Income v. home ownership of Durham residents\"\n    )"
+    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-2",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-2",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-2",
+    "href": "lectures/05/05-explore-numerical.html#exercise-2",
     "title": "Explore numerical data",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n/sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income own_rent     n   prop\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 1      1           51 0.362 \n2 1      2           90 0.638 \n3 2      1          105 0.565 \n4 2      2           81 0.435 \n5 3      1          107 0.552 \n6 3      2           87 0.448 \n7 4      1          160 0.930 \n8 4      2           12 0.0698"
+    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-3",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-3",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-3",
+    "href": "lectures/05/05-explore-numerical.html#exercise-3",
     "title": "Explore numerical data",
     "section": "Exercise 3",
-    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income_clean = case_when(\n      income == \"1\" ~ \"Under $30,000\",\n      income == \"2\" ~ \"$30,000 - $59,999\",\n      income == \"3\" ~ \"$60,000 - $99,999\",\n      income == \"4\" ~ \"$100,000 or more\"\n    ),\n    income_clean = fct_relevel(income_clean, \n                               \"Under $30,000\",\n                               \"$30,000 - $59,999\",\n                               \"$60,000 - $99,999\",\n                               \"$100,000 or more\"),\n    own_rent = if_else(own_rent == 1, \"Own\", \"Rent\") \n  )\n\n# quality check\ndurham|&gt; \n  count(income, income_clean)\n\n# A tibble: 5 × 3\n  income income_clean          n\n  &lt;fct&gt;  &lt;fct&gt;             &lt;int&gt;\n1 1      Under $30,000       141\n2 2      $30,000 - $59,999   186\n3 3      $60,000 - $99,999   194\n4 4      $100,000 or more    172\n5 &lt;NA&gt;   &lt;NA&gt;                110\n\n# own_rent = case_when(\n#  own_rent == 1 ~ \"Own\",\n#  own_rent == 2 ~ \"Rent\"\n# )\n\n\ndurham |&gt;\n  select(income_clean, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income_clean, own_rent) |&gt;\n  group_by(income_clean) |&gt;\n  mutate(prop = n/sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income_clean [4]\n  income_clean      own_rent     n   prop\n  &lt;fct&gt;             &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 Under $30,000     Own         51 0.362 \n2 Under $30,000     Rent        90 0.638 \n3 $30,000 - $59,999 Own        105 0.565 \n4 $30,000 - $59,999 Rent        81 0.435 \n5 $60,000 - $99,999 Own        107 0.552 \n6 $60,000 - $99,999 Rent        87 0.448 \n7 $100,000 or more  Own        160 0.930 \n8 $100,000 or more  Rent        12 0.0698"
+    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-4",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-4",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-4",
+    "href": "lectures/05/05-explore-numerical.html#exercise-4",
     "title": "Explore numerical data",
     "section": "Exercise 4",
-    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\n\nggplot(durham, aes(x = qos_city)) + \n  geom_histogram(binwidth =  1) +\n  labs(\n    x = \"Quality of services provided by the city\\n 1 - Very Dissatisfied, 5 - Very Satisfied\"\n  )\n\nWarning: Removed 75 rows containing non-finite values (`stat_bin()`)."
+    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-5",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-5",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-5",
+    "href": "lectures/05/05-explore-numerical.html#exercise-5",
     "title": "Explore numerical data",
     "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\n\ndurham |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE),\n    median_qos_city = median(qos_city, na.rm = TRUE)\n  )\n\n# A tibble: 1 × 2\n  mean_qos_city median_qos_city\n          &lt;dbl&gt;           &lt;dbl&gt;\n1          3.54               4\n\n\n\nMore rare responses of “1 - Very dissatisfied” pull the mean response down away from the median."
+    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-6",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-6",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-6",
+    "href": "lectures/05/05-explore-numerical.html#exercise-6",
     "title": "Explore numerical data",
     "section": "Exercise 6",
-    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\ndurham |&gt; \n  summarise(\n    iqr_qos_city = IQR(qos_city, na.rm = T),\n    q1_qos_city = quantile(qos_city, 0.25, na.rm = T),\n    q3_qos_city = quantile(qos_city, 0.75, na.rm = T)\n  )\n\n# A tibble: 1 × 3\n  iqr_qos_city q1_qos_city q3_qos_city\n         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1            1           3           4"
+    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-7",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-7",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-7",
+    "href": "lectures/05/05-explore-numerical.html#exercise-7",
     "title": "Explore numerical data",
     "section": "Exercise 7",
-    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\nggplot(durham, aes(x = qos_city)) + \n  geom_boxplot() +\n  labs(\n    x = \"Quality of service provided by the city\\n 1 - Very Dissatisfied, 5 - Very Satisfied\"\n  )\n\nWarning: Removed 75 rows containing non-finite values (`stat_boxplot()`)."
+    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-8",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-8",
+    "objectID": "lectures/05/05-explore-numerical.html#exercise-8",
+    "href": "lectures/05/05-explore-numerical.html#exercise-8",
     "title": "Explore numerical data",
     "section": "Exercise 8",
-    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\ndurham |&gt;\n  drop_na(income_clean) |&gt;\n  group_by(income_clean) |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE),\n    median_qos_city = median(qos_city, na.rm = TRUE)\n  )\n\n# A tibble: 4 × 3\n  income_clean      mean_qos_city median_qos_city\n  &lt;fct&gt;                     &lt;dbl&gt;           &lt;dbl&gt;\n1 Under $30,000              3.45               4\n2 $30,000 - $59,999          3.50               4\n3 $60,000 - $99,999          3.56               4\n4 $100,000 or more           3.72               4\n\n\n\ndurham |&gt;\n  drop_na(income_clean) |&gt;\n  group_by(income_clean) |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE)\n  ) |&gt;\n  ggplot(aes(x = income_clean, y = mean_qos_city)) +\n  geom_point()"
+    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\n# add code here"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#conceptual",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#conceptual",
+    "objectID": "lectures/05/05-explore-numerical.html#conceptual",
+    "href": "lectures/05/05-explore-numerical.html#conceptual",
     "title": "Explore numerical data",
     "section": "Conceptual",
     "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#r",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#r",
+    "objectID": "lectures/05/05-explore-numerical.html#r",
+    "href": "lectures/05/05-explore-numerical.html#r",
     "title": "Explore numerical data",
     "section": "R",
     "text": "R\nIn this lecture we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\ngeom_histogram(): Represent data with a histogram\ngeom_boxplot(): Represent data with a box plot\ngeom_point(): Represent data with points\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\nsummarize(): Calculate summary statistics\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one condition\nfct_relevel: Change the order of levels in a factor\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical-filled-in.html#quarto",
-    "href": "lectures/05/05-explore-numerical-filled-in.html#quarto",
+    "objectID": "lectures/05/05-explore-numerical.html#quarto",
+    "href": "lectures/05/05-explore-numerical.html#quarto",
     "title": "Explore numerical data",
     "section": "Quarto",
     "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
@@ -2017,7 +2150,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-filled-in.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#hypothesis-testing-1",
@@ -2038,7 +2171,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-filled-in.html#organ-donors",
@@ -3666,7 +3799,7 @@
     "href": "index.html",
     "title": "STA 101: Data Analysis and Statistical Inference",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n💻 lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n⬇️ Canvas\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nModel selection (cont.)\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n💻 lab-4\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression\n\n\n📖 ims: Chp 9.1 - 9.2\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nHypothesis testing with randomization\n\n\n\n\n📓notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n💻 lab-5\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n📓notes (hyp. test)\n📓filled-in notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 5\n\nConfidence intervals with bootstrapping + Ethics\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes CI\n📓 notes Ethics\n⬇️ Canvas\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n📝 exam review\n🗝️ exam review key\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n⬇️ Canvas (takehome)\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n💻 lab-6\n📄 Intro + EDA\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 11\n\nMore on CLT + Decision errors\n\n\n📖 ims: Chp 13\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer reviewer\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n💻 lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n💻 lab-8\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 17\n\nMathematical models for proportions\n\n\n📖 [ims: Chp 16](https://openintro-ims2.netlify.app/16-inference-one-prop\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nThu, Jun 20\n\nInference for comparing two means\n\n\n📖 ims: Chp 20\n📖 ims: Chp 21\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means (Optional)\n\n\n\n\n💻 lab-9\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day / Project work day\n\n\n\n\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 (Optional) at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n1\nWed, May 15\n\nWelcome to STA 101!\n\n\n\n\n📓 Welcome slides\n📓 activity\n⬇️ Canvas\n📝 survey\n\n\n\n\n\n\n\nThu, May 16\n\nHello data\n\n\n📖 ims: Chp 1\n💻 tutorial: 01-data-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 16\n\nLab 1: Hello R!\n\n\n\n\n💻 lab-1\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 17\n\nStudy design\n\n\n📖 ims: Chp 2\n💻 tutorial: 01-data-02\n💻 tutorial: 01-data-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, May 19\n\n\n\n\n\n\n\n✅ Lab 1 at 11:59 pm\n\n\n\n2\nMon, May 20\n\nLab 2: Hello data!\n\n\n📖 ims: Chp 3\n💻 tutorial: 01-data-04\n\n\n💻 lab-2\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, May 20\n\nExploring categorical data\n\n\n📖 ims: Chp 4\n💻 tutorial: 02-explore-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, May 21\n\nExploring numerical data\n\n\n📖 ims: Chp 5\n💻 tutorial: 02-explore-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, May 22\n\nRegression with a single predictor I\n\n\n📖 ims: Chp 7.1 - 7.2\n💻 tutorial: 03-model-01\n💻 tutorial: 03-model-02\n\n\n📓 notes\n⬇️ Canvas\n\n\n✅ Lab 2 at 11:59 pm\n\n\n\n\n\nThu, May 23\n\nLab 3: Exploratory data analysis\n\n\n📖 ims: Chp 6\n💻 tutorial: 02-explore-03\n\n\n💻 lab-3\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 23\n\nRegression with a single predictor II\n\n\n📖 ims: Chp 7.2 - 7.4\n💻 tutorial: 03-model-03\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 24\n\nRegression with multiple predictors\n\n\n📖 ims: Chp 8.1 - 8.3\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n3\nMon, May 27\n\nMemorial Day- No classes\n\n\n\n\n\n\n\n\n\n\n\nTue, May 28\n\nModel selection\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n⬇️ Canvas\n\n\n📄 Project Proposal at 11:59 pm\n\n\n\n\n\nWed, May 29\n\nModel selection (cont.)\n\n\n📖 ims: Chp 8.4 - 8.5\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 3 at 11:59 pm\n\n\n\n\n\nThu, May 30\n\nLab 4: Regression\n\n\n\n\n💻 lab-4\n⬇️ Canvas\n\n\n\n\n\n\n\nThu, May 30\n\nLogistic regression\n\n\n📖 ims: Chp 9.1 - 9.2\n📖 ims: Chp 9.3 - 9.5\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, May 31\n\nHypothesis testing with randomization\n\n\n📖 ims: Chp 11\n💻 tutorial: 04-foundations-01\n💻 tutorial: 04-foundations-02\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 2\n\n\n\n\n\n\n\n✅ Lab 4 at 11:59 pm\n\n\n\n4\nMon, Jun 3\n\nHypothesis testing with randomization\n\n\n\n\n📓notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 3\n\nLab 5: Hypothesis testing\n\n\n\n\n💻 lab-5\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 4\n\nCatch-up day\n\n\n\n\n📓notes (hyp. test)\n📓filled-in notes (hyp. test)\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 5\n\nConfidence intervals with bootstrapping + Ethics\n\n\n📖 ims: Chp 12\n💻 tutorial: 04-foundations-04\n🎥 Data privacy\n🎥 Misrepresentation\n🎥 Algorithmic bias\n🎥 Joy Buolamwini - How I’m fighting bias in algorithms\n🎥 Cathy O’Neil - Weapons of Math Destruction\n🎥 Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression\n\n\n📓 notes CI\n📓 notes Ethics\n⬇️ Canvas\n\n\n✅ Lab 5 at 11:59 pm\n\n\n\n\n\nThu, Jun 6\n\nExam 1 Review\n\n\n\n\n📝 exam review\n🗝️ exam review key\n\n\n\n\n\n\n\nFri, Jun 7\n\nExam - In class\n\n\n\n\n⬇️ Canvas (takehome)\n\n\n\n\n\n\n\nSun, Jun 9\n\n\n\n\n\n\n\nExam - Take home at 11:59 pm\n\n\n\n5\nMon, Jun 10\n\nInference with mathematical models\n\n\n📖 ims: Chp 13\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 10\n\nLab 6: Ethics + Project update (Intro + EDA)\n\n\n\n\n💻 lab-6\n📄 Intro + EDA\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 11\n\nMore on CLT + Decision errors\n\n\n📖 ims: Chp 13\n📖 ims: Chp 14\n💻 tutorial: 04-foundations-03\n\n\n📓notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 12\n\nInference for a single proportion\n\n\n📖 ims: Chp 16\n💻 tutorial: 05-infer-01\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 6 at 11:59 pm\n📄 Intro + EDA due at 11:59 pm\n✉️ Email your peer reviewer\n\n\n\n\n\nThu, Jun 13\n\nLab 7: Foundations of inference + Peer review\n\n\n\n\n💻 lab-7\n📄 Peer review\n\n\n\n\n\n\n\nThu, Jun 13\n\nInference for comparing two proportions\n\n\n📖 ims: Chp 17\n💻 tutorial: 05-infer-02\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 14\n\nInference for two-way tables\n\n\n📖 ims: Chp 18\n💻 tutorial: 05-infer-03\n\n\n📓notes\n📓filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 16\n\n\n\n\n\n\n\n✅ Lab 7 at 11:59 pm\n📄 Peer review due at 11:59 pm\n\n\n\n6\nMon, Jun 17\n\nLab 8: Inference for proportions\n\n\n\n\n💻 lab-8\n⬇️ Canvas\n\n\n\n\n\n\n\nMon, Jun 17\n\nMathematical models for proportions\n\n\n📖 [ims: Chp 16](https://openintro-ims2.netlify.app/16-inference-one-prop\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nTue, Jun 18\n\nInference for a single mean\n\n\n📖 ims: Chp 19\n💻 tutorial: 05-infer-05\n💻 tutorial: 05-infer-06\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n\n\n\n\n\nWed, Jun 19\n\nJuneteenth - No classes\n\n\n\n\n\n\n\n\n\n\n\nThu, Jun 20\n\nInference for comparing two means\n\n\n📖 ims: Chp 20\n📖 ims: Chp 21\n💻 tutorial: 05-infer-07\n\n\n📓 notes\n📓 filled-in notes\n⬇️ Canvas\n\n\n✅ Lab 8 at 11:59 pm\n\n\n\n\n\nThu, Jun 20\n\nLab 9: Inference for means (Optional)\n\n\n\n\n💻 lab-9\n⬇️ Canvas\n\n\n\n\n\n\n\nFri, Jun 21\n\nCatch-up day / Project work day\n\n\n\n\n📓 notes\n⬇️ Canvas\n\n\n\n\n\n\n\nSun, Jun 23\n\n\n\n\n\n\n\n✅ Lab 9 (Optional) at 11:59 pm\n\n\n\n7\nMon, Jun 24\n\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\nTue, Jun 25\n\nReading period\n\n\n\n\n\n\n\n\n\n\n\nWed, Jun 26\n\n\n\n\n\n\n\n📄 Project at 11:59 pm\n\n\n\n\n\n\n\n\n\n\nAcknowledgement\nThank you Dr. Mine Çetinkaya-Rundel for class material and help preparing the course and setting up this website.",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3780,7 +3913,7 @@
     "href": "lectures/11/11-confidence-intervals-bootstrapping.html",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
-    "text": "Exam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "Exam:\n\nIn class: Fri, June 7th (1 sheet of notes allowed)\nTake home due Sun, June 9th\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#announcements",
@@ -3794,7 +3927,7 @@
     "href": "lectures/11/11-confidence-intervals-bootstrapping.html#packages",
     "title": "Confidence intervals with bootstrapping",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/11/11-confidence-intervals-bootstrapping.html#case-study-3-airbnb-in-asheville-nc",
@@ -4431,7 +4564,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#hypothesis-testing-1",
@@ -4452,7 +4585,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization.html#organ-donors",
@@ -4704,7 +4837,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-clean.html",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "A hypothesis test is a statistical technique used to evaluate competing claims using data.\n\nNull hypothesis, \\(H_o\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\n\n\n\n\nNote\n\n\n\nHypotheses are always at the population level!\n\n\n\n\n\nSuppose you’re cooking a pot of soup:\n\n\nTaste a spoonful and decide if that spoonful has enough salt \\(\\rightarrow\\) exploratory data analysis of the sample\nDecide the pot of soup must also have enough salt since the spoonful does \\(\\rightarrow\\) inference\nMixing the soup in the pot before taking a spoonful \\(\\rightarrow\\) randomizing\nTaking a spoonful with the intention of making an inference about the pot \\(\\rightarrow\\) sampling\n\n\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-clean.html#hypothesis-testing-1",
@@ -4725,7 +4858,7 @@
     "href": "lectures/10/10-hypothesis-testing-randomization-clean.html#packages",
     "title": "Hypothesis testing with randomization",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Dig deeper into tidy modeling with R at https://www.tmwr.org\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──\n✔ broom        1.0.5          ✔ rsample      1.2.0     \n✔ dials        1.2.0          ✔ tune         1.1.2     \n✔ infer        1.0.5.9000     ✔ workflows    1.1.3     \n✔ modeldata    1.2.0          ✔ workflowsets 1.0.1     \n✔ parsnip      1.1.1          ✔ yardstick    1.2.0     \n✔ recipes      1.0.8          \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::%||%()     masks base::%||%()\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(openintro)  # for data for case study 2: yawn\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nAttaching package: 'openintro'\n\nThe following object is masked from 'package:modeldata':\n\n    ames"
   },
   {
     "objectID": "lectures/10/10-hypothesis-testing-randomization-clean.html#organ-donors",
@@ -5610,417 +5743,389 @@
     "text": "Exercise 6\nPerform the hypothesis test testing whether the true proportion of Duke students that are NC residents is truly smaller than 16%?\n\nnull_mean = 0.16\nnull_se = sqrt(0.16*(1-0.16)/500)\n\n# pnorm calculates area to the left\n# 1 - pnorm gives area to the right\n\n1 - pnorm(q = obs_stat, mean = null_mean, sd = null_se )\n\nWith the p-value of 0.007&lt;0.05, we reject the null."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html",
-    "href": "lectures/05/05-explore-numerical.html",
-    "title": "Explore numerical data",
-    "section": "",
-    "text": "Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope\nPlease, come to class on time!\n\n\n\n\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
-  },
-  {
-    "objectID": "lectures/05/05-explore-numerical.html#announcements",
-    "href": "lectures/05/05-explore-numerical.html#announcements",
-    "title": "Explore numerical data",
-    "section": "",
-    "text": "Lab 2 is due Wed, May 22 at 11:59 pm on Gradescope\nPlease, come to class on time!"
-  },
-  {
-    "objectID": "lectures/05/05-explore-numerical.html#recap-from-last-time",
-    "href": "lectures/05/05-explore-numerical.html#recap-from-last-time",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html",
+    "href": "lectures/05/05-explore-numerical-filled-in.html",
     "title": "Explore numerical data",
     "section": "",
     "text": "Suppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#durham-city-and-county-resident-survey",
-    "href": "lectures/05/05-explore-numerical.html#durham-city-and-county-resident-survey",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#recap-from-last-time",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#recap-from-last-time",
     "title": "Explore numerical data",
-    "section": "2020 Durham City and County Resident Survey",
-    "text": "2020 Durham City and County Resident Survey\nWe’ll continue working with this dataset."
+    "section": "",
+    "text": "Suppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nSuppose you have a data frame called df and a single variable in it called x. How many variables will df have after running the following code?\n\ndf &lt;- df |&gt;\n  mutate(y = x + 2)\n\n\n. . .\n\nWhat is the &lt;- operator called and what does it do?"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#services",
-    "href": "lectures/05/05-explore-numerical.html#services",
-    "title": "Explore numerical data",
-    "section": "Services",
-    "text": "Services"
-  },
-  {
-    "objectID": "lectures/05/05-explore-numerical.html#demographics",
-    "href": "lectures/05/05-explore-numerical.html#demographics",
-    "title": "Explore numerical data",
-    "section": "Demographics",
-    "text": "Demographics\n\n\n\n\n\nThe main questions we’ll explore today are:\n\n“What are the demographics and priorities of City of Durham residents?”\n“How do City of Durham residents feel about quality of services by the city and how, if at all, does that vary by income?”"
-  },
-  {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-1",
-    "href": "lectures/05/05-explore-numerical.html#exercise-1",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-1",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-1",
     "title": "Explore numerical data",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 1\nVisualize and describe the relationship between income and home ownership of Durham residents.\nStretch goal: Customize the colors using named colors from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  ggplot(aes(y = income, fill = own_rent)) +\n    geom_bar(position = \"fill\") +\n    scale_y_discrete(\n      labels = c(\n        \"1\" = \"&lt; $30,000\",\n        \"2\" = \"$30,000 - $59,999\",\n        \"3\" = \"$60,000 - $99,999\",\n        \"4\" = \"$100,000 + \"\n      )\n    ) +\n    scale_fill_manual(\n      values = c(\"1\" = \"cadetblue\", \"2\" = \"coral\"),\n      labels = c( \"1\" = \"Own\", \"2\" = \"Rent\")\n    ) + \n    labs(\n      x = \"Proportion\",\n      y = \"Would you say your total\\n annual household income is...\",\n      fill = \"Do you own\\n or rent\\n your current\\n residence?\",\n      title = \"Income v. home ownership of Durham residents\"\n    )"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-2",
-    "href": "lectures/05/05-explore-numerical.html#exercise-2",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-2",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-2",
     "title": "Explore numerical data",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\nAdd your answer here.\n\n# add code here"
+    "text": "Exercise 2\nCalculate the proportions of home owners for each category of Durham residents. Describe the relationship between these two variables, this time with the actual values from the conditional distribution of home ownership based on income level.\n\ndurham |&gt;\n  select(income, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income, own_rent) |&gt;\n  group_by(income) |&gt;\n  mutate(prop = n/sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income [4]\n  income own_rent     n   prop\n  &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 1      1           51 0.362 \n2 1      2           90 0.638 \n3 2      1          105 0.565 \n4 2      2           81 0.435 \n5 3      1          107 0.552 \n6 3      2           87 0.448 \n7 4      1          160 0.930 \n8 4      2           12 0.0698"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-3",
-    "href": "lectures/05/05-explore-numerical.html#exercise-3",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-3",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-3",
     "title": "Explore numerical data",
     "section": "Exercise 3",
-    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\n# add code here"
+    "text": "Exercise 3\nRecode the levels of these two variables to be more informatively labeled and calculate the proportions from the previous exercise again.\n\ndurham &lt;- durham |&gt;\n  mutate(\n    income_clean = case_when(\n      income == \"1\" ~ \"Under $30,000\",\n      income == \"2\" ~ \"$30,000 - $59,999\",\n      income == \"3\" ~ \"$60,000 - $99,999\",\n      income == \"4\" ~ \"$100,000 or more\"\n    ),\n    income_clean = fct_relevel(income_clean, \n                               \"Under $30,000\",\n                               \"$30,000 - $59,999\",\n                               \"$60,000 - $99,999\",\n                               \"$100,000 or more\"),\n    own_rent = if_else(own_rent == 1, \"Own\", \"Rent\") \n  )\n\n# quality check\ndurham|&gt; \n  count(income, income_clean)\n\n# A tibble: 5 × 3\n  income income_clean          n\n  &lt;fct&gt;  &lt;fct&gt;             &lt;int&gt;\n1 1      Under $30,000       141\n2 2      $30,000 - $59,999   186\n3 3      $60,000 - $99,999   194\n4 4      $100,000 or more    172\n5 &lt;NA&gt;   &lt;NA&gt;                110\n\n# own_rent = case_when(\n#  own_rent == 1 ~ \"Own\",\n#  own_rent == 2 ~ \"Rent\"\n# )\n\n\ndurham |&gt;\n  select(income_clean, own_rent) |&gt;\n  drop_na() |&gt;\n  count(income_clean, own_rent) |&gt;\n  group_by(income_clean) |&gt;\n  mutate(prop = n/sum(n))\n\n# A tibble: 8 × 4\n# Groups:   income_clean [4]\n  income_clean      own_rent     n   prop\n  &lt;fct&gt;             &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 Under $30,000     Own         51 0.362 \n2 Under $30,000     Rent        90 0.638 \n3 $30,000 - $59,999 Own        105 0.565 \n4 $30,000 - $59,999 Rent        81 0.435 \n5 $60,000 - $99,999 Own        107 0.552 \n6 $60,000 - $99,999 Rent        87 0.448 \n7 $100,000 or more  Own        160 0.930 \n8 $100,000 or more  Rent        12 0.0698"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-4",
-    "href": "lectures/05/05-explore-numerical.html#exercise-4",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-4",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-4",
     "title": "Explore numerical data",
     "section": "Exercise 4",
-    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\nAdd your response here.\n\n# add code here"
+    "text": "Exercise 4\nOne of the questions on the survey is “How satisfied are you with the overall quality of services provided by the city?” A response of 1 indicates Very Dissatisfied and a response of 5 indicates Very Satisfied. The responses for this question are in the variable qos_city. This could be considered an ordinal, categorical variable but can also be treated as a numerical variable in an analysis. Let’s do the latter!\nVisualize and describe the distribution of qos_city. If you get a warning with your visualization, comment on what it means.\n\nggplot(durham, aes(x = qos_city)) + \n  geom_histogram(binwidth =  1) +\n  labs(\n    x = \"Quality of services provided by the city\\n 1 - Very Dissatisfied, 5 - Very Satisfied\"\n  )\n\nWarning: Removed 75 rows containing non-finite values (`stat_bin()`)."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-5",
-    "href": "lectures/05/05-explore-numerical.html#exercise-5",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-5",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-5",
     "title": "Explore numerical data",
     "section": "Exercise 5",
-    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\nAdd your response here.\n\n# add code here"
+    "text": "Exercise 5\nCalculate the mean and median of the distribution of qos_city. If these values are not exactly the same, can you explain what the difference might be attributed to?\n\ndurham |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE),\n    median_qos_city = median(qos_city, na.rm = TRUE)\n  )\n\n# A tibble: 1 × 2\n  mean_qos_city median_qos_city\n          &lt;dbl&gt;           &lt;dbl&gt;\n1          3.54               4\n\n\n\nMore rare responses of “1 - Very dissatisfied” pull the mean response down away from the median."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-6",
-    "href": "lectures/05/05-explore-numerical.html#exercise-6",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-6",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-6",
     "title": "Explore numerical data",
     "section": "Exercise 6",
-    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\n# add code here"
+    "text": "Exercise 6\nBased on the shape of the distribution of qos_city, which measure of spread (variability) is more appropriate? Calculate that value and interpret it in context of the data.\n\ndurham |&gt; \n  summarise(\n    iqr_qos_city = IQR(qos_city, na.rm = T),\n    q1_qos_city = quantile(qos_city, 0.25, na.rm = T),\n    q3_qos_city = quantile(qos_city, 0.75, na.rm = T)\n  )\n\n# A tibble: 1 × 3\n  iqr_qos_city q1_qos_city q3_qos_city\n         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1            1           3           4"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-7",
-    "href": "lectures/05/05-explore-numerical.html#exercise-7",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-7",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-7",
     "title": "Explore numerical data",
     "section": "Exercise 7",
-    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\n# add code here"
+    "text": "Exercise 7\nMake a box plot of qos_city and comment on how the values you calculated map on to the box plot.\n\nggplot(durham, aes(x = qos_city)) + \n  geom_boxplot() +\n  labs(\n    x = \"Quality of service provided by the city\\n 1 - Very Dissatisfied, 5 - Very Satisfied\"\n  )\n\nWarning: Removed 75 rows containing non-finite values (`stat_boxplot()`)."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#exercise-8",
-    "href": "lectures/05/05-explore-numerical.html#exercise-8",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#exercise-8",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#exercise-8",
     "title": "Explore numerical data",
     "section": "Exercise 8",
-    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\n# add code here"
+    "text": "Exercise 8\nHow the average level of happiness with quality of services provided by the city vary by income group?\nStretch goal: Visualize mean qos_city by income group.\nAdd your response here.\n\ndurham |&gt;\n  drop_na(income_clean) |&gt;\n  group_by(income_clean) |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE),\n    median_qos_city = median(qos_city, na.rm = TRUE)\n  )\n\n# A tibble: 4 × 3\n  income_clean      mean_qos_city median_qos_city\n  &lt;fct&gt;                     &lt;dbl&gt;           &lt;dbl&gt;\n1 Under $30,000              3.45               4\n2 $30,000 - $59,999          3.50               4\n3 $60,000 - $99,999          3.56               4\n4 $100,000 or more           3.72               4\n\n\n\ndurham |&gt;\n  drop_na(income_clean) |&gt;\n  group_by(income_clean) |&gt;\n  summarize(\n    mean_qos_city = mean(qos_city, na.rm = TRUE)\n  ) |&gt;\n  ggplot(aes(x = income_clean, y = mean_qos_city)) +\n  geom_point()"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#conceptual",
-    "href": "lectures/05/05-explore-numerical.html#conceptual",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#conceptual",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#conceptual",
     "title": "Explore numerical data",
     "section": "Conceptual",
     "text": "Conceptual\nSome of the terms we introduced are:\n\nMarginal distribution: Distribution of a single variable.\nConditional distribution: Distribution of a variable conditioned on the values (or levels, in the context of categorical data) of another."
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#r",
-    "href": "lectures/05/05-explore-numerical.html#r",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#r",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#r",
     "title": "Explore numerical data",
     "section": "R",
     "text": "R\nIn this lecture we:\n\nDefined factors – the data type that R uses for categorical variables, i.e., variables that can take on values from a finite set of levels.\nReviewed data imports, visualization, and wrangling functions encountered before:\n\nImport: read_csv(): Read data from a CSV (comma separated values) file\nVisualization:\n\nggplot(): Create a plot using the ggplot2 package\naes(): Map variables from the data to aesthetic elements of the plot, generally passed as an argument to ggplot() or to geom_*() functions (define only x or y aesthetic)\ngeom_bar(): Represent data with bars, after calculating heights of bars under the hood\ngeom_histogram(): Represent data with a histogram\ngeom_boxplot(): Represent data with a box plot\ngeom_point(): Represent data with points\nlabs(): Label x axis, y axis, legend for color of plot, title` of plot, etc.\n\nWrangling:\n\nmutate(): Mutate the data frame by creating a new column or overwriting one of the existing columns\ncount(): Count the number of observations for each level of a categorical variable (factor) or each distinct value of any other type of variable\ngroup_by(): Perform each subsequent action once per each group of the variable, where groups can be defined based on the levels of one or more variables\nsummarize(): Calculate summary statistics\n\n\nIntroduced new data wrangling functions:\n\nrename(): Rename columns in a data frame\nas_factor(): Convert a variable to a factor\ndrop_na(): Drop rows that have NA in one ore more specified variables\nif_else(): Write logic for what happens if a condition is true and what happens if it’s not\ncase_when(): Write a generalized if_else() logic for more than one condition\nfct_relevel: Change the order of levels in a factor\n\nIntroduced new data visualization functions:\n\ngeom_col(): Represent data with bars (columns), for heights that have already been calculated (must define x and y aesthetics)\nscale_fill_viridis_d(): Customize the discrete fill scale, using a color-blind friendly, ordinal discrete color scale\nscale_y_discrete(): Customize the discrete y scale\nscale_fill_manual(): Customize the fill scale by manually adjusting values for colors"
   },
   {
-    "objectID": "lectures/05/05-explore-numerical.html#quarto",
-    "href": "lectures/05/05-explore-numerical.html#quarto",
+    "objectID": "lectures/05/05-explore-numerical-filled-in.html#quarto",
+    "href": "lectures/05/05-explore-numerical-filled-in.html#quarto",
     "title": "Explore numerical data",
     "section": "Quarto",
     "text": "Quarto\nWe also introduced chunk options for managing figure sizes:\n\nfig-width: Width of figure\nfig-asp: Aspect ratio of figure (height / width)\nfig-height: Height of figure – but I recommend using fig-width and fig-asp, instead of fig-width and fig-height"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html",
-    "href": "lectures/02/02-hello_data_filled_in.html",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html",
+    "href": "lectures/02/02-hello_data.html",
+    "title": "Hello data",
     "section": "",
     "text": "Office hours are updated with minor changes on the course website .\nIf you haven’t yet done so, please:\n\ncomplete the Getting to know you survey\nread through the syllabus"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#rstudio",
-    "href": "lectures/02/02-hello_data_filled_in.html#rstudio",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#rstudio",
+    "href": "lectures/02/02-hello_data.html#rstudio",
+    "title": "Hello data",
     "section": "RStudio",
     "text": "RStudio\n\nFiles, plots, viewer, environment, etc. panes\nConsole\nEditor"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#r",
-    "href": "lectures/02/02-hello_data_filled_in.html#r",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#r",
+    "href": "lectures/02/02-hello_data.html#r",
+    "title": "Hello data",
     "section": "R",
-    "text": "R\n\nWriting code in the console\nBasic math with R\n\n1+2*(3+5)\n\n[1] 17\n\n\nCreating variables in R, the assignment operator (&lt;-), and the Environment pane\n\nage &lt;- 27\n\nage + 4\n\n[1] 31\n\nage + 9\n\n[1] 36\n\n\nR functions and packages and the Packages pane\nGetting help with R and the Help pane"
+    "text": "R\n\nWriting code in the console\nBasic math with R\nCreating variables in R, the assignment operator (&lt;-), and the Environment pane\nR functions and packages and the Packages pane\nGetting help with R and the Help pane"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#quarto",
-    "href": "lectures/02/02-hello_data_filled_in.html#quarto",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#quarto",
+    "href": "lectures/02/02-hello_data.html#quarto",
+    "title": "Hello data",
     "section": "Quarto",
     "text": "Quarto\n\nYAML: Metadata\nNarrative: Edited with the visual editor (or the source editor)\nCode: In code chunks\n\nChunk options (following #|)\nComments (following #)\nCode\n\nRunning individual code chunks vs. rendering a document"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#load-packages",
-    "href": "lectures/02/02-hello_data_filled_in.html#load-packages",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#load-packages",
+    "href": "lectures/02/02-hello_data.html#load-packages",
+    "title": "Hello data",
     "section": "Load packages",
-    "text": "Load packages\nWe’ll use the tidyverse package for analysis, which offers functionality for data import, wrangling, visualization, and more.\n\n# load a package\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nLoading this package prints out a message. What does this message mean? How can we suppress the message from the output?"
+    "text": "Load packages\nWe’ll use the tidyverse package for analysis, which offers functionality for data import, wrangling, visualization, and more.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nLoading this package prints out a message. What does this message mean? How can we suppress the message from the output?"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#load-data",
-    "href": "lectures/02/02-hello_data_filled_in.html#load-data",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#load-data",
+    "href": "lectures/02/02-hello_data.html#load-data",
+    "title": "Hello data",
     "section": "Load data",
-    "text": "Load data\nThe read_csv() function can be used for reading CSV (comma separated values) files. The file we’re reading is called flint with the suffix (.csv) which indicates its file type.\n\nflint &lt;- read_csv(\"flint.csv\")\n\nRows: 813 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): draw\ndbl (4): id, zip, ward, lead\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nview(flint)\n\nOne of two things may have happened:\n\nThe file was read successfully and you now see a dataset called flint in your Environment pane.\nThe file was not read successfully and you see an error Error in read_csv(\"flint.csv\") : could not find function \"read_csv\".\n\nIf (1) happened, great!\nIf (2) happened, let’s troubleshoot first before continuing."
+    "text": "Load data\nThe read_csv() function can be used for reading CSV (comma separated values) files. The file we’re reading is called flint with the suffix (.csv) which indicates its file type.\n\nflint &lt;- read_csv(\"flint.csv\")\n\nRows: 813 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): draw\ndbl (4): id, zip, ward, lead\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nOne of two things may have happened:\n\nThe file was read successfully and you now see a dataset called flint in your Environment pane.\nThe file was not read successfully and you see an error Error in read_csv(\"data/flint.csv\") : could not find function \"read_csv\".\n\nIf (1) happened, great!\nIf (2) happened, let’s troubleshoot first before continuing."
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#data-dictionary",
-    "href": "lectures/02/02-hello_data_filled_in.html#data-dictionary",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#data-dictionary",
+    "href": "lectures/02/02-hello_data.html#data-dictionary",
+    "title": "Hello data",
     "section": "Data dictionary",
     "text": "Data dictionary\nThe following variables are in the flint data frame:\n\nid: sample ID number (identifies the home)\nzip: ZIP code in Flint of the sample’s location\nward: ward in Flint of the sample’s location\ndraw: which time point the water was sampled from\nlead: lead content in parts per billion (ppb)"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#populations-and-samples",
-    "href": "lectures/02/02-hello_data_filled_in.html#populations-and-samples",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#populations-and-samples",
+    "href": "lectures/02/02-hello_data.html#populations-and-samples",
+    "title": "Hello data",
     "section": "Populations and samples",
-    "text": "Populations and samples\nWe want to learn about the population using a sample.\nIn the case we want to learn about the lead content in all of Flint, MI homes but only have available water readings from a sample of homes (our data set).\nExercise 1: Look at the data, how many observations are there? How many variables?\n\nnrow(flint)\n\n[1] 813\n\nncol(flint)\n\n[1] 5\n\n\nThere are 813 observations and 5 variables."
+    "text": "Populations and samples\nWe want to learn about the population using a sample.\nIn the case we want to learn about the lead content in all of Flint, MI homes but only have available water readings from a sample of homes (our data set).\nExercise 1: Look at the data, how many observations are there? How many variables?\n\n# add code here"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#frequencies",
-    "href": "lectures/02/02-hello_data_filled_in.html#frequencies",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#frequencies",
+    "href": "lectures/02/02-hello_data.html#frequencies",
+    "title": "Hello data",
     "section": "Frequencies",
-    "text": "Frequencies\nLet’s count() to find the number of different time points water was sampled with the count() function.\n\nThe first argument is flint: the data frame\nThe second argument is draw: the variable\n\n\ncount(flint, draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can achieve the same result with the following “piped” operation as well.\n\nThe first line is flint: the data frame\nThen the pipe operator, read as “and then”, which places what comes before it as the first argument of what comes after it\nThe second line is count(draw)\n\n\nflint |&gt;\n  count(draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can use a similar approach to fund out how many unique homes are in the data set:\n\nflint |&gt;\n  count(id)\n\n# A tibble: 269 × 2\n      id     n\n   &lt;dbl&gt; &lt;int&gt;\n 1     1     3\n 2     2     3\n 3     4     3\n 4     5     3\n 5     6     3\n 6     7     3\n 7     8     3\n 8     9     3\n 9    12     3\n10    13     3\n# ℹ 259 more rows\n\n\nExercise 2: How many samples were taken from each zip code?\n\nflint |&gt;\n  count(zip)\n\n# A tibble: 8 × 2\n    zip     n\n  &lt;dbl&gt; &lt;int&gt;\n1 48502     3\n2 48503   207\n3 48504   165\n4 48505   144\n5 48506   132\n6 48507   153\n7 48529     3\n8 48532     6\n\n\nExercise 3: Which ZIP code had the most samples drawn? Hint: See the help for count.\n\nflint |&gt;\n  count(zip, sort = TRUE)\n\n# A tibble: 8 × 2\n    zip     n\n  &lt;dbl&gt; &lt;int&gt;\n1 48503   207\n2 48504   165\n3 48507   153\n4 48505   144\n5 48506   132\n6 48532     6\n7 48502     3\n8 48529     3"
+    "text": "Frequencies\nLet’s count() to find the number of different time points water was sampled with the count() function.\n\nThe first argument is flint: the data frame\nThe second argument is draw: the variable\n\n\ncount(flint, draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can achieve the same result with the following “piped” operation as well.\n\nThe first line is flint: the data frame\nThen the pipe operator, read as “and then”, which places what comes before it as the first argument of what comes after it\nThe second line is count(draw)\n\n\nflint |&gt;\n  count(draw)\n\n# A tibble: 3 × 2\n  draw       n\n  &lt;chr&gt;  &lt;int&gt;\n1 first    271\n2 second   271\n3 third    271\n\n\nWe can use a similar approach to fund out how many unique homes are in the data set:\n\nflint |&gt;\n  count(id)\n\n# A tibble: 269 × 2\n      id     n\n   &lt;dbl&gt; &lt;int&gt;\n 1     1     3\n 2     2     3\n 3     4     3\n 4     5     3\n 5     6     3\n 6     7     3\n 7     8     3\n 8     9     3\n 9    12     3\n10    13     3\n# ℹ 259 more rows\n\n\nExercise 2: How many samples were taken from each zip code?\n\n# add code here\n\nExercise 3: Which ZIP code had the most samples drawn? Hint: See the help for count.\n\n# add code here"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#measures-of-central-tendency",
-    "href": "lectures/02/02-hello_data_filled_in.html#measures-of-central-tendency",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#measures-of-central-tendency",
+    "href": "lectures/02/02-hello_data.html#measures-of-central-tendency",
+    "title": "Hello data",
     "section": "Measures of central tendency",
     "text": "Measures of central tendency\n\nmean\nmedian\nmode"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#measures-of-spread",
-    "href": "lectures/02/02-hello_data_filled_in.html#measures-of-spread",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#measures-of-spread",
+    "href": "lectures/02/02-hello_data.html#measures-of-spread",
+    "title": "Hello data",
     "section": "Measures of spread",
     "text": "Measures of spread\n\nvariance\nstandard deviation\nrange\nquartiles\ninter-quartile range (IQR)"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#order-statistics",
-    "href": "lectures/02/02-hello_data_filled_in.html#order-statistics",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#order-statistics",
+    "href": "lectures/02/02-hello_data.html#order-statistics",
+    "title": "Hello data",
     "section": "Order statistics",
-    "text": "Order statistics\n\nquantiles\nminimum (0 percentile)\nmedian (50th percentile)\nmaximum (100 percentile)\n\n… and any other arbitrary function of the data you can come up with!\nExercise 4: Compute each of these statistics for lead ppb.\n\nsummary_table &lt;- flint |&gt;\n  summarize(mean_lead = mean(lead),\n            median_lead = median(lead),\n            var_lead = var(lead),\n            sd_lead = sd(lead))\nsummary_table\n\n# A tibble: 1 × 4\n  mean_lead median_lead var_lead sd_lead\n      &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n1      8.20        1.85    1718.    41.5"
+    "text": "Order statistics\n\nquantiles\nminimum (0 percentile)\nmedian (50th percentile)\nmaximum (100 percentile)\n\n… and any other arbitrary function of the data you can come up with!\nExercise 4: Compute each of these statistics for lead ppb.\n\n# add code here"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#histograms",
-    "href": "lectures/02/02-hello_data_filled_in.html#histograms",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#histograms",
+    "href": "lectures/02/02-hello_data.html#histograms",
+    "title": "Hello data",
     "section": "Histograms",
-    "text": "Histograms\nLet’s take a look at the distribution of lead content in homes in Flint, MI.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nWe can make this plot look nicer/more useful by adjusting the number of bins and zooming into the x-axis.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram(bins = 50) +\n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nLet’s visualize some of our summary statistics on the plot.\nExercise 5: Add a new layer, geom_vline(xintercept = __, color = \"red\"), to the histogram below, filling in the blank with the mean.\n\nmean_lead &lt;- mean(flint$lead)\n\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100)) +\n  geom_vline(xintercept = summary_table$mean_lead, color = \"red\")\n\n\n\n\n\n\n\n\nExercise 6: Add one more layer which overlays the median, in a different color.\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100)) +\n  geom_vline(xintercept = summary_table$mean_lead, color = \"red\") +\n  geom_vline(xintercept = summary_table$median_lead, color = \"blue\")\n\n\n\n\n\n\n\n# add code here"
+    "text": "Histograms\nLet’s take a look at the distribution of lead content in homes in Flint, MI.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nWe can make this plot look nicer/more useful by adjusting the number of bins and zooming into the x-axis.\n\nggplot(flint, aes(x = lead)) +\n  geom_histogram(bins = 50) +\n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nLet’s visualize some of our summary statistics on the plot.\nExercise 5: Add a new layer, geom_vline(xintercept = __, color = \"red\"), to the histogram below, filling in the blank with the mean.\n\nggplot(flint, aes(x = lead)) + \n  geom_histogram(bins = 50) + \n  coord_cartesian(xlim = c(0, 100))\n\n\n\n\n\n\n\n\nExercise 6: Add one more layer which overlays the median, in a different color.\n\n# add code here"
   },
   {
-    "objectID": "lectures/02/02-hello_data_filled_in.html#box-plots",
-    "href": "lectures/02/02-hello_data_filled_in.html#box-plots",
-    "title": "Hello data - filled in notes",
+    "objectID": "lectures/02/02-hello_data.html#box-plots",
+    "href": "lectures/02/02-hello_data.html#box-plots",
+    "title": "Hello data",
     "section": "Box plots",
-    "text": "Box plots\nNext, let’s narrow our focus to the zip codes 48503, 48504, 48505, 48506, and 48507 and observations with lead values less than 1,000 ppb.\n\nflint_focus &lt;- flint |&gt;\n  filter(zip %in% 48503:48507 & lead &lt; 1000)\n\nExercise 7: Below are side-by-side box plots for the three flushing times in each of the five zip codes we considered. Add x and y labels; add a title by inserting title = \"title_name\" inside the labs() function.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) +\n  labs(x = \"Lead (ppb)\", y = \"Zip code\", fill = \"Flushing time\") +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  )\n\n\n\n\n\n\n\n\nExercise 8: Add labels for x, y, a title, and subtitle to the code below to update the corresponding plot.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) + \n  labs(\n    x = \"Lead (ppb)\", y = \"Zip code\", fill = \"Flushing time\",\n    title = \"Lead amount by flushing time\",\n    subtitle = \"In five zip codes\"\n    ) +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  ) +\n  coord_cartesian(xlim = c(0, 50)) +\n  theme_bw()\n\n\n\n\n\n\n\n\nExercise 9: What is the difference between the two plots? What are the advantages and disadvantages to each plot?\nThe first plot shows extreme outliers, while the second plot makes it easier to see the bulk of the distribution."
+    "text": "Box plots\nNext, let’s narrow our focus to the zip codes 48503, 48504, 48505, 48506, and 48507 and observations with lead values less than 1,000 ppb.\n\nflint_focus &lt;- flint |&gt;\n  filter(zip %in% 48503:48507 & lead &lt; 1000)\n\nExercise 7: Below are side-by-side box plots for the three flushing times in each of the five zip codes we considered. Add x and y labels; add a title by inserting title = \"title_name\" inside the labs() function.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) +\n  labs(x = \"___\", y = \"___\", fill = \"Flushing time\") +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  )\n\n\n\n\n\n\n\n\nExercise 8: Add labels for x, y, a title, and subtitle to the code below to update the corresponding plot.\n\nggplot(data = flint_focus, aes(y = factor(zip), x = lead)) +\n  geom_boxplot(aes(fill = factor(draw))) + \n  labs(\n    x = \"___\", y = \"___\", fill = \"Flushing time\",\n    title = \"___\",\n    subtitle = \"___\"\n    ) +\n  scale_fill_discrete(\n    breaks = c(\"first\", \"second\", \"third\"),\n    labels = c(\"0 (sec)\", \"45 (sec)\", \"120 (sec)\")\n  ) +\n  coord_cartesian(xlim = c(0, 50)) +\n  theme_bw()\n\n\n\n\n\n\n\n\nExercise 9: What is the difference between the two plots? What are the advantages and disadvantages to each plot?\n[Add your answer here]"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html",
-    "href": "lectures/15/15-inference-one-proportion.html",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html",
     "title": "Inference for a proportion",
     "section": "",
     "text": "Lab 6 due 11:59 pm\nIntro and EDA due 11:59 pm\nEmail your reviewer!"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#announcements",
-    "href": "lectures/15/15-inference-one-proportion.html#announcements",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#announcements",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#announcements",
     "title": "Inference for a proportion",
     "section": "",
     "text": "Lab 6 due 11:59 pm\nIntro and EDA due 11:59 pm\nEmail your reviewer!"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#proportions",
-    "href": "lectures/15/15-inference-one-proportion.html#proportions",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#proportions",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#proportions",
     "title": "Inference for a proportion",
     "section": "Proportions",
     "text": "Proportions\n\nIf the parameter of interest is a single population proportion, what type of and how many variables are being studied?"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-1",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-1",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-1",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-1",
     "title": "Inference for a proportion",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWhat, if anything, do you know about voter turnout in the US?\nAdd response here."
+    "text": "Exercise 1\nWhat, if anything, do you know about voter turnout in the US?\n\n~ 60% last presidential election."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-2",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-2",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-2",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-2",
     "title": "Inference for a proportion",
     "section": "Exercise 2",
-    "text": "Exercise 2\nLoad the data and visualize the distribution of responses. Also calculate the proportion of respondents who are certain to vote in the next presidential election.\n\n# add code here"
+    "text": "Exercise 2\nLoad the data and visualize the distribution of responses. Also calculate the proportion of respondents who are certain to vote in the next presidential election.\n\nggplot(voting_survey, aes(y = vote)) + \n  geom_bar()\n\n\n\n\n\n\n\nvoting_survey |&gt;\n  count(vote) |&gt;\n  mutate(p_hat = n/sum(n)) |&gt;\n  filter(vote == \"Certain to vote\")\n\n# A tibble: 1 × 3\n  vote                n p_hat\n  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;\n1 Certain to vote  1921 0.696"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-3",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-3",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-3",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-3",
     "title": "Inference for a proportion",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWhat is the parameter of interest?\nAdd response here."
+    "text": "Exercise 3\nWhat is the parameter of interest?\n\nProportion of registered voters who are certain to vote in the next presidential election."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-4",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-4",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-4",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-4",
     "title": "Inference for a proportion",
     "section": "Exercise 4",
-    "text": "Exercise 4\nEstimate using a 95% bootstrap interval.\n\n# add code here"
+    "text": "Exercise 4\nEstimate using a 95% bootstrap interval.\n\nvoting_survey &lt;- voting_survey |&gt;\n  mutate(vote_certain = if_else(\n    vote == \"Certain to vote\", \n    \"Certain to vote\",\n    \"Not certain to vote\"\n  ))\n\nobs_stat &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  calculate(stat = \"prop\")\n\nset.seed(1234)\n\nboot_dist &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\")\n\nci &lt;- boot_dist |&gt;\n  get_ci()\n\nvisualise(boot_dist) +\n  shade_ci(ci)\n\n\n\n\n\n\n\nci\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.678    0.714"
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-5",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-5",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-5",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-5",
     "title": "Inference for a proportion",
     "section": "Exercise 5",
-    "text": "Exercise 5\nSuppose the bounds of this interval are L and U, your friend interprets the interval as\n\n95% of the time, the true proportion of proportion of registered US voters who are certain to vote in the next presidential election is between L and U.\n\nComment on this interpretation. Is it correct? If not, how would ix it?\nAdd response here."
+    "text": "Exercise 5\nL = 0.6781443 ; U = 0.7140268\nSuppose the bounds of this interval are L = 0.678 and U = 0.714, your friend interprets the interval as\n\n95% of the time, the true proportion of proportion of registered US voters who are certain to vote in the next presidential election is between L and U.\n\nComment on this interpretation. Is it correct? If not, how would ix it?\nWe are 95% confident that 67.8% to 71.4% of all registered voters are certain to vote in the next presidential election."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-6",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-6",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-6",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-6",
     "title": "Inference for a proportion",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWhat are the hypotheses?\nAdd response here."
+    "text": "Exercise 6\nWhat are the hypotheses?\n\n\\(H_0\\) 60% of registered US voters are certain to vote ($p =0.6$)\n\\(H_A\\) More than 60% of registered US voters are certain to vote ($p &gt; 0.6$)."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-7",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-7",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-7",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-7",
     "title": "Inference for a proportion",
     "section": "Exercise 7",
-    "text": "Exercise 7\nConduct a randomization test, at 5% discernability level, for this claim. What is the conclusion of the test?\n\n# add code here"
+    "text": "Exercise 7\nConduct a randomization test, at 5% discernability level, for this claim. What is the conclusion of the test?\n\nset.seed(1234)\n\nnull_dist &lt;- voting_survey |&gt;\n  specify(response = vote_certain, success = \"Certain to vote\") |&gt;\n  hypothesise(null = \"point\", p = 0.6) |&gt;\n  generate(reps = 1000, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\n\n\nnull_dist |&gt;\n  get_p_value(obs_stat, direction = \"greater\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1       0\n\nvisualize(null_dist) +\n  shade_p_value(obs_stat, direction = \"greater\")\n\nWarning in min(diff(unique_loc)): no non-missing arguments to min; returning\nInf\n\n\n\n\n\n\n\n\n\n\nThe p-value is smaller than 0.001, which is smaller than 0.05 (disernability level), so we reject the null hypothesis. The data provides evidence that the true proportion of US voters certain to vote is greater than 60%."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-8",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-8",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-8",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-8",
     "title": "Inference for a proportion",
     "section": "Exercise 8",
-    "text": "Exercise 8\nSuppose the p-value you found is P, and your friends are in disagreement about the interpretation about this value. One friend claims:\n\nThe probability that 60% of all of registered US voters are certain to vote in the next presidential election is P.\n\nAnother friend claims:\n\nThe probability that more than 60% of all of registered US voters are certain to vote in the next presidential election is P.\n\nWho is right? Explain your reasoning.\nAdd response here."
+    "text": "Exercise 8\nSuppose the p-value you found is approx 0, and your friends are in disagreement about the interpretation about this value. One friend claims:\n\nThe probability that 60% of all of registered US voters are certain to vote in the next presidential election is approx 0.\n\nAnother friend claims:\n\nThe probability that more than 60% of all of registered US voters are certain to vote in the next presidential election is approx 0.\n\nWho is right? Explain your reasoning.\n\nBoth are wrong. P-value does not give us a probability that \\(H_0\\) is true or the probability that \\(H_A\\) is true."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-9",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-9",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-9",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-9",
     "title": "Inference for a proportion",
     "section": "Exercise 9",
     "text": "Exercise 9\nWhat is \\(p\\) vs. \\(\\hat{p}\\) vs. p-value. Explain generically as well as in the context of these data and research question.\nAdd response here."
   },
   {
-    "objectID": "lectures/15/15-inference-one-proportion.html#exercise-10",
-    "href": "lectures/15/15-inference-one-proportion.html#exercise-10",
+    "objectID": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-10",
+    "href": "lectures/15/15-inference-one-proportion-filled-in.html#exercise-10",
     "title": "Inference for a proportion",
     "section": "Exercise 10",
     "text": "Exercise 10\nWhat is sampling distribution vs. bootstrap distribution vs. null distribution? Explain generically as well as in the context of these data and research question.\nAdd response here."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html",
-    "href": "lectures/20/20-inference-two-means.html",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html",
+    "href": "lectures/20/20-inference-two-means-filled-in.html",
     "title": "Inference for two independent means",
     "section": "",
     "text": "Tomorrow we will talk about final report formatting\nMonday: presentation day\nWednesday: project report due"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#announcements",
-    "href": "lectures/20/20-inference-two-means.html#announcements",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#announcements",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#announcements",
     "title": "Inference for two independent means",
     "section": "",
     "text": "Tomorrow we will talk about final report formatting\nMonday: presentation day\nWednesday: project report due"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#todays-focus",
-    "href": "lectures/20/20-inference-two-means.html#todays-focus",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#todays-focus",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#todays-focus",
     "title": "Inference for two independent means",
     "section": "Today’s focus",
     "text": "Today’s focus\n\nInference for comparing two population means\nSpecifically, making decisions via hypothesis tests\nAnd generally, what in the world is a hypothesis test?!\nDifferent than comparing two paired means:\n\nTwo sets of observations are paired if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#setup",
-    "href": "lectures/20/20-inference-two-means.html#setup",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#setup",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#setup",
     "title": "Inference for two independent means",
     "section": "Setup",
     "text": "Setup\n\nlibrary(tidyverse)\nlibrary(openintro)\nlibrary(tidymodels)\nlibrary(ggthemes)"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#randomization-test-for-comparing-two-means",
-    "href": "lectures/20/20-inference-two-means.html#randomization-test-for-comparing-two-means",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#randomization-test-for-comparing-two-means",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#randomization-test-for-comparing-two-means",
     "title": "Inference for two independent means",
     "section": "Randomization test for comparing two means",
     "text": "Randomization test for comparing two means\n\n\nCombine the data from the two groups and randomly shuffle them into two groups of sizes equal to the original group sample sizes\nCalculate the means of each group and record the different\nRepeat steps 1 and 2 many times to build the null distribution\nFind the p-value as the number of simulations with simulated differences at least as extreme (in the direction of the alternative hypothesis) as the observed difference"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#case-study-birth-weights-of-babies-and-smoking",
-    "href": "lectures/20/20-inference-two-means.html#case-study-birth-weights-of-babies-and-smoking",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#case-study-birth-weights-of-babies-and-smoking",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#case-study-birth-weights-of-babies-and-smoking",
     "title": "Inference for two independent means",
     "section": "Case study: Birth weights of babies and smoking",
     "text": "Case study: Birth weights of babies and smoking\n\nEvery year, the United States Department of Health and Human Services releases to the public a large dataset containing information on births recorded in the country. This dataset has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. In this case study we work with a random sample of 1,000 cases from the dataset released in 2014. The distributions of birth weights of babies, measured in pounds, by mother’s smoking habit are shown below.\n\n\nglimpse(births14)\n\nRows: 1,000\nColumns: 13\n$ fage           &lt;int&gt; 34, 36, 37, NA, 32, 32, 37, 29, 30, 29, 30, 34, 28, 28,…\n$ mage           &lt;dbl&gt; 34, 31, 36, 16, 31, 26, 36, 24, 32, 26, 34, 27, 22, 31,…\n$ mature         &lt;chr&gt; \"younger mom\", \"younger mom\", \"mature mom\", \"younger mo…\n$ weeks          &lt;dbl&gt; 37, 41, 37, 38, 36, 39, 36, 40, 39, 39, 42, 40, 40, 39,…\n$ premie         &lt;chr&gt; \"full term\", \"full term\", \"full term\", \"full term\", \"pr…\n$ visits         &lt;dbl&gt; 14, 12, 10, NA, 12, 14, 10, 13, 15, 11, 14, 16, 20, 15,…\n$ gained         &lt;dbl&gt; 28, 41, 28, 29, 48, 45, 20, 65, 25, 22, 40, 30, 31, NA,…\n$ weight         &lt;dbl&gt; 6.96, 8.86, 7.51, 6.19, 6.75, 6.69, 6.13, 6.74, 8.94, 9…\n$ lowbirthweight &lt;chr&gt; \"not low\", \"not low\", \"not low\", \"not low\", \"not low\", …\n$ sex            &lt;chr&gt; \"male\", \"female\", \"female\", \"male\", \"female\", \"female\",…\n$ habit          &lt;chr&gt; \"nonsmoker\", \"nonsmoker\", \"nonsmoker\", \"nonsmoker\", \"no…\n$ marital        &lt;chr&gt; \"married\", \"married\", \"married\", \"not married\", \"marrie…\n$ whitemom       &lt;chr&gt; \"white\", \"white\", \"not white\", \"white\", \"white\", \"white…\n\n\nNote that there are some NAs in the habit variable.\n\nbirths14 |&gt;\n  count(habit)\n\n# A tibble: 3 × 2\n  habit         n\n  &lt;chr&gt;     &lt;int&gt;\n1 nonsmoker   867\n2 smoker      114\n3 &lt;NA&gt;         19\n\n\nLet’s drop those since we can’t use those observations in our analysis.\n\nbirths14 &lt;- births14 |&gt;\n  drop_na(habit)\n\n\nbirths14 |&gt;\n  ggplot(aes(x = weight, color = habit, fill = habit)) +\n  geom_density(alpha = 0.5)"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#sec-exercise-1",
-    "href": "lectures/20/20-inference-two-means.html#sec-exercise-1",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#sec-exercise-1",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#sec-exercise-1",
     "title": "Inference for two independent means",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSet the hypotheses for testing if there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers.\nAdd answer here."
+    "text": "Exercise 1\nSet the hypotheses for testing if there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers.\n\n\\(H_0: \\mu_{ns} = \\mu_{s}\\); the mean weight of babies in the non smoker and smoker groups are the same.\n\\(H_A: \\mu_{ns} \\neq \\mu_{s}\\); the mean weights are different."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-2",
-    "href": "lectures/20/20-inference-two-means.html#exercise-2",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-2",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-2",
     "title": "Inference for two independent means",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate the observed difference between the mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers in this sample.\n\n# add code here"
+    "text": "Exercise 2\nCalculate the observed difference between the mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers in this sample.\n\nobs_stat &lt;- births14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  calculate(stat = \"diff in means\", order = c(\"nonsmoker\", \"smoker\"))\nobs_stat\n\nResponse: weight (numeric)\nExplanatory: habit (factor)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1 0.593\n\nbirths14 |&gt;\n  group_by(habit) |&gt;\n  summarise(mean_weight = mean(weight))\n\n# A tibble: 2 × 2\n  habit     mean_weight\n  &lt;chr&gt;           &lt;dbl&gt;\n1 nonsmoker        7.27\n2 smoker           6.68"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-3",
-    "href": "lectures/20/20-inference-two-means.html#exercise-3",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-3",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-3",
     "title": "Inference for two independent means",
     "section": "Exercise 3",
     "text": "Exercise 3\nSuppose the birth weights of the babies in this sample are written on pieces of paper. Explain how you would conduct the randomization test tactically.\nAdd answer here."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-4",
-    "href": "lectures/20/20-inference-two-means.html#exercise-4",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-4",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-4",
     "title": "Inference for two independent means",
     "section": "Exercise 4",
-    "text": "Exercise 4\nConstruct and visualize the null distribution. Based on your visualization, speculate on whether the p-value will be small or large.\n\n# add code here\n\nAdd answer here."
+    "text": "Exercise 4\nConstruct and visualize the null distribution. Based on your visualization, speculate on whether the p-value will be small or large.\n\nset.seed(1234)\n\nnull_dist &lt;-  births14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  hypothesise(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  calculate(stat = \"diff in means\", order = c(\"nonsmoker\", \"smoker\"))\n\nnull_dist |&gt;\n  visualize()\n\n\n\n\n\n\n\n\nOn this histogram, we don’t obseve any values as extreme as our observed statistic of 0.59, so we expect the p-value to be nearly 0."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-5",
-    "href": "lectures/20/20-inference-two-means.html#exercise-5",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-5",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-5",
     "title": "Inference for two independent means",
     "section": "Exercise 5",
-    "text": "Exercise 5\nVisualize and calculate the p-value. At the 5% discernability level, what is the conclusion of the hypothesis test?\n\n# add code here\n\nAdd answer here."
+    "text": "Exercise 5\nVisualize and calculate the p-value. At the 5% discernability level, what is the conclusion of the hypothesis test?\n\nnull_dist |&gt;\n  get_p_value(obs_stat = obs_stat, direction = \"two sided\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1       0\n\nnull_dist |&gt;\n  visualize() + \n  shade_p_value(obs_stat = obs_stat, direction = \"two sided\")\n\n\n\n\n\n\n\n\nThe p-value is close to 0 and smaller than discernability level of 0.05, so reject the null hypothesis. We have sufficient evidence that there is a difference between mean birth weight of babies born to mothers who are smokers and those born to mothers who are not smokers."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-6",
-    "href": "lectures/20/20-inference-two-means.html#exercise-6",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-6",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-6",
     "title": "Inference for two independent means",
     "section": "Exercise 6",
-    "text": "Exercise 6\nConstruct and interpret confidence interval at the equivalent level as the previous hypothesis test for the difference between the mean weight of babies born to mothers who are not smokers and those who are born to mothers who are smokers.\n\n# add code here\n\nAdd response here."
+    "text": "Exercise 6\nConstruct and interpret confidence interval at the equivalent level as the previous hypothesis test for the difference between the mean weight of babies born to mothers who are not smokers and those who are born to mothers who are smokers.\n\nboot_dist &lt;- births14 |&gt;\n  specify(response = weight, explanatory = habit) |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"diff in means\", order = c(\"nonsmoker\", \"smoker\"))\n\nci &lt;- boot_dist |&gt;\n  get_ci()\n\nci\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.308    0.900\n\nvisualize(boot_dist) +\n  shade_ci(ci)"
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
-    "href": "lectures/20/20-inference-two-means.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#mathematical-model-for-estimating-the-difference-in-means-using-confidence-intervals",
     "title": "Inference for two independent means",
     "section": "Mathematical model for estimating the difference in means using confidence intervals",
     "text": "Mathematical model for estimating the difference in means using confidence intervals\nThe \\(t\\)-distribution can be used for inference when working with the standardized difference of two means if - The data are independent within and between the two groups - We check the outliers for each group separately.\nThen, the margin or error is \\(t^*_{df}\\times \\sqrt{\\frac{s_1^2}{n_1} - \\frac{s_2^2}{n_2}}\\)."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-7",
-    "href": "lectures/20/20-inference-two-means.html#exercise-7",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-7",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-7",
     "title": "Inference for two independent means",
     "section": "Exercise 7",
-    "text": "Exercise 7\nCheck that the technical conditions for conducting inference using mathematical models for comparing two means are met for these data.\nAdd response here."
+    "text": "Exercise 7\nCheck that the technical conditions for conducting inference using mathematical models for comparing two means are met for these data.\n\nIndependent observations within and between groups and 114 and 867 are both large."
   },
   {
-    "objectID": "lectures/20/20-inference-two-means.html#exercise-8",
-    "href": "lectures/20/20-inference-two-means.html#exercise-8",
+    "objectID": "lectures/20/20-inference-two-means-filled-in.html#exercise-8",
+    "href": "lectures/20/20-inference-two-means-filled-in.html#exercise-8",
     "title": "Inference for two independent means",
     "section": "Exercise 8",
-    "text": "Exercise 8\nConduct a hypothesis test using mathematical models for the hypotheses you set in Section 3.1.\n\n# add code here"
+    "text": "Exercise 8\nConduct a hypothesis test using mathematical models for the hypotheses you set in Section 3.1.\n\nt_hat &lt;- births14 |&gt;\n  specify(response = weight, explanatory =  habit) |&gt;\n  calculate(\"t\", order = c(\"nonsmoker\", \"smoker\"))\n\nnull_dist_theory &lt;- births14 |&gt;\n  specify(response = weight, explanatory =  habit)|&gt;\n  assume(\"t\")\n\nvisualise(null_dist_theory) +\n  shade_p_value(obs_stat = t_hat, direction = \"two-sided\")\n\n\n\n\n\n\n\nnull_dist_theory|&gt;\n  get_p_value(obs_stat = t_hat, direction = \"two-sided\")\n\n# A tibble: 1 × 1\n   p_value\n     &lt;dbl&gt;\n1 0.000208"
   },
   {
     "objectID": "lectures/19/19-inference-one-mean-filled-in.html",
