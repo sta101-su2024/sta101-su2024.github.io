@@ -2,9 +2,9 @@
 title: "Project Report Tips"
 subtitle: "STA 101"
 execute:
-  echo: true
-  warning: true
-  message: true
+  echo: false
+  warning: false
+  message: false
 format: 
   html:
     fig-width: 7
@@ -25,7 +25,7 @@ By the end of today you will practice a few quarto/markdown tricks to polish you
 Some options available for customizing output (see [quarto documenation](https://quarto.org/docs/computations/execution-options.html) for more detail).
 
 | Option    | Description                                                                                                                                 |
-|------------------|------------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | `eval`    | Evaluate the code chunk (if `false`, just echos the code into the output)                                                                   |
 | `echo`    | Include the source code in output                                                                                                           |
 | `warning` | Include warnings in the output                                                                                                              |
@@ -43,7 +43,10 @@ In the code chunk below:
 
 and re-render.
 
-```{r load-packages}
+```{r}
+#| label: load-packaged
+#| echo: false
+#| message: false
 
 library(knitr)
 library(tidyverse)
@@ -61,7 +64,7 @@ We can set captions and an `alt` attributes using `#| fig-cap:` and `#| fig-alt:
 Additional figure options include
 
 | Option       | Description                                                                         |
-|------------------|------------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | `fig-width`  | figure width in inches                                                              |
 | `fig-height` | figure height in inches                                                             |
 | `fig.align`  | e.g. `fig.align: center` centers figure alignment                                   |
@@ -70,16 +73,20 @@ Additional figure options include
 
 In all cases above, we can again set options locally or globally. Note: local options override global options.
 
-#### Exercise 2
 
-Add a figure caption to the figure below. Next, change the output width to be 50% of the text. Finally, align the figure with the center of the page.
+Example of how to change size of the figure and adjust text size.
 
 ```{r}
+#| out.width: 200
+#| fig.align: center
+#| fig-cap: Density of height
+
 starwars |>
   ggplot(aes(x = height)) +
   geom_density() +
   labs(x = "Height (cm)", y = "Density") +
-  theme_bw()
+  theme_bw() +
+  theme(text = element_text(size = 30))
 ```
 
 #### Project specific notes
@@ -88,9 +95,6 @@ For the project, you will set the option `echo: FALSE` and `warning: FALSE` to h
 
 **Suggestion**: make your figures consistently themed, e.g. use similar figure size/aspect ratio and color scheme throughout your report. Change the default gray background, see [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
-#### Exercise 3
-
-Change the global code chunk settings so the document is formatted as your final project will be. Render and take a look at the updated PDF.
 
 ## Citations
 
@@ -115,6 +119,8 @@ Or find on google scholar!
 
 2.  Within the grammar of graphics, `ggplot()` is the first layer of any plot [@wickham2016package].
 
+3.  These notes came from @sta101su2024.
+
 ## Links
 
 Add URLs to your document using the following syntax:
@@ -135,6 +141,17 @@ d <- tribble(
   "Workplace materials"          , 0.17
 )
 d
+```
+
+::: callout-important
+Do not display a table like this! Use `knitr::kable()`!
+:::
+
+
+```{r}
+#| echo: true
+
+d |> knitr::kable(digits = 2)
 ```
 
 ```{r}
@@ -173,7 +190,7 @@ p + theme_minimal() + labs(title = "theme_minimal()")
 p + theme_dark() + labs(title = "theme_dark()")
 ```
 
-## Go beyond ggplot2 themes – ggthemes {.smaller}
+## Go beyond ggplot2 themes -- ggthemes {.smaller}
 
 ```{r}
 #| out-width: "100%"
@@ -183,7 +200,9 @@ p + theme_dark() + labs(title = "theme_dark()")
 #| echo: false
 
 p + theme_economist() + labs(title = "theme_economist()")
+ggsave("economist.png")
 p + theme_fivethirtyeight() + labs(title = "theme_fivethirtyeight()")
+ggsave("537.png")
 p + theme_solarized() + labs(title = "theme_solarized()")
 p + theme_tufte() + labs(title = "theme_tufte()")
 
@@ -320,7 +339,7 @@ penguins_fit <- linear_reg() |>
   fit(body_mass_g ~ flipper_length_mm, data = penguins)
 
 tidy(penguins_fit) |>
-  knitr::kable(digits = 3)
+ knitr::kable(digits = 3)
 ```
 
 Similarly, looking at the dataset we created earlier:
